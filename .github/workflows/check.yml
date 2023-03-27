@@ -44,3 +44,21 @@ jobs:
       - name: Run tests
         run: |
           make tests_run
+
+  run_size_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check size repo
+        uses: actions/checkout@v3
+      - name: Run check size
+        run : |
+          repo_size=$(git ls-tree -r --name-only main | xargs du -c --exclude=".git" | tail -n 1 | awk '{print $1}')
+          repo_size_commande=$(git ls-tree -r --name-only main | xargs du -h -c --exclude=".git" | tail -n 1 | awk '{print $1}')
+          if [ $repo_size -gt 30000 ]; then
+            echo "::error title="Error : Repo size is greater than 30 MB."::$repo_size_commande"
+            exit 1
+          else
+            echo "### Repo size is good! :white_check_mark:" >> $GITHUB_STEP_SUMMARY
+            echo "## $repo_size_commande" >> $GITHUB_STEP_SUMMARY
+          fi
+
