@@ -5,11 +5,11 @@
 ** main
 */
 
-#include "app.h"
+#include "app/app.h"
 
 int main(int ac, char **av)
 {
     (void) ac;
     (void) av;
-    return app();
+    return app_run();
 }
