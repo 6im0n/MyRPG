@@ -10,8 +10,8 @@
 #include "types/type.h"
 #include "app/constants.h"
 
-app_t app_create(ressources_t *ressources, sfVideoMode window_mode, char *window_title,
-int window_frame_rate)
+app_t app_create(ressources_t *ressources, sfVideoMode window_mode,
+char *window_title, int window_frame_rate)
 {
     sfRenderWindow *window = sfRenderWindow_create(
         window_mode, window_title,

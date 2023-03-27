@@ -22,8 +22,8 @@ int app_run(void);
  * @param window_title Title of app
  * @param window_frame_rate Frame rate to set to window object
  */
-app_t app_create(ressources_t *ressources, sfVideoMode window_mode, char *window_title,
-int window_frame_rate);
+app_t app_create(ressources_t *ressources, sfVideoMode window_mode,
+char *window_title, int window_frame_rate);
 
 /**
  * @brief Create a icon for the application
