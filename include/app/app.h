@@ -51,6 +51,13 @@ state_t *state_new(void);
 void state_free(state_t *state);
 
 /**
+ * @brief Render app on screen
+ * @param app App to render
+ * @param ressources Ressources loaded to render sprites or any other
+ */
+void app_render(app_t *app, ressources_t *ressources);
+
+/**
  * @brief Destroy given app and free all its ressources
  * @param app App to destroy
  */

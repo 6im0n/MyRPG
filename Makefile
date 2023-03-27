@@ -10,6 +10,7 @@ _SRC =			main.c \
 				\
 				app/app.c \
 				app/event.c \
+				app/rendering.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \

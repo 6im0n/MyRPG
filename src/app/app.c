@@ -16,6 +16,7 @@ int app_run(void)
     app_t app = app_create(&ressources, WINDOW_VIDEO_MODE, WINDOW_TITLE, WINDOW_FRAMERATE);
 
     while (sfRenderWindow_isOpen(app.window)) {
+        app_render(&app, &ressources);
         app_handle_events(&app);
     }
     ressources_unload(&ressources);
