@@ -40,6 +40,12 @@ void app_set_icon(sfRenderWindow *window, ressources_t *ressources);
 void app_handle_events(app_t *app);
 
 /**
+ * @brief Enable Mouse position with the reel coord
+ * @return mouse_t 
+ */
+mouse_t mouse_init(void);
+
+/**
  * @brief Initialisation of state app structure
  * @return state_t*
  */
@@ -58,6 +64,13 @@ void state_free(state_t *state);
  * @param components Components to render
  */
 void app_render(app_t *app, ressources_t *ressources, main_components_t *components);
+
+/**
+ * @brief Render component
+ * @param app App to render
+ * @param components Components to render
+ */
+void app_component_render(app_t *app, component_t *components);
 
 /**
  * @brief Destroy given app and free all its ressources

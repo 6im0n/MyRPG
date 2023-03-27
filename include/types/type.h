@@ -14,18 +14,38 @@
 // STATE
 //==================================================
 
+typedef enum e_stage_type {
+    S_START_MENU,
+    S_LEN
+} stage_t;
+
 typedef struct s_states {
-    sfRenderWindow *window;
+    stage_t stage;
+    bool transition;
 } state_t;
 
 //==================================================
 // APP
 //==================================================
 
+typedef struct s_mouse {
+    bool pressed;
+    sfVector2f press_position;
+    sfVector2f last_move_position;
+    sfVector2f move_diff;
+    sfVector2f position;
+} mouse_t;
+
 typedef struct s_app {
     sfRenderWindow *window;
+    mouse_t mouse;
     state_t *state;
 } app_t;
+
+typedef struct s_event {
+    sfEvent original;
+    mouse_t *mouse;
+} event_t;
 
 //==================================================
 // RESSOURCES
@@ -34,10 +54,6 @@ typedef struct s_app {
 typedef struct s_ressources {
     sfTexture **textures;
 } ressources_t;
-
-typedef struct s_event {
-    sfEvent original;
-} event_t;
 
 //==================================================
 // RENDERERING

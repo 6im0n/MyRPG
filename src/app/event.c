@@ -10,6 +10,30 @@
 #include "types/types.h"
 #include <SFML/Graphics.h>
 
+static void event_handle_mouse(app_t *app, event_t *event)
+{
+    sfVector2i pos = sfMouse_getPositionRenderWindow(app->window);
+    sfVector2f real = sfRenderWindow_mapPixelToCoords(app->window, pos, NULL);
+    sfVector2f last_move = event->mouse->last_move_position;
+
+    event->mouse->position = real;
+    if (!app->mouse.pressed
+        && event->original.type == sfEvtMouseButtonPressed
+        && event->original.mouseButton.button == sfMouseLeft) {
+        event->mouse->press_position = real;
+        event->mouse->pressed = true;
+    }
+    if (event->original.type == sfEvtMouseMoved) {
+        event->mouse->move_diff.x = real.x - last_move.x;
+        event->mouse->move_diff.y = real.y - last_move.y;
+        event->mouse->last_move_position = real;
+    }
+    if (event->original.type == sfEvtMouseButtonReleased)
+        app->mouse.pressed = false;
+    if (event->original.type == sfEvtMouseButtonReleased)
+        app->mouse.pressed = false;
+}
+
 void app_handle_events(app_t *app)
 {
     event_t event;
@@ -17,5 +41,7 @@ void app_handle_events(app_t *app)
     while (sfRenderWindow_pollEvent(app->window, &(event.original))) {
         if (event.original.type == sfEvtClosed)
             sfRenderWindow_close(app->window);
+        event.mouse = &(app->mouse);
+        event_handle_mouse(app, &event);
     }
 }

@@ -13,6 +13,10 @@ state_t *state_new(void)
 {
     state_t *state = malloc(sizeof(state_t));
 
+    if (!state)
+        return NULL;
+    state->stage = S_START_MENU;
+    state->transition = false;
     return state;
 }
 

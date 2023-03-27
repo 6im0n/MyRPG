@@ -52,4 +52,5 @@ component_t *components_get_start_menu(app_t *app);
  * @param component_pure 
  */
 void component_pure_free(component_t *component_pure);
+
 #endif /* !COMPONENTS_H_ */

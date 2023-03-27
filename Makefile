@@ -16,10 +16,12 @@ _SRC =			main.c \
 				ressources/ressources.c \
 				ressources/textures.c \
 				\
+				components/misc/render.c \
 				components/start_menu/get.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
+				types/app/mouse.c \
 				types/app/state.c \
 				types/renderer/objects.c \
 
