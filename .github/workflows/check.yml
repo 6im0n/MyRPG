@@ -1,0 +1,46 @@
+name: Check-Execution
+
+on:
+  workflow_call:
+    inputs:
+      executables:
+        description: 'List of executable files to check'
+        required: true
+        type: string
+
+jobs:
+  check_program_compilation:
+    runs-on: ubuntu-latest
+    container:
+      image: "epitechcontent/epitest-docker"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Compile program
+        run: |
+          make
+        timeout-minutes: 2
+      - name: Clean
+        run: |
+          make clean
+      - name: Available executables
+        run: |
+          for executable in ${{ inputs.executables }}; do
+            if [ ! -x "$executable" ]; then
+              echo "::error title="Error : not found or not executable"::$executable"
+              exit 1
+            fi
+          done
+
+  run_tests:
+    needs: [ check_program_compilation ]
+    runs-on: ubuntu-latest
+    container:
+      image: "epitechcontent/epitest-docker"
+    timeout-minutes: 2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run tests
+        run: |
+          make tests_run
