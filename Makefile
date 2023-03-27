@@ -1,6 +1,6 @@
 ##
 ## EPITECH PROJECT, 2023
-## my_paint
+## B-MUL-200-NAN-2-1-myrpg-thomas.quintin
 ## File description:
 ## Makefile
 ##
