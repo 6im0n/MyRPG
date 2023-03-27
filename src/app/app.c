@@ -8,14 +8,17 @@
 #include "app/app.h"
 #include "types/type.h"
 #include "app/constants.h"
+#include "app/ressources.h"
 
 int app_run(void)
 {
-    app_t app = app_create(WINDOW_VIDEO_MODE, WINDOW_TITLE, WINDOW_FRAMERATE);
+    ressources_t ressources = ressources_load();
+    app_t app = app_create(&ressources, WINDOW_VIDEO_MODE, WINDOW_TITLE, WINDOW_FRAMERATE);
 
     while (sfRenderWindow_isOpen(app.window)) {
         app_handle_events(&app);
     }
+    ressources_unload(&ressources);
     app_destroy(&app);
     return 0;
 }

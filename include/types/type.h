@@ -24,7 +24,6 @@ typedef struct s_app {
 
 typedef struct s_ressources {
     sfTexture **textures;
-    sfFont **fonts;
 } ressources_t;
 
 typedef struct s_event {

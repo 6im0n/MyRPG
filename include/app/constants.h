@@ -13,6 +13,5 @@
     #define WINDOW_TITLE "RPG - Untitled"
     #define WINDOW_FRAMERATE 165
     #define WINDOW_COLOR ((sfColor) {237, 237, 237, 255})
-    #define WINDOW_ICON_PATH "assets/ship/ship10.png"
 
 #endif /* !APP_CONSTANTS_H_ */

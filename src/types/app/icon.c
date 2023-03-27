@@ -5,12 +5,12 @@
 ** app icon construction
 */
 
-#include "types/types.h"
-#include "app/constants.h"
+#include "types/type.h"
+#include "ressources/textures.h"
 
-void app_set_icon(sfRenderWindow *window)
+void app_set_icon(sfRenderWindow *window, ressources_t *ressources)
 {
-    sfImage *icon = sfImage_createFromFile(WINDOW_ICON_PATH);
+    sfImage *icon = sfTexture_copyToImage(ressources->textures[TX_APP_ICON]);
     const sfUint8 * icon_Pixel = sfImage_getPixelsPtr(icon);
     int width = sfImage_getSize(icon).x;
     int height = sfImage_getSize(icon).y;

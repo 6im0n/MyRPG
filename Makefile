@@ -11,6 +11,9 @@ _SRC =			main.c \
 				app/app.c \
 				app/event.c \
 				\
+				ressources/ressources.c \
+				ressources/textures.c \
+				\
 				types/app/app.c \
 				types/app/icon.c \
 
