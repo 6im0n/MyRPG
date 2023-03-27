@@ -16,6 +16,7 @@ _SRC =			main.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
+				types/app/state.c \
 
 SRCDIR = 		src/
 

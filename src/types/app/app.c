@@ -17,7 +17,8 @@ int window_frame_rate)
         window_mode, window_title,
         sfResize | sfClose, NULL
     );
-    app_t app = { window };
+    state_t *state = state_new();
+    app_t app = { window, state };
 
     app_set_icon(app.window, ressources);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
@@ -28,6 +29,7 @@ int window_frame_rate)
 void app_destroy(app_t *app)
 {
     if (app) {
+        state_free(app->state);
         sfRenderWindow_destroy(app->window);
     }
 }

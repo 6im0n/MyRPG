@@ -39,6 +39,18 @@ void app_set_icon(sfRenderWindow *window, ressources_t *ressources);
 void app_handle_events(app_t *app);
 
 /**
+ * @brief Initialisation of state app structure
+ * @return state_t*
+ */
+state_t *state_new(void);
+
+/**
+ * @brief Destroyed state
+ * @param state State to free
+ */
+void state_free(state_t *state);
+
+/**
  * @brief Destroy given app and free all its ressources
  * @param app App to destroy
  */
