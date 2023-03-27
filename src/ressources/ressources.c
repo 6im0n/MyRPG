@@ -7,7 +7,6 @@
 
 #include <SFML/Graphics.h>
 #include "app/ressources.h"
-#include <stdlib.h>
 
 ressources_t ressources_load(void)
 {
@@ -22,5 +21,4 @@ void ressources_unload(ressources_t *ressources)
     if (ressources) {
         ressources_destroy_textures(ressources->textures);
     }
-    free(&ressources);
 }
