@@ -1,18 +1,19 @@
 /*
 ** EPITECH PROJECT, 2023
-** FT-MyPaint
+** RPG
 ** File description:
 ** state
 */
 
 #include "types/type.h"
-#include "app/constants.h"
 #include <stdlib.h>
 
 state_t *state_new(void)
 {
     state_t *state = malloc(sizeof(state_t));
 
+    if (!state)
+        return NULL;
     return state;
 }
 

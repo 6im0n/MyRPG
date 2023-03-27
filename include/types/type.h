@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** my_paint
+** RPG
 ** File description:
 ** types
 */
@@ -15,7 +15,6 @@
 //==================================================
 
 typedef struct s_states {
-    sfRenderWindow *window;
 } state_t;
 
 //==================================================
