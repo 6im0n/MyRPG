@@ -15,4 +15,4 @@ jobs:
     needs: [ check-norme ]
     uses: ./.github/workflows/check.yml
     with:
-      executables: "mysh"
+      executables: "my_rpg"

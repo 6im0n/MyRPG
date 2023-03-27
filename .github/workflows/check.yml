@@ -58,7 +58,17 @@ jobs:
             echo "::error title="Error : Repo size is greater than 30 MB."::$repo_size_commande"
             exit 1
           else
-            echo "### Repo size is good! :white_check_mark:" >> $GITHUB_STEP_SUMMARY
-            echo "## $repo_size_commande" >> $GITHUB_STEP_SUMMARY
+            echo "### Repo size is good." >> $GITHUB_STEP_SUMMARY
+            echo "#### <table>
+                        <thead>
+                          <tr>
+                            <th>Size</th>
+                            <th>Size Max</th>
+                          </tr>
+                        </thead>
+                        <tr>
+                          <td>$repo_size_commande</td>
+                          <td>30MB</td>
+                        </tr>
+                      </table>" >> $GITHUB_STEP_SUMMARY
           fi
-
