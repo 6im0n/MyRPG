@@ -46,6 +46,7 @@ jobs:
           make tests_run
 
   run_size_check:
+    needs: [ check_program_compilation ]
     runs-on: ubuntu-latest
     steps:
       - name: Check size repo
