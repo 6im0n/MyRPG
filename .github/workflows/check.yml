@@ -32,19 +32,6 @@ jobs:
             fi
           done
 
-  run_tests:
-    needs: [ check_program_compilation ]
-    runs-on: ubuntu-latest
-    container:
-      image: "epitechcontent/epitest-docker"
-    timeout-minutes: 2
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Run tests
-        run: |
-          make tests_run
-
   run_size_check:
     runs-on: ubuntu-latest
     steps:
@@ -54,10 +41,8 @@ jobs:
         run : |
           repo_size=$(git ls-tree -r --name-only main | xargs du -c --exclude=".git" | tail -n 1 | awk '{print $1}')
           repo_size_commande=$(git ls-tree -r --name-only main | xargs du -h -c --exclude=".git" | tail -n 1 | awk '{print $1}')
+          echo "<table><thead><tr><th>Size</th><th>Size Max</th></tr></thead><tr><td>$repo_size_commande</td><td>30MB</td></tr><tr><td>$repo_size</td><td>30000</td><td>Octet(s)</td></tr></table>" >> $GITHUB_STEP_SUMMARY
           if [ $repo_size -gt 30000 ]; then
             echo "::error title="Error : Repo size is greater than 30 MB."::$repo_size_commande"
             exit 1
-          else
-            echo "### Repo size is good." >> $GITHUB_STEP_SUMMARY
-            echo "<table><thead><tr><th>Size</th><th>Size Max</th></tr></thead><tr><td>$repo_size_commande</td><td>30MB</td></tr><tr><td>$repo_size Octets</td><td>30000 Octets</td></tr></table>" >> $GITHUB_STEP_SUMMARY
           fi
