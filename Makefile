@@ -11,13 +11,17 @@ _SRC =			main.c \
 				app/app.c \
 				app/event.c \
 				app/rendering.c \
+				app/component.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
 				\
+				components/start_menu/get.c \
+				\
 				types/app/app.c \
 				types/app/icon.c \
 				types/app/state.c \
+				types/renderer/objects.c \
 
 SRCDIR = 		src/
 

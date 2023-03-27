@@ -9,6 +9,7 @@
     #define APP_H_
     #include <SFML/Graphics.h>
     #include "types/type.h"
+    #include "components/components.h"
 
 /**
  * @brief Run the app
@@ -54,8 +55,9 @@ void state_free(state_t *state);
  * @brief Render app on screen
  * @param app App to render
  * @param ressources Ressources loaded to render sprites or any other
+ * @param components Components to render
  */
-void app_render(app_t *app, ressources_t *ressources);
+void app_render(app_t *app, ressources_t *ressources, main_components_t *components);
 
 /**
  * @brief Destroy given app and free all its ressources
