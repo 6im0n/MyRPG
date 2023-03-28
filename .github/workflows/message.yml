@@ -1,0 +1,35 @@
+name: Pull Request Notification
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  notification:
+    runs-on: ubuntu-latest
+    env:
+      SIZE: 0
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Get Repo Size
+      run: |
+        repo_size=$(git ls-tree -r --name-only main | xargs du -h -c --exclude=".git" | tail -n 1 | awk '{print $1}')
+        echo "SIZE=$repo_size" >> $GITHUB_ENV
+
+    - name: Send notification
+      uses: actions/github-script@v4
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const { data: pullRequest } = await github.pulls.get({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.payload.pull_request.number
+          });
+          github.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: pullRequest.number,
+            body: 'Repository size is ${{ env.SIZE }}'
+          });
