@@ -29,10 +29,9 @@ static void event_handle_mouse(app_t *app, event_t *event)
         event->mouse->last_move_position = real;
     }
     if (event->original.type == sfEvtMouseButtonReleased)
-        app->mouse.pressed = false;
-    if (event->original.type == sfEvtMouseButtonReleased)
-        app->mouse.pressed = false;
+        event->mouse->pressed = false;
 }
+#include <stdio.h>
 
 void app_handle_events(app_t *app)
 {
