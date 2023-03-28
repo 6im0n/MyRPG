@@ -70,7 +70,7 @@ void app_render(app_t *app, ressources_t *ressources, main_components_t *compone
  * @param app App to render
  * @param components Components to render
  */
-void app_component_render(app_t *app, component_t *components);
+void app_component_render(app_t *app, list_components_t *components);
 
 /**
  * @brief Destroy given app and free all its ressources
