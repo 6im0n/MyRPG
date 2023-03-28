@@ -1,21 +1,27 @@
 name: Pull Request Notification
 on:
+  workflow_dispatch:
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
 
 jobs:
   notification:
     runs-on: ubuntu-latest
     env:
       SIZE: 0
+      SIZE_O: 0
+      SIZE_MAX: 30000
+      SIZE_MAX_O: 30MB
     steps:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
     - name: Get Repo Size
       run: |
-        repo_size=$(git ls-tree -r --name-only main | xargs du -h -c --exclude=".git" | tail -n 1 | awk '{print $1}')
+        repo_size=$(git ls-tree -r --name-only main | xargs du -c --exclude=".git" | tail -n 1 | awk '{print $1}')
+        repo_size_commande=$(git ls-tree -r --name-only main | xargs du -h -c --exclude=".git" | tail -n 1 | awk '{print $1}')
         echo "SIZE=$repo_size" >> $GITHUB_ENV
+        echo "SIZE_O=$repo_size_commande" >> $GITHUB_ENV
 
     - name: Send notification
       uses: actions/github-script@v4
@@ -31,5 +37,6 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             issue_number: pullRequest.number,
-            body: 'Repository size is ${{ env.SIZE }}'
+            body: '<table><thead><tr><th>Size</th><th>Size Max</th></tr></thead><tr><td>${{ env.SIZE_O }}</td><td>${{ env.SIZE_MAX_O }}</td></tr><tr><td>${{ env.SIZE }}</td><td>${{ env.SIZE_MAX }}</td></tr></table>'
           });
+
