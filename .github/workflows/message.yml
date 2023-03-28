@@ -36,19 +36,5 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             issue_number: pullRequest.number,
-            body: '<table>
-                    <thead>
-                      <tr>
-                        <th>Size</th>
-                        <th>Size Max</th>
-                      </tr>
-                    </thead>
-                    <tr>
-                      <td>${{ env.SIZE_O }}</td>
-                      <td>${{ env.SIZE_MAX_O }}</td>
-                    </tr><tr>
-                      <td>${{ env.SIZE }}</td>
-                      <td>${{ env.SIZE_MAX }}</td>
-                    </tr>
-                  </table>'
+            body: '<table><thead><tr><th>Size</th><th>Size Max</th></tr></thead><tr><td>${{ env.SIZE_O }}</td><td>${{ env.SIZE_MAX_O }}</td></tr><tr><td>${{ env.SIZE }}</td><td>${{ env.SIZE_MAX }}</td></tr></table>'
           });
