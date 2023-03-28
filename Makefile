@@ -8,7 +8,16 @@
 
 _SRC =			main.c \
 				\
-				app/app.c
+				app/app.c \
+				app/event.c \
+				app/rendering.c \
+				\
+				ressources/ressources.c \
+				ressources/textures.c \
+				\
+				types/app/app.c \
+				types/app/icon.c \
+				types/app/state.c \
 
 SRCDIR = 		src/
 
@@ -40,3 +49,10 @@ fclean: 		clean
 				@make -C lib fclean -s
 
 re: 			fclean all
+
+color = /bin/echo -e "\x1b[33m $1\x1b[0m"
+
+run: re
+	clear
+	@$(call color,"🚀:")
+	@./$(NAME) $(ARGS)
