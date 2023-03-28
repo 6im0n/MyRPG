@@ -10,6 +10,7 @@
     #include "ressources/sounds.h"
 
 static const char *sounds_loaders[SD_LEN] = {
+    [SD_NONE] = "assets/sounds/user/grab.ogg",
     [SD_GRAB] = "assets/sounds/user/grab.ogg"
 };
 

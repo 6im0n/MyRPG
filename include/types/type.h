@@ -23,6 +23,7 @@ typedef enum e_stage_type {
 typedef struct s_states {
     stage_t stage;
     bool transition;
+    sfSound *sound;
 } state_t;
 
 //==================================================
@@ -54,7 +55,7 @@ typedef struct s_event {
 
 typedef struct s_ressources {
     sfTexture **textures;
-    sfSound **sounds;
+    sfSoundBuffer**sounds;
 } ressources_t;
 
 //==================================================

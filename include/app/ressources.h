@@ -36,12 +36,12 @@ void ressources_destroy_textures(sfTexture **textures);
 /**
  * @brief Import sounds
  */
-sfSound **ressources_import_sounds(void);
+sfSoundBuffer**ressources_import_sounds(void);
 
 /**
  * @brief Destroy given sounds
  * @param sounds Sounds to destroy
  */
-void ressources_destroy_sounds(sfSound **sounds);
+void ressources_destroy_sounds(sfSoundBuffer**sounds);
 
 #endif /* !APP_RESSOURCES_H_ */

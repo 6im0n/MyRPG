@@ -9,6 +9,7 @@
     #define RESSOURCES_SOUNDS_H_
 
 typedef enum e_texture {
+    SD_NONE,
     SD_GRAB,
     SD_LEN
 } texture_t;

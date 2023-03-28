@@ -11,7 +11,7 @@
 ressources_t ressources_load(void)
 {
     sfTexture **textures = ressources_import_textures();
-    sfSound **sounds = ressources_import_sounds();
+    sfSoundBuffer **sounds = ressources_import_sounds();
     ressources_t ressources = { textures, sounds };
 
     return (ressources);

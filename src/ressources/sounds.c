@@ -11,27 +11,22 @@
 #include <SFML/Audio.h>
 #include <stdlib.h>
 
-sfSound **ressources_import_sounds(void)
+sfSoundBuffer **ressources_import_sounds(void)
 {
-    sfSound **sounds = malloc(sizeof(sfSound *) * SD_LEN);
-    sfSound *music = sfSound_create();
-    sfSoundBuffer *buffer = NULL;
+    sfSoundBuffer **sounds = malloc(sizeof(sfSoundBuffer*) * SD_LEN);
 
     if (!sounds)
         return NULL;
     for (int i = 0; i < SD_LEN; i++) {
-        buffer = sfSoundBuffer_createFromFile(sounds_loaders[i]);
-        sfSound_setBuffer(music, buffer);
-        sounds[i] = music;
-        sfSoundBuffer_destroy(buffer);
+        sounds[i] = sfSoundBuffer_createFromFile(sounds_loaders[i]);
     }
     return (sounds);
 }
 
-void ressources_destroy_sounds(sfSound **sounds)
+void ressources_destroy_sounds(sfSoundBuffer **sounds)
 {
     for (int i = 0; i < SD_LEN; i++) {
-        sfSound_destroy(sounds[i]);
+        sfSoundBuffer_destroy(sounds[i]);
     }
     free(sounds);
 }

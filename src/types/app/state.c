@@ -16,11 +16,13 @@ state_t *state_new(void)
     if (!state)
         return NULL;
     state->stage = S_START_MENU;
+    state->sound = sfSound_create();
     state->transition = false;
     return state;
 }
 
 void state_free(state_t *state)
 {
+    sfSound_destroy(state->sound);
     free(state);
 }
