@@ -20,10 +20,18 @@ typedef enum e_stage_type {
     S_LEN
 } stage_t;
 
+typedef struct s_sounds {
+    sfSound *old;
+    sfSound *new;
+    int stage_level;
+    int volume;
+    bool mute;
+} sounds_t;
+
 typedef struct s_states {
     stage_t stage;
     bool transition;
-    sfSound *sound;
+    sounds_t *sound;
 } state_t;
 
 //==================================================
