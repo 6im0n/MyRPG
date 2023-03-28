@@ -9,6 +9,9 @@ jobs:
     env:
       SIZE: 0
     steps:
+    - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
     - name: Get Repo Size
       run: |
         repo_size=$(git ls-tree -r --name-only main | xargs du -h -c --exclude=".git" | tail -n 1 | awk '{print $1}')
