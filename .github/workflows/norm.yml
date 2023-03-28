@@ -1,0 +1,33 @@
+name: Check-Norm
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  check_coding_style:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/epitech/coding-style-checker:latest
+    env:
+      FAILLED: 0
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: "Create error.log"
+        run: check.sh $(pwd) $(pwd)
+      - name: "Parsing error.log"
+        run: |
+          while read line; do
+          echo "FAILLED=1" >> $GITHUB_ENV;
+          ENV_TITLE=$(echo "$line" | cut -d : -f 3);
+          ENV_FILE=$(echo "$line" | cut -d : -f 1);
+          ENV_LINE=$(echo "$line" | cut -d : -f 2);
+          ENV_CONTENT=$(echo "$line" | cut -d : -f 4);
+          echo "::error title="$ENV_TITLE coding style error",file=$ENV_FILE,line=$ENV_LINE,col=5,endColumn=7::$ENV_CONTENT";
+          done < coding-style-reports.log
+      - name: Check if coding style failed
+        if: ${{ env.FAILLED == '1' }}
+        run: exit 1

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2022
-** my_paint
+** RPG
 ** File description:
 ** app function
 */
@@ -13,7 +13,6 @@
 
 /**
  * @brief Run the app
- * main objects : window, clock
  */
 int app_run(void);
 

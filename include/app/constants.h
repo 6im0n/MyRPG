@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2022
-** my_paint
+** RPG
 ** File description:
 ** constants
 */

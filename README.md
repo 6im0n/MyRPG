@@ -4,3 +4,4 @@
 ### 👥 Members
 - [🐇 Yann](https://github.com/Muvyr)
 - [🐟 Thomas](https://github.com/ThomasQUINTIN)
+- [🦁 Simon](https://github.com/6im0n)
