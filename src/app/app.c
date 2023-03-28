@@ -15,7 +15,7 @@
 int app_run(void)
 {
     ressources_t ressources = ressources_load();
-    app_t app = app_create(&ressources, WINDOW_VIDEO_MODE, WINDOW_TITLE, WINDOW_FRAMERATE);
+    app_t app = app_create(&ressources, W_VIDEO_MODE, W_TITLE, W_FRAMERATE);
     renderer_objects_t objects = renderer_objects_create(app.window);
     main_components_t components = app_components_load(&app);
 
@@ -23,6 +23,7 @@ int app_run(void)
         app_render(&app, &ressources, &components);
         app_handle_events(&app);
     }
+    components_free(&components);
     ressources_unload(&ressources);
     renderer_objects_destroy(&objects);
     app_destroy(&app);

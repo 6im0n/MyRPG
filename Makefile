@@ -17,6 +17,7 @@ _SRC =			main.c \
 				ressources/textures.c \
 				ressources/sounds.c \
 				\
+				components/free.c \
 				components/misc/render.c \
 				components/start_menu/get.c \
 				\
@@ -25,6 +26,9 @@ _SRC =			main.c \
 				types/app/mouse.c \
 				types/app/state.c \
 				types/renderer/objects.c \
+				\
+				types/list/component/list.c \
+				types/list/component/append.c \
 
 SRCDIR = 		src/
 

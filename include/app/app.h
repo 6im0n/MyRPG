@@ -24,8 +24,8 @@ int app_run(void);
  * @param window_title Title of app
  * @param window_frame_rate Frame rate to set to window object
  */
-app_t app_create(ressources_t *ressources, sfVideoMode window_mode, char *window_title,
-int window_frame_rate);
+app_t app_create(ressources_t *ressources, sfVideoMode window_mode,
+char *window_title, int window_frame_rate);
 
 /**
  * @brief Create a icon for the application
@@ -41,7 +41,7 @@ void app_handle_events(app_t *app);
 
 /**
  * @brief Enable Mouse position with the reel coord
- * @return mouse_t 
+ * @return mouse_t struct
  */
 mouse_t mouse_init(void);
 
@@ -63,14 +63,15 @@ void state_free(state_t *state);
  * @param ressources Ressources loaded to render sprites or any other
  * @param components Components to render
  */
-void app_render(app_t *app, ressources_t *ressources, main_components_t *components);
+void app_render(app_t *app, ressources_t *ressources,
+main_components_t *components);
 
 /**
  * @brief Render component
  * @param app App to render
  * @param components Components to render
  */
-void app_component_render(app_t *app, component_t *components);
+void app_component_render(app_t *app, list_components_t *components);
 
 /**
  * @brief Destroy given app and free all its ressources
