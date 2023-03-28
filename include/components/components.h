@@ -53,9 +53,9 @@ main_components_t app_components_load(app_t *app);
 node_component_t *components_get_start_menu(app_t *app);
 
 /**
- * @brief Free component list
- * @param component_pure
+ * @brief Free component
+ * @param components main components structure
  */
-void component_pure_free(node_component_t *component_pure);
+void components_free(main_components_t *components);
 
 #endif /* !COMPONENTS_H_ */

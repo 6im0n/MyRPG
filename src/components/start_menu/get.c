@@ -24,13 +24,6 @@ static node_component_t *component_pure_new(sfVector2u size)
     return component;
 }
 
-void component_pure_free(node_component_t *component_pure)
-{
-    if (!component_pure)
-        return;
-    free(component_pure);
-}
-
 node_component_t *components_get_start_menu(app_t *app)
 {
     sfVector2u size = sfRenderWindow_getSize(app->window);

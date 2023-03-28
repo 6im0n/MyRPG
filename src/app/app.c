@@ -23,6 +23,7 @@ int app_run(void)
         app_render(&app, &ressources, &components);
         app_handle_events(&app);
     }
+    components_free(&components);
     ressources_unload(&ressources);
     renderer_objects_destroy(&objects);
     app_destroy(&app);
