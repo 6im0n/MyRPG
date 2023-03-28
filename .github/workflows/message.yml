@@ -18,7 +18,7 @@ jobs:
         fetch-depth: 0
     - name: Get Repo Size
       run: |
-        repo_size=$(git ls-tree -r --name-only main | xargs du -h -c --exclude=".git" | tail -n 1 | awk '{print $1}')
+        repo_size=$(git ls-tree -r --name-only main | xargs du -c --exclude=".git" | tail -n 1 | awk '{print $1}')
         repo_size_commande=$(git ls-tree -r --name-only main | xargs du -h -c --exclude=".git" | tail -n 1 | awk '{print $1}')
         echo "SIZE=$repo_size" >> $GITHUB_ENV
         echo "SIZE_O=$repo_size_commande" >> $GITHUB_ENV
@@ -39,3 +39,4 @@ jobs:
             issue_number: pullRequest.number,
             body: '<table><thead><tr><th>Size</th><th>Size Max</th></tr></thead><tr><td>${{ env.SIZE_O }}</td><td>${{ env.SIZE_MAX_O }}</td></tr><tr><td>${{ env.SIZE }}</td><td>${{ env.SIZE_MAX }}</td></tr></table>'
           });
+
