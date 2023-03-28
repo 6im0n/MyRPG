@@ -31,7 +31,6 @@ static void event_handle_mouse(app_t *app, event_t *event)
     if (event->original.type == sfEvtMouseButtonReleased)
         event->mouse->pressed = false;
 }
-#include <stdio.h>
 
 void app_handle_events(app_t *app)
 {

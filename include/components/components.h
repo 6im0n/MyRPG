@@ -40,15 +40,15 @@ typedef struct s_main_components {
 
 /**
  * @brief Load all component
- * @param app 
- * @return main_components_t 
+ * @param app struct
+ * @return main_components_t node
  */
 main_components_t app_components_load(app_t *app);
 
 /**
- * @brief Get component
- * @param app 
- * @return component_t* 
+ * @brief Get First Node component
+ * @param app app
+ * @return node_component_t* node
  */
 node_component_t *components_get_start_menu(app_t *app);
 

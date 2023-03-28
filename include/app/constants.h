@@ -9,10 +9,10 @@
     #define APP_CONSTANTS_H_
     #include <SFML/Graphics.h>
 
-    #define WINDOW_VIDEO_MODE ((sfVideoMode) {1920, 1080, 32})
-    #define WINDOW_TITLE "RPG - Untitled"
-    #define WINDOW_FRAMERATE 165
-    #define WINDOW_COLOR ((sfColor) {237, 237, 237, 255})
+    #define W_VIDEO_MODE ((sfVideoMode) {1920, 1080, 32})
+    #define W_TITLE "RPG - Untitled"
+    #define W_FRAMERATE 165
+    #define W_COLOR ((sfColor) {237, 237, 237, 255})
 
     #define DFT_MOUSE_POSITION ((sfVector2f) {0, 0})
 
