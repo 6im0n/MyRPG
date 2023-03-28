@@ -9,6 +9,7 @@
     #define TYPES_H_
     #include <stdbool.h>
     #include <SFML/Graphics.h>
+    #include <SFML/Audio.h>
 
 //==================================================
 // STATE
@@ -53,6 +54,7 @@ typedef struct s_event {
 
 typedef struct s_ressources {
     sfTexture **textures;
+    sfSound **sounds;
 } ressources_t;
 
 //==================================================

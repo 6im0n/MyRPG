@@ -15,6 +15,7 @@ _SRC =			main.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
+				ressources/sounds.c \
 				\
 				components/misc/render.c \
 				components/start_menu/get.c \
