@@ -32,17 +32,8 @@ list_components_t *components_get_start_menu(app_t *app,
 ressources_t ressources, renderer_objects_t objects,
 list_components_t *mstart_menu)
 {
-    node_component_t *menu_board = malloc(sizeof(node_component_t));
-
-    (void) app;
     if (!mstart_menu)
         return NULL;
-    new_component_set(menu_board, (sfFloatRect){ 10, 0, 0, 0},
-    C_TYPES_RECTANGLE, TX_DIALOG_MENU_BGR);
-    new_component_type(ressources, menu_board, objects, (sfVector2f){0, 0});
-    new_component_size(menu_board, (sfVector2f){1750, 1700},
-        (sfIntRect){.height = 250, .left = 125, .top = 0, .width = 125});
-    list_component_append(mstart_menu, menu_board);
-
+    components_start_menu(app, ressources, objects, mstart_menu);
     return mstart_menu;
 }

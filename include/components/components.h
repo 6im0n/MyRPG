@@ -54,6 +54,23 @@ main_components_t app_components_load(app_t *app, ressources_t ressources,
 renderer_objects_t objects);
 
 /**
+ * @brief Free component
+ * @param components main components structure
+ */
+void components_free(main_components_t *components);
+
+/**
+ * @brief Init pure component
+ * @param size App size
+ * @return node_component_t*
+ */
+node_component_t *component_pure_new(sfVector2u size);
+
+//==================================================
+// START MENU
+//==================================================
+
+/**
  * @brief get components start menu
  * @param app App
  * @param ressources ressources
@@ -66,16 +83,14 @@ ressources_t ressources, renderer_objects_t objects,
 list_components_t *mstart_menu);
 
 /**
- * @brief Free component
- * @param components main components structure
+ * @brief components start menu
+ * @param app App
+ * @param ressources ressources
+ * @param objects objects
+ * @param mstart_menu list start menu
+ * @return list_components_t* 
  */
-void components_free(main_components_t *components);
-
-/**
- * @brief Init pure component
- * @param size App size
- * @return node_component_t*
- */
-node_component_t *component_pure_new(sfVector2u size);
+list_components_t *components_start_menu(app_t *app,ressources_t ressources,
+renderer_objects_t objects, list_components_t *mstart_menu);
 
 #endif /* !COMPONENTS_H_ */

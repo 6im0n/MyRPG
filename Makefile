@@ -22,7 +22,9 @@ _SRC =			main.c \
 				components/new/set.c \
 				components/new/type.c \
 				components/new/size.c \
+				\
 				components/start_menu/get.c \
+				components/start_menu/menu.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
