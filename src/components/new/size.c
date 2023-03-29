@@ -12,7 +12,8 @@ sfVector2f size, sfIntRect rect)
 {
     if (!component)
         return;
-    sfRectangleShape_setTextureRect(component->object->rectangle, rect);
+    if (rect.width != 0 && rect.height != 0)
+        sfRectangleShape_setTextureRect(component->object->rectangle, rect);
     sfRectangleShape_setSize(component->object->rectangle, size);
 }
 
@@ -21,7 +22,8 @@ sfVector2f size, sfIntRect rect)
 {
     if (!component)
         return;
-    sfCircleShape_setTextureRect(component->object->circle, rect);
+    if (rect.width != 0 && rect.height != 0)
+        sfCircleShape_setTextureRect(component->object->circle, rect);
     sfCircleShape_setRadius(component->object->circle, size.x);
 }
 
@@ -30,7 +32,8 @@ sfVector2f size, sfIntRect rect)
 {
     if (!component)
         return;
-    sfSprite_setTextureRect(component->object->sprite, rect);
+    if (rect.width != 0 && rect.height != 0)
+        sfSprite_setTextureRect(component->object->sprite, rect);
     sfSprite_setScale(component->object->sprite, size);
 }
 
@@ -39,6 +42,7 @@ sfVector2f size, sfIntRect rect)
 {
     switch (component->type) {
         case C_TYPES_RECTANGLE:
+        case C_TYPES_BUTTON:
             init_rectangle(component, size, rect);
             break;
         case C_TYPES_CIRCLE:

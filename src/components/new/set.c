@@ -18,4 +18,5 @@ sfFloatRect rect, component_type_t type, texture_t texture)
     component->rendered_rect = rect;
     component->state = 0;
     component->next = NULL;
+    component->events = (component_events_t) { NULL, NULL, NULL, NULL, NULL };
 }
