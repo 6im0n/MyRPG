@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** FT-MyPaint
+** RPG
 ** File description:
 ** mouse
 */

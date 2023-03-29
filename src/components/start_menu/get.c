@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** my_paint
+** RPG
 ** File description:
 ** set
 */
