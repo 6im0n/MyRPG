@@ -69,6 +69,7 @@ typedef struct s_list_components {
 
 typedef struct s_main_components {
     list_components_t *start_menu;
+    list_components_t *help_menu;
     list_components_t *game;
 } main_components_t;
 
@@ -129,6 +130,33 @@ list_components_t *mstart_menu);
  * @return list_components_t*
  */
 list_components_t *components_start_menu(app_t *app,ressources_t ressources,
+renderer_objects_t objects, list_components_t *mstart_menu);
+
+//==================================================
+// HELP MENU
+//==================================================
+
+/**
+ * @brief get components start menu
+ * @param app App
+ * @param ressources ressources
+ * @param objects objects
+ * @param mstart_menu list start menu
+ * @return main_components_t
+ */
+list_components_t *components_get_help_menu(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *mstart_menu);
+
+/**
+ * @brief components start menu
+ * @param app App
+ * @param ressources ressources
+ * @param objects objects
+ * @param mstart_menu list start menu
+ * @return list_components_t*
+ */
+list_components_t *components_help_menu(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *mstart_menu);
 
 //==================================================

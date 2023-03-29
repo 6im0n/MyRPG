@@ -16,8 +16,16 @@
 static void component_render_dispatch(app_t *app,
 main_components_t *components)
 {
-    if (app->state->stage == S_START_MENU)
+    switch (app->state->stage) {
+    case S_START_MENU:
         app_component_render(app, components->start_menu);
+        break;
+    case S_HELP_MENU:
+        app_component_render(app, components->help_menu);
+        break;
+    default:
+        break;
+    }
 }
 
 void app_render(app_t *app, ressources_t *ressources,

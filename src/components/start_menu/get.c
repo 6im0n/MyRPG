@@ -31,10 +31,10 @@ node_component_t *component_pure_new(sfVector2u size)
 
 list_components_t *components_get_start_menu(app_t *app,
 ressources_t ressources, renderer_objects_t objects,
-list_components_t *mstart_menu)
+list_components_t *list)
 {
-    if (!mstart_menu)
+    if (!list)
         return NULL;
-    components_start_menu(app, ressources, objects, mstart_menu);
-    return mstart_menu;
+    components_start_menu(app, ressources, objects, list);
+    return list;
 }

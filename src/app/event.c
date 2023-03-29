@@ -32,6 +32,21 @@ static void event_handle_mouse(app_t *app, event_t *event)
         event->mouse->pressed = false;
 }
 
+static void component_event_dispatch(app_t *app,
+event_t *event, main_components_t *components)
+{
+    switch (app->state->stage) {
+    case S_START_MENU:
+        components_dispatch_event(components->start_menu, event, app);
+        break;
+    case S_HELP_MENU:
+        components_dispatch_event(components->help_menu, event, app);
+        break;
+    default:
+        break;
+    }
+}
+
 void app_handle_events(app_t *app, main_components_t *components)
 {
     event_t event;
@@ -41,6 +56,6 @@ void app_handle_events(app_t *app, main_components_t *components)
             sfRenderWindow_close(app->window);
         event.mouse = &(app->mouse);
         event_handle_mouse(app, &event);
-        components_dispatch_event(components->start_menu, &event, app);
+        component_event_dispatch(app, &event, components);
     }
 }

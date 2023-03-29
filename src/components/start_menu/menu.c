@@ -14,7 +14,7 @@
 #include "event/start_menu/bouton.h"
 
 static void menu_background(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *mstart_menu)
+renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
@@ -31,11 +31,11 @@ renderer_objects_t objects, list_components_t *mstart_menu)
     new_component_size(obj, size,
         (sfIntRect){.height = 0, .left = 0, .top = 0, .width = 0},
         C_SIZE_MAX);
-    list_component_append(mstart_menu, obj);
+    list_component_append(list, obj);
 }
 
 static void menu_board(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *mstart_menu)
+renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
@@ -51,11 +51,11 @@ renderer_objects_t objects, list_components_t *mstart_menu)
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);
-    list_component_append(mstart_menu, obj);
+    list_component_append(list, obj);
 }
 
 static void bouton_play(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *mstart_menu)
+renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2,
@@ -69,12 +69,11 @@ renderer_objects_t objects, list_components_t *mstart_menu)
     new_component_size(obj, size,
         (sfIntRect){.height = 31, .left = 162, .top = 208, .width = 92},
         C_SIZE_BIG);
-    obj->events.onclick = &event_bouton_play_onclick;
-    list_component_append(mstart_menu, obj);
+    list_component_append(list, obj);
 }
 
 static void bouton_help(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *mstart_menu)
+renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {1500,
@@ -90,15 +89,15 @@ renderer_objects_t objects, list_components_t *mstart_menu)
         (sfIntRect){.height = 24, .left = 709, .top = 164, .width = 22},
         C_SIZE_SMALL);
     obj->events.onclick = &event_bouton_play_onclick;
-    list_component_append(mstart_menu, obj);
+    list_component_append(list, obj);
 }
 
 list_components_t *components_start_menu(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *mstart_menu)
+renderer_objects_t objects, list_components_t *list)
 {
-    menu_background(app, ressources, objects, mstart_menu);
-    menu_board(app, ressources, objects, mstart_menu);
-    bouton_play(app, ressources, objects, mstart_menu);
-    bouton_help(app, ressources, objects, mstart_menu);
-    return mstart_menu;
+    menu_background(app, ressources, objects, list);
+    menu_board(app, ressources, objects, list);
+    bouton_play(app, ressources, objects, list);
+    bouton_help(app, ressources, objects, list);
+    return list;
 }
