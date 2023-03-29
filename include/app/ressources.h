@@ -9,6 +9,7 @@
     #define APP_RESSOURCES_H_
     #include <SFML/Graphics.h>
     #include "types/type.h"
+    #include <SFML/Audio.h>
 
 /**
  * @brief Load ressources in memory
@@ -33,14 +34,14 @@ sfTexture **ressources_import_textures(void);
 void ressources_destroy_textures(sfTexture **textures);
 
 /**
- * @brief Import fonts
+ * @brief Import sounds
  */
-sfFont **ressources_import_fonts(void);
+sfSoundBuffer**ressources_import_sounds(void);
 
 /**
- * @brief Destroy given fonts
- * @param fonts Fonts to destroy
+ * @brief Destroy given sounds
+ * @param sounds Sounds to destroy
  */
-void ressources_destroy_fonts(sfFont **fonts);
+void ressources_destroy_sounds(sfSoundBuffer**sounds);
 
 #endif /* !APP_RESSOURCES_H_ */

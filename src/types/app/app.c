@@ -17,12 +17,13 @@ char *window_title, int window_frame_rate)
         window_mode, window_title,
         sfResize | sfClose, NULL
     );
+    mouse_t mouse = mouse_init();
     state_t *state = state_new();
-    app_t app = { window, state };
+    app_t app = { window, mouse, state };
 
     app_set_icon(app.window, ressources);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
-    sfRenderWindow_clear(app.window, WINDOW_COLOR);
+    sfRenderWindow_clear(app.window, W_COLOR);
     return (app);
 }
 

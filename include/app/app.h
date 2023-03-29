@@ -9,6 +9,7 @@
     #define APP_H_
     #include <SFML/Graphics.h>
     #include "types/type.h"
+    #include "components/components.h"
 
 /**
  * @brief Run the app
@@ -38,6 +39,12 @@ void app_set_icon(sfRenderWindow *window, ressources_t *ressources);
 void app_handle_events(app_t *app);
 
 /**
+ * @brief Enable Mouse position with the reel coord
+ * @return mouse_t struct
+ */
+mouse_t mouse_init(void);
+
+/**
  * @brief Initialisation of state app structure
  * @return state_t*
  */
@@ -53,8 +60,17 @@ void state_free(state_t *state);
  * @brief Render app on screen
  * @param app App to render
  * @param ressources Ressources loaded to render sprites or any other
+ * @param components Components to render
  */
-void app_render(app_t *app, ressources_t *ressources);
+void app_render(app_t *app, ressources_t *ressources,
+main_components_t *components);
+
+/**
+ * @brief Render component
+ * @param app App to render
+ * @param components Components to render
+ */
+void app_component_render(app_t *app, list_components_t *components);
 
 /**
  * @brief Destroy given app and free all its ressources
