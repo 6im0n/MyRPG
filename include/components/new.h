@@ -29,9 +29,10 @@ sfVector2f position);
  * @param component components
  * @param size size
  * @param rect rect
+ * @param e_size e_size
  */
 void new_component_size(node_component_t *component,
-sfVector2f size, sfIntRect rect);
+sfVector2f size, sfIntRect rect, component_size_t e_size);
 
 /**
  * @brief New component set

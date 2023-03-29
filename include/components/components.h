@@ -15,6 +15,14 @@
 
 typedef struct s_node_components node_component_t;
 
+typedef enum e_component_size {
+    C_SIZE_SMALL,
+    C_SIZE_MEDIUM,
+    C_SIZE_BIG,
+    C_SIZE_MAX,
+    C_SIZE_LEN
+} component_size_t;
+
 typedef enum e_component_type {
     C_UNDEFINED,
     C_TYPES_RECTANGLE,
@@ -36,13 +44,19 @@ typedef struct s_component_events {
     component_handler_t onkeypress;
 } component_events_t;
 
+typedef struct s_component_features {
+    texture_t texture;
+    component_size_t size;
+    sfFloatRect rendered_rect;
+    sfIntRect texture_rect;
+}component_feat_t;
+
 typedef struct s_node_components {
     int state;
     component_type_t type;
     renderer_objects_t *object;
-    texture_t texture;
+    component_feat_t features;
     component_events_t events;
-    sfFloatRect rendered_rect;
     struct s_node_components *next;
     struct s_node_components *prev;
 } node_component_t;

@@ -38,8 +38,10 @@ sfVector2f size, sfIntRect rect)
 }
 
 void new_component_size(node_component_t *component,
-sfVector2f size, sfIntRect rect)
+sfVector2f size, sfIntRect rect, component_size_t e_size)
 {
+    component->features.texture_rect = rect;
+    component->features.size = e_size;
     switch (component->type) {
         case C_TYPES_RECTANGLE:
         case C_TYPES_BUTTON:

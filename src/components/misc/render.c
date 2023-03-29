@@ -7,6 +7,7 @@
 
 #include "types/types.h"
 #include "components/components.h"
+#include "types/renderer.h"
 
 static void component_render_dispatch(app_t *app,
 node_component_t *component)
@@ -23,23 +24,6 @@ node_component_t *component)
         default:
             break;
     }
-}
-
-static void render_button_effect(app_t *app, node_component_t *component)
-{
-    sfIntRect defaul = {.height = 31, .left = 162, .top = 208, .width = 92};
-    sfIntRect clicked = {.height = 31, .left = 258, .top = 208, .width = 92};
-
-    if (ST_IS_HOVER(component)) {
-        if (ST_IS_CLICKED(component))
-            sfRectangleShape_setTextureRect(component->object->rectangle, clicked);
-        sfRectangleShape_setScale(component->object->rectangle, (sfVector2f){0.9, 0.9});
-    } else {
-        sfRectangleShape_setScale(component->object->rectangle, (sfVector2f){1, 1});
-        component->state = ST_SET_HOVER(component, false);
-        sfRectangleShape_setTextureRect(component->object->rectangle, defaul);
-    }
-    sfRenderWindow_drawRectangleShape(app->window, component->object->rectangle, NULL);
 }
 
 static void component_render_dispatch_form(app_t *app,

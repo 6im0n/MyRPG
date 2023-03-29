@@ -11,7 +11,10 @@
 void event_bouton_play_onclick(node_component_t *component,
 event_t *event, app_t *app)
 {
+    sfVector2f scale = {0.8, 0.8};
+
     (void) event;
     (void) app;
-    sfRectangleShape_setScale(component->object->rectangle, (sfVector2f){0.8, 0.8});
+    sfRectangleShape_setScale(component->object->rectangle, scale);
+    app->state->stage = S_GAME;
 }
