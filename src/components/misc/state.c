@@ -6,6 +6,7 @@
 */
 
 #include "components/components.h"
+#include <stdio.h>
 
 static void targeted_set_state(node_component_t *component, event_t *event)
 {

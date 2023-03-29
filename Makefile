@@ -29,6 +29,8 @@ _SRC =			main.c \
 				components/start_menu/get.c \
 				components/start_menu/menu.c \
 				\
+				events/start_menu/bouton.c \
+				\
 				types/app/app.c \
 				types/app/icon.c \
 				types/app/mouse.c \
