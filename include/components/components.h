@@ -11,10 +11,14 @@
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include "types/type.h"
+    #include "ressources/textures.h"
 
 typedef enum e_component_type {
     C_UNDEFINED,
-    C_BUTTON,
+    C_TYPES_RECTANGLE,
+    C_TYPES_CIRCLE,
+    C_TYPES_TEXT,
+    C_TYPES_SPRITE,
     C_TYPES_LEN
 } component_type_t;
 
@@ -22,6 +26,7 @@ typedef struct s_node_components {
     int state;
     component_type_t type;
     renderer_objects_t *object;
+    texture_t texture;
     sfFloatRect rendered_rect;
     struct s_node_components *next;
     struct s_node_components *prev;
