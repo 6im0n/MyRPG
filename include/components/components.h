@@ -44,23 +44,38 @@ typedef struct s_main_components {
 } main_components_t;
 
 /**
- * @brief Load all component
- * @param app struct
- * @return main_components_t node
+ * @brief Load component
+ * @param app App
+ * @param ressources ressources
+ * @param objects objects
+ * @return main_components_t
  */
-main_components_t app_components_load(app_t *app);
+main_components_t app_components_load(app_t *app, ressources_t ressources,
+renderer_objects_t objects);
 
 /**
- * @brief Get First Node component
- * @param app app
- * @return node_component_t* node
+ * @brief get components start menu
+ * @param app App
+ * @param ressources ressources
+ * @param objects objects
+ * @param mstart_menu list start menu
+ * @return main_components_t
  */
-node_component_t *components_get_start_menu(app_t *app);
+list_components_t *components_get_start_menu(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *mstart_menu);
 
 /**
  * @brief Free component
  * @param components main components structure
  */
 void components_free(main_components_t *components);
+
+/**
+ * @brief Init pure component
+ * @param size App size
+ * @return node_component_t*
+ */
+node_component_t *component_pure_new(sfVector2u size);
 
 #endif /* !COMPONENTS_H_ */

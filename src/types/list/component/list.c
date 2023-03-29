@@ -27,6 +27,7 @@ void list_components_free(list_components_t *list)
 
     while (tmp != NULL) {
         tmp2 = tmp->next;
+        free(tmp->object);
         free(tmp);
         tmp = tmp2;
     }

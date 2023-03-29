@@ -7,8 +7,8 @@
 
 #include "components/components.h"
 
-static void init_rectangle(node_component_t *component, renderer_objects_t objects,
-ressources_t ressources)
+static void init_rectangle(node_component_t *component,
+renderer_objects_t objects, ressources_t ressources)
 {
     sfVector2f origin = {
         (component->rendered_rect.width / 2),
@@ -21,11 +21,12 @@ ressources_t ressources)
         sfTexture_getSize(texture).x,
         sfTexture_getSize(texture).y};
 
-    component->object->rectangle = objects.rectangle;
+    (void) objects;
+    component->object->rectangle = sfRectangleShape_create();
     sfRectangleShape_setOrigin(component->object->rectangle, origin);
     sfRectangleShape_setPosition(component->object->rectangle, position);
-    sfRectangleShape_setTexture(component->object->rectangle, texture, sfFalse);
     sfRectangleShape_setSize(component->object->rectangle, size);
+    sfRectangleShape_setTexture(component->object->rectangle, texture, sfFalse);
 }
 
 static void init_circle(node_component_t *component, renderer_objects_t objects,
@@ -64,7 +65,7 @@ ressources_t ressources)
     sfSprite_setTexture(component->object->sprite, texture, sfFalse);
 }
 
-void new_component_type(app_t *app, ressources_t ressources,
+void new_component_type(ressources_t ressources,
 node_component_t *component, renderer_objects_t objects)
 {
     switch (component->type) {

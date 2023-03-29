@@ -19,6 +19,9 @@ _SRC =			main.c \
 				\
 				components/free.c \
 				components/misc/render.c \
+				components/new/set.c \
+				components/new/type.c \
+				components/new/size.c \
 				components/start_menu/get.c \
 				\
 				types/app/app.c \

@@ -8,8 +8,12 @@
 #include <SFML/Graphics.h>
 #include "types/types.h"
 #include "components/components.h"
+#include "components/new.h"
+#include "types/list.h"
+#include "ressources/textures.h"
+#include <stdio.h>
 
-static node_component_t *component_pure_new(sfVector2u size)
+node_component_t *component_pure_new(sfVector2u size)
 {
     node_component_t *component = malloc(sizeof(node_component_t));
     sfFloatRect rect = { size.y, 0, 0, size.x};
@@ -24,12 +28,21 @@ static node_component_t *component_pure_new(sfVector2u size)
     return component;
 }
 
-node_component_t *components_get_start_menu(app_t *app)
+list_components_t *components_get_start_menu(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *mstart_menu)
 {
-    sfVector2u size = sfRenderWindow_getSize(app->window);
-    node_component_t *menu = component_pure_new(size);
+    node_component_t *menu_board = malloc(sizeof(node_component_t));
 
-    if (!menu)
+    (void) app;
+    if (!mstart_menu)
         return NULL;
-    return menu;
+    new_component_set(menu_board, (sfFloatRect){ 10, 0, 0, 0},
+    C_TYPES_RECTANGLE, TX_DIALOG_MENU_BGR);
+    new_component_type(ressources, menu_board, objects);
+    new_component_size(menu_board, (sfVector2f){1750, 1700},
+        (sfIntRect){.height = 250, .left = 125, .top = 0, .width = 125});
+    list_component_append(mstart_menu, menu_board);
+
+    return mstart_menu;
 }
