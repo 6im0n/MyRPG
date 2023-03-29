@@ -42,6 +42,7 @@ sfVector2f size, sfIntRect rect)
 {
     switch (component->type) {
         case C_TYPES_RECTANGLE:
+        case C_TYPES_BUTTON:
             init_rectangle(component, size, rect);
             break;
         case C_TYPES_CIRCLE:

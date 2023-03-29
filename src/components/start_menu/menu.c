@@ -20,11 +20,10 @@ renderer_objects_t objects, list_components_t *mstart_menu)
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2,
         sfRenderWindow_getSize(app->window).y / 2};
     sfVector2f size = {350, 100};
-    sfFloatRect rect = {.height = size.y, .left = position.x,
-        .top = position.y, .width = size.x};
+    sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
+        .top = (position.y - (size.y / 2)), .width = size.x};
 
-    new_component_set(bottom, rect,
-    C_TYPES_RECTANGLE, TX_MENU_ALL);
+    new_component_set(bottom, rect, C_TYPES_BUTTON, TX_MENU_ALL);
     new_component_type(ressources, bottom, objects, position);
     new_component_size(bottom, size,
         (sfIntRect){.height = 31, .left = 162, .top = 208, .width = 92});
@@ -39,11 +38,11 @@ renderer_objects_t objects, list_components_t *mstart_menu)
         sfRenderWindow_getSize(app->window).y / 2};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {middle.x * 1.3 , middle.y * 1.3};
-    sfFloatRect rect = {.height = size.y, .left = position.x,
-                        .top = position.y, .width = size.x};
+    sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
+                        .top = (position.y - size.y), .width = size.x};
 
-    new_component_set(bottom, rect,
-    C_TYPES_RECTANGLE, TX_DIALOG_MENU_BGR);
+    bottom->events = (component_events_t) { NULL };
+    new_component_set(bottom, rect, C_TYPES_RECTANGLE, TX_DIALOG_MENU_BGR);
     new_component_type(ressources, bottom, objects, position);
     new_component_size(bottom, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106});

@@ -35,8 +35,9 @@ void app_set_icon(sfRenderWindow *window, ressources_t *ressources);
 /**
  * @brief Handle app events and dispatch them to components
  * @param app App object
+ * @param components Components
  */
-void app_handle_events(app_t *app);
+void app_handle_events(app_t *app, main_components_t *components);
 
 /**
  * @brief Enable Mouse position with the reel coord

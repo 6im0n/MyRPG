@@ -17,9 +17,9 @@ ressources_t ressources, sfVector2f position)
 
     component->object->rectangle = sfRectangleShape_create();
     sfRectangleShape_setPosition(component->object->rectangle, position);
-    sfRectangleShape_setOrigin(component->object->rectangle, origin);
     sfRectangleShape_setTexture(component->object->rectangle,
         texture, sfFalse);
+    sfRectangleShape_setOrigin(component->object->rectangle, origin);
     sfRectangleShape_setOutlineColor(component->object->rectangle, sfRed);
     sfRectangleShape_setOutlineThickness(component->object->rectangle, 2);
 }
@@ -53,6 +53,7 @@ sfVector2f position)
     (void) objects;
     switch (component->type) {
         case C_TYPES_RECTANGLE:
+        case C_TYPES_BUTTON:
             init_rectangle(component, ressources, position);
             break;
         case C_TYPES_CIRCLE:

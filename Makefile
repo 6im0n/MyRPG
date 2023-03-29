@@ -19,6 +19,9 @@ _SRC =			main.c \
 				\
 				components/free.c \
 				components/misc/render.c \
+				components/misc/events_dispatch.c \
+				components/misc/events_handlers.c \
+				components/misc/state.c \
 				components/new/set.c \
 				components/new/type.c \
 				components/new/size.c \
@@ -45,7 +48,7 @@ LIBS =			./libcommon.a
 
 CFLAGS 	=		-W -Wall -Wextra -Werror -g
 
-MODULES = -l csfml-graphics -l csfml-audio -l csfml-system -lm
+MODULES = -l csfml-graphics -l csfml-window -l csfml-audio -l csfml-system -lm
 
 NAME = 			my_rpg
 

@@ -32,7 +32,7 @@ static void event_handle_mouse(app_t *app, event_t *event)
         event->mouse->pressed = false;
 }
 
-void app_handle_events(app_t *app)
+void app_handle_events(app_t *app, main_components_t *components)
 {
     event_t event;
 
@@ -41,5 +41,6 @@ void app_handle_events(app_t *app)
             sfRenderWindow_close(app->window);
         event.mouse = &(app->mouse);
         event_handle_mouse(app, &event);
+        components_dispatch_event(components->start_menu, &event, app);
     }
 }
