@@ -25,8 +25,6 @@ static void catch(node_component_t *component, event_t *event, app_t *app)
         component_onkeypress(component, event, app);
 }
 
-#include <stdio.h>
-
 static void component_dispatch_event(list_components_t *component,
 event_t *event, app_t *app)
 {

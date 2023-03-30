@@ -85,4 +85,7 @@ renderer_objects_t objects, list_components_t *list);
 void inventory_object(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
+void inventory_object_select(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
 #endif /* !GET_COMPONENTS_H_ */
