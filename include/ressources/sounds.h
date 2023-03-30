@@ -8,10 +8,10 @@
 #ifndef RESSOURCES_SOUNDS_H_
     #define RESSOURCES_SOUNDS_H_
 
-typedef enum e_texture {
+typedef enum e_sound {
     SD_NONE,
     SD_GRAB,
     SD_LEN
-} texture_t;
+} sound_t;
 
 #endif /* !RESSOURCES_SOUNDS_H_ */

@@ -7,6 +7,7 @@
 
 #ifndef TYPES_H_
     #define TYPES_H_
+
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
@@ -16,7 +17,8 @@
 //==================================================
 
 typedef enum e_stage_type {
-    S_START_MENU,
+    S_MENU_START,
+    S_MENU_HELP,
     S_LEN
 } stage_t;
 
@@ -64,6 +66,7 @@ typedef struct s_event {
 typedef struct s_ressources {
     sfTexture **textures;
     sfSoundBuffer **sounds;
+    sfFont **fonts;
 } ressources_t;
 
 //==================================================

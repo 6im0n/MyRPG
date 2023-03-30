@@ -7,6 +7,7 @@
 
 #include "types/types.h"
 #include "components/components.h"
+#include "types/renderer.h"
 
 static void component_render_dispatch(app_t *app,
 node_component_t *component)
@@ -30,9 +31,11 @@ node_component_t *component)
 {
     switch (component->type) {
         case C_TYPES_RECTANGLE:
-        case C_TYPES_BUTTON:
             sfRenderWindow_drawRectangleShape(app->window,
             component->object->rectangle, NULL);
+            break;
+        case C_TYPES_BUTTON:
+            render_button_effect(app, component);
             break;
         case C_TYPES_CIRCLE:
             sfRenderWindow_drawCircleShape(app->window,

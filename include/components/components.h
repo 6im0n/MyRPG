@@ -7,13 +7,24 @@
 
 #ifndef COMPONENTS_H_
     #define COMPONENTS_H_
+
     #include <stdlib.h>
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include "types/type.h"
     #include "ressources/textures.h"
+    #include "ressources/sounds.h"
+    #include "ressources/fonts.h"
 
 typedef struct s_node_components node_component_t;
+
+typedef enum e_component_size {
+    C_SIZE_SMALL,
+    C_SIZE_MEDIUM,
+    C_SIZE_BIG,
+    C_SIZE_MAX,
+    C_SIZE_LEN
+} component_size_t;
 
 typedef enum e_component_type {
     C_UNDEFINED,
@@ -36,13 +47,25 @@ typedef struct s_component_events {
     component_handler_t onkeypress;
 } component_events_t;
 
+typedef struct s_component_styles {
+    texture_t texture;
+    sound_t sound;
+    font_t font;
+} component_styles;
+
+typedef struct s_component_features {
+    component_styles styles;
+    component_size_t size;
+    sfFloatRect rendered_rect;
+    sfIntRect texture_rect;
+} component_feat_t;
+
 typedef struct s_node_components {
     int state;
     component_type_t type;
     renderer_objects_t *object;
-    texture_t texture;
+    component_feat_t features;
     component_events_t events;
-    sfFloatRect rendered_rect;
     struct s_node_components *next;
     struct s_node_components *prev;
 } node_component_t;
@@ -55,6 +78,7 @@ typedef struct s_list_components {
 
 typedef struct s_main_components {
     list_components_t *start_menu;
+    list_components_t *help_menu;
     list_components_t *game;
 } main_components_t;
 
@@ -89,33 +113,6 @@ node_component_t *component_pure_new(sfVector2u size);
  */
 void components_dispatch_event(list_components_t *components,
 event_t *event, app_t *app);
-
-//==================================================
-// START MENU
-//==================================================
-
-/**
- * @brief get components start menu
- * @param app App
- * @param ressources ressources
- * @param objects objects
- * @param mstart_menu list start menu
- * @return main_components_t
- */
-list_components_t *components_get_start_menu(app_t *app,
-ressources_t ressources, renderer_objects_t objects,
-list_components_t *mstart_menu);
-
-/**
- * @brief components start menu
- * @param app App
- * @param ressources ressources
- * @param objects objects
- * @param mstart_menu list start menu
- * @return list_components_t*
- */
-list_components_t *components_start_menu(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *mstart_menu);
 
 //==================================================
 // STATE

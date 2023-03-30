@@ -16,18 +16,27 @@ _SRC =			main.c \
 				ressources/ressources.c \
 				ressources/textures.c \
 				ressources/sounds.c \
+				ressources/fonts.c \
 				\
 				components/free.c \
 				components/misc/render.c \
+				components/misc/effect_botton.c \
 				components/misc/events_dispatch.c \
 				components/misc/events_handlers.c \
 				components/misc/state.c \
 				components/new/set.c \
 				components/new/type.c \
 				components/new/size.c \
+				components/new/text.c \
 				\
-				components/start_menu/get.c \
-				components/start_menu/menu.c \
+				components/menu/start/get.c \
+				components/menu/start/menu.c \
+				components/menu/start/bouton.c \
+				components/menu/help/get.c \
+				components/menu/help/menu.c \
+				\
+				events/menu/start/bouton.c \
+				events/menu/help/bouton.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

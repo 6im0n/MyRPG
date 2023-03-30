@@ -7,6 +7,7 @@
 
 #ifndef RESSOURCES_SOUNDS_LOADERS_H_
     #define RESSOURCES_SOUNDS_LOADERS_H_
+
     #include "ressources/sounds.h"
 
 static const char *sounds_loaders[SD_LEN] = {

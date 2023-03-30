@@ -8,14 +8,18 @@
 #include "components/components.h"
 
 void new_component_set(node_component_t *component,
-sfFloatRect rect, component_type_t type, texture_t texture)
+sfFloatRect rect, component_type_t type, component_styles style)
 {
+    sfIntRect intrect = {0, 0, 0, 0};
+
     if (!component)
         return;
     component->object = malloc(sizeof(renderer_objects_t));
-    component->texture = texture;
+    component->features.styles = style;
+    component->features.rendered_rect = rect;
+    component->features.size = C_SIZE_MEDIUM;
+    component->features.texture_rect = intrect;
     component->type = type;
-    component->rendered_rect = rect;
     component->state = 0;
     component->next = NULL;
     component->events = (component_events_t) { NULL, NULL, NULL, NULL, NULL };

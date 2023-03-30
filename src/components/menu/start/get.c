@@ -11,7 +11,7 @@
 #include "components/new.h"
 #include "types/list.h"
 #include "ressources/textures.h"
-#include <stdio.h>
+#include "components/get.h"
 
 node_component_t *component_pure_new(sfVector2u size)
 {
@@ -24,17 +24,17 @@ node_component_t *component_pure_new(sfVector2u size)
     component->object = NULL;
     component->state = 0;
     component->events = (component_events_t) { NULL, NULL, NULL, NULL, NULL };
-    component->rendered_rect = rect;
+    component->features.rendered_rect = rect;
     component->next = NULL;
     return component;
 }
 
 list_components_t *components_get_start_menu(app_t *app,
 ressources_t ressources, renderer_objects_t objects,
-list_components_t *mstart_menu)
+list_components_t *list)
 {
-    if (!mstart_menu)
+    if (!list)
         return NULL;
-    components_start_menu(app, ressources, objects, mstart_menu);
-    return mstart_menu;
+    components_menu_start(app, ressources, objects, list);
+    return list;
 }
