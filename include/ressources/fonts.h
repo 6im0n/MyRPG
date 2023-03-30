@@ -10,10 +10,8 @@
 
 typedef enum e_font {
     FT_ARIAL,
-    FT_BAUH,
-    FT_CALIBRI,
-    FT_SIMSUN,
-    FT_SEGOE_UI,
+    FT_IMMORTAL,
+    FT_DROID,
     FT_LEN
 } font_t;
 

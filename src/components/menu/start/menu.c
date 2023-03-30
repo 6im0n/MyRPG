@@ -61,13 +61,12 @@ static void menu_title(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
-        sfRenderWindow_getSize(app->window).y / 2};
-    sfVector2f position = { middle.x, 270 };
+    float middle = sfRenderWindow_getSize(app->window).x / 2;
+    sfVector2f position = { middle, 310 };
     sfVector2f size = {40, 40};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_BAUH };
+    component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_IMMORTAL };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_TEXT, style);
@@ -75,7 +74,7 @@ renderer_objects_t objects, list_components_t *list)
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);
-    set_component_text(obj, "Island'or", sfBlack, 80);
+    set_component_text(obj, "Island'or", sfBlack, 150);
     list_component_append(list, obj);
 }
 

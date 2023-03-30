@@ -11,7 +11,7 @@
     #include <SFML/Graphics.h>
 
     #define W_VIDEO_MODE ((sfVideoMode) {1920, 1080, 32})
-    #define W_TITLE "RPG - Untitled"
+    #define W_TITLE "RPG - Island'or"
     #define W_FRAMERATE 165
     #define W_COLOR ((sfColor) {237, 237, 237, 255})
 
