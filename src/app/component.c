@@ -10,6 +10,7 @@
 #include "types/list.h"
 #include "components/components.h"
 #include "components/get.h"
+#include "event/inventory/bouton.h"
 
 static void append_menu_start(app_t *app, ressources_t ressources,
 renderer_objects_t objects, main_components_t *components)
@@ -30,17 +31,32 @@ renderer_objects_t objects, main_components_t *components)
     node_component_t *fhelp_menu = component_pure_new(size);
     list_components_t *mhelp_menu = list_components_init();
 
+    fhelp_menu->events.onkeypress = &event_key_inventory_open_onkeypressed;
     list_component_append(mhelp_menu, fhelp_menu);
     components->help_menu = mhelp_menu;
     components_get_help_menu(app, ressources, objects, mhelp_menu);
 }
 
+static void append_inventory(app_t *app, ressources_t ressources,
+renderer_objects_t objects, main_components_t *components)
+{
+    sfVector2u size = sfRenderWindow_getSize(app->window);
+    node_component_t *finventory = component_pure_new(size);
+    list_components_t *minventory = list_components_init();
+
+    finventory->events.onkeypress = &event_key_inventory_close_onkeypressed;
+    list_component_append(minventory, finventory);
+    components->inventory = minventory;
+    components_get_inventory(app, ressources, objects, minventory);
+}
+
 main_components_t app_components_load(app_t *app, ressources_t ressources,
 renderer_objects_t objects)
 {
-    main_components_t components = { NULL, NULL, NULL };
+    main_components_t components = { NULL, NULL, NULL, NULL };
 
     append_menu_start(app, ressources, objects, &components);
     append_menu_help(app, ressources, objects, &components);
+    append_inventory(app, ressources, objects, &components);
     return components;
 }

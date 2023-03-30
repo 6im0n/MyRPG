@@ -80,6 +80,7 @@ typedef struct s_main_components {
     list_components_t *start_menu;
     list_components_t *help_menu;
     list_components_t *game;
+    list_components_t *inventory;
 } main_components_t;
 
 /**

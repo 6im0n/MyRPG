@@ -71,4 +71,18 @@ list_components_t *mstart_menu);
 list_components_t *components_menu_help(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *mstart_menu);
 
+//==================================================
+// INVENTORY
+//==================================================
+
+list_components_t *components_get_inventory(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *list);
+
+list_components_t *components_inventory(app_t *app,ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void inventory_object(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
 #endif /* !GET_COMPONENTS_H_ */

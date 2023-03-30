@@ -34,9 +34,13 @@ _SRC =			main.c \
 				components/menu/start/bouton.c \
 				components/menu/help/get.c \
 				components/menu/help/menu.c \
+				components/inventory/get.c \
+				components/inventory/menu.c \
+				components/inventory/object.c \
 				\
 				events/menu/start/bouton.c \
 				events/menu/help/bouton.c \
+				events/inventory/select.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
