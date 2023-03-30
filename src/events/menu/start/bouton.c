@@ -14,5 +14,5 @@ event_t *event, app_t *app)
     (void) event;
     (void) app;
     (void) component;
-    app->state->stage = S_HELP_MENU;
+    app->state->stage = S_MENU_HELP;
 }

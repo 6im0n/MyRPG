@@ -36,10 +36,10 @@ static void component_event_dispatch(app_t *app,
 event_t *event, main_components_t *components)
 {
     switch (app->state->stage) {
-    case S_START_MENU:
+    case S_MENU_START:
         components_dispatch_event(components->start_menu, event, app);
         break;
-    case S_HELP_MENU:
+    case S_MENU_HELP:
         components_dispatch_event(components->help_menu, event, app);
         break;
     default:

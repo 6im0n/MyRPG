@@ -55,7 +55,7 @@ renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
-list_components_t *components_help_menu(app_t *app,ressources_t ressources,
+list_components_t *components_menu_help(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
     menu_background(app, ressources, objects, list);

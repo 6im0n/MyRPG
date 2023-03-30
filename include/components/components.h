@@ -106,60 +106,6 @@ void components_dispatch_event(list_components_t *components,
 event_t *event, app_t *app);
 
 //==================================================
-// START MENU
-//==================================================
-
-/**
- * @brief get components start menu
- * @param app App
- * @param ressources ressources
- * @param objects objects
- * @param mstart_menu list start menu
- * @return main_components_t
- */
-list_components_t *components_get_start_menu(app_t *app,
-ressources_t ressources, renderer_objects_t objects,
-list_components_t *mstart_menu);
-
-/**
- * @brief components start menu
- * @param app App
- * @param ressources ressources
- * @param objects objects
- * @param mstart_menu list start menu
- * @return list_components_t*
- */
-list_components_t *components_start_menu(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *mstart_menu);
-
-//==================================================
-// HELP MENU
-//==================================================
-
-/**
- * @brief get components start menu
- * @param app App
- * @param ressources ressources
- * @param objects objects
- * @param mstart_menu list start menu
- * @return main_components_t
- */
-list_components_t *components_get_help_menu(app_t *app,
-ressources_t ressources, renderer_objects_t objects,
-list_components_t *mstart_menu);
-
-/**
- * @brief components start menu
- * @param app App
- * @param ressources ressources
- * @param objects objects
- * @param mstart_menu list start menu
- * @return list_components_t*
- */
-list_components_t *components_help_menu(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *mstart_menu);
-
-//==================================================
 // STATE
 //==================================================
 

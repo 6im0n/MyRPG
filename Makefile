@@ -27,13 +27,14 @@ _SRC =			main.c \
 				components/new/type.c \
 				components/new/size.c \
 				\
-				components/start_menu/get.c \
-				components/start_menu/menu.c \
-				components/help_menu/get.c \
-				components/help_menu/menu.c \
+				components/menu/start/get.c \
+				components/menu/start/menu.c \
+				components/menu/start/bouton.c \
+				components/menu/help/get.c \
+				components/menu/help/menu.c \
 				\
-				events/start_menu/bouton.c \
-				events/help_menu/bouton.c \
+				events/menu/start/bouton.c \
+				events/menu/help/bouton.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

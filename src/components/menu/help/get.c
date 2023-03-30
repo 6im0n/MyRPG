@@ -11,7 +11,7 @@
 #include "components/new.h"
 #include "types/list.h"
 #include "ressources/textures.h"
-#include <stdio.h>
+#include "components/get.h"
 
 list_components_t *components_get_help_menu(app_t *app,
 ressources_t ressources, renderer_objects_t objects,
@@ -19,6 +19,6 @@ list_components_t *list)
 {
     if (!list)
         return NULL;
-    components_help_menu(app, ressources, objects, list);
+    components_menu_help(app, ressources, objects, list);
     return list;
 }

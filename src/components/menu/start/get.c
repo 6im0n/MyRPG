@@ -11,7 +11,7 @@
 #include "components/new.h"
 #include "types/list.h"
 #include "ressources/textures.h"
-#include <stdio.h>
+#include "components/get.h"
 
 node_component_t *component_pure_new(sfVector2u size)
 {
@@ -35,6 +35,6 @@ list_components_t *list)
 {
     if (!list)
         return NULL;
-    components_start_menu(app, ressources, objects, list);
+    components_menu_start(app, ressources, objects, list);
     return list;
 }

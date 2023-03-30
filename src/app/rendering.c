@@ -17,10 +17,10 @@ static void component_render_dispatch(app_t *app,
 main_components_t *components)
 {
     switch (app->state->stage) {
-    case S_START_MENU:
+    case S_MENU_START:
         app_component_render(app, components->start_menu);
         break;
-    case S_HELP_MENU:
+    case S_MENU_HELP:
         app_component_render(app, components->help_menu);
         break;
     default:

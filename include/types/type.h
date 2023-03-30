@@ -16,8 +16,8 @@
 //==================================================
 
 typedef enum e_stage_type {
-    S_START_MENU,
-    S_HELP_MENU,
+    S_MENU_START,
+    S_MENU_HELP,
     S_LEN
 } stage_t;
 
