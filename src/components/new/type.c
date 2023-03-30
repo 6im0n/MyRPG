@@ -10,7 +10,8 @@
 static void init_rectangle(node_component_t *component,
 ressources_t ressources, sfVector2f position)
 {
-    sfTexture *texture = ressources.textures[component->features.texture];
+    sfTexture *texture = ressources.textures[
+        component->features.styles.texture];
     sfVector2f origin = {
         component->features.rendered_rect.width / 2,
         component->features.rendered_rect.height / 2};
@@ -27,7 +28,8 @@ ressources_t ressources, sfVector2f position)
 static void init_circle(node_component_t *component,
 ressources_t ressources, sfVector2f position)
 {
-    sfTexture *texture = ressources.textures[component->features.texture];
+    sfTexture *texture = ressources.textures[
+        component->features.styles.texture];
     float size = (sfTexture_getSize(texture).x / 2);
 
     component->object->circle = sfCircleShape_create();
@@ -39,7 +41,8 @@ ressources_t ressources, sfVector2f position)
 static void init_sprite(node_component_t *component,
 ressources_t ressources, sfVector2f position)
 {
-    sfTexture *texture = ressources.textures[component->features.texture];
+    sfTexture *texture = ressources.textures[
+        component->features.styles.texture];
 
     component->object->sprite = sfSprite_create();
     sfSprite_setPosition(component->object->sprite, position);
@@ -49,9 +52,12 @@ ressources_t ressources, sfVector2f position)
 static void init_text(node_component_t *component,
 ressources_t ressources, sfVector2f position)
 {
-    (void) component;
-    (void) ressources;
-    (void) position;
+    sfFont *font = ressources.fonts[
+        component->features.styles.font];
+
+    component->object->text = sfText_create();
+    sfText_setFont(component->object->text, font);
+    sfText_setPosition(component->object->text, position);
 }
 
 void new_component_type(ressources_t ressources,

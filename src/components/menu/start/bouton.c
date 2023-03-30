@@ -22,8 +22,9 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {340, 90};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
+    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
 
-    new_component_set(obj, rect, C_TYPES_BUTTON, TX_MENU_ALL);
+    new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 27, .left = 163, .top = 210, .width = 90},
@@ -40,9 +41,10 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
+    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
 
     (void) app;
-    new_component_set(obj, rect, C_TYPES_BUTTON, TX_MENU_ALL);
+    new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 709, .top = 164, .width = 22},

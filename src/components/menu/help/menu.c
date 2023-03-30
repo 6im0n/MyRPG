@@ -24,9 +24,10 @@ renderer_objects_t objects, list_components_t *list)
         sfRenderWindow_getSize(app->window).y};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
+    component_styles style = { TX_BACKGROUND_MENU, SD_NONE, FT_ARIAL };
 
     obj->events = (component_events_t) { NULL };
-    new_component_set(obj, rect, C_TYPES_RECTANGLE, TX_BACKGROUND_MENU);
+    new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 0, .left = 0, .top = 0, .width = 0},
@@ -43,9 +44,10 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
+    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
 
     (void) app;
-    new_component_set(obj, rect, C_TYPES_BUTTON, TX_MENU_ALL);
+    new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
 

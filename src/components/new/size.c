@@ -37,6 +37,15 @@ sfVector2f size, sfIntRect rect)
     sfSprite_setScale(component->object->sprite, size);
 }
 
+static void init_text(node_component_t *component,
+sfVector2f size, sfIntRect rect)
+{
+    (void) rect;
+    if (!component)
+        return;
+    sfText_setCharacterSize(component->object->text, size.x);
+}
+
 void new_component_size(node_component_t *component,
 sfVector2f size, sfIntRect rect, component_size_t e_size)
 {
@@ -52,6 +61,9 @@ sfVector2f size, sfIntRect rect, component_size_t e_size)
             break;
         case C_TYPES_SPRITE:
             init_sprite(component, size, rect);
+            break;
+        case C_TYPES_TEXT:
+            init_text(component, size, rect);
             break;
         default:
             break;

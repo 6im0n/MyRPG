@@ -25,9 +25,10 @@ renderer_objects_t objects, list_components_t *list)
         sfRenderWindow_getSize(app->window).y};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
+    component_styles style = { TX_BACKGROUND_MENU, SD_NONE, FT_ARIAL };
 
     obj->events = (component_events_t) { NULL };
-    new_component_set(obj, rect, C_TYPES_RECTANGLE, TX_BACKGROUND_MENU);
+    new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 0, .left = 0, .top = 0, .width = 0},
@@ -45,13 +46,36 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {middle.x * 1.3 , middle.y * 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
+    component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_ARIAL };
 
     obj->events = (component_events_t) { NULL };
-    new_component_set(obj, rect, C_TYPES_RECTANGLE, TX_DIALOG_MENU_BGR);
+    new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);
+    list_component_append(list, obj);
+}
+
+static void menu_title(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list)
+{
+    node_component_t *obj = malloc(sizeof(node_component_t));
+    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
+        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f position = { middle.x, 270 };
+    sfVector2f size = {40, 40};
+    sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
+                        .top = (position.y - size.y), .width = size.x};
+    component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_BAUH };
+
+    obj->events = (component_events_t) { NULL };
+    new_component_set(obj, rect, C_TYPES_TEXT, style);
+    new_component_type(ressources, obj, objects, position);
+    new_component_size(obj, size,
+        (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
+        C_SIZE_MAX);
+    set_component_text(obj, "Island'or", sfBlack, 80);
     list_component_append(list, obj);
 }
 
@@ -62,5 +86,6 @@ renderer_objects_t objects, list_components_t *list)
     menu_board(app, ressources, objects, list);
     bouton_play(app, ressources, objects, list);
     bouton_help(app, ressources, objects, list);
+    menu_title(app, ressources, objects, list);
     return list;
 }

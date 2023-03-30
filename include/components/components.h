@@ -13,6 +13,8 @@
     #include <SFML/Graphics.h>
     #include "types/type.h"
     #include "ressources/textures.h"
+    #include "ressources/sounds.h"
+    #include "ressources/fonts.h"
 
 typedef struct s_node_components node_component_t;
 
@@ -45,12 +47,18 @@ typedef struct s_component_events {
     component_handler_t onkeypress;
 } component_events_t;
 
-typedef struct s_component_features {
+typedef struct s_component_styles {
     texture_t texture;
+    sound_t sound;
+    font_t font;
+} component_styles;
+
+typedef struct s_component_features {
+    component_styles styles;
     component_size_t size;
     sfFloatRect rendered_rect;
     sfIntRect texture_rect;
-}component_feat_t;
+} component_feat_t;
 
 typedef struct s_node_components {
     int state;

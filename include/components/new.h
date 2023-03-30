@@ -40,9 +40,19 @@ sfVector2f size, sfIntRect rect, component_size_t e_size);
  * @param component components
  * @param rect rect
  * @param type type
- * @param texture texture
+ * @param style texture sound and font
  */
 void new_component_set(node_component_t *component,
-sfFloatRect rect, component_type_t type, texture_t texture);
+sfFloatRect rect, component_type_t type, component_styles style);
+
+/**
+ * @brief Set string if components type == text
+ * @param component components
+ * @param string string to draw
+ * @param color color
+ * @param size size
+ */
+void set_component_text(node_component_t *component,
+char *string, sfColor color, int size);
 
 #endif /* !NEW_H_ */
