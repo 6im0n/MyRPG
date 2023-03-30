@@ -7,6 +7,7 @@
 
 #ifndef NEW_H_
     #define NEW_H_
+
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include "types/type.h"

@@ -7,6 +7,7 @@
 
 #ifndef GET_COMPONENTS_H_
     #define GET_COMPONENTS_H_
+
     #include "types/type.h"
     #include "components/components.h"
 

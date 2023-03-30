@@ -7,6 +7,7 @@
 
 #ifndef TYPES_H_
     #define TYPES_H_
+
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>

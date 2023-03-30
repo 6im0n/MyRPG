@@ -7,6 +7,7 @@
 
 #ifndef RESSOURCES_TEXTURES_LOADERS_H_
     #define RESSOURCES_TEXTURES_LOADERS_H_
+
     #include "ressources/textures.h"
 
 static const char *textures_loaders[TX_LEN] = {

@@ -7,6 +7,7 @@
 
 #ifndef APP_RESSOURCES_H_
     #define APP_RESSOURCES_H_
+
     #include <SFML/Graphics.h>
     #include "types/type.h"
     #include <SFML/Audio.h>

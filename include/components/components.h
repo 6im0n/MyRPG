@@ -7,6 +7,7 @@
 
 #ifndef COMPONENTS_H_
     #define COMPONENTS_H_
+
     #include <stdlib.h>
     #include <stdbool.h>
     #include <SFML/Graphics.h>

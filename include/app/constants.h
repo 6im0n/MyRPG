@@ -7,6 +7,7 @@
 
 #ifndef APP_CONSTANTS_H_
     #define APP_CONSTANTS_H_
+
     #include <SFML/Graphics.h>
 
     #define W_VIDEO_MODE ((sfVideoMode) {1920, 1080, 32})

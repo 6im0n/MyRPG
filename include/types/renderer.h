@@ -7,6 +7,7 @@
 
 #ifndef RENDERER_H_
     #define RENDERER_H_
+
     #include "type.h"
     #include <SFML/Graphics.h>
     #include "components/components.h"
