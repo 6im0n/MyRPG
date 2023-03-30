@@ -46,6 +46,14 @@ ressources_t ressources, sfVector2f position)
     sfSprite_setTexture(component->object->sprite, texture, sfFalse);
 }
 
+static void init_text(node_component_t *component,
+ressources_t ressources, sfVector2f position)
+{
+    (void) component;
+    (void) ressources;
+    (void) position;
+}
+
 void new_component_type(ressources_t ressources,
 node_component_t *component, renderer_objects_t objects,
 sfVector2f position)
@@ -60,7 +68,7 @@ sfVector2f position)
             init_circle(component, ressources, position);
             break;
         case C_TYPES_TEXT:
-            component->object->text = objects.text;
+            init_text(component, ressources, position);
             break;
         case C_TYPES_SPRITE:
             init_sprite(component, ressources, position);

@@ -66,6 +66,7 @@ typedef struct s_event {
 typedef struct s_ressources {
     sfTexture **textures;
     sfSoundBuffer **sounds;
+    sfFont **fonts;
 } ressources_t;
 
 //==================================================
