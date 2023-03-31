@@ -38,10 +38,16 @@ list_components_t *mstart_menu);
 list_components_t *components_menu_start(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *mstart_menu);
 
-void bouton_play(app_t *app, ressources_t ressources,
+void components_menu_start_bouton_play(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
-void bouton_help(app_t *app, ressources_t ressources,
+void components_menu_start_bouton_help(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_menu_start_bouton_setting(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_menu_start_bouton_quit(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
 //==================================================
@@ -75,17 +81,63 @@ renderer_objects_t objects, list_components_t *mstart_menu);
 // INVENTORY
 //==================================================
 
+/**
+ * @brief Components Inventory
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
 list_components_t *components_get_inventory(app_t *app,
 ressources_t ressources, renderer_objects_t objects,
 list_components_t *list);
 
+/**
+ * @brief Components init Inventory
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
 list_components_t *components_inventory(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
+/**
+ * @brief Components set Inventory slot
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
 void inventory_object(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
+/**
+ * @brief Components set Inventory selector slot
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
 void inventory_object_select(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
+
+//==================================================
+// SETTING
+//==================================================
+
+list_components_t *components_get_setting(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *list);
+
+list_components_t *components_setting(app_t *app,ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_sound(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
 #endif /* !GET_COMPONENTS_H_ */

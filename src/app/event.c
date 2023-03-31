@@ -45,6 +45,9 @@ event_t *event, main_components_t *components)
     case S_INVENTORY:
         components_dispatch_event(components->inventory, event, app);
         break;
+    case S_SETTINGS:
+        components_dispatch_event(components->setting, event, app);
+        break;
     default:
         break;
     }

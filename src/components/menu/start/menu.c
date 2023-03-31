@@ -78,13 +78,35 @@ renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
+void setting_background(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list)
+{
+    node_component_t *obj = malloc(sizeof(node_component_t));
+    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2, 700};
+    sfVector2f size = {300, 100};
+    sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
+        .top = (position.y - (size.y / 2)), .width = size.x};
+    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+
+    (void) app;
+    new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
+    new_component_type(ressources, obj, objects, position);
+    new_component_size(obj, size,
+        (sfIntRect){.height = 24, .left = 504, .top = 148, .width = 35},
+        C_SIZE_SMALL);
+    list_component_append(list, obj);
+}
+
 list_components_t *components_menu_start(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
     menu_background(app, ressources, objects, list);
     menu_board(app, ressources, objects, list);
-    bouton_play(app, ressources, objects, list);
-    bouton_help(app, ressources, objects, list);
+    setting_background(app, ressources, objects, list);
+    components_menu_start_bouton_play(app, ressources, objects, list);
+    components_menu_start_bouton_help(app, ressources, objects, list);
+    components_menu_start_bouton_setting(app, ressources, objects, list);
+    components_menu_start_bouton_quit(app, ressources, objects, list);
     menu_title(app, ressources, objects, list);
     return list;
 }

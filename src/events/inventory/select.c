@@ -13,22 +13,25 @@
 void event_key_inventory_open_onkeypressed(node_component_t *component,
 event_t *event, app_t *app)
 {
-    (void) app;
     (void) component;
     (void) event;
     if (sfKeyboard_isKeyPressed(sfKeyE)) {
         app->state->back = app->state->stage;
-        app->state->stage = S_INVENTORY;
+        app->state->stage = S_MENU_HELP;
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+        app->state->back = app->state->stage;
+        app->state->stage = S_SETTINGS;
     }
 }
 
 void event_key_inventory_close_onkeypressed(node_component_t *component,
 event_t *event, app_t *app)
 {
-    (void) app;
     (void) component;
     (void) event;
-    if (sfKeyboard_isKeyPressed(sfKeyE))
+    if (sfKeyboard_isKeyPressed(sfKeyE) ||
+        sfKeyboard_isKeyPressed(sfKeyEscape))
         app->state->stage = app->state->back;
 }
 
@@ -53,4 +56,12 @@ event_t *event, app_t *app)
         component = component->next;
     }
     free(string);
+}
+
+void event_setting_close_windows_onclick(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) component;
+    (void) event;
+    sfRenderWindow_close(app->window);
 }

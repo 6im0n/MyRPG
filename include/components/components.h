@@ -96,6 +96,7 @@ typedef struct s_main_components {
     list_components_t *help_menu;
     list_components_t *game;
     list_components_t *inventory;
+    list_components_t *setting;
 } main_components_t;
 
 /**
@@ -167,5 +168,10 @@ event_t *event, app_t *app);
     #define ST_SET_MOVED(component, x) (\
     x ? (ST_SET(component, ST_MOVED)) : (ST_UNSET(component, ST_MOVED)))
     #define ST_IS_MOVED(component) (component->state & (1 << ST_MOVED))
+
+    #define ST_NEAR 6
+    #define ST_SET_NEAR(component, x) (\
+    x ? (ST_SET(component, ST_NEAR)) : (ST_UNSET(component, ST_NEAR)))
+    #define ST_IS_NEAR(component) (component->state & (1 << ST_NEAR))
 
 #endif /* !COMPONENTS_H_ */

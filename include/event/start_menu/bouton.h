@@ -29,4 +29,7 @@ event_t *event, app_t *app);
 void event_bouton_help_onclick(node_component_t *component,
 event_t *event, app_t *app);
 
+void event_menu_onkeypress(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_START_MENU_BOUTON_H_ */

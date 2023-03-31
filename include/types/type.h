@@ -18,6 +18,7 @@
 
 typedef enum e_stage_type {
     S_MENU_START,
+    S_SETTINGS,
     S_MENU_HELP,
     S_INVENTORY,
     S_LEN

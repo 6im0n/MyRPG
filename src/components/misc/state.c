@@ -35,6 +35,7 @@ static void non_targeted_set_state(node_component_t *component)
     component->state = ST_SET_R_CLICKED(component, false);
     component->state = ST_SET_PRESSED(component, false);
     component->state = ST_SET_MOVED(component, false);
+    component->state = ST_SET_NEAR(component, false);
 }
 
 void component_set_state_from_event(node_component_t *component,
