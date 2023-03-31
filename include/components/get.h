@@ -130,14 +130,32 @@ renderer_objects_t objects, list_components_t *list);
 // SETTING
 //==================================================
 
-list_components_t *components_get_setting(app_t *app,
-ressources_t ressources, renderer_objects_t objects,
-list_components_t *list);
+/**
+ * @brief Components Setting
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
+list_components_t *components_get_setting(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
 
+/**
+ * @brief Components init Setting
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
 list_components_t *components_setting(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
 void components_menu_setting_selector_sound(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_sound_title(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
 #endif /* !GET_COMPONENTS_H_ */

@@ -26,4 +26,7 @@ event_t *event, app_t *app);
 void event_setting_close_windows_onclick(node_component_t *component,
 event_t *event, app_t *app);
 
+void event_settings_selector_mute_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_SETTING_H_ */

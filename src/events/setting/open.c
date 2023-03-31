@@ -13,7 +13,6 @@
 void event_settings_open_onclick(node_component_t *component,
 event_t *event, app_t *app)
 {
-    (void) app;
     (void) component;
     (void) event;
     app->state->back = app->state->stage;
@@ -23,7 +22,6 @@ event_t *event, app_t *app)
 void event_key_settings_close_onkeypressed(node_component_t *component,
 event_t *event, app_t *app)
 {
-    (void) app;
     (void) component;
     (void) event;
     if (sfKeyboard_isKeyPressed(sfKeyEscape))

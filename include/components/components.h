@@ -23,6 +23,7 @@ typedef enum e_component_size {
     C_SIZE_MEDIUM,
     C_SIZE_BIG,
     C_SIZE_MAX,
+    C_SIZE_TOP_MEDIUM,
     C_SIZE_LEN
 } component_size_t;
 
@@ -36,6 +37,7 @@ typedef enum e_id_component {
     ID_SLOT_6,
     ID_SLOT_7,
     ID_SLOT_8,
+    ID_SELECTOR,
     ID_MAIN_INV_SELECTOR,
     ID_LEN
 } component_id_t;
@@ -72,6 +74,7 @@ typedef struct s_component_features {
     component_size_t size;
     sfFloatRect rendered_rect;
     sfIntRect texture_rect;
+    bool select;
 } component_feat_t;
 
 typedef struct s_node_components {

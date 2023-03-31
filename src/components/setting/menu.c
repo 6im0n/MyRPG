@@ -39,5 +39,7 @@ renderer_objects_t objects, list_components_t *list)
 {
     menu_board(app, ressources, objects, list);
     components_menu_setting_selector_sound(app, ressources, objects, list);
+    components_menu_setting_selector_sound_title(app, ressources,
+        objects, list);
     return list;
 }
