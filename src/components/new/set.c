@@ -19,6 +19,7 @@ sfFloatRect rect, component_type_t type, component_styles style)
     component->features.rendered_rect = rect;
     component->features.size = C_SIZE_MEDIUM;
     component->features.texture_rect = intrect;
+    component->id = ID_UNDEFINED;
     component->type = type;
     component->state = 0;
     component->next = NULL;

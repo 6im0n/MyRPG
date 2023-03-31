@@ -30,3 +30,21 @@ event_t *event, app_t *app)
     if (sfKeyboard_isKeyPressed(sfKeyE))
         app->state->stage = app->state->back;
 }
+
+void event_selector_onpress(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) event;
+    (void) app;
+    sfVector2f pos = sfRectangleShape_getPosition(
+        component->object->rectangle);
+    sfVector2f pos_text = {pos.x, pos.y + 50};
+
+    while (component) {
+        if (component->id == ID_MAIN_INV_SELECTOR) {
+            sfRectangleShape_setPosition(component->object->rectangle, pos);
+            sfText_setPosition(component->next->object->text, pos_text);
+        }
+        component = component->next;
+    }
+}

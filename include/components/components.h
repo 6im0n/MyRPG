@@ -26,6 +26,12 @@ typedef enum e_component_size {
     C_SIZE_LEN
 } component_size_t;
 
+typedef enum e_id_component {
+    ID_UNDEFINED,
+    ID_MAIN_INV_SELECTOR,
+    ID_LEN
+} component_id_t;
+
 typedef enum e_component_type {
     C_UNDEFINED,
     C_TYPES_RECTANGLE,
@@ -62,6 +68,7 @@ typedef struct s_component_features {
 
 typedef struct s_node_components {
     int state;
+    component_id_t id;
     component_type_t type;
     renderer_objects_t *object;
     component_feat_t features;
