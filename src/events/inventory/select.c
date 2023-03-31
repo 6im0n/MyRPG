@@ -8,6 +8,7 @@
 #include "types/types.h"
 #include "components/components.h"
 #include <stdio.h>
+#include "lib/str.h"
 
 void event_key_inventory_open_onkeypressed(node_component_t *component,
 event_t *event, app_t *app)
@@ -39,12 +40,17 @@ event_t *event, app_t *app)
     sfVector2f pos = sfRectangleShape_getPosition(
         component->object->rectangle);
     sfVector2f pos_text = {pos.x, pos.y + 50};
+    char *string = malloc(7);
 
+    my_strcpy(string, "Slot  ");
+    string[5] = component->id + '0';
     while (component) {
         if (component->id == ID_MAIN_INV_SELECTOR) {
             sfRectangleShape_setPosition(component->object->rectangle, pos);
             sfText_setPosition(component->next->object->text, pos_text);
+            sfText_setString(component->next->object->text, string);
         }
         component = component->next;
     }
+    free(string);
 }
