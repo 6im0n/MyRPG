@@ -28,6 +28,14 @@ typedef enum e_component_size {
 
 typedef enum e_id_component {
     ID_UNDEFINED,
+    ID_SLOT_1,
+    ID_SLOT_2,
+    ID_SLOT_3,
+    ID_SLOT_4,
+    ID_SLOT_5,
+    ID_SLOT_6,
+    ID_SLOT_7,
+    ID_SLOT_8,
     ID_MAIN_INV_SELECTOR,
     ID_LEN
 } component_id_t;

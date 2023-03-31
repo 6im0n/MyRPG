@@ -55,4 +55,10 @@ sfFloatRect rect, component_type_t type, component_styles style);
 void set_component_text(node_component_t *component,
 char *string, sfColor color, int size);
 
+/**
+ * @brief Set id for inventory object
+ * @param node node components
+ */
+void inventory_object_add_id(node_component_t *node);
+
 #endif /* !NEW_H_ */
