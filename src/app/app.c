@@ -11,7 +11,6 @@
 #include "app/constants.h"
 #include "app/ressources.h"
 #include "components/components.h"
-#include "lib/output.h"
 
 int app_run(void)
 {
@@ -24,10 +23,6 @@ int app_run(void)
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);
-        if (app.state->sound->mute == true)
-            my_printf("ON\n");
-        else
-            my_printf("OFF\n");
     }
     components_free(&components);
     ressources_unload(&ressources);

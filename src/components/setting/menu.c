@@ -41,5 +41,8 @@ renderer_objects_t objects, list_components_t *list)
     components_menu_setting_selector_sound(app, ressources, objects, list);
     components_menu_setting_selector_sound_title(app, ressources,
         objects, list);
+    components_menu_setting_selector_volume(app, ressources, objects, list);
+    components_menu_setting_selector_volume_cursor(app, ressources, objects,
+        list);
     return list;
 }
