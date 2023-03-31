@@ -8,7 +8,8 @@
 #include "types/types.h"
 #include "components/components.h"
 #include <stdbool.h>
-#include "lib/output.h"
+#include "lib/tools.h"
+#include "lib/str.h"
 
 void event_settings_selector_mute_onclick(node_component_t *component,
 event_t *event, app_t *app)
@@ -18,6 +19,18 @@ event_t *event, app_t *app)
     if (ST_IS_PRESSED(component))
         app->state->sound->mute = !app->state->sound->mute;
     component->features.select = app->state->sound->mute;
+}
+
+static void set_volume_string(node_component_t *component, int volume)
+{
+    node_component_t *next = component->next;
+    char *string = malloc(my_nbrlen(volume) + 3);
+
+    if (!next || next->id != ID_VOLUME_CURSOR)
+        return;
+    my_strcpy(string, my_char(volume));
+    my_strcat(string, " %\0");
+    sfText_setString(next->object->text, string);
 }
 
 void event_settings_selector_volume_onclick(node_component_t *component,
@@ -39,6 +52,7 @@ event_t *event, app_t *app)
         sfRectangleShape_setPosition(component->object->rectangle, pos);
         volume = ((pos.x - prev.left) / prev.width) * 100;
         app->state->sound->volume = volume;
+        set_volume_string(component, volume);
     }
 }
 
@@ -49,5 +63,6 @@ event_t *event, app_t *app)
     (void) app;
     sfFloatRect rect =
         sfRectangleShape_getGlobalBounds(component->object->rectangle);
+
     component->features.rendered_rect = rect;
 }

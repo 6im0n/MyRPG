@@ -15,6 +15,8 @@ _SRC =			output/my_printf.c \
 				str/strdup.c \
 				str/strcat.c \
 				\
+				tools/my_nbrlen.c \
+				tools/my_converse.c \
 
 SRCDIR =		src/
 
