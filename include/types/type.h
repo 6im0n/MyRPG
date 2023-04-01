@@ -18,7 +18,9 @@
 
 typedef enum e_stage_type {
     S_MENU_START,
+    S_SETTINGS,
     S_MENU_HELP,
+    S_INVENTORY,
     S_LEN
 } stage_t;
 
@@ -32,6 +34,7 @@ typedef struct s_sounds {
 
 typedef struct s_states {
     stage_t stage;
+    stage_t back;
     bool transition;
     sounds_t *sound;
 } state_t;

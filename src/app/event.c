@@ -42,6 +42,12 @@ event_t *event, main_components_t *components)
     case S_MENU_HELP:
         components_dispatch_event(components->help_menu, event, app);
         break;
+    case S_INVENTORY:
+        components_dispatch_event(components->inventory, event, app);
+        break;
+    case S_SETTINGS:
+        components_dispatch_event(components->setting, event, app);
+        break;
     default:
         break;
     }

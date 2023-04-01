@@ -5,31 +5,31 @@
 ** bouton
 */
 
-#ifndef EVENT_START_MENU_BOUTON_H_
-    #define EVENT_START_MENU_BOUTON_H_
+#ifndef EVENT_INVENTORY_H_
+    #define EVENT_INVENTORY_H_
 
     #include "types/types.h"
     #include "components/components.h"
 
 /**
- * @brief On click action for bouton play
+ * @brief Open inventory when Key E PRESSED
  * @param component Component
  * @param event Event
  * @param app App
  */
-void event_bouton_play_onclick(node_component_t *component,
+void event_key_inventory_open_onkeypressed(node_component_t *component,
 event_t *event, app_t *app);
 
 /**
- * @brief On click action for bouton help
+ * @brief Close inventory when Key E PRESSED
  * @param component Component
  * @param event Event
  * @param app App
  */
-void event_bouton_help_onclick(node_component_t *component,
+void event_key_inventory_close_onkeypressed(node_component_t *component,
 event_t *event, app_t *app);
 
-void event_menu_onkeypress(node_component_t *component,
+void event_selector_onpress(node_component_t *component,
 event_t *event, app_t *app);
 
-#endif /* !EVENT_START_MENU_BOUTON_H_ */
+#endif /* !EVENT_INVENTORY_H_ */

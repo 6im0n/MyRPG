@@ -15,7 +15,8 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_DIALOG_MENU_BGR] = "assets/dialog/setting_menu.png",
     [TX_BACKGROUND_MENU] = "assets/dialog/menu_background.png",
     [TX_MENU_ALL] = "assets/dialog/menu_all.png",
-    [TX_SHIP] = "assets/ship/sprPlayer_strip16.png"
+    [TX_SHIP] = "assets/ship/sprPlayer_strip16.png",
+    [TX_INVENTORY_COMPO] = "assets/dialog/Inventory_background.png"
 };
 
 #endif /* !RESSOURCES_TEXTURES_LOADERS_H_ */

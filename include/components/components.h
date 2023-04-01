@@ -23,8 +23,25 @@ typedef enum e_component_size {
     C_SIZE_MEDIUM,
     C_SIZE_BIG,
     C_SIZE_MAX,
+    C_SIZE_TOP_MEDIUM,
     C_SIZE_LEN
 } component_size_t;
+
+typedef enum e_id_component {
+    ID_UNDEFINED,
+    ID_SLOT_1,
+    ID_SLOT_2,
+    ID_SLOT_3,
+    ID_SLOT_4,
+    ID_SLOT_5,
+    ID_SLOT_6,
+    ID_SLOT_7,
+    ID_SLOT_8,
+    ID_SELECTOR,
+    ID_MAIN_INV_SELECTOR,
+    ID_VOLUME_CURSOR,
+    ID_LEN
+} component_id_t;
 
 typedef enum e_component_type {
     C_UNDEFINED,
@@ -58,10 +75,12 @@ typedef struct s_component_features {
     component_size_t size;
     sfFloatRect rendered_rect;
     sfIntRect texture_rect;
+    bool select;
 } component_feat_t;
 
 typedef struct s_node_components {
     int state;
+    component_id_t id;
     component_type_t type;
     renderer_objects_t *object;
     component_feat_t features;
@@ -80,6 +99,8 @@ typedef struct s_main_components {
     list_components_t *start_menu;
     list_components_t *help_menu;
     list_components_t *game;
+    list_components_t *inventory;
+    list_components_t *setting;
 } main_components_t;
 
 /**
@@ -151,5 +172,10 @@ event_t *event, app_t *app);
     #define ST_SET_MOVED(component, x) (\
     x ? (ST_SET(component, ST_MOVED)) : (ST_UNSET(component, ST_MOVED)))
     #define ST_IS_MOVED(component) (component->state & (1 << ST_MOVED))
+
+    #define ST_NEAR 6
+    #define ST_SET_NEAR(component, x) (\
+    x ? (ST_SET(component, ST_NEAR)) : (ST_UNSET(component, ST_NEAR)))
+    #define ST_IS_NEAR(component) (component->state & (1 << ST_NEAR))
 
 #endif /* !COMPONENTS_H_ */

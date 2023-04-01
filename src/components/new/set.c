@@ -6,6 +6,15 @@
 */
 
 #include "components/components.h"
+#include <stdbool.h>
+
+void inventory_object_add_id(node_component_t *node)
+{
+    for (int i = 0; i <= ID_SLOT_8 - 1; i++) {
+        node->id = ID_SLOT_1 + i;
+        node = node->prev;
+    }
+}
 
 void new_component_set(node_component_t *component,
 sfFloatRect rect, component_type_t type, component_styles style)
@@ -19,6 +28,8 @@ sfFloatRect rect, component_type_t type, component_styles style)
     component->features.rendered_rect = rect;
     component->features.size = C_SIZE_MEDIUM;
     component->features.texture_rect = intrect;
+    component->features.select = false;
+    component->id = ID_UNDEFINED;
     component->type = type;
     component->state = 0;
     component->next = NULL;
