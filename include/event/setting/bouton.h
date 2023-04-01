@@ -56,4 +56,13 @@ event_t *event, app_t *app);
 void event_settings_mouse_onclick(node_component_t *component,
 event_t *event, app_t *app);
 
+void event_settings_resolution1_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_settings_resolution2_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_settings_resolution3_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_SETTING_H_ */

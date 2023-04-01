@@ -24,14 +24,15 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {100, 60};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_MENU_ALL, SD_NONE, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
-    new_component_set(obj, rect, C_TYPES_BUTTON, style);
+    new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, objects, position);
-    new_component_size(obj, size,
-        (sfIntRect){.height = 18, .left = 434, .top = 103, .width = 28},
-        C_SIZE_TOP_MEDIUM);
+    new_component_size(obj, size, (sfIntRect){.height = 18, .left = 434,
+                            .top = 103, .width = 28}, C_SIZE_TOP_MEDIUM);
+    set_component_text(obj, "Music", sfBlack, 50);
+    set_component_text_pos(obj, (sfVector2f){ 148, -5}, 2);
     obj->id = ID_SELECTOR;
     obj->features.select = true;
     obj->events.onclick = &event_settings_selector_mute_onclick;
@@ -78,14 +79,13 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {30, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_MENU_ALL, SD_NONE, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, objects, position);
-    new_component_size(obj, size,
-        (sfIntRect){.height = 21, .left = 65, .top = 197, .width = 14},
-        C_SIZE_TOP_MEDIUM);
+    new_component_size(obj, size, (sfIntRect){.height = 21, .left = 65,
+                            .top = 197, .width = 14}, C_SIZE_TOP_MEDIUM);
     obj->events.onmove = &event_settings_selector_volume_onclick;
     obj->events.onnonclick = &event_settings_selector_volume_onnonclick;
     obj->events.ondisabled = &event_settings_selector_volume_ondisabled;

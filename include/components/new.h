@@ -56,6 +56,15 @@ void set_component_text(node_component_t *component,
 char *string, sfColor color, int size);
 
 /**
+ * @brief Set the component text position
+ * @param component component
+ * @param position position
+ * @param middle for center the text
+ */
+void set_component_text_pos(node_component_t *component,
+sfVector2f position, int middle);
+
+/**
  * @brief Set id for inventory object
  * @param node node components
  */

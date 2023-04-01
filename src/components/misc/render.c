@@ -21,6 +21,10 @@ node_component_t *component)
             sfRenderWindow_drawSprite(app->window,
             component->object->sprite, NULL);
             break;
+        case C_TYPES_BTN_TXT:
+            render_button_effect(app, component);
+            sfRenderWindow_drawText(app->window,
+            component->object->text, NULL);
         default:
             break;
     }

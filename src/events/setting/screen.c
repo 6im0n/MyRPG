@@ -14,9 +14,7 @@
 void event_settings_fullscreen_onclick(node_component_t *component,
 event_t *event, app_t *app)
 {
-    (void) component;
     (void) event;
-    (void) app;
     sfVideoMode mode = sfVideoMode_getDesktopMode();
 
     if (component->features.select == false) {
@@ -49,5 +47,53 @@ event_t *event, app_t *app)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
     else
         sfRenderWindow_setMouseCursorVisible(app->window, sfTrue);
+    component->state = ST_SET_CLICKED(component, false);
+}
+
+void event_settings_resolution1_onclick(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) event;
+    sfVideoMode mode = {1920, 1080, 32};
+
+    sfRenderWindow_destroy(app->window);
+    app->window = sfRenderWindow_create(mode, W_TITLE,
+        sfResize | sfClose, NULL);
+    sfRenderWindow_setFramerateLimit(app->window, app->state->framerate);
+    sfRenderWindow_clear(app->window, W_COLOR);
+    if (app->mouse.custom == true)
+        sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
+    component->state = ST_SET_CLICKED(component, false);
+}
+
+void event_settings_resolution2_onclick(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) event;
+    sfVideoMode mode = {1440, 900, 32};
+    sfRenderWindow_destroy(app->window);
+
+    app->window = sfRenderWindow_create(mode, W_TITLE,
+        sfResize | sfClose, NULL);
+    sfRenderWindow_setFramerateLimit(app->window, app->state->framerate);
+    sfRenderWindow_clear(app->window, W_COLOR);
+    if (app->mouse.custom == true)
+        sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
+    component->state = ST_SET_CLICKED(component, false);
+}
+
+void event_settings_resolution3_onclick(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) event;
+    sfVideoMode mode = {44340, 12679, 32};
+
+    sfRenderWindow_destroy(app->window);
+    app->window = sfRenderWindow_create(mode, W_TITLE,
+        sfResize | sfClose, NULL);
+    sfRenderWindow_setFramerateLimit(app->window, app->state->framerate);
+    sfRenderWindow_clear(app->window, W_COLOR);
+    if (app->mouse.custom == true)
+        sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
     component->state = ST_SET_CLICKED(component, false);
 }

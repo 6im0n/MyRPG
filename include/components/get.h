@@ -168,9 +168,6 @@ renderer_objects_t objects, list_components_t *list);
 void components_menu_setting_selector_sound(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
-void components_menu_setting_selector_sound_title(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list);
-
 void components_menu_setting_selector_volume(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
@@ -180,20 +177,11 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 void components_setting_bouton_quit(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
-void components_setting_bouton_quit_title(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list);
-
 void components_setting_bouton_resume(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
-void components_setting_bouton_resume_title(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list);
-
 void components_setting_bouton_fullscreen(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
-
-void components_setting_bouton_fullscreen_title(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
 void components_menu_setting_selector_framelimit(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
@@ -207,7 +195,13 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 void components_menu_setting_selector_framerate_title(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
-void components_menu_setting_cursor_title(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+void components_resolution_1(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_resolution_2(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_resolution_3(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
 
 #endif /* !GET_COMPONENTS_H_ */
