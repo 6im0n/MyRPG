@@ -177,4 +177,16 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 void components_menu_setting_selector_volume_cursor(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
+void components_setting_bouton_quit(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_setting_bouton_quit_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_setting_bouton_resume(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_setting_bouton_resume_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
 #endif /* !GET_COMPONENTS_H_ */

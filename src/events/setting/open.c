@@ -27,3 +27,11 @@ event_t *event, app_t *app)
     if (sfKeyboard_isKeyPressed(sfKeyEscape))
         app->state->stage = app->state->back;
 }
+
+void event_close_onclick(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) component;
+    (void) event;
+    app->state->stage = app->state->back;
+}

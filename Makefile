@@ -43,6 +43,7 @@ _SRC =			main.c \
 				components/setting/get.c \
 				components/setting/menu.c \
 				components/setting/sound.c \
+				components/setting/bouton.c \
 				\
 				events/cursor.c \
 				events/setting/open.c \
