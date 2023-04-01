@@ -81,7 +81,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
 
     obj->events = (component_events_t) { NULL };
-    new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
+    new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 21, .left = 65, .top = 197, .width = 14},
