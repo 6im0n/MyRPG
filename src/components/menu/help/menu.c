@@ -61,6 +61,9 @@ list_components_t *components_menu_help(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
     menu_background(app, ressources, objects, list);
+    components_help_bouton_move(app, ressources, objects, list);
+    components_help_command_setting(app, ressources, objects, list);
+    components_help_command_inventory(app, ressources, objects, list);
     bouton_home(app, ressources, objects, list);
     component_cursor_default(app, ressources, objects, list);
     return list;

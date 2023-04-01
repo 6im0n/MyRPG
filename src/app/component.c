@@ -36,7 +36,7 @@ renderer_objects_t objects, main_components_t *components)
     list_components_t *mhelp_menu = list_components_init();
 
     mhelp_menu->id = S_MENU_HELP;
-    fhelp_menu->events.onkeypress = &event_menu_onkeypress;
+    fhelp_menu->events.onkeypress = &event_menu_help_onkeypress;
     list_component_append(mhelp_menu, fhelp_menu);
     components->help_menu = mhelp_menu;
     components_get_help_menu(app, ressources, objects, mhelp_menu);
