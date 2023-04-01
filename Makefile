@@ -44,10 +44,13 @@ _SRC =			main.c \
 				components/setting/menu.c \
 				components/setting/sound.c \
 				components/setting/bouton.c \
+				components/setting/screen.c \
 				\
 				events/cursor.c \
 				events/setting/open.c \
-				events/setting/selector.c \
+				events/setting/screen.c \
+				events/setting/volume.c \
+				events/setting/framerate.c \
 				events/menu/start/bouton.c \
 				events/menu/help/bouton.c \
 				events/inventory/select.c \

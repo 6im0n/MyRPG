@@ -14,31 +14,30 @@
 #include "components/get.h"
 #include "event/setting/bouton.h"
 
-void components_menu_setting_selector_sound(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list)
+void components_setting_bouton_fullscreen(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
-        320};
-    sfVector2f position = {middle.x, middle.y };
+    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 200,
+        480};
     sfVector2f size = {100, 60};
-    sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
-                        .top = (position.y - size.y), .width = size.x};
+    sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
+        .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
 
-    obj->events = (component_events_t) { NULL };
+    (void) app;
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 18, .left = 434, .top = 103, .width = 28},
         C_SIZE_TOP_MEDIUM);
     obj->id = ID_SELECTOR;
-    obj->features.select = true;
-    obj->events.onclick = &event_settings_selector_mute_onclick;
+    obj->features.select = false;
+    obj->events.onclick = &event_settings_fullscreen_onclick;
     list_component_append(list, obj);
 }
 
-void components_menu_setting_selector_sound_title(app_t *app,
+void components_setting_bouton_fullscreen_title(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
@@ -50,23 +49,24 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_DROID };
 
     (void) app;
-    position.x += 120;
+    position.x += 170;
     position.y -= 22;
     new_component_set(obj, rect, C_TYPES_TEXT, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);
-    set_component_text(obj, "Music", sfBlack, 50);
+    set_component_text(obj, "FullScreen", sfBlack, 50);
+    obj->id = ID_VOLUME_CURSOR;
     list_component_append(list, obj);
 }
 
-void components_menu_setting_selector_volume(app_t *app,
+void components_menu_setting_selector_framelimit(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
-        400};
+        560};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {250, 15};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
@@ -82,22 +82,22 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
-static sfVector2f find_position_volume(app_t *app, list_components_t *list)
+static sfVector2f find_position_framelimit(app_t *app, list_components_t *list)
 {
     sfVector2f position = sfRectangleShape_getPosition(
         list->last->object->rectangle);
     sfFloatRect rect = list->last->features.rendered_rect;
-    int pourcentage = (rect.width / 100) * app->state->sound->volume;
+    int pourcentage = (rect.width / 265) * app->state->framerate;
 
     position.x = rect.left + pourcentage;
     return position;
 }
 
-void components_menu_setting_selector_volume_cursor(app_t *app,
+void components_menu_setting_selector_framelimit_cursor(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = find_position_volume(app, list);
+    sfVector2f position = find_position_framelimit(app, list);
     sfVector2f size = {30, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
@@ -109,8 +109,8 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     new_component_size(obj, size,
         (sfIntRect){.height = 21, .left = 65, .top = 197, .width = 14},
         C_SIZE_TOP_MEDIUM);
-    obj->events.onmove = &event_settings_selector_volume_onclick;
-    obj->events.onnonclick = &event_settings_selector_volume_onnonclick;
-    obj->events.ondisabled = &event_settings_selector_volume_ondisabled;
+    obj->events.onmove = &event_settings_selector_framerate_onclick;
+    obj->events.onnonclick = &event_settings_selector_framerate_onnonclick;
+    obj->events.ondisabled = &event_settings_selector_framerate_ondisabled;
     list_component_append(list, obj);
 }

@@ -37,6 +37,7 @@ typedef struct s_states {
     stage_t back;
     bool transition;
     sounds_t *sound;
+    int framerate;
 } state_t;
 
 //==================================================

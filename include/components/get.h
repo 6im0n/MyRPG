@@ -189,4 +189,16 @@ renderer_objects_t objects, list_components_t *list);
 void components_setting_bouton_resume_title(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
+void components_setting_bouton_fullscreen(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_setting_bouton_fullscreen_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_framelimit(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_framelimit_cursor(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
 #endif /* !GET_COMPONENTS_H_ */

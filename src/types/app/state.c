@@ -7,6 +7,7 @@
 
 #include "types/type.h"
 #include <stdlib.h>
+#include "app/constants.h"
 
 state_t *state_new(void)
 {
@@ -24,6 +25,7 @@ state_t *state_new(void)
     state->sound->mute = true;
     state->sound->stage_level = 0;
     state->sound->volume = 50;
+    state->framerate = W_FRAMERATE;
     state->transition = false;
     return state;
 }
