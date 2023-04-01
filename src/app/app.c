@@ -11,6 +11,7 @@
 #include "app/constants.h"
 #include "app/ressources.h"
 #include "components/components.h"
+#include "lib/output.h"
 
 int app_run(void)
 {

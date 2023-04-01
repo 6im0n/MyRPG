@@ -30,9 +30,10 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
-        (sfIntRect){.height = 18, .left = 434, .top = 103, .width = 28},
+        (sfIntRect){.height = 18, .left = 434, .top = 71, .width = 28},
         C_SIZE_TOP_MEDIUM);
     obj->id = ID_SELECTOR;
+    obj->features.select = true;
     obj->events.onclick = &event_settings_selector_mute_onclick;
     list_component_append(list, obj);
 }

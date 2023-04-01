@@ -21,7 +21,7 @@ state_t *state_new(void)
     state->sound = malloc(sizeof(sounds_t));
     state->sound->new = sounds_new;
     state->sound->old = sounds_old;
-    state->sound->mute = false;
+    state->sound->mute = true;
     state->sound->stage_level = 0;
     state->sound->volume = 50;
     state->transition = false;

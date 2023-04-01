@@ -36,13 +36,13 @@ sfIntRect defaul)
 
 static void is_selector(node_component_t *component, sfIntRect defaul)
 {
-    sfIntRect select = {defaul.left, defaul.top - 32,
+    sfIntRect select = {defaul.left, defaul.top + 32,
         defaul.width, defaul.height};
 
     if (component->features.select == true)
-        sfRectangleShape_setTextureRect(component->object->rectangle, select);
-    else
         sfRectangleShape_setTextureRect(component->object->rectangle, defaul);
+    else
+        sfRectangleShape_setTextureRect(component->object->rectangle, select);
 }
 
 void render_button_effect(app_t *app, node_component_t *component)
