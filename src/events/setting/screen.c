@@ -34,6 +34,7 @@ event_t *event, app_t *app)
     sfRenderWindow_clear(app->window, W_COLOR);
     if (app->mouse.custom == true)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
+    component->state = ST_SET_CLICKED(component, false);
 }
 
 void event_settings_mouse_onclick(node_component_t *component,
@@ -48,4 +49,5 @@ event_t *event, app_t *app)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
     else
         sfRenderWindow_setMouseCursorVisible(app->window, sfTrue);
+    component->state = ST_SET_CLICKED(component, false);
 }
