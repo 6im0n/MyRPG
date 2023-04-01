@@ -29,7 +29,8 @@ node_component_t *component)
 static void component_render_dispatch_form(app_t *app,
 node_component_t *component, list_components_t *components)
 {
-    if (component->id == ID_CURSOR && components->id != app->state->stage)
+    if ((component->id == ID_CURSOR && components->id != app->state->stage) ||
+        (component->id == ID_CURSOR && app->mouse.custom == false))
         return;
     switch (component->type) {
         case C_TYPES_RECTANGLE:

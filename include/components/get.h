@@ -201,4 +201,13 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 void components_menu_setting_selector_framelimit_cursor(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
+void components_menu_setting_selector_volume_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_framerate_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_cursor_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
 #endif /* !GET_COMPONENTS_H_ */

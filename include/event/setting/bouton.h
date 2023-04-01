@@ -53,4 +53,7 @@ event_t *event, app_t *app);
 void event_settings_selector_framerate_onnonclick(node_component_t *component,
 event_t *event, app_t *app);
 
+void event_settings_mouse_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_SETTING_H_ */

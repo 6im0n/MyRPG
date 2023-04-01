@@ -45,6 +45,7 @@ typedef struct s_states {
 //==================================================
 
 typedef struct s_mouse {
+    bool custom;
     bool pressed;
     sfVector2f press_position;
     sfVector2f last_move_position;
