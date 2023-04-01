@@ -15,7 +15,8 @@ event_t *event, app_t *app)
 {
     (void) component;
     (void) event;
-    app->state->back = app->state->stage;
+    if (app->state->stage != S_INVENTORY && app->state->stage != S_SETTINGS)
+        app->state->back = app->state->stage;
     app->state->stage = S_SETTINGS;
 }
 

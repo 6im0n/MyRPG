@@ -42,6 +42,21 @@ sfVector2f size, sfIntRect rect)
     sfText_getGlobalBounds(component->object->text);
 }
 
+static void other_dispatch(node_component_t *component,
+sfVector2f size, sfIntRect rect)
+{
+    switch (component->type) {
+    case C_TYPES_CIRCLE:
+        init_circle(component, size, rect);
+        break;
+    case C_TYPES_TEXT:
+        init_text(component, size, rect);
+        break;
+    default:
+        break;
+    }
+}
+
 void new_component_size(node_component_t *component,
 sfVector2f size, sfIntRect rect, component_size_t e_size)
 {
@@ -53,16 +68,12 @@ sfVector2f size, sfIntRect rect, component_size_t e_size)
             init_rectangle(component, size, rect);
             break;
         case C_TYPES_BTN_TXT:
+        case C_TYPES_SIGN:
             init_text(component, size, rect);
             init_rectangle(component, size, rect);
             break;
-        case C_TYPES_CIRCLE:
-            init_circle(component, size, rect);
-            break;
-        case C_TYPES_TEXT:
-            init_text(component, size, rect);
-            break;
         default:
+            other_dispatch(component, size, rect);
             break;
     }
 }

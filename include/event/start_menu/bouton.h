@@ -38,4 +38,16 @@ event_t *event, app_t *app);
 void event_bouton_help_move_ondisabled(node_component_t *component,
 event_t *event, app_t *app);
 
+void event_bouton_help_open_inventory_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_bouton_help_close_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_bouton_help_onhover(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_bouton_help_ondisabled(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_START_MENU_BOUTON_H_ */

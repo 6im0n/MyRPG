@@ -54,7 +54,7 @@ renderer_objects_t objects, list_components_t *list)
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 837, .top = 164, .width = 22},
         C_SIZE_SMALL);
-    set_component_text(obj, "Resume", sfBlack, 30);
+    set_component_text(obj, "Close settings", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, 15}, 3);
     obj->events.onclick = &event_close_onclick;
     list_component_append(list, obj);

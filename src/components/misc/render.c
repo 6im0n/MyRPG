@@ -13,6 +13,7 @@ static void component_render_dispatch(app_t *app,
 node_component_t *component)
 {
     switch (component->type) {
+        case C_TYPES_SIGN:
         case C_TYPES_TEXT:
             sfRenderWindow_drawText(app->window,
             component->object->text, NULL);
@@ -38,6 +39,7 @@ node_component_t *component, list_components_t *components)
         return;
     switch (component->type) {
         case C_TYPES_RECTANGLE:
+        case C_TYPES_SIGN:
             sfRenderWindow_drawRectangleShape(app->window,
             component->object->rectangle, NULL);
             break;

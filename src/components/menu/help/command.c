@@ -32,7 +32,6 @@ renderer_objects_t objects, list_components_t *list)
                                         .top = 11, .width = 26}, C_SIZE_BIG);
     set_component_text(obj, "Escape", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, -12}, 0);
-    obj->events.onclick = &event_settings_open_onclick;
     list_component_append(list, obj);
 }
 
@@ -48,7 +47,7 @@ renderer_objects_t objects, list_components_t *list)
     component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_DROID };
 
     (void) app;
-    new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
+    new_component_set(obj, rect, C_TYPES_SIGN, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,(sfIntRect){.height = 122, .left = 139,
                                         .top = 12, .width = 106}, C_SIZE_BIG);
@@ -76,7 +75,6 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
                                         .top = 11, .width = 26}, C_SIZE_BIG);
     set_component_text(obj, "E", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, -12}, 0);
-    obj->events.onclick = &event_bouton_help_onclick;
     list_component_append(list, obj);
 }
 
@@ -92,7 +90,7 @@ renderer_objects_t objects, list_components_t *list)
     component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_DROID };
 
     (void) app;
-    new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
+    new_component_set(obj, rect, C_TYPES_SIGN, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,(sfIntRect){.height = 122, .left = 139,
                                         .top = 12, .width = 106}, C_SIZE_BIG);

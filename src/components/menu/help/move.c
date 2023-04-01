@@ -108,7 +108,7 @@ renderer_objects_t objects, list_components_t *list)
     component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_DROID };
 
     (void) app;
-    new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
+    new_component_set(obj, rect, C_TYPES_SIGN, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,(sfIntRect){.height = 122, .left = 139,
                                         .top = 12, .width = 106}, C_SIZE_BIG);

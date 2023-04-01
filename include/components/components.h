@@ -49,6 +49,7 @@ typedef enum e_component_type {
     C_TYPES_RECTANGLE,
     C_TYPES_BUTTON,
     C_TYPES_BTN_TXT,
+    C_TYPES_SIGN,
     C_TYPES_CIRCLE,
     C_TYPES_TEXT,
     C_TYPES_SPRITE,

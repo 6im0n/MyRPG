@@ -21,7 +21,9 @@ event_t *event, app_t *app)
     }
     if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
         app->state->back = app->state->stage;
-        app->state->stage = S_SETTINGS;
+        if (app->state->stage != S_INVENTORY &&
+            app->state->stage != S_SETTINGS)
+            app->state->stage = S_SETTINGS;
     }
 }
 
