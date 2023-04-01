@@ -32,8 +32,6 @@ static void set_text_origin(node_component_t *component,
 int middle)
 {
     sfFloatRect rectT = sfText_getGlobalBounds(component->object->text);
-    sfFloatRect rectR =
-        sfRectangleShape_getGlobalBounds(component->object->rectangle);
     sfVector2f origin = {0, 0};
 
     switch (middle) {
@@ -42,10 +40,10 @@ int middle)
             origin.y = rectT.height / 2;
             break;
         case 2:
-            origin.y = rectR.height / 2;
+            origin.y = rectT.height / 2;
             break;
         case 3:
-            origin.x = rectR.width / 2;
+            origin.x = rectT.width / 2;
             break;
         default:
             break;

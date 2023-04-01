@@ -52,6 +52,7 @@ _SRC =			main.c \
 				events/setting/screen.c \
 				events/setting/volume.c \
 				events/setting/framerate.c \
+				events/setting/hover.c \
 				events/menu/start/bouton.c \
 				events/menu/help/bouton.c \
 				events/inventory/select.c \

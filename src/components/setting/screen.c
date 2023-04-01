@@ -31,7 +31,7 @@ renderer_objects_t objects, list_components_t *list)
     new_component_size(obj, size, (sfIntRect){.height = 18, .left = 434,
                             .top = 103, .width = 28}, C_SIZE_TOP_MEDIUM);
     set_component_text(obj, "FullScreen", sfBlack, 50);
-    set_component_text_pos(obj, (sfVector2f){ 148, -5}, 2);
+    set_component_text_pos(obj, (sfVector2f){ 148, -22}, 2);
     obj->id = ID_SELECTOR;
     obj->features.select = false;
     obj->events.onclick = &event_settings_fullscreen_onclick;

@@ -65,4 +65,10 @@ event_t *event, app_t *app);
 void event_settings_resolution3_onclick(node_component_t *component,
 event_t *event, app_t *app);
 
+void event_settings_resolution_onhover(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_settings_resolution_ondisabled(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_SETTING_H_ */
