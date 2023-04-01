@@ -110,5 +110,6 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
         C_SIZE_TOP_MEDIUM);
     obj->events.onmove = &event_settings_selector_volume_onclick;
     obj->events.onnonclick = &event_settings_selector_volume_onnonclick;
+    obj->events.ondisabled = &event_settings_selector_volume_ondisabled;
     list_component_append(list, obj);
 }

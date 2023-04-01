@@ -16,9 +16,10 @@ event_t *event, app_t *app)
 {
     (void) component;
     (void) event;
-    if (ST_IS_PRESSED(component))
+    if (ST_IS_CLICKED(component))
         app->state->sound->mute = !app->state->sound->mute;
     component->features.select = app->state->sound->mute;
+    component->state = ST_SET_CLICKED(component, false);
 }
 
 static void set_volume_string(node_component_t *component, int volume)
@@ -31,6 +32,14 @@ static void set_volume_string(node_component_t *component, int volume)
     my_strcpy(string, my_char(volume));
     my_strcat(string, " %\0");
     sfText_setString(next->object->text, string);
+}
+
+void event_settings_selector_volume_ondisabled(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) event;
+    (void) app;
+    sfText_setString(component->next->object->text, "Volume");
 }
 
 void event_settings_selector_volume_onclick(node_component_t *component,

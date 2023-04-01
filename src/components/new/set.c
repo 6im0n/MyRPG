@@ -33,5 +33,6 @@ sfFloatRect rect, component_type_t type, component_styles style)
     component->type = type;
     component->state = 0;
     component->next = NULL;
-    component->events = (component_events_t) { NULL, NULL, NULL, NULL, NULL };
+    component->events = (component_events_t) { NULL, NULL, NULL,
+                                                NULL, NULL, NULL };
 }

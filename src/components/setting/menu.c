@@ -70,6 +70,7 @@ renderer_objects_t objects, list_components_t *list)
         ressources, objects, list);
     components_menu_setting_selector_volume_title(app,
         ressources, objects, list);
+    components_menu_start_bouton_quit(app, ressources, objects, list);
     component_cursor_default(app, ressources, objects, list);
     return list;
 }

@@ -23,7 +23,8 @@ node_component_t *component_pure_new(sfVector2u size)
     component->type = C_UNDEFINED;
     component->object = NULL;
     component->state = 0;
-    component->events = (component_events_t) { NULL, NULL, NULL, NULL, NULL };
+    component->events = (component_events_t) { NULL, NULL, NULL,
+                                                NULL, NULL, NULL };
     component->features.rendered_rect = rect;
     component->next = NULL;
     return component;

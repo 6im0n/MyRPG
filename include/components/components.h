@@ -63,6 +63,7 @@ typedef struct s_component_events {
     component_handler_t onmove;
     component_handler_t onnonclick;
     component_handler_t onkeypress;
+    component_handler_t ondisabled;
 } component_events_t;
 
 typedef struct s_component_styles {

@@ -23,6 +23,7 @@ _SRC =			main.c \
 				components/misc/effect_botton.c \
 				components/misc/events_dispatch.c \
 				components/misc/events_handlers.c \
+				components/misc/events_default.c \
 				components/misc/state.c \
 				components/new/set.c \
 				components/new/type.c \
