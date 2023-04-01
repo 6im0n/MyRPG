@@ -28,6 +28,7 @@ _SRC =			main.c \
 				components/new/type.c \
 				components/new/size.c \
 				components/new/text.c \
+				components/cursor.c \
 				\
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
@@ -42,6 +43,7 @@ _SRC =			main.c \
 				components/setting/menu.c \
 				components/setting/sound.c \
 				\
+				events/cursor.c \
 				events/setting/open.c \
 				events/setting/selector.c \
 				events/menu/start/bouton.c \

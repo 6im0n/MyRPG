@@ -40,6 +40,7 @@ typedef enum e_id_component {
     ID_SELECTOR,
     ID_MAIN_INV_SELECTOR,
     ID_VOLUME_CURSOR,
+    ID_CURSOR,
     ID_LEN
 } component_id_t;
 
@@ -93,6 +94,7 @@ typedef struct s_list_components {
     node_component_t *first;
     node_component_t *last;
     int len;
+    stage_t id;
 } list_components_t;
 
 typedef struct s_main_components {

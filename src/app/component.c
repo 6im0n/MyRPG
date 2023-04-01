@@ -21,6 +21,7 @@ renderer_objects_t objects, main_components_t *components)
     node_component_t *fstart_menu = component_pure_new(size);
     list_components_t *mstart_menu = list_components_init();
 
+    mstart_menu->id = S_MENU_START;
     fstart_menu->events.onkeypress = &event_menu_onkeypress;
     list_component_append(mstart_menu, fstart_menu);
     components->start_menu = mstart_menu;
@@ -34,6 +35,7 @@ renderer_objects_t objects, main_components_t *components)
     node_component_t *fhelp_menu = component_pure_new(size);
     list_components_t *mhelp_menu = list_components_init();
 
+    mhelp_menu->id = S_MENU_HELP;
     fhelp_menu->events.onkeypress = &event_menu_onkeypress;
     list_component_append(mhelp_menu, fhelp_menu);
     components->help_menu = mhelp_menu;
@@ -47,6 +49,7 @@ renderer_objects_t objects, main_components_t *components)
     node_component_t *finventory = component_pure_new(size);
     list_components_t *minventory = list_components_init();
 
+    minventory->id = S_INVENTORY;
     finventory->events.onkeypress = &event_key_inventory_close_onkeypressed;
     list_component_append(minventory, finventory);
     components->inventory = minventory;
@@ -60,6 +63,7 @@ renderer_objects_t objects, main_components_t *components)
     node_component_t *fsetting = component_pure_new(size);
     list_components_t *msetting = list_components_init();
 
+    msetting->id = S_SETTINGS;
     fsetting->events.onkeypress = &event_key_settings_close_onkeypressed;
     list_component_append(msetting, fsetting);
     components->setting = msetting;

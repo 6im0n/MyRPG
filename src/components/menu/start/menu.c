@@ -107,5 +107,6 @@ renderer_objects_t objects, list_components_t *list)
     components_menu_start_bouton_setting(app, ressources, objects, list);
     components_menu_start_bouton_quit(app, ressources, objects, list);
     menu_title(app, ressources, objects, list);
+    component_cursor_default(app, ressources, objects, list);
     return list;
 }

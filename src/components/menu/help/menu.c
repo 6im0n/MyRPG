@@ -12,6 +12,7 @@
 #include "types/list.h"
 #include "ressources/textures.h"
 #include "event/start_menu/bouton.h"
+#include "components/get.h"
 
 static void menu_background(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
@@ -61,5 +62,6 @@ renderer_objects_t objects, list_components_t *list)
 {
     menu_background(app, ressources, objects, list);
     bouton_home(app, ressources, objects, list);
+    component_cursor_default(app, ressources, objects, list);
     return list;
 }

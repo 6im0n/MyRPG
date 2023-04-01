@@ -11,6 +11,19 @@
     #include "types/type.h"
     #include "components/components.h"
 
+/**
+ * @brief Component cursor
+ * @param app App
+ * @param ressources Ressources
+ * @param objects Objects
+ * @param list List
+ */
+void component_cursor_default(app_t *app,ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void event_cursor_onmove(node_component_t *component,
+event_t *event, app_t *app);
+
 //==================================================
 // START MENU
 //==================================================

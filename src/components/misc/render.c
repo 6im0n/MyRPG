@@ -27,8 +27,10 @@ node_component_t *component)
 }
 
 static void component_render_dispatch_form(app_t *app,
-node_component_t *component)
+node_component_t *component, list_components_t *components)
 {
+    if (component->id == ID_CURSOR && components->id != app->state->stage)
+        return;
     switch (component->type) {
         case C_TYPES_RECTANGLE:
             sfRenderWindow_drawRectangleShape(app->window,
@@ -56,7 +58,7 @@ void app_component_render(app_t *app, list_components_t *components)
     (void) app;
     while (tmp != NULL) {
         tmp2 = tmp->next;
-        component_render_dispatch_form(app, tmp);
+        component_render_dispatch_form(app, tmp, components);
         component_render_dispatch(app, tmp);
         tmp = tmp2;
     }
