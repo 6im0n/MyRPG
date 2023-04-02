@@ -14,6 +14,7 @@
 #include "components/get.h"
 #include "event/setting/bouton.h"
 #include "event/start_menu/bouton.h"
+#include "event/global.h"
 
 static void menu_board(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
@@ -79,7 +80,7 @@ renderer_objects_t objects, list_components_t *list)
         .top = 164, .width = 22}, C_SIZE_SMALL);
     set_component_text(obj, "Help", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, 15}, 3);
-    obj->events.onclick = &event_bouton_play_onclick;
+    obj->events.onclick = &event_open_help_onclick;
     list_component_append(list, obj);
 }
 

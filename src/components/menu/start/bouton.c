@@ -13,6 +13,7 @@
 #include "ressources/textures.h"
 #include "event/start_menu/bouton.h"
 #include "event/setting/bouton.h"
+#include "event/global.h"
 
 void components_menu_start_bouton_play(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
@@ -49,7 +50,7 @@ renderer_objects_t objects, list_components_t *list)
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 709, .top = 164, .width = 22},
         C_SIZE_SMALL);
-    obj->events.onclick = &event_bouton_play_onclick;
+    obj->events.onclick = &event_open_help_onclick;
     list_component_append(list, obj);
 }
 
@@ -70,7 +71,7 @@ renderer_objects_t objects, list_components_t *list)
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 772, .top = 163, .width = 22},
         C_SIZE_SMALL);
-    obj->events.onclick = &event_setting_close_windows_onclick;
+    obj->events.onclick = &event_quit_app_onclick;
     list_component_append(list, obj);
 }
 
@@ -91,6 +92,6 @@ renderer_objects_t objects, list_components_t *list)
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 645, .top = 68, .width = 22},
         C_SIZE_SMALL);
-    obj->events.onclick = &event_settings_open_onclick;
+    obj->events.onclick = &event_open_setting_onclick;
     list_component_append(list, obj);
 }

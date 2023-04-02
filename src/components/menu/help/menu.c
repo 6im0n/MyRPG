@@ -14,6 +14,7 @@
 #include "event/start_menu/bouton.h"
 #include "components/get.h"
 #include "event/annimation.h"
+#include "event/global.h"
 
 static void menu_background(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
@@ -56,7 +57,7 @@ renderer_objects_t objects, list_components_t *list)
         C_SIZE_SMALL);
     set_component_text(obj, "Home", sfTransparent, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, 15}, 3);
-    obj->events.onclick = &event_bouton_help_onclick;
+    obj->events.onclick = &event_help_bouton_home_onclick;
     obj->events.onhover = &event_bouton_help_onhover;
     obj->events.ondisabled = &event_bouton_help_ondisabled;
     list_component_append(list, obj);
@@ -81,7 +82,7 @@ renderer_objects_t objects, list_components_t *list)
         C_SIZE_SMALL);
     set_component_text(obj, "Close", sfTransparent, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, 15}, 3);
-    obj->events.onclick = &event_bouton_help_close_onclick;
+    obj->events.onclick = &event_close_current_stage_onclick;
     obj->events.onhover = &event_bouton_help_onhover;
     obj->events.ondisabled = &event_bouton_help_ondisabled;
     list_component_append(list, obj);

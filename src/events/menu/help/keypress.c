@@ -57,11 +57,17 @@ event_t *event, app_t *app)
     (void) app;
 
     if (sfKeyboard_isKeyPressed(sfKeyE)) {
-        app->state->back = app->state->stage;
+        if (app->state->stage != S_INVENTORY &&
+            app->state->stage != S_MENU_HELP &&
+            app->state->stage != S_SETTINGS)
+            app->state->back = app->state->stage;
         app->state->stage = S_INVENTORY;
     }
     if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
-        app->state->back = app->state->stage;
+        if (app->state->stage != S_INVENTORY &&
+            app->state->stage != S_MENU_HELP &&
+            app->state->stage != S_SETTINGS)
+            app->state->back = app->state->stage;
         app->state->stage = S_SETTINGS;
     }
     event_key_switch(component->next->next->next, event, app);

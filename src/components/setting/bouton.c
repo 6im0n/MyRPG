@@ -13,6 +13,7 @@
 #include "ressources/textures.h"
 #include "event/start_menu/bouton.h"
 #include "event/setting/bouton.h"
+#include "event/global.h"
 
 void components_setting_bouton_quit(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
@@ -33,7 +34,7 @@ renderer_objects_t objects, list_components_t *list)
         C_SIZE_SMALL);
     set_component_text(obj, "Close the game", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, 15}, 3);
-    obj->events.onclick = &event_setting_close_windows_onclick;
+    obj->events.onclick = &event_quit_app_onclick;
     list_component_append(list, obj);
 }
 
@@ -56,7 +57,7 @@ renderer_objects_t objects, list_components_t *list)
         C_SIZE_SMALL);
     set_component_text(obj, "Close settings", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, 15}, 3);
-    obj->events.onclick = &event_close_onclick;
+    obj->events.onclick = &event_close_current_stage_onclick;
     list_component_append(list, obj);
 }
 

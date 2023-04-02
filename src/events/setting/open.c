@@ -10,16 +10,6 @@
 #include <stdio.h>
 #include "lib/str.h"
 
-void event_settings_open_onclick(node_component_t *component,
-event_t *event, app_t *app)
-{
-    (void) component;
-    (void) event;
-    if (app->state->stage != S_INVENTORY && app->state->stage != S_SETTINGS)
-        app->state->back = app->state->stage;
-    app->state->stage = S_SETTINGS;
-}
-
 void event_key_settings_close_onkeypressed(node_component_t *component,
 event_t *event, app_t *app)
 {
@@ -27,12 +17,4 @@ event_t *event, app_t *app)
     (void) event;
     if (sfKeyboard_isKeyPressed(sfKeyEscape))
         app->state->stage = app->state->back;
-}
-
-void event_close_onclick(node_component_t *component,
-event_t *event, app_t *app)
-{
-    (void) component;
-    (void) event;
-    app->state->stage = app->state->back;
 }

@@ -23,3 +23,19 @@ event_t *event, app_t *app)
     tmp->features.rendered_rect =
     sfRectangleShape_getGlobalBounds(tmp->object->rectangle);
 }
+
+void event_quit_app_onclick(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) component;
+    (void) event;
+    sfRenderWindow_close(app->window);
+}
+
+void event_close_current_stage_onclick(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) component;
+    (void) event;
+    app->state->stage = app->state->back;
+}
