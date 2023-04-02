@@ -10,39 +10,6 @@
 #include "types/renderer.h"
 #include "lib/output.h"
 
-static void annimation_edit(node_component_t *component)
-{
-    sfIntRect rect = component->features.texture_rect;
-    sfIntRect rect_a = component->annimation.rect;
-
-    if (component->annimation.index > component->annimation.max)
-        component->annimation.index = 0;
-    rect_a.height *= component->annimation.index;
-    rect_a.top *= component->annimation.index;
-    rect_a.left *= component->annimation.index;
-    rect_a.width *= component->annimation.index;
-    rect.height += rect_a.height;
-    rect.top += rect_a.top;
-    rect.left += rect_a.left;
-    rect.width += rect_a.width;
-    sfRectangleShape_setTextureRect(component->object->rectangle,
-        rect);
-    component->annimation.index++;
-}
-
-static void component_render_annimation(app_t *app,
-node_component_t *component)
-{
-    sfTime time = sfClock_getElapsedTime(component->object->clock);
-    float seconds = time.microseconds / 1000000.0;
-
-    (void) app;
-    if (seconds > component->annimation.speed) {
-        annimation_edit(component);
-        sfClock_restart(component->object->clock);
-    }
-}
-
 static void component_render_dispatch(app_t *app,
 node_component_t *component)
 {
@@ -60,6 +27,7 @@ node_component_t *component)
             render_button_effect(app, component);
             sfRenderWindow_drawText(app->window,
             component->object->text, NULL);
+            break;
         default:
             break;
     }
@@ -99,8 +67,7 @@ void app_component_render(app_t *app, list_components_t *components)
     (void) app;
     while (tmp != NULL) {
         tmp2 = tmp->next;
-        if (tmp->annimation.speed > 0)
-            component_render_annimation(app, tmp);
+        component_render_annimation(app, tmp);
         component_render_dispatch_form(app, tmp, components);
         component_render_dispatch(app, tmp);
         tmp = tmp2;
