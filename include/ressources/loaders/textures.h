@@ -18,7 +18,8 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_SHIP] = "assets/ship/sprPlayer_strip16.png",
     [TX_INVENTORY_COMPO] = "assets/dialog/Inventory_background.png",
     [TX_CHALICE] = "assets/dialog/chalice.png",
-    [TX_NATURE] = "assets/dialog/nature.png"
+    [TX_NATURE] = "assets/dialog/nature.png",
+    [TX_ALTAR] = "assets/dialog/altar.png"
 };
 
 #endif /* !RESSOURCES_TEXTURES_LOADERS_H_ */

@@ -13,7 +13,7 @@
 #include "ressources/textures.h"
 #include "event/start_menu/bouton.h"
 #include "components/get.h"
-#include "lib/output.h"
+#include "event/annimation.h"
 
 static void annimation_boat(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
@@ -33,8 +33,10 @@ renderer_objects_t objects, list_components_t *list)
         (sfIntRect){.height = 65, .left = 0, .top = 0, .width = 63},
         C_SIZE_MAX);
     new_component_annimation(obj, (sfIntRect){.height = 0, .left = 64,
-        .top = 0, .width = 0}, 4, 15);
+        .top = 0, .width = 0}, 10, 15);
     obj->annimation.speed = 0.15;
+    obj->events.onhover = &event_active_annimation;
+    obj->events.ondisabled = &event_pause_annimation;
     list_component_append(list, obj);
 }
 
@@ -58,6 +60,8 @@ renderer_objects_t objects, list_components_t *list)
     new_component_annimation(obj, (sfIntRect){.height = 0, .left = 64,
         .top = 0, .width = 0}, 0, 7);
     obj->annimation.speed = 0.1;
+    obj->events.onhover = &event_active_annimation;
+    obj->events.ondisabled = &event_pause_annimation;
     list_component_append(list, obj);
 }
 
@@ -81,6 +85,8 @@ renderer_objects_t objects, list_components_t *list)
     new_component_annimation(obj, (sfIntRect){.height = 0, .left = 64,
         .top = 0, .width = 0}, 0, 7);
     obj->annimation.speed = 0.1;
+    obj->events.onhover = &event_active_annimation;
+    obj->events.ondisabled = &event_pause_annimation;
     list_component_append(list, obj);
 }
 

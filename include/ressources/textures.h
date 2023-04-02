@@ -17,6 +17,7 @@ typedef enum e_texture {
     TX_CHALICE,
     TX_NATURE,
     TX_SHIP,
+    TX_ALTAR,
     TX_LEN
 } texture_t;
 

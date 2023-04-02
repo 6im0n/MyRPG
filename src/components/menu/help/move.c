@@ -18,7 +18,7 @@ static void components_help_bouton_up(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2, 220};
+    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2, 160};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
@@ -39,7 +39,7 @@ renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 60,
-        300};
+        240};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
@@ -60,7 +60,7 @@ renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2,
-        300};
+        240};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
@@ -81,7 +81,7 @@ renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 + 60,
-        300};
+        240};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
@@ -101,7 +101,8 @@ void components_help_bouton_move(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2, 260};
+    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2,
+        200};
     sfVector2f size = {350, 200};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};

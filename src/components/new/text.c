@@ -21,7 +21,8 @@ char *string, sfColor color, int size)
     sfText_setColor(component->object->text, color);
     sfText_setString(component->object->text, string);
     rect = sfText_getGlobalBounds(component->object->text);
-    if (component->type != C_TYPES_BTN_TXT)
+    if (component->type != C_TYPES_BTN_TXT &&
+        component->type != C_TYPES_SIGN)
         component->features.rendered_rect = rect;
     origin.x = rect.width / 2;
     origin.y = rect.height / 2;

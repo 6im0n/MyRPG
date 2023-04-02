@@ -53,6 +53,7 @@ _SRC =			main.c \
 				components/setting/title.c \
 				\
 				events/cursor.c \
+				events/annimation.c \
 				events/setting/open.c \
 				events/setting/screen.c \
 				events/setting/volume.c \

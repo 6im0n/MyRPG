@@ -9,6 +9,18 @@
 #include "components/components.h"
 #include "types/renderer.h"
 
+static void draw_render_annimation(node_component_t *component, sfIntRect rect)
+{
+    switch (component->type) {
+        case C_TYPES_SIGN:
+            sfRectangleShape_setTextureRect(component->object->rectangle,
+            rect);
+            break;
+        default:
+            break;
+    }
+}
+
 static void annimation_edit(node_component_t *component)
 {
     sfIntRect rect = component->features.texture_rect;
@@ -24,14 +36,7 @@ static void annimation_edit(node_component_t *component)
     rect.top += rect_a.top;
     rect.left += rect_a.left;
     rect.width += rect_a.width;
-    switch (component->type) {
-        case C_TYPES_SIGN:
-            sfRectangleShape_setTextureRect(component->object->rectangle,
-            rect);
-            break;
-        default:
-            break;
-    }
+    draw_render_annimation(component, rect);
     component->annimation.index++;
 }
 
@@ -60,5 +65,4 @@ node_component_t *component)
         default:
             break;
     }
-    
 }
