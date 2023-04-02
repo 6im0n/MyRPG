@@ -14,6 +14,8 @@ typedef enum e_texture {
     TX_BACKGROUND_MENU,
     TX_INVENTORY_COMPO,
     TX_MENU_ALL,
+    TX_CHALICE,
+    TX_NATURE,
     TX_SHIP,
     TX_LEN
 } texture_t;

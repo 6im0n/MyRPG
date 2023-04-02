@@ -99,7 +99,7 @@ void app_component_render(app_t *app, list_components_t *components)
     (void) app;
     while (tmp != NULL) {
         tmp2 = tmp->next;
-        if (tmp->annimation.speed != 0)
+        if (tmp->annimation.speed > 0)
             component_render_annimation(app, tmp);
         component_render_dispatch_form(app, tmp, components);
         component_render_dispatch(app, tmp);

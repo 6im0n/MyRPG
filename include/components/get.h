@@ -63,7 +63,7 @@ renderer_objects_t objects, list_components_t *list);
 void components_menu_start_bouton_quit(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
-void components_menu_start_ship(app_t *app, ressources_t ressources,
+void components_menu_start_annimation(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
 //==================================================
