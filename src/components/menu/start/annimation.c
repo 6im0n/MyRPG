@@ -60,8 +60,6 @@ renderer_objects_t objects, list_components_t *list)
     new_component_annimation(obj, (sfIntRect){.height = 0, .left = 64,
         .top = 0, .width = 0}, 0, 7);
     obj->annimation.speed = 0.1;
-    obj->events.onhover = &event_active_annimation;
-    obj->events.ondisabled = &event_pause_annimation;
     list_component_append(list, obj);
 }
 
@@ -86,7 +84,7 @@ renderer_objects_t objects, list_components_t *list)
         .top = 0, .width = 0}, 0, 7);
     obj->annimation.speed = 0.1;
     obj->events.onhover = &event_active_annimation;
-    obj->events.ondisabled = &event_pause_annimation;
+    obj->events.ondisabled = &event_disabled_annimation;
     list_component_append(list, obj);
 }
 
