@@ -24,7 +24,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {80, 80};
     sfFloatRect rect = {pos.x - (size.x / 2),
         (pos.y - (size.y / 2)), size.x, size.y};
-    component_styles style = { TX_INVENTORY_COMPO, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_INVENTORY_COMPO, SD_GRAB, FT_ARIAL };
 
     pos.y = middle.y - 150;
     pos.x = middle.x - 150;
@@ -49,7 +49,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {80, 80};
     sfFloatRect rect = {pos.x - (size.x / 2),
         (pos.y - (size.y / 2)), size.x, size.y};
-    component_styles style = { TX_INVENTORY_COMPO, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_INVENTORY_COMPO, SD_GRAB, FT_ARIAL };
 
     pos.x = middle.x + 150;
     pos.y = middle.y - 150;
@@ -74,7 +74,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {80, 80};
     sfFloatRect rect = {pos.x - (size.x / 2),
         (pos.y - (size.y / 2)), size.x, size.y};
-    component_styles style = { TX_INVENTORY_COMPO, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_INVENTORY_COMPO, SD_GRAB, FT_ARIAL };
 
     pos.y = middle.y + 150;
     pos.x = middle.x - 150;
@@ -99,7 +99,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {80, 80};
     sfFloatRect rect = {pos.x - (size.x / 2),
         (pos.y - (size.y / 2)), size.x, size.y};
-    component_styles style = { TX_INVENTORY_COMPO, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_INVENTORY_COMPO, SD_GRAB, FT_ARIAL };
 
     pos.y = middle.y + 150;
     pos.x = middle.x + 150;

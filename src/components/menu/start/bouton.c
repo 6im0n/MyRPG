@@ -23,7 +23,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {340, 90};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_ARIAL };
 
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, objects, position);
@@ -42,7 +42,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_ARIAL };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
@@ -63,7 +63,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_ARIAL };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
@@ -84,7 +84,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_ARIAL };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BUTTON, style);

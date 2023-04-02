@@ -17,7 +17,7 @@ renderer_objects_t renderer_objects_create(sfRenderWindow *window)
     sfView *view = sfView_create();
     sfClock *clock = sfClock_create();
     renderer_objects_t objects = {  window, view, sprite, text,
-                                    circle, rectangle, clock  };
+                                    circle, rectangle, clock, NULL  };
     return (objects);
 }
 

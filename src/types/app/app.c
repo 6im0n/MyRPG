@@ -25,6 +25,10 @@ char *window_title, int window_frame_rate)
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
     sfRenderWindow_clear(app.window, W_COLOR);
     sfRenderWindow_setMouseCursorVisible(app.window, sfFalse);
+    sfSound_setBuffer(app.state->sound->new,
+        ressources->sounds[SD_EXPLORATION]);
+    sfSound_setLoop(app.state->sound->new, sfTrue);
+    sfSound_play(app.state->sound->new);
     return (app);
 }
 

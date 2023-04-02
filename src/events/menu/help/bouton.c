@@ -8,6 +8,7 @@
 #include "types/types.h"
 #include "components/components.h"
 #include "lib/output.h"
+#include "event/global.h"
 
 void event_help_bouton_home_onclick(node_component_t *component,
 event_t *event, app_t *app)
@@ -15,6 +16,7 @@ event_t *event, app_t *app)
     (void) event;
     (void) app;
     (void) component;
+    event_play_music(component, app);
     app->state->stage = S_MENU_START;
 }
 

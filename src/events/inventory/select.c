@@ -9,6 +9,7 @@
 #include "components/components.h"
 #include <stdio.h>
 #include "lib/str.h"
+#include "event/global.h"
 
 void event_key_inventory_open_onkeypressed(node_component_t *component,
 event_t *event, app_t *app)
@@ -52,6 +53,7 @@ event_t *event, app_t *app)
 
     my_strcpy(string, "Slot  ");
     string[5] = component->id + '0';
+    event_play_music(component, app);
     while (component) {
         if (component->id == ID_MAIN_INV_SELECTOR) {
             sfRectangleShape_setPosition(component->object->rectangle, pos);

@@ -19,6 +19,10 @@ event_t *event, app_t *app)
     if (ST_IS_CLICKED(component))
         app->state->sound->mute = !app->state->sound->mute;
     component->features.select = app->state->sound->mute;
+    if (app->state->sound->mute == false)
+        sfSound_pause(app->state->sound->new);
+    else
+        sfSound_play(app->state->sound->new);
     component->state = ST_SET_CLICKED(component, false);
 }
 
@@ -62,6 +66,7 @@ event_t *event, app_t *app)
         volume = ((pos.x - prev.left) / prev.width) * 100;
         app->state->sound->volume = volume;
         set_volume_string(component, volume);
+        sfSound_setVolume(app->state->sound->new, volume);
     }
 }
 

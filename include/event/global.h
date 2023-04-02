@@ -46,4 +46,12 @@ event_t *event, app_t *app);
 void event_open_help_onclick(node_component_t *component,
 event_t *event, app_t *app);
 
+/**
+ * @brief Play music
+ * @param component component
+ * @param app app
+ */
+void event_play_music(node_component_t *component,
+app_t *app);
+
 #endif /* !EVENT_SETTINGS_H_ */

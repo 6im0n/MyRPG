@@ -12,7 +12,8 @@
 
 static const char *sounds_loaders[SD_LEN] = {
     [SD_NONE] = "assets/sounds/user/grab.ogg",
-    [SD_GRAB] = "assets/sounds/user/grab.ogg"
+    [SD_GRAB] = "assets/sounds/user/grab.ogg",
+    [SD_EXPLORATION] = "assets/sounds/move/exploration.ogg"
 };
 
 #endif /* !RESSOURCES_SOUNDS_LOADERS_H_ */

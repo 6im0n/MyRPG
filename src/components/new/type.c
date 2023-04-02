@@ -7,6 +7,16 @@
 
 #include "components/components.h"
 
+static void set_sound(ressources_t ressources, node_component_t *component)
+{
+    if (component->features.styles.sound == SD_NONE)
+        return;
+    component->object->sound = sfSound_create();
+    sfSound_setBuffer(
+        component->object->sound,
+        ressources.sounds[SD_GRAB]);
+}
+
 static void init_rectangle(node_component_t *component,
 ressources_t ressources, sfVector2f position)
 {
@@ -21,6 +31,7 @@ ressources_t ressources, sfVector2f position)
     sfRectangleShape_setTexture(component->object->rectangle,
         texture, sfFalse);
     sfRectangleShape_setOrigin(component->object->rectangle, origin);
+    set_sound(ressources, component);
 }
 
 static void init_circle(node_component_t *component,

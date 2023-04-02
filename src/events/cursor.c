@@ -10,6 +10,16 @@
 #include <stdio.h>
 #include "lib/str.h"
 
+void event_play_music(node_component_t *component,
+app_t *app)
+{
+    if (component->features.styles.sound == SD_NONE)
+        return;
+    sfSound_setVolume(component->object->sound,
+        app->state->sound->volume);
+    sfSound_play(component->object->sound);
+}
+
 void event_cursor_onmove(node_component_t *component,
 event_t *event, app_t *app)
 {
@@ -29,6 +39,7 @@ event_t *event, app_t *app)
 {
     (void) component;
     (void) event;
+    event_play_music(component, app);
     sfRenderWindow_close(app->window);
 }
 
@@ -37,5 +48,6 @@ event_t *event, app_t *app)
 {
     (void) component;
     (void) event;
+    event_play_music(component, app);
     app->state->stage = app->state->back;
 }

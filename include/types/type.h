@@ -87,6 +87,7 @@ typedef struct s_render_objects {
     sfCircleShape *circle;
     sfRectangleShape *rectangle;
     sfClock *clock;
+    sfSound *sound;
 } renderer_objects_t;
 
 typedef struct s_renderer {
