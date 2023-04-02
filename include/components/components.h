@@ -82,12 +82,20 @@ typedef struct s_component_features {
     bool select;
 } component_feat_t;
 
+typedef struct s_component_annimation {
+    sfIntRect rect;
+    int index;
+    int max;
+    float speed;
+} component_annimation_t;
+
 typedef struct s_node_components {
     int state;
     component_id_t id;
     component_type_t type;
     renderer_objects_t *object;
     component_feat_t features;
+    component_annimation_t annimation;
     component_events_t events;
     struct s_node_components *next;
     struct s_node_components *prev;

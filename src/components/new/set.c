@@ -29,6 +29,10 @@ sfFloatRect rect, component_type_t type, component_styles style)
     component->features.size = C_SIZE_MEDIUM;
     component->features.texture_rect = intrect;
     component->features.select = false;
+    component->annimation.index = 0;
+    component->annimation.max = 0;
+    component->annimation.speed = 0;
+    component->annimation.rect = intrect;
     component->id = ID_UNDEFINED;
     component->type = type;
     component->state = 0;

@@ -35,6 +35,7 @@ typedef struct s_sounds {
 typedef struct s_states {
     stage_t stage;
     stage_t back;
+    sfClock *clock;
     bool transition;
     sounds_t *sound;
     int framerate;
@@ -85,6 +86,7 @@ typedef struct s_render_objects {
     sfText *text;
     sfCircleShape *circle;
     sfRectangleShape *rectangle;
+    sfClock *clock;
 } renderer_objects_t;
 
 typedef struct s_renderer {

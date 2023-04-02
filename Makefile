@@ -29,11 +29,13 @@ _SRC =			main.c \
 				components/new/type.c \
 				components/new/size.c \
 				components/new/text.c \
+				components/new/annimation.c \
 				components/cursor.c \
 				\
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
 				components/menu/start/bouton.c \
+				components/menu/start/ship.c \
 				components/menu/help/get.c \
 				components/menu/help/menu.c \
 				components/menu/help/move.c \

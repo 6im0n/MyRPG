@@ -70,4 +70,14 @@ sfVector2f position, int middle);
  */
 void inventory_object_add_id(node_component_t *node);
 
+/**
+ * @brief Set annimation for object
+ * @param component component
+ * @param annimation annimation movement
+ * @param index index to start the annimation
+ * @param max max index
+ */
+void new_component_annimation(node_component_t *component,
+sfIntRect annimation, int index, int max);
+
 #endif /* !NEW_H_ */

@@ -23,6 +23,7 @@ state_t *state_new(void)
     state->sound->new = sounds_new;
     state->sound->old = sounds_old;
     state->sound->mute = true;
+    state->clock = sfClock_create();
     state->sound->stage_level = 0;
     state->sound->volume = 50;
     state->framerate = W_FRAMERATE;
@@ -34,6 +35,7 @@ void state_free(state_t *state)
 {
     sfSound_destroy(state->sound->old);
     sfSound_destroy(state->sound->new);
+    sfClock_destroy(state->clock);
     free(state->sound);
     free(state);
 }
