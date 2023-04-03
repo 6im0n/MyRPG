@@ -122,6 +122,5 @@ renderer_objects_t objects, list_components_t *list)
     bouton_home(app, ressources, objects, list);
     bouton_close(app, ressources, objects, list);
     annimation_altar(ressources, objects, list);
-    component_cursor_default(app, ressources, objects, list);
     return list;
 }

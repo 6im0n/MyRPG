@@ -30,6 +30,7 @@ renderer_objects_t objects, list_components_t *list)
     new_component_size(obj, size,
         (sfIntRect){.height = 27, .left = 163, .top = 210, .width = 90},
         C_SIZE_BIG);
+    obj->events.onclick = &event_open_load_game_onclick;
     list_component_append(list, obj);
 }
 

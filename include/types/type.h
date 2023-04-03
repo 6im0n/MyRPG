@@ -21,6 +21,8 @@ typedef enum e_stage_type {
     S_SETTINGS,
     S_MENU_HELP,
     S_INVENTORY,
+    S_MENU_LOAD_GAME,
+    S_CURSOR,
     S_LEN
 } stage_t;
 

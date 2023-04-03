@@ -31,6 +31,8 @@ ressources_t ressources, sfVector2f position)
     sfRectangleShape_setTexture(component->object->rectangle,
         texture, sfFalse);
     sfRectangleShape_setOrigin(component->object->rectangle, origin);
+    // sfRectangleShape_setOutlineColor(component->object->rectangle, sfRed);
+    // sfRectangleShape_setOutlineThickness(component->object->rectangle, 2);
     set_sound(ressources, component);
 }
 

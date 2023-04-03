@@ -115,6 +115,5 @@ renderer_objects_t objects, list_components_t *list)
     components_resolution_1(app, ressources, objects, list);
     components_resolution_2(app, ressources, objects, list);
     components_resolution_3(app, ressources, objects, list);
-    component_cursor_default(app, ressources, objects, list);
     return list;
 }

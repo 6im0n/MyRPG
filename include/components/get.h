@@ -21,6 +21,10 @@
 void component_cursor_default(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
+list_components_t *components_get_cursor(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *list);
+
 void event_cursor_onmove(node_component_t *component,
 event_t *event, app_t *app);
 
@@ -66,6 +70,9 @@ renderer_objects_t objects, list_components_t *list);
 void components_menu_start_annimation(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
+void components_menu_start_bouton_resume(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
 //==================================================
 // HELP MENU
 //==================================================
@@ -100,6 +107,36 @@ void components_help_command_setting(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
 void components_help_command_inventory(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+//==================================================
+// LOAD GAME
+//==================================================
+
+/**
+ * @brief Components Inventory
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
+list_components_t *components_get_load_game(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *list);
+
+/**
+ * @brief Components init Inventory
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
+list_components_t *components_load_game(app_t *app,ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void component_load_game_bouton(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
 //==================================================

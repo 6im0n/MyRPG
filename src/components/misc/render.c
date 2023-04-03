@@ -34,10 +34,9 @@ node_component_t *component)
 }
 
 static void component_render_dispatch_form(app_t *app,
-node_component_t *component, list_components_t *components)
+node_component_t *component)
 {
-    if ((component->id == ID_CURSOR && components->id != app->state->stage) ||
-        (component->id == ID_CURSOR && app->mouse.custom == false))
+    if ((component->id == ID_CURSOR && app->mouse.custom == false))
         return;
     switch (component->type) {
         case C_TYPES_RECTANGLE:
@@ -68,7 +67,7 @@ void app_component_render(app_t *app, list_components_t *components)
     while (tmp != NULL) {
         tmp2 = tmp->next;
         component_render_annimation(app, tmp);
-        component_render_dispatch_form(app, tmp, components);
+        component_render_dispatch_form(app, tmp);
         component_render_dispatch(app, tmp);
         tmp = tmp2;
     }

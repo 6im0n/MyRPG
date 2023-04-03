@@ -61,6 +61,5 @@ renderer_objects_t objects, list_components_t *list)
     menu_board(app, ressources, objects, list);
     menu_title(app, ressources, objects, list);
     inventory_object(app, ressources, objects, list);
-    component_cursor_default(app, ressources, objects, list);
     return list;
 }

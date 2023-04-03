@@ -9,6 +9,7 @@
 #include "components/get.h"
 #include "components/new.h"
 #include "types/list.h"
+#include "lib/output.h"
 
 void component_cursor_filter(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
@@ -35,7 +36,7 @@ void component_cursor(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {0, 0};
+    sfVector2f position = {100, 100};
     sfVector2f size = {40, 45};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
@@ -51,9 +52,20 @@ renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
-void component_cursor_default(app_t *app,ressources_t ressources,
+list_components_t *components_cursor(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
     component_cursor_filter(app, ressources, objects, list);
     component_cursor(app, ressources, objects, list);
+    return list;
+}
+
+list_components_t *components_get_cursor(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *list)
+{
+    if (!list)
+        return NULL;
+    components_cursor(app, ressources, objects, list);
+    return list;
 }

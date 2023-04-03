@@ -12,6 +12,7 @@ _SRC =			main.c \
 				app/event.c \
 				app/rendering.c \
 				app/component.c \
+				app/component_menu.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
@@ -37,6 +38,9 @@ _SRC =			main.c \
 				components/menu/start/menu.c \
 				components/menu/start/bouton.c \
 				components/menu/start/annimation.c \
+				components/menu/load/get.c \
+				components/menu/load/menu.c \
+				components/menu/load/bouton.c \
 				components/menu/help/get.c \
 				components/menu/help/menu.c \
 				components/menu/help/move.c \
