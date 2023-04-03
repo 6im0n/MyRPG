@@ -6,9 +6,10 @@
 */
 
 #include <stdio.h>
+#include <SFML/Graphics.h>
 #include "app/app.h"
 #include "types/types.h"
-#include <SFML/Graphics.h>
+#include "components/view.h"
 
 static void event_handle_mouse(app_t *app, event_t *event)
 {
@@ -53,15 +54,6 @@ event_t *event, main_components_t *components)
     }
 }
 
-static void manage_view(app_t *app, event_t *event)
-{
-    sfVector2f tmp = {event->original.size.width, event->original.size.height};
-    sfVector2f center = {tmp.x / 2, tmp.y / 2};
-
-    sfView_setSize(app->view, tmp);
-    sfView_setCenter(app->view, center);
-}
-
 void app_handle_events(app_t *app, main_components_t *components)
 {
     event_t event;
@@ -72,7 +64,6 @@ void app_handle_events(app_t *app, main_components_t *components)
         event.mouse = &(app->mouse);
         event_handle_mouse(app, &event);
         component_event_dispatch(app, &event, components);
-        if (event.original.type == sfEvtResized)
-            manage_view(app, &event);
+        manage_view(app, &event, components);
     }
 }

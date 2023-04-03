@@ -52,6 +52,7 @@ _SRC =			main.c \
 				components/setting/screen.c \
 				components/setting/title.c \
 				\
+				components/view/manage.c \
 				events/help.c \
 				events/cursor.c \
 				events/setting.c \
