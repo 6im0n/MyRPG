@@ -13,6 +13,56 @@
     #include <SFML/Audio.h>
 
 //==================================================
+// PLAYER
+//==================================================
+
+typedef enum e_item {
+    I_NONE,
+    I_SWORD,
+    I_HEALT_POTION
+} item_t;
+
+typedef struct s_node_item {
+    struct s_node_item *next;
+    item_t *item;
+    sfRectangleShape *shape;
+    sfFloatRect *frect;
+    sfIntRect *irect;
+    struct s_node_item *prev;
+} node_item_t;
+
+typedef struct s_list_item {
+    node_item_t *first;
+    int len;
+    node_item_t *last;
+} list_item_t;
+
+typedef struct s_exprerience {
+    int xp;
+    int level;
+} experience_t;
+
+typedef struct s_skills {
+    int speed;
+    int strength;
+    int resitance;
+} skills_t;
+
+typedef struct s_character {
+    sfTexture *texture;
+    sfRectangleShape *shape;
+    sfFloatRect frect;
+    sfIntRect irect;
+} character_t;
+
+typedef struct s_player {
+    list_item_t *inventory;
+    character_t *character;
+    skills_t skills;
+    experience_t exprerience;
+} player_t;
+
+//==================================================
 // STATE
 //==================================================
 
@@ -61,6 +111,7 @@ typedef struct s_app {
     sfRenderWindow *window;
     mouse_t mouse;
     state_t *state;
+    player_t *player;
 } app_t;
 
 typedef struct s_event {

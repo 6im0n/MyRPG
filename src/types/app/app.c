@@ -9,6 +9,7 @@
 #include "app/app.h"
 #include "types/type.h"
 #include "app/constants.h"
+#include "components/player.h"
 
 static void set_music(ressources_t *ressources, app_t *app)
 {
@@ -27,7 +28,8 @@ char *window_title, int window_frame_rate)
     );
     mouse_t mouse = mouse_init();
     state_t *state = state_new();
-    app_t app = { window, mouse, state };
+    player_t player = player_create(ressources);
+    app_t app = { window, mouse, state, &player };
 
     app_set_icon(app.window, ressources);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
@@ -40,6 +42,7 @@ char *window_title, int window_frame_rate)
 void app_destroy(app_t *app)
 {
     if (app) {
+        player_destroy(app->player);
         state_free(app->state);
         sfRenderWindow_destroy(app->window);
     }

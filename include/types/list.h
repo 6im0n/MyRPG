@@ -32,14 +32,14 @@ void list_component_append(list_components_t *list, node_component_t *node);
 
 /**
  * @brief Append a Item to List
- * @param list 
- * @param node 
+ * @param list
+ * @param node
  */
 void list_item_append(list_item_t *list, node_item_t *node);
 
 /**
  * @brief Initialise a list of components
- * @return list_item_t* 
+ * @return list_item_t*
  */
 list_item_t *list_item_init(void);
 
