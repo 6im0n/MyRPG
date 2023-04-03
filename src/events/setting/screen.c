@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "lib/str.h"
 #include "app/constants.h"
+#include "event/global.h"
 
 void event_settings_fullscreen_onclick(node_component_t *component,
 event_t *event, app_t *app)
@@ -47,6 +48,8 @@ event_t *event, app_t *app)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
     else
         sfRenderWindow_setMouseCursorVisible(app->window, sfTrue);
+    sfSound_setVolume(component->object->sound,
+        app->state->sound->volume);
     component->state = ST_SET_CLICKED(component, false);
 }
 
@@ -63,6 +66,8 @@ event_t *event, app_t *app)
     sfRenderWindow_clear(app->window, W_COLOR);
     if (app->mouse.custom == true)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
+    sfSound_setVolume(component->object->sound,
+        app->state->sound->volume);
     component->state = ST_SET_CLICKED(component, false);
 }
 
@@ -79,6 +84,8 @@ event_t *event, app_t *app)
     sfRenderWindow_clear(app->window, W_COLOR);
     if (app->mouse.custom == true)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
+    sfSound_setVolume(component->object->sound,
+        app->state->sound->volume);
     component->state = ST_SET_CLICKED(component, false);
 }
 
@@ -95,5 +102,7 @@ event_t *event, app_t *app)
     sfRenderWindow_clear(app->window, W_COLOR);
     if (app->mouse.custom == true)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
+    sfSound_setVolume(component->object->sound,
+        app->state->sound->volume);
     component->state = ST_SET_CLICKED(component, false);
 }

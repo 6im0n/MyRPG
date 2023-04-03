@@ -10,6 +10,7 @@
 #include <stdbool.h>
 #include "lib/tools.h"
 #include "lib/str.h"
+#include "event/global.h"
 
 void event_settings_selector_mute_onclick(node_component_t *component,
 event_t *event, app_t *app)
@@ -23,6 +24,8 @@ event_t *event, app_t *app)
         sfSound_pause(app->state->sound->new);
     else
         sfSound_play(app->state->sound->new);
+    sfSound_setVolume(component->object->sound,
+        app->state->sound->volume);
     component->state = ST_SET_CLICKED(component, false);
 }
 

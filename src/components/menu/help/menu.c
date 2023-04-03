@@ -107,7 +107,6 @@ renderer_objects_t objects, list_components_t *list)
         .top = 0, .width = 0}, 25, 38);
     set_component_text(obj, "Altar", sfTransparent, 50);
     set_component_text_pos(obj, (sfVector2f){ 0, 75}, 3);
-    obj->annimation.speed = 0.1;
     obj->events.onhover = &event_active_annimation;
     obj->events.ondisabled = &event_disabled_annimation;
     list_component_append(list, obj);

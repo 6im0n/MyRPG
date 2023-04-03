@@ -24,7 +24,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {100, 60};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_DROID };
+    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
