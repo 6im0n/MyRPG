@@ -19,7 +19,8 @@ char *window_title, int window_frame_rate)
     );
     mouse_t mouse = mouse_init();
     state_t *state = state_new();
-    app_t app = { window, mouse, state };
+    sfView *view = sfView_create();
+    app_t app = { window, mouse, state, view };
 
     app_set_icon(app.window, ressources);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);

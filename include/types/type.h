@@ -58,6 +58,7 @@ typedef struct s_app {
     sfRenderWindow *window;
     mouse_t mouse;
     state_t *state;
+    sfView *view;
 } app_t;
 
 typedef struct s_event {

@@ -55,6 +55,7 @@ main_components_t *components)
 {
     (void) ressources;
     sfRenderWindow_clear(app->window, W_COLOR);
+    sfRenderWindow_setView(app->window, app->view);
     component_render_dispatch(app, components);
     sfRenderWindow_display(app->window);
 }
