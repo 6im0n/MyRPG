@@ -12,6 +12,7 @@
 #include "app/ressources.h"
 #include "components/components.h"
 #include "lib/output.h"
+#include "components/player.h"
 
 int app_run(void)
 {
@@ -20,6 +21,7 @@ int app_run(void)
     renderer_objects_t objects = renderer_objects_create(app.window);
     main_components_t components = app_components_load(&app,
         ressources, objects);
+    player_t player = player_create(&ressources);
 
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
@@ -28,6 +30,7 @@ int app_run(void)
     components_free(&components);
     ressources_unload(&ressources);
     renderer_objects_destroy(&objects);
+    player_destroy(&player);
     app_destroy(&app);
     return 0;
 }

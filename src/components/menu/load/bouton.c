@@ -14,6 +14,7 @@
 #include "event/start_menu/bouton.h"
 #include "event/setting/bouton.h"
 #include "event/global.h"
+#include "lib/output.h"
 
 static void bouton_newgame(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)

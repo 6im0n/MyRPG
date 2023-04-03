@@ -14,18 +14,13 @@
 #include "components/get.h"
 #include "event/setting/bouton.h"
 
-static sfVector2f find_position_volume(app_t *app, list_components_t *list,
-component_id_t id)
+static sfVector2f find_position_volume(app_t *app, list_components_t *list)
 {
     sfVector2f position = sfRectangleShape_getPosition(
         list->last->object->rectangle);
     sfFloatRect rect = list->last->features.rendered_rect;
-    int pourcentage = (rect.width / 100);
+    int pourcentage = (rect.width / 100) * app->state->sound->volume_music;
 
-    if (id == ID_MUSIC_CURSOR)
-        pourcentage *= app->state->sound->volume_music;
-    else
-        pourcentage *= app->state->sound->volume_sound;
     position.x = rect.left + pourcentage;
     return position;
 }
@@ -58,7 +53,7 @@ void components_menu_setting_selector_volume_music_cursor(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = find_position_volume(app, list, ID_MUSIC_CURSOR);
+    sfVector2f position = find_position_volume(app, list);
     sfVector2f size = {30 / 1.3, 50 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
@@ -103,7 +98,7 @@ void components_menu_setting_selector_volume_sound_cursor(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = find_position_volume(app, list, ID_SOUND_CURSOR);
+    sfVector2f position = find_position_volume(app, list);
     sfVector2f size = {30 / 1.3, 50 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};

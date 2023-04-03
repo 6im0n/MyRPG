@@ -34,6 +34,8 @@ _SRC =			main.c \
 				components/new/annimation.c \
 				components/cursor.c \
 				\
+				components/player/player.c \
+				\
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
 				components/menu/start/bouton.c \
@@ -78,6 +80,8 @@ _SRC =			main.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
+				types/list/player/list.c \
+				types/list/player/append.c \
 
 SRCDIR = 		src/
 
