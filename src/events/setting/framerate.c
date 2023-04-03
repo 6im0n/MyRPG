@@ -13,14 +13,13 @@
 
 static void set_framerate_string(node_component_t *component, int volume)
 {
-    node_component_t *next = component->next;
     char *string = malloc(my_nbrlen(volume) + 5);
 
-    if (!next || next->id != ID_VOLUME_CURSOR)
+    if (!component->prev || component->prev->id != ID_FPS_CURSOR)
         return;
     my_strcpy(string, my_char(volume));
     my_strcat(string, " fps\0");
-    sfText_setString(next->object->text, string);
+    sfText_setString(component->prev->object->text, string);
 }
 
 void event_settings_selector_framerate_ondisabled(node_component_t *component,
@@ -28,7 +27,7 @@ event_t *event, app_t *app)
 {
     (void) event;
     (void) app;
-    sfText_setString(component->next->object->text, "Framerate");
+    sfText_setString(component->prev->object->text, "Framerate");
 }
 
 void event_settings_selector_framerate_onclick(node_component_t *component,

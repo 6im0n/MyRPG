@@ -39,7 +39,9 @@ typedef enum e_id_component {
     ID_SLOT_8,
     ID_SELECTOR,
     ID_MAIN_INV_SELECTOR,
-    ID_VOLUME_CURSOR,
+    ID_FPS_CURSOR,
+    ID_MUSIC_CURSOR,
+    ID_SOUND_CURSOR,
     ID_CURSOR,
     ID_LEN
 } component_id_t;

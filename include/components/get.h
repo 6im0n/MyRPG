@@ -217,10 +217,22 @@ renderer_objects_t objects, list_components_t *list);
 void components_menu_setting_selector_sound(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
-void components_menu_setting_selector_volume(app_t *app,
+void components_menu_setting_selector_volume_music(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
-void components_menu_setting_selector_volume_cursor(app_t *app,
+void components_menu_setting_selector_volume_music_cursor(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_volume_sound(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_volume_sound_cursor(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_volume_music_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_volume_sound_title(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
 void components_setting_bouton_quit(app_t *app, ressources_t ressources,
@@ -236,9 +248,6 @@ void components_menu_setting_selector_framelimit(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
 void components_menu_setting_selector_framelimit_cursor(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list);
-
-void components_menu_setting_selector_volume_title(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
 void components_menu_setting_selector_framerate_title(app_t *app,

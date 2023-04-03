@@ -42,8 +42,8 @@ renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 200,
-        640};
-    sfVector2f size = {100, 60};
+        570};
+    sfVector2f size = {100 / 1.3, 60 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
@@ -54,8 +54,8 @@ renderer_objects_t objects, list_components_t *list)
     new_component_size(obj, size,
         (sfIntRect){.height = 18, .left = 434, .top = 103, .width = 28},
         C_SIZE_TOP_MEDIUM);
-    set_component_text(obj, "Custom Mouse", sfBlack, 50);
-    set_component_text_pos(obj, (sfVector2f){ 148, -22}, 2);
+    set_component_text(obj, "Custom Mouse", sfBlack, 35);
+    set_component_text_pos(obj, (sfVector2f){ 148, -14}, 2);
     obj->id = ID_SELECTOR;
     obj->features.select = true;
     obj->events.onclick = &event_settings_mouse_onclick;
@@ -92,8 +92,6 @@ renderer_objects_t objects, list_components_t *list)
         ressources, objects, list);
     components_menu_setting_selector_framelimit_cursor(app,
         ressources, objects, list);
-    components_menu_setting_selector_framerate_title(app,
-        ressources, objects, list);
     components_setting_bouton_mouse(app, ressources, objects, list);
     components_resolution_1(app, ressources, objects, list);
 }
@@ -103,10 +101,13 @@ renderer_objects_t objects, list_components_t *list)
 {
     menu_board(app, ressources, objects, list);
     components_menu_setting_selector_sound(app, ressources, objects, list);
-    components_menu_setting_selector_volume(app, ressources, objects, list);
-    components_menu_setting_selector_volume_cursor(app,
+    components_menu_setting_selector_volume_music(app,
         ressources, objects, list);
-    components_menu_setting_selector_volume_title(app,
+    components_menu_setting_selector_volume_music_cursor(app,
+        ressources, objects, list);
+    components_menu_setting_selector_volume_sound(app,
+        ressources, objects, list);
+    components_menu_setting_selector_volume_sound_cursor(app,
         ressources, objects, list);
     components_setting_bouton_quit(app, ressources, objects, list);
     components_setting_bouton_resume(app, ressources, objects, list);

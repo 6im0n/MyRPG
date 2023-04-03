@@ -49,7 +49,7 @@ event_t *event, app_t *app)
     else
         sfRenderWindow_setMouseCursorVisible(app->window, sfTrue);
     sfSound_setVolume(component->object->sound,
-        app->state->sound->volume);
+        app->state->sound->volume_sound);
     component->state = ST_SET_CLICKED(component, false);
 }
 
@@ -67,7 +67,7 @@ event_t *event, app_t *app)
     if (app->mouse.custom == true)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
     sfSound_setVolume(component->object->sound,
-        app->state->sound->volume);
+        app->state->sound->volume_sound);
     component->state = ST_SET_CLICKED(component, false);
 }
 
@@ -85,7 +85,7 @@ event_t *event, app_t *app)
     if (app->mouse.custom == true)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
     sfSound_setVolume(component->object->sound,
-        app->state->sound->volume);
+        app->state->sound->volume_sound);
     component->state = ST_SET_CLICKED(component, false);
 }
 
@@ -103,6 +103,6 @@ event_t *event, app_t *app)
     if (app->mouse.custom == true)
         sfRenderWindow_setMouseCursorVisible(app->window, sfFalse);
     sfSound_setVolume(component->object->sound,
-        app->state->sound->volume);
+        app->state->sound->volume_sound);
     component->state = ST_SET_CLICKED(component, false);
 }
