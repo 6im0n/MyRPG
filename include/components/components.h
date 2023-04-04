@@ -127,8 +127,7 @@ typedef struct s_main_components {
  * @param objects objects
  * @return main_components_t
  */
-main_components_t app_components_load(app_t *app, ressources_t ressources,
-renderer_objects_t objects);
+main_components_t app_components_load(app_t *app, ressources_t ressources);
 
 /**
  * @brief Free component
@@ -162,7 +161,7 @@ node_component_t *component);
  * @param app
  */
 void append_menu(app_t *app, ressources_t ressources,
-renderer_objects_t objects, main_components_t *components);
+main_components_t *components);
 
 //==================================================
 // STATE

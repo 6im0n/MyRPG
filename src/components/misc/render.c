@@ -5,7 +5,7 @@
 ** render
 */
 
-#include "types/types.h"
+
 #include "components/components.h"
 #include "types/renderer.h"
 #include "lib/output.h"

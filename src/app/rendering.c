@@ -5,7 +5,7 @@
 ** render
 */
 
-#include "types/types.h"
+
 #include "app/app.h"
 #include "app/ressources.h"
 #include "app/constants.h"

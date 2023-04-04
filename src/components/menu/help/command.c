@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -15,7 +15,7 @@
 #include "event/setting/bouton.h"
 
 static void components_help_bouton_setting(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                                            list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 500,
@@ -27,7 +27,7 @@ renderer_objects_t objects, list_components_t *list)
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,(sfIntRect){.height = 28,.left = 11,
                                         .top = 11, .width = 26}, C_SIZE_BIG);
     set_component_text(obj, "Escape", sfBlack, 30);
@@ -36,7 +36,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void components_help_command_setting(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                                    list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 500,
@@ -48,17 +48,17 @@ renderer_objects_t objects, list_components_t *list)
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,(sfIntRect){.height = 122, .left = 139,
                                         .top = 12, .width = 106}, C_SIZE_BIG);
     set_component_text(obj, "Open Settings", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, -40}, 0);
     list_component_append(list, obj);
-    components_help_bouton_setting(app, ressources, objects, list);
+    components_help_bouton_setting(app, ressources, list);
 }
 
 static void components_help_bouton_inventory(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list)
+ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 + 500,
@@ -68,9 +68,8 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
 
-    (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,(sfIntRect){.height = 28,.left = 11,
                                         .top = 11, .width = 26}, C_SIZE_BIG);
     set_component_text(obj, "E", sfBlack, 30);
@@ -79,7 +78,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 }
 
 void components_help_command_inventory(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 + 500,
@@ -91,11 +90,11 @@ renderer_objects_t objects, list_components_t *list)
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,(sfIntRect){.height = 122, .left = 139,
                                         .top = 12, .width = 106}, C_SIZE_BIG);
     set_component_text(obj, "Open Inventory", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, -40}, 0);
     list_component_append(list, obj);
-    components_help_bouton_inventory(app, ressources, objects, list);
+    components_help_bouton_inventory(app, ressources, list);
 }

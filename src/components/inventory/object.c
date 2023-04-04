@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -16,7 +16,7 @@
 #include "components/get.h"
 
 static void object_line_top(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                            list_components_t *list)
 {
     node_component_t *obj = NULL;
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
@@ -31,7 +31,7 @@ renderer_objects_t objects, list_components_t *list)
     for (int i = 0; i < 2; i++) {
         obj = malloc(sizeof(node_component_t));
         new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-        new_component_type(ressources, obj, objects, pos);
+        new_component_type(ressources, obj, pos);
         new_component_size(obj, size, (sfIntRect){0, 0, 0, 0}, C_SIZE_SMALL);
         obj->events.onclick = &event_selector_onpress;
         list_component_append(list, obj);
@@ -41,7 +41,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void object_line_bottom(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                                list_components_t *list)
 {
     node_component_t *obj = NULL;
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
@@ -56,7 +56,7 @@ renderer_objects_t objects, list_components_t *list)
     for (int i = 0; i < 2; i++) {
         obj = malloc(sizeof(node_component_t));
         new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-        new_component_type(ressources, obj, objects, pos);
+        new_component_type(ressources, obj, pos);
         new_component_size(obj, size, (sfIntRect){0, 0, 0, 0}, C_SIZE_SMALL);
         obj->events.onclick = &event_selector_onpress;
         list_component_append(list, obj);
@@ -66,7 +66,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void object_diagonal_left(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                                list_components_t *list)
 {
     node_component_t *obj = NULL;
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
@@ -81,7 +81,7 @@ renderer_objects_t objects, list_components_t *list)
     for (int i = 0; i < 2; i++) {
         obj = malloc(sizeof(node_component_t));
         new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-        new_component_type(ressources, obj, objects, pos);
+        new_component_type(ressources, obj, pos);
         new_component_size(obj, size, (sfIntRect){0, 0, 0, 0}, C_SIZE_SMALL);
         obj->events.onclick = &event_selector_onpress;
         list_component_append(list, obj);
@@ -91,7 +91,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void object_diagonal_right(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                                    list_components_t *list)
 {
     node_component_t *obj = NULL;
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
@@ -106,7 +106,7 @@ renderer_objects_t objects, list_components_t *list)
     for (int i = 0; i < 2; i++) {
         obj = malloc(sizeof(node_component_t));
         new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-        new_component_type(ressources, obj, objects, pos);
+        new_component_type(ressources, obj, pos);
         new_component_size(obj, size, (sfIntRect){0, 0, 0, 0}, C_SIZE_SMALL);
         obj->events.onclick = &event_selector_onpress;
         list_component_append(list, obj);
@@ -116,12 +116,12 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void inventory_object(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
-    object_line_top(app, ressources, objects, list);
-    object_diagonal_left(app, ressources, objects, list);
-    object_diagonal_right(app, ressources, objects, list);
-    object_line_bottom(app, ressources, objects, list);
+    object_line_top(app, ressources, list);
+    object_diagonal_left(app, ressources, list);
+    object_diagonal_right(app, ressources, list);
+    object_line_bottom(app, ressources, list);
     inventory_object_add_id(list->last);
-    inventory_object_select(app, ressources, objects, list);
+    inventory_object_select(app, ressources, list);
 }
