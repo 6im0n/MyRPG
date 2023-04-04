@@ -19,6 +19,8 @@ typedef enum e_texture {
     TX_SHIP,
     TX_PEPPA_PIG,
     TX_ALTAR,
+    TX_WEAPONS,
+    TX_PLAYER,
     TX_LEN
 } texture_t;
 

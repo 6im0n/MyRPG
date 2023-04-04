@@ -20,6 +20,7 @@ node_item_t *item_pure_new(void)
     component->irect = irect;
     component->item = I_NONE;
     component->prev = NULL;
+    component->slot = ID_UNDEFINED;
     component->shape = sfRectangleShape_create();
     component->next = NULL;
     return component;

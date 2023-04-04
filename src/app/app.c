@@ -21,8 +21,9 @@ int app_run(void)
     main_components_t components = app_components_load(&app,
         ressources, objects);
 
-    add_item_player(&app, I_SWORD);
     add_item_player(&app, I_CHALICE);
+    add_item_player(&app, I_SWORD_LEV1);
+    add_item_player(&app, I_SWORD_LEV1);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);

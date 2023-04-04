@@ -31,8 +31,6 @@ texture_t item_texture, sfVector2f position)
         texture, sfFalse);
     sfRectangleShape_setPosition(item->shape, position);
     sfRectangleShape_setOrigin(item->shape, origin);
-    sfRectangleShape_setOutlineColor(item->shape, sfRed);
-    sfRectangleShape_setOutlineThickness(item->shape, 2);
 }
 
 void new_items_size(node_item_t *item, sfVector2f size)

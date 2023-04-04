@@ -56,6 +56,25 @@ node_component_t *component)
     }
 }
 
+static void render_inventory(app_t *app, component_id_t slot,
+sfVector2f position)
+{
+    node_item_t *tmp = app->element->player->inventory->first;
+    node_item_t *tmp2 = tmp;
+
+    if (!tmp)
+        return;
+    while (tmp != NULL) {
+        tmp2 = tmp->next;
+        if (tmp->slot == slot) {
+            sfRectangleShape_setPosition(tmp->shape, position);
+            sfRenderWindow_drawRectangleShape(app->window,
+            tmp->shape, NULL);
+        }
+        tmp = tmp2;
+    }
+}
+
 void app_component_render(app_t *app, list_components_t *components)
 {
     node_component_t *tmp = components->first;
@@ -68,6 +87,9 @@ void app_component_render(app_t *app, list_components_t *components)
         component_render_annimation(app, tmp);
         component_render_dispatch_form(app, tmp);
         component_render_dispatch(app, tmp);
+        if (tmp->id >= ID_SLOT_1 && tmp->id <= ID_SLOT_8)
+            render_inventory(app, tmp->id,
+            sfRectangleShape_getPosition(tmp->object->rectangle));
         tmp = tmp2;
     }
 }

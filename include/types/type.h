@@ -12,13 +12,33 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
 
+typedef enum e_id_component {
+    ID_UNDEFINED,
+    ID_SLOT_1,
+    ID_SLOT_2,
+    ID_SLOT_3,
+    ID_SLOT_4,
+    ID_SLOT_5,
+    ID_SLOT_6,
+    ID_SLOT_7,
+    ID_SLOT_8,
+    ID_SELECTOR,
+    ID_MAIN_INV_SELECTOR,
+    ID_FPS_CURSOR,
+    ID_MUSIC_CURSOR,
+    ID_SOUND_CURSOR,
+    ID_CURSOR,
+    ID_LEN
+} component_id_t;
+
 //==================================================
 // PLAYER
 //==================================================
 
 typedef enum e_item {
     I_NONE,
-    I_SWORD,
+    I_SWORD_PIG,
+    I_SWORD_LEV1,
     I_CHALICE,
     I_HEALT_POTION
 } item_t;
@@ -26,9 +46,11 @@ typedef enum e_item {
 typedef struct s_node_item {
     struct s_node_item *next;
     item_t item;
+    component_id_t slot;
     sfRectangleShape *shape;
     sfFloatRect frect;
     sfIntRect irect;
+    char *name;
     struct s_node_item *prev;
 } node_item_t;
 

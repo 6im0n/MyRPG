@@ -31,4 +31,14 @@ void player_destroy(player_t *player);
  * @param item
  */
 void add_item_player(app_t *app, item_t item);
+
+/**
+ * @brief Switch item into list
+ * @param list list
+ * @param slot_1 item select for switch
+ * @param slot_2 item to change slot
+ */
+void player_item_switch(list_item_t *list, component_id_t slot_1,
+component_id_t slot_2);
+
 #endif /* !PLAYER_H_ */
