@@ -19,15 +19,16 @@
 typedef enum e_item {
     I_NONE,
     I_SWORD,
+    I_CHALICE,
     I_HEALT_POTION
 } item_t;
 
 typedef struct s_node_item {
     struct s_node_item *next;
-    item_t *item;
+    item_t item;
     sfRectangleShape *shape;
-    sfFloatRect *frect;
-    sfIntRect *irect;
+    sfFloatRect frect;
+    sfIntRect irect;
     struct s_node_item *prev;
 } node_item_t;
 

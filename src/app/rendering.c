@@ -12,6 +12,7 @@
 #include "components/components.h"
 #include <SFML/Graphics.h>
 #include <stdio.h>
+#include "lib/output.h"
 
 static void dispatch(app_t *app,
 main_components_t *components, list_components_t *list)
@@ -57,10 +58,30 @@ main_components_t *components)
     app_component_render(app, components->cursor);
 }
 
+static void render_inventory(app_t *app)
+{
+    node_item_t *tmp = app->element->items->first;
+    node_item_t *tmp2 = tmp;
+
+    printf("len >%d\n", app->element->items->len);
+    if (!tmp)
+        return;
+    while (tmp != NULL) {
+        tmp2 = tmp->next;
+        if (tmp->item == I_SWORD)
+            my_printf("SWORD\n");
+        if (tmp->item == I_CHALICE)
+            my_printf("CHALICE\n");
+        sfRenderWindow_drawRectangleShape(app->window, tmp->shape, NULL);
+        tmp = tmp2;
+    }
+}
+
 static void player_render(app_t *app)
 {
     sfRenderWindow_drawRectangleShape(app->window,
         app->element->player->character->shape, NULL);
+    render_inventory(app);
 }
 
 void app_render(app_t *app, ressources_t *ressources,

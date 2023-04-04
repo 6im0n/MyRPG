@@ -43,6 +43,7 @@ char *window_title, int window_frame_rate)
     elements_t *element = element_create(ressources);
     app_t app = { window, mouse, state, element };
 
+    app_create_all_item(app.element, ressources);
     app_set_icon(app.window, ressources);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
     sfRenderWindow_clear(app.window, W_COLOR);
@@ -55,6 +56,7 @@ void app_destroy(app_t *app)
 {
     if (app) {
         player_destroy(app->element->player);
+        list_item_free(app->element->items);
         free(app->element);
         state_free(app->state);
         sfRenderWindow_destroy(app->window);

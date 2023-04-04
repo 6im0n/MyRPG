@@ -63,7 +63,6 @@ void app_component_render(app_t *app, list_components_t *components)
 
     if (!tmp)
         return;
-    (void) app;
     while (tmp != NULL) {
         tmp2 = tmp->next;
         component_render_annimation(app, tmp);
