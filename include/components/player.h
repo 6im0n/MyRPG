@@ -17,7 +17,7 @@
  * @brief Create a player
  * @return player_t*
  */
-player_t player_create(ressources_t *ressources);
+player_t *player_create(ressources_t *ressources);
 
 /**
  * @brief Destroyed a player

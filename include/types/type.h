@@ -62,6 +62,11 @@ typedef struct s_player {
     experience_t exprerience;
 } player_t;
 
+typedef struct s_game_elements {
+    list_item_t *items;
+    player_t *player;
+} elements_t;
+
 //==================================================
 // STATE
 //==================================================
@@ -111,7 +116,7 @@ typedef struct s_app {
     sfRenderWindow *window;
     mouse_t mouse;
     state_t *state;
-    player_t *player;
+    elements_t *element;
 } app_t;
 
 typedef struct s_event {

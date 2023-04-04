@@ -13,7 +13,6 @@
 #include "components/components.h"
 #include "lib/output.h"
 
-
 int app_run(void)
 {
     ressources_t ressources = ressources_load();
