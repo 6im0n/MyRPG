@@ -49,4 +49,10 @@ list_item_t *list_item_init(void);
  */
 void list_item_free(list_item_t *list);
 
+/**
+ * @brief Init pure item
+ * @return node_item_t*
+ */
+node_item_t *item_pure_new(void);;
+
 #endif /* !COMPONENTS_H_ */

@@ -25,4 +25,10 @@ player_t *player_create(ressources_t *ressources);
  */
 void player_destroy(player_t *player);
 
+/**
+ * @brief Add item to player
+ * @param app
+ * @param item
+ */
+void add_item_player(app_t *app, item_t item);
 #endif /* !PLAYER_H_ */

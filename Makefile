@@ -37,6 +37,7 @@ _SRC =			main.c \
 				components/cursor.c \
 				\
 				components/player/player.c \
+				components/player/inventory.c \
 				\
 				components/menu/start/get.c \
 				components/menu/start/menu.c \

@@ -11,13 +11,7 @@
 #include "app/constants.h"
 #include "app/ressources.h"
 #include "components/components.h"
-#include "lib/output.h"
 #include "types/list.h"
-
-static void add_item_player(app_t *app)
-{
-    list_item_append(app->element->player->inventory, app->element->items->first);
-}
 
 int app_run(void)
 {
@@ -27,7 +21,8 @@ int app_run(void)
     main_components_t components = app_components_load(&app,
         ressources, objects);
 
-    add_item_player(&app);
+    add_item_player(&app, I_SWORD);
+    add_item_player(&app, I_CHALICE);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);

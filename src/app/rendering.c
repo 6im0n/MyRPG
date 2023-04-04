@@ -60,18 +60,13 @@ main_components_t *components)
 
 static void render_inventory(app_t *app)
 {
-    node_item_t *tmp = app->element->items->first;
+    node_item_t *tmp = app->element->player->inventory->first;
     node_item_t *tmp2 = tmp;
 
-    printf("len >%d\n", app->element->items->len);
     if (!tmp)
         return;
     while (tmp != NULL) {
         tmp2 = tmp->next;
-        if (tmp->item == I_SWORD)
-            my_printf("SWORD\n");
-        if (tmp->item == I_CHALICE)
-            my_printf("CHALICE\n");
         sfRenderWindow_drawRectangleShape(app->window, tmp->shape, NULL);
         tmp = tmp2;
     }
