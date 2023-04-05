@@ -124,14 +124,23 @@ typedef struct s_main_components {
 // PARSING
 //==================================================
 
+typedef enum e_function {
+    MENU_LOAD_GAME,
+    MENU_HELP,
+    QUIT_APP,
+    MENU_SETTINGS,
+    FUNCTION_LEN
+} function_t;
+
 typedef struct parsing_s {
     char types[15];
     sfVector2f position;
     sfVector2f size;
-    sfFloatRect rect;
+    sfIntRect rect;
     component_type_t type;
     component_size_t c_size;
     component_styles style;
+    function_t function;
 } parsing_t;
 
 /**

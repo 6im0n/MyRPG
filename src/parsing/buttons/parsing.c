@@ -10,7 +10,11 @@
 #include "lib/str.h"
 #include "utils/file.h"
 #include "types/type.h"
+#include "types/list.h"
+#include "components/new.h"
 #include "components/components.h"
+#include "event/start_menu/bouton.h"
+#include "event/functions.h"
 
 static void clean_char(char *data, int size)
 {
@@ -119,6 +123,17 @@ void get_c_size(char *nb, parsing_t *element)
     }
 }
 
+void get_function(char *nb, parsing_t *element)
+{
+    int number = 0;
+
+    number = my_strtoint(nb);
+    if (element->function == FUNCTION_LEN) {
+        element->function = number;
+        return;
+    }
+}
+
 static void manage_data(char *nb, parsing_t *element, app_t *app)
 {
     if (my_strcmp(element->types, "position") == 0)
@@ -133,6 +148,8 @@ static void manage_data(char *nb, parsing_t *element, app_t *app)
         get_type(nb, element);
     if (my_strcmp(element->types, "c_size") == 0)
         get_c_size(nb, element);
+    if (my_strcmp(element->types, "function") == 0)
+        get_function(nb, element);
 }
 
 
@@ -161,18 +178,33 @@ void display_parsing(parsing_t *elements)
     printf("Position: %f | %f\n", elements->position.x, elements->position.y);
     printf("Size: %f | %f\n", elements->size.x, elements->size.y);
     printf("style: %d | %d | %d\n", elements->style.texture, elements->style.sound, elements->style.font);
-    printf("Rect: %f | %f | %f | %f\n", elements->rect.left, elements->rect.top, elements->rect.width, elements->rect.height);
+    printf("Rect: %d | %d | %d | %d\n", elements->rect.left, elements->rect.top, elements->rect.width, elements->rect.height);
     printf("Type: %d\n", elements->type);
     printf("c_size: %d\n", elements->c_size);
+}
+
+static void parsing_append(parsing_t *element, ressources_t ressources,
+                            list_components_t *list)
+{
+    node_component_t *obj = malloc(sizeof(node_component_t));
+    sfVector2f size = element->size;
+    sfVector2f position = element->position;
+    sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
+         .top = (position.y - (size.y / 2)), .width = size.x};
+
+    new_component_set(obj, rect, element->type, element->style);
+    new_component_type(ressources, obj, position);
+    new_component_size(obj, size, element->rect, element->c_size);
+    obj->events.onclick = event_handler[element->function];
+    list_component_append(list, obj);
 }
 
 void parsing_buttons(app_t *app, ressources_t ressources,
                     list_components_t *list, char *filepath)
 {
-    parsing_t element = {{'\0'}, {-1, -1}, {-1, -1}, {-1, -1, -1, -1}, C_TYPES_LEN, C_SIZE_LEN,
-                        {TX_LEN, SD_LEN, FT_LEN}};
-    (void) ressources;
-    (void) list;
+    parsing_t element = {{'\0'}, {-1, -1}, {-1, -1}, {-1, -1, -1, -1},
+                        C_TYPES_LEN, C_SIZE_LEN, {TX_LEN, SD_LEN, FT_LEN},
+                        FUNCTION_LEN};
     char *file = file_load(filepath);
     int type_index = 0;
     int index = 0;
@@ -190,4 +222,5 @@ void parsing_buttons(app_t *app, ressources_t ressources,
         index++;
     }
     display_parsing(&element);
+    parsing_append(&element, ressources, list);
 }
