@@ -81,7 +81,7 @@ renderer_objects_t objects, list_components_t *list)
         (sfIntRect){.height = 0, .left = 0, .top = 0, .width = 0},
         C_SIZE_SMALL);
     set_component_text(obj, "Right Hand", sfBlack, 20);
-    set_component_text_pos(obj, (sfVector2f){ 0, -70}, 0);
+    set_component_text_pos(obj, (sfVector2f){ 0, -85}, 0);
     list_component_append(list, obj);
 }
 
