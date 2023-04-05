@@ -74,6 +74,7 @@ _SRC =			main.c \
 				events/menu/help/bouton.c \
 				events/menu/help/keypress.c \
 				events/inventory/select.c \
+				events/inventory/selector.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

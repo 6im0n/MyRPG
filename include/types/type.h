@@ -60,6 +60,7 @@ typedef struct s_list_item {
     node_item_t *last;
     component_id_t last_select;
     component_id_t select;
+    component_id_t selector;
 } list_item_t;
 
 typedef struct s_exprerience {

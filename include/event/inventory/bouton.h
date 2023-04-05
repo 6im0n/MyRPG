@@ -37,4 +37,10 @@ event_t *event, app_t *app);
 
 void item_player_hover(node_component_t *component, event_t *event, app_t *app);
 
+void inventory_equip_item(node_component_t *component,
+event_t *event, app_t *app);
+
+void inventory_delete_item(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_INVENTORY_H_ */

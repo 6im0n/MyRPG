@@ -37,6 +37,7 @@ list_item_t *list_item_init(void)
     tmp->len = 0;
     tmp->last_select = ID_UNDEFINED;
     tmp->select = ID_UNDEFINED;
+    tmp->selector = ID_UNDEFINED;
     return tmp;
 }
 
