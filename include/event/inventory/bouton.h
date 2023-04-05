@@ -10,7 +10,7 @@
 
     #include "types/types.h"
     #include "components/components.h"
-
+    #define M_PI 3.14159265358979323846
 /**
  * @brief Open inventory when Key E PRESSED
  * @param component Component
@@ -34,5 +34,7 @@ event_t *event, app_t *app);
 
 void event_bouton_help_onclick(node_component_t *component,
 event_t *event, app_t *app);
+
+void item_player_hover(node_component_t *component, event_t *event, app_t *app);
 
 #endif /* !EVENT_INVENTORY_H_ */

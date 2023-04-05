@@ -68,7 +68,6 @@ node_item_t *node1, node_item_t *node2)
 void swap_item_player(list_item_t *list,
 component_id_t slot_1, component_id_t slot_2)
 {
-    component_id_t tmpid = ID_UNDEFINED;
     node_item_t *node1 = NULL;
     node_item_t *node2 = NULL;
     node_item_t *tmp = list->first;
@@ -84,8 +83,7 @@ component_id_t slot_1, component_id_t slot_2)
             node2 = tmp;
         tmp = tmp2;
     }
-    tmpid = node1->slot;
-    node1->slot = node2->slot;
-    node2->slot = tmpid;
+    node1->slot = slot_2;
+    node2->slot = slot_1;
     node_swap(list, node1, node2);
 }

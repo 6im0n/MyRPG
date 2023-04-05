@@ -17,7 +17,7 @@ renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
-    sfVector2f position = {middle.x, 400};
+    sfVector2f position = {middle.x, 380};
     sfVector2f size = {90, 90};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};

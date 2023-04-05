@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include "lib/str.h"
 #include "event/global.h"
+#include "lib/output.h"
+#include "components/player.h"
 
 void event_key_inventory_open_onkeypressed(node_component_t *component,
 event_t *event, app_t *app)
@@ -41,26 +43,43 @@ event_t *event, app_t *app)
         app->state->stage = app->state->back;
 }
 
+static void inventory_drop_done(node_component_t *component,
+app_t *app)
+{
+    component_id_t last = app->element->player->inventory->last_select;
+    component_id_t select = app->element->player->inventory->select;
+
+    if (select != ID_UNDEFINED)
+        last = component->id;
+    component->state = ST_SET_CLICKED(component, false);
+    component->state = ST_SET_PRESSED(component, false);
+    if (last != ID_UNDEFINED && select != ID_UNDEFINED && last != select)
+        swap_item_player(app->element->player->inventory, last, select);
+}
+
+void item_player_hover(node_component_t *component, event_t *event, app_t *app)
+{
+    (void) event;
+    if (!sfMouse_isButtonPressed(sfMouseLeft)) {
+        app->element->player->inventory->select = ID_UNDEFINED;
+        app->element->player->inventory->last_select = ID_UNDEFINED;
+        return;
+    }
+    if (app->element->player->inventory->select == ID_UNDEFINED)
+        app->element->player->inventory->select = component->id;
+    else
+        app->element->player->inventory->last_select = component->id;
+}
+
 void event_selector_onpress(node_component_t *component,
 event_t *event, app_t *app)
 {
     (void) event;
-    (void) app;
-    sfVector2f pos = sfRectangleShape_getPosition(
-        component->object->rectangle);
-    sfVector2f pos_text = {pos.x, pos.y + 50};
     char *string = malloc(7);
 
+    inventory_drop_done(component, app);
     my_strcpy(string, "Slot  ");
     string[5] = component->id + '0';
     event_play_music(component, app);
-    while (component) {
-        if (component->id == ID_MAIN_INV_SELECTOR) {
-            sfRectangleShape_setPosition(component->object->rectangle, pos);
-            sfText_setPosition(component->next->object->text, pos_text);
-            sfText_setString(component->next->object->text, string);
-        }
-        component = component->next;
-    }
     free(string);
 }
