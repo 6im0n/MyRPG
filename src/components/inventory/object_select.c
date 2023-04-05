@@ -14,7 +14,7 @@
 #include "event/start_menu/bouton.h"
 #include "event/inventory/bouton.h"
 
-static void main_selector(app_t *app, ressources_t ressources,
+static void selector(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
@@ -107,7 +107,7 @@ renderer_objects_t objects, list_components_t *list)
 void inventory_object_select(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list)
 {
-    main_selector(app, ressources, objects, list);
+    selector(app, ressources, objects, list);
     main_title(app, ressources, objects, list);
     bouton_delete(app, ressources, objects, list);
     bouton_equipe(app, ressources, objects, list);

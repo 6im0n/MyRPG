@@ -23,7 +23,8 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_PEPPA_PIG] = "assets/assets_rpg/peppapig.png",
     [TX_WEAPONS] = "assets/assets_rpg/RPG_Weapons.png",
     [TX_PLAYER] = "assets/charactere/player.png",
-    [TX_INV_SELECTOR] = "assets/assets_rpg/selector.png"
+    [TX_INV_SELECTOR] = "assets/assets_rpg/selector.png",
+    [TX_INV_SELECTOR2] = "assets/assets_rpg/main_selector.png"
 };
 
 #endif /* !RESSOURCES_TEXTURES_LOADERS_H_ */

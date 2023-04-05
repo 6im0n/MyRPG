@@ -13,7 +13,7 @@ static void append_peppa_pig(list_item_t *list, ressources_t *ressources)
 {
     node_item_t *item = malloc(sizeof(node_item_t));
     sfVector2f position = {200, 835};
-    sfVector2f size = {100, 100};
+    sfVector2f size = {80, 80};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
 
