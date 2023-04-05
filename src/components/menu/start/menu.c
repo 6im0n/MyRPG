@@ -82,7 +82,7 @@ void components_menu_start(app_t *app,ressources_t ressources,
     menu_board(app, ressources, list);
     setting_background(app, ressources, list);
     components_menu_start_bouton_play(app, ressources, list);
-    components_menu_start_bouton_help(app, ressources, list);
+    // components_menu_start_bouton_help(app, ressources, list);
     components_menu_start_bouton_setting(app, ressources, list);
     components_menu_start_bouton_quit(app, ressources, list);
     components_menu_start_annimation(ressources, list);

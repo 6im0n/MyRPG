@@ -20,6 +20,7 @@ void components_menu_start_bouton_play(app_t *app, ressources_t ressources,
                                     list_components_t *list)
 {
     parsing_buttons(app, ressources, list, "assets/scripts/menu/button/play.txt");
+    // exit(0);
 }
 
 void components_menu_start_bouton_help(app_t *app, ressources_t ressources,
@@ -33,7 +34,6 @@ void components_menu_start_bouton_help(app_t *app, ressources_t ressources,
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_MENU_ALL, SD_GRAB, FT_ARIAL };
 
-    (void) app;
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size,

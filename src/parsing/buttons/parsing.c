@@ -181,6 +181,14 @@ void display_parsing(parsing_t *elements)
     printf("Rect: %d | %d | %d | %d\n", elements->rect.left, elements->rect.top, elements->rect.width, elements->rect.height);
     printf("Type: %d\n", elements->type);
     printf("c_size: %d\n", elements->c_size);
+    elements->types[0] = '\0';
+    elements->position = (sfVector2f){-1, -1};
+    elements->size = (sfVector2f){-1, -1};
+    elements->rect = (sfIntRect){-1, -1, -1, -1};
+    elements->type = C_TYPES_LEN;
+    elements->c_size = C_SIZE_LEN;
+    elements->style = (component_styles){TX_LEN, SD_LEN, FT_LEN};
+    elements->function = FUNCTION_LEN;
 }
 
 static void parsing_append(parsing_t *element, ressources_t ressources,
@@ -206,21 +214,32 @@ void parsing_buttons(app_t *app, ressources_t ressources,
                         C_TYPES_LEN, C_SIZE_LEN, {TX_LEN, SD_LEN, FT_LEN},
                         FUNCTION_LEN};
     char *file = file_load(filepath);
+    char end[4] = { '\0', '\0', '\0', '\0' };
     int type_index = 0;
     int index = 0;
 
     clean_char(element.types, 15);
-    while (file[index] != '\0') {
-        if (file[index] == ':') {
-            manage_number(file, &element, app, &index);
-            type_index = 0;
-            clean_char(element.types, 15);
-        } else {
-            element.types[type_index] = file[index];
-            type_index++;
+    while (file[index + 3] != '\0') {
+        while (my_strcmp(end, "###") != 0) {
+            if (file[index] == ':') {
+                manage_number(file, &element, app, &index);
+                type_index = 0;
+                clean_char(element.types, 15);
+            } else {
+                element.types[type_index] = file[index];
+                type_index++;
+            }
+            end[0] = file[index];
+            end[1] = file[index + 1];
+            end[2] = file[index + 2];
+            index++;
         }
-        index++;
+        end[0] = '\0';
+        end[1] = '\0';
+        end[2] = '\0';
+        type_index = 0;
+        index += 3;
+        parsing_append(&element, ressources, list);
+        display_parsing(&element);
     }
-    display_parsing(&element);
-    parsing_append(&element, ressources, list);
 }

@@ -5,3 +5,12 @@ style: 4 1 0
 type: 2
 c_size: 2
 function: 0
+###
+position: 1040 713
+size: 50 50
+rect: 709 164 22 24
+style: 4 1 0
+type: 2
+c_size: 0
+function: 1
+###
