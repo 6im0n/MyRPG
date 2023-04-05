@@ -120,6 +120,20 @@ typedef struct s_main_components {
     list_components_t *cursor;
 } main_components_t;
 
+//==================================================
+// PARSING
+//==================================================
+
+typedef struct parsing_s {
+    char types[15];
+    sfVector2f position;
+    sfVector2f size;
+    sfFloatRect rect;
+    component_type_t type;
+    component_size_t c_size;
+    component_styles style;
+} parsing_t;
+
 /**
  * @brief Load component
  * @param app App

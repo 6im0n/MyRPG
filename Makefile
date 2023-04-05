@@ -82,6 +82,10 @@ _SRC =			main.c \
 				types/list/component/append.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
+				\
+				parsing/buttons/parsing.c \
+				\
+				utils/file.c \
 
 SRCDIR = 		src/
 
