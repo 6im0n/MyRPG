@@ -41,4 +41,7 @@ void add_item_player(app_t *app, item_t item);
 void player_item_switch(list_item_t *list, component_id_t slot_1,
 component_id_t slot_2);
 
+void swap_item_player(list_item_t *list,
+component_id_t slot_1, component_id_t slot_2);
+
 #endif /* !PLAYER_H_ */

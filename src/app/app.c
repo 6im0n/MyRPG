@@ -24,6 +24,7 @@ int app_run(void)
     add_item_player(&app, I_CHALICE);
     add_item_player(&app, I_SWORD_LEV1);
     add_item_player(&app, I_SWORD_LEV1);
+    add_item_player(&app, I_SWORD_PIG);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);

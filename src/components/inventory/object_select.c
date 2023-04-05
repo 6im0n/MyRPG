@@ -18,15 +18,15 @@ renderer_objects_t objects, list_components_t *list)
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
     sfVector2f position = {middle.x, 400};
-    sfVector2f size = {100, 100};
+    sfVector2f size = {90, 90};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_INV_SELECTOR, SD_NONE, FT_ARIAL };
 
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, objects, position);
     new_component_size(obj, size,
-        (sfIntRect){.height = 25, .left = 148, .top = 148, .width = 24},
+        (sfIntRect){.height = 0, .left = 0, .top = 0, .width = 0},
         C_SIZE_SMALL);
     obj->id = ID_MAIN_INV_SELECTOR;
     list_component_append(list, obj);
