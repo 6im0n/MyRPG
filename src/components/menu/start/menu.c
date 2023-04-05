@@ -6,7 +6,6 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -15,7 +14,7 @@
 #include "components/get.h"
 
 static void menu_background(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                            list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
@@ -29,14 +28,14 @@ renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 0, .left = 0,
         .top = 0, .width = 0}, C_SIZE_MAX);
     list_component_append(list, obj);
 }
 
 static void menu_board(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                        list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
@@ -49,7 +48,7 @@ renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);
@@ -58,8 +57,8 @@ renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
-void setting_background(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+static void setting_background(app_t *app, ressources_t ressources,
+                        list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2, 700};
@@ -68,26 +67,23 @@ renderer_objects_t objects, list_components_t *list)
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
 
-    (void) app;
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 504, .top = 148, .width = 35},
         C_SIZE_SMALL);
     list_component_append(list, obj);
 }
 
-list_components_t *components_menu_start(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+void components_menu_start(app_t *app,ressources_t ressources,
+                                        list_components_t *list)
 {
-    menu_background(app, ressources, objects, list);
-    menu_board(app, ressources, objects, list);
-    setting_background(app, ressources, objects, list);
-    components_menu_start_bouton_play(app, ressources, objects, list);
-    components_menu_start_bouton_help(app, ressources, objects, list);
-    components_menu_start_bouton_setting(app, ressources, objects, list);
-    components_menu_start_bouton_quit(app, ressources, objects, list);
-    components_menu_start_annimation(app, ressources, objects, list);
-    component_cursor_default(app, ressources, objects, list);
-    return list;
+    menu_background(app, ressources, list);
+    menu_board(app, ressources, list);
+    setting_background(app, ressources, list);
+    components_menu_start_bouton_play(app, ressources, list);
+    components_menu_start_bouton_help(app, ressources, list);
+    components_menu_start_bouton_setting(app, ressources, list);
+    components_menu_start_bouton_quit(app, ressources, list);
+    components_menu_start_annimation(ressources, list);
 }

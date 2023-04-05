@@ -12,6 +12,7 @@ _SRC =			main.c \
 				app/event.c \
 				app/rendering.c \
 				app/component.c \
+				app/component_menu.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
@@ -33,10 +34,15 @@ _SRC =			main.c \
 				components/new/annimation.c \
 				components/cursor.c \
 				\
+				components/player/player.c \
+				\
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
 				components/menu/start/bouton.c \
 				components/menu/start/annimation.c \
+				components/menu/load/get.c \
+				components/menu/load/menu.c \
+				components/menu/load/bouton.c \
 				components/menu/help/get.c \
 				components/menu/help/menu.c \
 				components/menu/help/move.c \
@@ -50,7 +56,6 @@ _SRC =			main.c \
 				components/setting/sound.c \
 				components/setting/bouton.c \
 				components/setting/screen.c \
-				components/setting/title.c \
 				\
 				components/view/manage.c \
 				events/help.c \
@@ -76,6 +81,12 @@ _SRC =			main.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
+				types/list/player/list.c \
+				types/list/player/append.c \
+				\
+				parsing/buttons/parsing.c \
+				\
+				utils/file.c \
 
 SRCDIR = 		src/
 

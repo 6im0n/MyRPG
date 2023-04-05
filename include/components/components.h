@@ -39,7 +39,9 @@ typedef enum e_id_component {
     ID_SLOT_8,
     ID_SELECTOR,
     ID_MAIN_INV_SELECTOR,
-    ID_VOLUME_CURSOR,
+    ID_FPS_CURSOR,
+    ID_MUSIC_CURSOR,
+    ID_SOUND_CURSOR,
     ID_CURSOR,
     ID_LEN
 } component_id_t;
@@ -111,10 +113,35 @@ typedef struct s_list_components {
 typedef struct s_main_components {
     list_components_t *start_menu;
     list_components_t *help_menu;
+    list_components_t *load_game;
     list_components_t *game;
     list_components_t *inventory;
     list_components_t *setting;
+    list_components_t *cursor;
 } main_components_t;
+
+//==================================================
+// PARSING
+//==================================================
+
+typedef enum e_function {
+    MENU_LOAD_GAME,
+    MENU_HELP,
+    QUIT_APP,
+    MENU_SETTINGS,
+    FUNCTION_LEN
+} function_t;
+
+typedef struct parsing_s {
+    char types[15];
+    sfVector2f position;
+    sfVector2f size;
+    sfIntRect rect;
+    component_type_t type;
+    component_size_t c_size;
+    component_styles style;
+    function_t function;
+} parsing_t;
 
 /**
  * @brief Load component
@@ -123,8 +150,7 @@ typedef struct s_main_components {
  * @param objects objects
  * @return main_components_t
  */
-main_components_t app_components_load(app_t *app, ressources_t ressources,
-renderer_objects_t objects);
+main_components_t app_components_load(app_t *app, ressources_t ressources);
 
 /**
  * @brief Free component
@@ -150,6 +176,15 @@ event_t *event, app_t *app);
 
 void component_render_annimation(app_t *app,
 node_component_t *component);
+
+/**
+ * @brief Append menu to app menu
+ * @param components
+ * @param event
+ * @param app
+ */
+void append_menu(app_t *app, ressources_t ressources,
+main_components_t *components);
 
 //==================================================
 // STATE

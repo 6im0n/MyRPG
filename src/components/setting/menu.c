@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -17,7 +17,7 @@
 #include "event/global.h"
 
 static void menu_board(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
@@ -30,7 +30,7 @@ renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 11, .top = 12, .width = 106},
         C_SIZE_MAX);
@@ -38,24 +38,24 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void components_setting_bouton_mouse(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 200,
-        640};
-    sfVector2f size = {100, 60};
+        570};
+    sfVector2f size = {100 / 1.3, 60 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 18, .left = 434, .top = 103, .width = 28},
         C_SIZE_TOP_MEDIUM);
-    set_component_text(obj, "Custom Mouse", sfBlack, 50);
-    set_component_text_pos(obj, (sfVector2f){ 148, -22}, 2);
+    set_component_text(obj, "Custom Mouse", sfBlack, 35);
+    set_component_text_pos(obj, (sfVector2f){ 148, -14}, 2);
     obj->id = ID_SELECTOR;
     obj->features.select = true;
     obj->events.onclick = &event_settings_mouse_onclick;
@@ -63,7 +63,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void components_setting_bouton_help(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 ,
@@ -73,9 +73,8 @@ renderer_objects_t objects, list_components_t *list)
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
 
-    (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 24, .left = 709,
         .top = 164, .width = 22}, C_SIZE_SMALL);
     set_component_text(obj, "Help", sfBlack, 30);
@@ -85,36 +84,35 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void setting_bouton_screen(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
-    components_setting_bouton_fullscreen(app, ressources, objects, list);
+    components_setting_bouton_fullscreen(app, ressources, list);
     components_menu_setting_selector_framelimit(app,
-        ressources, objects, list);
+        ressources, list);
     components_menu_setting_selector_framelimit_cursor(app,
-        ressources, objects, list);
-    components_menu_setting_selector_framerate_title(app,
-        ressources, objects, list);
-    components_setting_bouton_mouse(app, ressources, objects, list);
-    components_resolution_1(app, ressources, objects, list);
+        ressources, list);
+    components_setting_bouton_mouse(app, ressources, list);
+    components_resolution_1(app, ressources, list);
 }
 
-list_components_t *components_setting(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+void components_setting(app_t *app,ressources_t ressources,
+list_components_t *list)
 {
-    menu_board(app, ressources, objects, list);
-    components_menu_setting_selector_sound(app, ressources, objects, list);
-    components_menu_setting_selector_volume(app, ressources, objects, list);
-    components_menu_setting_selector_volume_cursor(app,
-        ressources, objects, list);
-    components_menu_setting_selector_volume_title(app,
-        ressources, objects, list);
-    components_setting_bouton_quit(app, ressources, objects, list);
-    components_setting_bouton_resume(app, ressources, objects, list);
-    components_setting_bouton_help(app, ressources, objects, list);
-    setting_bouton_screen(app, ressources, objects, list);
-    components_resolution_1(app, ressources, objects, list);
-    components_resolution_2(app, ressources, objects, list);
-    components_resolution_3(app, ressources, objects, list);
-    component_cursor_default(app, ressources, objects, list);
-    return list;
+    menu_board(app, ressources, list);
+    components_menu_setting_selector_sound(app, ressources, list);
+    components_menu_setting_selector_volume_music(app,
+        ressources, list);
+    components_menu_setting_selector_volume_music_cursor(app,
+        ressources, list);
+    components_menu_setting_selector_volume_sound(app,
+        ressources, list);
+    components_menu_setting_selector_volume_sound_cursor(app,
+        ressources, list);
+    components_setting_bouton_quit(app, ressources, list);
+    components_setting_bouton_resume(app, ressources, list);
+    components_setting_bouton_help(app, ressources, list);
+    setting_bouton_screen(app, ressources, list);
+    components_resolution_1(app, ressources, list);
+    components_resolution_2(app, ressources, list);
+    components_resolution_3(app, ressources, list);
 }

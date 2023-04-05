@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -15,8 +15,8 @@
 #include "components/get.h"
 #include "event/annimation.h"
 
-static void annimation_boat(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+static void annimation_boat(ressources_t ressources,
+                            list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = { 560, 650 };
@@ -25,10 +25,9 @@ renderer_objects_t objects, list_components_t *list)
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_SHIP, SD_NONE, FT_IMMORTAL };
 
-    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 65, .left = 0, .top = 0, .width = 63},
         C_SIZE_MAX);
@@ -40,8 +39,8 @@ renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
-static void annimation_env(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+static void annimation_env(ressources_t ressources,
+                            list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = { 1320, 634 };
@@ -50,10 +49,9 @@ renderer_objects_t objects, list_components_t *list)
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_NATURE, SD_NONE, FT_IMMORTAL };
 
-    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 65, .left = 0, .top = 0, .width = 63},
         C_SIZE_MAX);
@@ -63,8 +61,8 @@ renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
-static void annimation_chalice(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+static void annimation_chalice(ressources_t ressources,
+                                list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = { 1320, 634 };
@@ -73,10 +71,9 @@ renderer_objects_t objects, list_components_t *list)
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_CHALICE, SD_NONE, FT_IMMORTAL };
 
-    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 65, .left = 0, .top = 0, .width = 63},
         C_SIZE_MAX);
@@ -88,10 +85,10 @@ renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
-void components_menu_start_annimation(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+void components_menu_start_annimation(ressources_t ressources,
+                                        list_components_t *list)
 {
-    annimation_boat(app, ressources, objects, list);
-    annimation_chalice(app, ressources, objects, list);
-    annimation_env(app, ressources, objects, list);
+    annimation_boat(ressources, list);
+    annimation_chalice(ressources, list);
+    annimation_env(ressources, list);
 }

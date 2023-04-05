@@ -5,7 +5,7 @@
 ** curosr
 */
 
-#include "types/types.h"
+
 #include "components/components.h"
 #include <stdio.h>
 #include "lib/str.h"
@@ -16,7 +16,7 @@ app_t *app)
     if (component->features.styles.sound == SD_NONE)
         return;
     sfSound_setVolume(component->object->sound,
-        app->state->sound->volume);
+        app->state->sound->volume_sound);
     sfSound_play(component->object->sound);
 }
 

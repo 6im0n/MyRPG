@@ -5,7 +5,7 @@
 ** render
 */
 
-#include "types/types.h"
+
 #include "components/components.h"
 
 static sfIntRect effect_select_size(sfIntRect defaul, component_size_t size)
@@ -52,7 +52,7 @@ void render_button_effect(app_t *app, node_component_t *component)
     if (ST_IS_HOVER(component)) {
         is_pressed(component, defaul);
         sfRectangleShape_setScale(component->object->rectangle,
-        (sfVector2f){0.99, 0.99});
+        (sfVector2f){0.98, 0.98});
     } else {
         sfRectangleShape_setScale(component->object->rectangle,
         (sfVector2f){1, 1});

@@ -8,7 +8,6 @@
 #ifndef EVENT_ANNIMATION_H_
     #define EVENT_ANNIMATION_H_
 
-    #include "types/types.h"
     #include "components/components.h"
 
 void event_active_annimation(node_component_t *component,
