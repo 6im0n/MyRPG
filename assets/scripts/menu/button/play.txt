@@ -1,0 +1,6 @@
+position: .5 620
+size: 340 90
+rect: 163 210 90 27
+style: 4 1 0
+type: 2
+step: 2
