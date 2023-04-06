@@ -13,7 +13,6 @@ static character_t *init_character(ressources_t *ressources)
     character_t *character = malloc(sizeof(character_t));
     sfFloatRect frect = {0, 0, 0, 0};
     sfIntRect irect = {0, 0, 0, 0};
-
     if (!character)
         return NULL;
     character->texture = ressources->textures[TX_APP_ICON];
@@ -42,14 +41,20 @@ static skills_t init_skills(void)
     return skills;
 }
 
-player_t player_create(ressources_t *ressources)
+player_t *player_create(ressources_t *ressources)
 {
     list_item_t *inventory = list_item_init();
     character_t *character = init_character(ressources);
     skills_t skills = init_skills();
     experience_t xp = init_experience();
-    player_t player = { inventory, character, skills, xp };
+    player_t *player = malloc(sizeof(player_t));
 
+    if (!player)
+        return NULL;
+    player->character = character;
+    player->inventory = inventory;
+    player->exprerience = xp;
+    player->skills = skills;
     return player;
 }
 
@@ -57,5 +62,5 @@ void player_destroy(player_t *player)
 {
     sfRectangleShape_destroy(player->character->shape);
     free(player->character);
-    list_item_free(player->inventory);
+    free(player);
 }

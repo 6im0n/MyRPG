@@ -12,6 +12,7 @@
 #include "components/components.h"
 #include <SFML/Graphics.h>
 #include <stdio.h>
+#include "lib/output.h"
 
 static void dispatch(app_t *app,
 main_components_t *components, list_components_t *list)
@@ -54,7 +55,12 @@ main_components_t *components)
         default:
             break;
     }
-    app_component_render(app, components->cursor);
+}
+
+static void player_render(app_t *app)
+{
+    sfRenderWindow_drawRectangleShape(app->window,
+        app->element->player->character->shape, NULL);
 }
 
 void app_render(app_t *app, ressources_t *ressources,
@@ -64,5 +70,7 @@ main_components_t *components)
     sfRenderWindow_clear(app->window, W_COLOR);
     sfRenderWindow_setView(app->window, app->view);
     component_render_dispatch(app, components);
+    player_render(app);
+    app_component_render(app, components->cursor);
     sfRenderWindow_display(app->window);
 }

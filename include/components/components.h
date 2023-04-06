@@ -27,25 +27,6 @@ typedef enum e_component_size {
     C_SIZE_LEN
 } component_size_t;
 
-typedef enum e_id_component {
-    ID_UNDEFINED,
-    ID_SLOT_1,
-    ID_SLOT_2,
-    ID_SLOT_3,
-    ID_SLOT_4,
-    ID_SLOT_5,
-    ID_SLOT_6,
-    ID_SLOT_7,
-    ID_SLOT_8,
-    ID_SELECTOR,
-    ID_MAIN_INV_SELECTOR,
-    ID_FPS_CURSOR,
-    ID_MUSIC_CURSOR,
-    ID_SOUND_CURSOR,
-    ID_CURSOR,
-    ID_LEN
-} component_id_t;
-
 typedef enum e_component_type {
     C_UNDEFINED,
     C_TYPES_RECTANGLE,
