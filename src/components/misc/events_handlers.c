@@ -55,3 +55,13 @@ event_t *event, app_t *app)
     if (handler)
         handler(component, event, app);
 }
+
+void component_onkeyrelease(node_component_t *component,
+event_t *event, app_t *app)
+{
+    component_handler_t handler = COMPONENT_ON_KEYRELEASE(component);
+
+    if (handler)
+        handler(component, event, app);
+}
+
