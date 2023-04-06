@@ -5,7 +5,7 @@
 ** render
 */
 
-#include "types/types.h"
+
 #include "app/app.h"
 #include "app/ressources.h"
 #include "app/constants.h"
@@ -68,6 +68,7 @@ main_components_t *components)
 {
     (void) ressources;
     sfRenderWindow_clear(app->window, W_COLOR);
+    sfRenderWindow_setView(app->window, app->view);
     component_render_dispatch(app, components);
     player_render(app);
     app_component_render(app, components->cursor);

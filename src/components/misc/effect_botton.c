@@ -5,7 +5,7 @@
 ** render
 */
 
-#include "types/types.h"
+
 #include "components/components.h"
 
 static sfIntRect effect_select_size(sfIntRect defaul, component_size_t size)

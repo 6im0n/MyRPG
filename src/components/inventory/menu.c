@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -14,7 +14,7 @@
 #include "components/get.h"
 
 static void menu_board(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                        list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
@@ -27,7 +27,7 @@ renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);
@@ -35,7 +35,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void menu_title(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                        list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     float middle = sfRenderWindow_getSize(app->window).x / 2;
@@ -47,7 +47,7 @@ renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_TEXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);

@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -26,7 +26,7 @@ renderer_objects_t objects, list_components_t *list)
     component_styles style = { TX_INV_SELECTOR, SD_NONE, FT_ARIAL };
 
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 0, .left = 0, .top = 0, .width = 0},
         C_SIZE_SMALL);
@@ -35,7 +35,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void main_title(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                        list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = sfRectangleShape_getPosition(
@@ -48,7 +48,7 @@ renderer_objects_t objects, list_components_t *list)
     (void) app;
     position.y += 50;
     new_component_set(obj, rect, C_TYPES_TEXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);
@@ -105,7 +105,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void inventory_object_select(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     selector(app, ressources, objects, list);
     main_title(app, ressources, objects, list);

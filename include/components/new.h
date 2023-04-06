@@ -22,8 +22,7 @@
  * @param position position object
  */
 void new_component_type(ressources_t ressources,
-node_component_t *component, renderer_objects_t objects,
-sfVector2f position);
+node_component_t *component, sfVector2f position);
 
 /**
  * @brief New component size

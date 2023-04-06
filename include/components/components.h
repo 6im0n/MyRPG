@@ -70,6 +70,7 @@ typedef struct s_component_annimation {
     int index;
     int max;
     float speed;
+    float max_speed;
 } component_annimation_t;
 
 typedef struct s_node_components {
@@ -101,6 +102,54 @@ typedef struct s_main_components {
     list_components_t *cursor;
 } main_components_t;
 
+//==================================================
+// PARSING
+//==================================================
+
+typedef enum e_disabled {
+    DISABLED_ANIMATION,
+    DISABLED_LEN
+} disabled_t;
+
+
+typedef enum e_hover {
+    ACTIVE_ANIMATION,
+    HOVER_LEN
+} hover_t;
+
+typedef enum e_clicked {
+    MENU_LOAD_GAME,
+    MENU_HELP,
+    QUIT_APP,
+    MENU_SETTINGS,
+    CLICKED_LEN
+} clicked_t;
+
+typedef struct function_s {
+    clicked_t clicked;
+    hover_t hover;
+    disabled_t disabled;
+} function_t;
+
+typedef struct animation_s {
+    sfIntRect rect;
+    int index;
+    int max;
+    float speed;
+} animation_t;
+
+typedef struct parsing_s {
+    char types[15];
+    sfVector2f position;
+    sfVector2f size;
+    sfIntRect rect;
+    component_type_t type;
+    component_size_t c_size;
+    component_styles style;
+    function_t function;
+    animation_t animation;
+} parsing_t;
+
 /**
  * @brief Load component
  * @param app App
@@ -108,8 +157,7 @@ typedef struct s_main_components {
  * @param objects objects
  * @return main_components_t
  */
-main_components_t app_components_load(app_t *app, ressources_t ressources,
-renderer_objects_t objects);
+main_components_t app_components_load(app_t *app, ressources_t ressources);
 
 /**
  * @brief Free component
@@ -143,7 +191,7 @@ node_component_t *component);
  * @param app
  */
 void append_menu(app_t *app, ressources_t ressources,
-renderer_objects_t objects, main_components_t *components);
+main_components_t *components);
 
 //==================================================
 // STATE

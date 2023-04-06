@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -86,7 +86,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void inventory_object(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     object_item_inventory(app, ressources, objects, list);
     inventory_object_add_id(list->last);

@@ -5,7 +5,7 @@
 ** bouton
 */
 
-#include "types/types.h"
+
 #include "components/components.h"
 #include <stdbool.h>
 #include "lib/tools.h"
