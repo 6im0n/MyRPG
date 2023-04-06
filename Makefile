@@ -87,6 +87,7 @@ _SRC =			main.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
 				types/list/player/switch.c \
+				types/list/player/remove.c \
 
 SRCDIR = 		src/
 

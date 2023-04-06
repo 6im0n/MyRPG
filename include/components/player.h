@@ -44,4 +44,6 @@ component_id_t slot_2);
 void swap_item_player(list_item_t *list,
 component_id_t slot_1, component_id_t slot_2);
 
+void list_item_delete(list_item_t *list, component_id_t slot);
+
 #endif /* !PLAYER_H_ */

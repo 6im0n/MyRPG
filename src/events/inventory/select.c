@@ -31,7 +31,7 @@ event_t *event, app_t *app)
 
     (void) event;
     (void) component;
-    swap_item_player(app->element->player->inventory, selector, ID_SLOT_1);
+    list_item_delete(app->element->player->inventory, selector);
     component->state = ST_SET_CLICKED(component, false);
 }
 
@@ -45,6 +45,7 @@ app_t *app)
         last = component->id;
     component->state = ST_SET_CLICKED(component, false);
     component->state = ST_SET_PRESSED(component, false);
+    component->state = ST_SET_HOVER(component, false);
     if (last != ID_UNDEFINED && select != ID_UNDEFINED && last != select)
         swap_item_player(app->element->player->inventory, last, select);
 }
