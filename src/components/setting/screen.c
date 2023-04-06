@@ -24,7 +24,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {100 / 1.3, 60 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
@@ -48,7 +48,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {100 / 1.3, 60 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
@@ -84,7 +84,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {250 / 1.3, 15 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
@@ -106,7 +106,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {30 / 1.3, 50 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_ARIAL };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BUTTON, style);

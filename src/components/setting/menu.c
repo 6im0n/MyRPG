@@ -46,7 +46,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {100 / 1.3, 60 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
@@ -71,7 +71,7 @@ renderer_objects_t objects, list_components_t *list)
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);

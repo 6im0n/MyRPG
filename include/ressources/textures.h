@@ -13,11 +13,11 @@ typedef enum e_texture {
     TX_DIALOG_MENU_BGR,
     TX_BACKGROUND_MENU,
     TX_INVENTORY_COMPO,
-    TX_MENU_ALL,
+    TX_UI_MENU_ALL,
     TX_CHALICE,
     TX_NATURE,
     TX_SHIP,
-    TX_ALTAR,
+    TX_ALTAR_1,
     TX_LEN
 } texture_t;
 
