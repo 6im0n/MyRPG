@@ -8,25 +8,40 @@
 #include "types/type.h"
 #include "components/components.h"
 #include "event/global.h"
+#include "components/new.h"
 
 void move_player(node_component_t *component,
 event_t *event, app_t *app)
 {
     (void) event;
-    (void) app;
-    sfVector2f position = sfRectangleShape_getPosition(component->object->rectangle);
+    (void) component;
 
-    if (sfKeyboard_isKeyPressed(sfKeyZ) || sfKeyboard_isKeyPressed(sfKeyUp)) 
-        position.y -= 5;
-    if (sfKeyboard_isKeyPressed(sfKeyS) || sfKeyboard_isKeyPressed(sfKeyDown)) 
+    sfVector2f position = sfRectangleShape_getPosition(app->element->player->character->shape);
+
+    if (sfKeyboard_isKeyPressed(sfKeyZ)){
+        position.y -= 5;   
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyS)){
         position.y += 5;
-    if (sfKeyboard_isKeyPressed(sfKeyQ) || sfKeyboard_isKeyPressed(sfKeyLeft))
+        app->element->player->character->irect.top = 164;
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyQ))
         position.x -= 5;
-    if (sfKeyboard_isKeyPressed(sfKeyD) || sfKeyboard_isKeyPressed(sfKeyRight))
+    if (sfKeyboard_isKeyPressed(sfKeyD))
         position.x += 5;
-    sfRectangleShape_setPosition(component->object->rectangle, position);
-    sfFloatRect rect = sfRectangleShape_getGlobalBounds(component->object->rectangle);
-    component->features.rendered_rect = rect;
+
+    sfRectangleShape_setPosition(app->element->player->character->shape, position);
+    sfFloatRect rect = sfRectangleShape_getGlobalBounds(app->element->player->character->shape);
+    app->element->player->character->frect = rect;
+    
+}
+
+void idle_player(node_component_t *component,
+event_t *event, app_t *app)
+{
+    (void) event;
+    (void) app;
+    (void) component;
 }
 
 void event_game_onkeypress(node_component_t *component,
@@ -48,5 +63,5 @@ event_t *event, app_t *app)
             app->state->back = app->state->stage;
         app->state->stage = S_SETTINGS;
     }
-   //move_player(component, event, app);
+   move_player(component, event, app);
 }
