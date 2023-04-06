@@ -39,6 +39,8 @@ _SRC =			main.c \
 				components/player/player.c \
 				components/player/inventory.c \
 				\
+				components/game/get.c \
+				components/game/menu.c \
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
 				components/menu/load/get.c \
@@ -74,6 +76,7 @@ _SRC =			main.c \
 				events/menu/help/keypress.c \
 				events/inventory/select.c \
 				events/inventory/selector.c \
+				events/game/player.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

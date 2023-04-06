@@ -27,6 +27,9 @@ main_components_t *components, list_components_t *list)
         case S_MENU_LOAD_GAME:
             app_component_render(app, components->load_game);
             break;
+        case S_GAME:
+            app_component_render(app, components->game);
+            break;
         default:
             break;
     }
@@ -52,6 +55,9 @@ main_components_t *components)
         case S_SETTINGS:
             dispatch(app, components, components->setting);
             break;
+        case S_GAME:
+            app_component_render(app, components->game);
+            break;
         default:
             break;
     }
@@ -59,8 +65,9 @@ main_components_t *components)
 
 static void player_render(app_t *app)
 {
-    sfRenderWindow_drawRectangleShape(app->window,
-        app->element->player->character->shape, NULL);
+    if (app->state->stage == S_GAME)
+        sfRenderWindow_drawRectangleShape(app->window,
+            app->element->player->character->shape, NULL);
 }
 
 void app_render(app_t *app, ressources_t *ressources,

@@ -104,6 +104,7 @@ typedef enum e_stage_type {
     S_INVENTORY,
     S_MENU_LOAD_GAME,
     S_CURSOR,
+    S_GAME,
     S_LEN
 } stage_t;
 
