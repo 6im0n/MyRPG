@@ -143,6 +143,7 @@ typedef struct s_app {
     sfRenderWindow *window;
     mouse_t mouse;
     state_t *state;
+    sfView *view;
     elements_t *element;
 } app_t;
 

@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include "types/types.h"
+
 #include "types/list.h"
 #include "components/components.h"
 #include "components/get.h"
@@ -16,7 +16,7 @@
 #include "event/game/global.h"
 
 static void append_menu_load_game(app_t *app, ressources_t ressources,
-renderer_objects_t objects, main_components_t *components)
+main_components_t *components)
 {
     sfVector2u size = sfRenderWindow_getSize(app->window);
     node_component_t *fload_game = component_pure_new(size);
@@ -26,11 +26,11 @@ renderer_objects_t objects, main_components_t *components)
     fload_game->events.onkeypress = &event_menu_onkeypress;
     list_component_append(mload_game, fload_game);
     components->load_game = mload_game;
-    components_get_load_game(app, ressources, objects, mload_game);
+    components_get_load_game(app, ressources, mload_game);
 }
 
 static void append_inventory(app_t *app, ressources_t ressources,
-renderer_objects_t objects, main_components_t *components)
+                            main_components_t *components)
 {
     sfVector2u size = sfRenderWindow_getSize(app->window);
     node_component_t *finventory = component_pure_new(size);
@@ -40,11 +40,11 @@ renderer_objects_t objects, main_components_t *components)
     finventory->events.onkeypress = &event_key_inventory_close_onkeypressed;
     list_component_append(minventory, finventory);
     components->inventory = minventory;
-    components_get_inventory(app, ressources, objects, minventory);
+    components_get_inventory(app, ressources, minventory);
 }
 
 static void append_cursor(app_t *app, ressources_t ressources,
-renderer_objects_t objects, main_components_t *components)
+                            main_components_t *components)
 {
     sfVector2u size = sfRenderWindow_getSize(app->window);
     node_component_t *fcursor = component_pure_new(size);
@@ -53,7 +53,7 @@ renderer_objects_t objects, main_components_t *components)
     mcursor->id = S_CURSOR;
     list_component_append(mcursor, fcursor);
     components->cursor = mcursor;
-    components_get_cursor(app, ressources, objects, mcursor);
+    components_get_cursor(app, ressources, mcursor);
 }
 
 static void append_game(app_t *app, ressources_t ressources,
@@ -75,7 +75,6 @@ renderer_objects_t objects)
 {
     main_components_t components = { NULL, NULL, NULL,
         NULL, NULL, NULL, NULL };
-
     append_menu(app, ressources, objects, &components);
     append_cursor(app, ressources, objects, &components);
     append_menu_load_game(app, ressources, objects, &components);

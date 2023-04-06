@@ -5,7 +5,7 @@
 ** annimation
 */
 
-#include "types/types.h"
+
 #include "components/components.h"
 
 void event_active_annimation(node_component_t *component,
@@ -13,7 +13,7 @@ event_t *event, app_t *app)
 {
     (void)app;
     (void)event;
-    component->annimation.speed = 0.1;
+    component->annimation.speed = component->annimation.max_speed;
     sfText_setColor(component->object->text, sfBlack);
 }
 

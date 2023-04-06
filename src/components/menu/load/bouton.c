@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -17,7 +17,7 @@
 #include "lib/output.h"
 
 static void bouton_newgame(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                            list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 250,
@@ -28,7 +28,7 @@ renderer_objects_t objects, list_components_t *list)
     component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
 
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 27, .left = 163, .top = 178, .width = 90},
         C_SIZE_BIG);
@@ -48,7 +48,7 @@ event_t *event, app_t *app)
 }
 
 static void bouton_resume(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                            list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 + 250,
@@ -59,7 +59,7 @@ renderer_objects_t objects, list_components_t *list)
     component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
 
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 27, .left = 163, .top = 178, .width = 90},
         C_SIZE_BIG);
@@ -70,7 +70,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void bouton_home(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                        list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2,
@@ -82,7 +82,7 @@ renderer_objects_t objects, list_components_t *list)
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 773, .top = 68, .width = 22},
         C_SIZE_SMALL);
@@ -95,9 +95,9 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void component_load_game_bouton(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                                list_components_t *list)
 {
-    bouton_newgame(app, ressources, objects, list);
-    bouton_resume(app, ressources, objects, list);
-    bouton_home(app, ressources, objects, list);
+    bouton_newgame(app, ressources, list);
+    bouton_resume(app, ressources, list);
+    bouton_home(app, ressources, list);
 }

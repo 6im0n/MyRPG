@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -40,7 +40,7 @@ static void set_event_item_inventory(node_component_t *obj)
 }
 
 static void object_item_inventory(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = NULL;
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
@@ -57,7 +57,7 @@ renderer_objects_t objects, list_components_t *list)
         pos, 90 + (angle * i));
         obj = malloc(sizeof(node_component_t));
         new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-        new_component_type(ressources, obj, objects, pos_angle);
+        new_component_type(ressources, obj, pos_angle);
         new_component_size(obj, size, (sfIntRect){0, 0, 0, 0}, C_SIZE_SMALL);
         set_event_item_inventory(obj);
         list_component_append(list, obj);
@@ -65,7 +65,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void main_selector(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
@@ -76,7 +76,7 @@ renderer_objects_t objects, list_components_t *list)
     component_styles style = { TX_INV_SELECTOR2, SD_NONE, FT_DROID };
 
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 0, .left = 0, .top = 0, .width = 0},
         C_SIZE_SMALL);
@@ -86,10 +86,10 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void inventory_object(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
-    object_item_inventory(app, ressources, objects, list);
+    object_item_inventory(app, ressources, list);
     inventory_object_add_id(list->last);
-    inventory_object_select(app, ressources, objects, list);
-    main_selector(app, ressources, objects, list);
+    inventory_object_select(app, ressources, list);
+    main_selector(app, ressources, list);
 }

@@ -5,7 +5,7 @@
 ** bouton
 */
 
-#include "types/types.h"
+
 #include "components/components.h"
 #include <stdio.h>
 #include "lib/str.h"
@@ -50,14 +50,18 @@ app_t *app)
         swap_item_player(app->element->player->inventory, last, select);
 }
 
-static void move_bouton(node_component_t *component, sfVector2f pos)
+static void move_bouton(node_component_t *component,
+sfVector2f pos, char *string)
 {
     node_component_t *delete = component->next->next;
     node_component_t *equip = component->next->next->next;
     sfVector2f deletepos = {pos.x - 50, pos.y + 60};
     sfVector2f equippos = {pos.x + 50, pos.y + 60};
     sfVector2f textpos = {pos.x, pos.y - 80};
+    sfVector2f pos_text = {pos.x, pos.y + 50};
 
+    sfText_setPosition(component->next->object->text, pos_text);
+    sfText_setString(component->next->object->text, string);
     sfRectangleShape_setPosition(component->object->rectangle, pos);
     sfRectangleShape_setPosition(delete->object->rectangle, deletepos);
     sfText_setPosition(delete->object->text, textpos);
@@ -75,20 +79,18 @@ event_t *event, app_t *app)
     (void) event;
     sfVector2f pos = sfRectangleShape_getPosition(
         component->object->rectangle);
-    sfVector2f pos_text = {pos.x, pos.y + 50};
     char *string = malloc(7);
 
-    app->element->player->inventory->selector = component->id;
     inventory_drop_done(component, app);
+    if (component->id > app->element->player->inventory->last->slot)
+        return;
+    app->element->player->inventory->selector = component->id;
     my_strcpy(string, "Slot  ");
     string[5] = component->id + '0';
     event_play_music(component, app);
     while (component) {
-        if (component->id == ID_MAIN_INV_SELECTOR) {
-            move_bouton(component, pos);
-            sfText_setPosition(component->next->object->text, pos_text);
-            sfText_setString(component->next->object->text, string);
-        }
+        if (component->id == ID_MAIN_INV_SELECTOR)
+            move_bouton(component, pos, string);
         component = component->next;
     }
     free(string);

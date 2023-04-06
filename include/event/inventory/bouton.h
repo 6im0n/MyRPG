@@ -8,7 +8,6 @@
 #ifndef EVENT_INVENTORY_H_
     #define EVENT_INVENTORY_H_
 
-    #include "types/types.h"
     #include "components/components.h"
     #define M_PI 3.14159265358979323846
 /**

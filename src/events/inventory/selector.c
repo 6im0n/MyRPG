@@ -5,12 +5,10 @@
 ** bouton
 */
 
-#include "types/types.h"
 #include "components/components.h"
 #include <stdio.h>
 #include "lib/str.h"
 #include "event/global.h"
-#include "lib/output.h"
 #include "components/player.h"
 
 void event_key_inventory_open_onkeypressed(node_component_t *component,

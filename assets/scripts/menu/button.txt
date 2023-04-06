@@ -1,0 +1,32 @@
+position: .50 620
+size: 340 90
+rect: 163 210 90 27
+style: 4 1 0
+type: 2
+c_size: 2
+clicked: 0
+###
+position: 1040 713
+size: 50 50
+rect: 709 164 22 24
+style: 4 1 0
+type: 2
+c_size: 0
+clicked: 1
+###
+position: .50 713
+size: 50 50
+rect: 645 68 22 24
+style: 4 1 0
+type: 2
+c_size: 0
+clicked: 3
+###
+position: 880 713
+size: 50 50
+rect: 772 163 22 24
+style: 4 1 0
+type: 2
+c_size: 0
+clicked: 2
+###

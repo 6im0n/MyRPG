@@ -43,8 +43,9 @@ char *window_title, int window_frame_rate)
     );
     mouse_t mouse = mouse_init();
     state_t *state = state_new();
+    sfView *view = sfView_create();
     elements_t *element = element_create(ressources);
-    app_t app = { window, mouse, state, element };
+    app_t app = { window, mouse, state, view, element };
 
     app_create_all_item(app.element, ressources);
     app_set_icon(app.window, ressources);

@@ -6,9 +6,9 @@
 */
 
 #include <stdio.h>
-#include "app/app.h"
-#include "types/types.h"
 #include <SFML/Graphics.h>
+#include "app/app.h"
+#include "components/view.h"
 
 static void event_handle_mouse(app_t *app, event_t *event)
 {
@@ -70,5 +70,6 @@ void app_handle_events(app_t *app, main_components_t *components)
         event.mouse = &(app->mouse);
         event_handle_mouse(app, &event);
         component_event_dispatch(app, &event, components);
+        manage_view(app, &event, components);
     }
 }

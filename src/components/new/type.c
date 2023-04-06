@@ -31,8 +31,6 @@ ressources_t ressources, sfVector2f position)
     sfRectangleShape_setTexture(component->object->rectangle,
         texture, sfFalse);
     sfRectangleShape_setOrigin(component->object->rectangle, origin);
-    sfRectangleShape_setOutlineColor(component->object->rectangle, sfYellow);
-    sfRectangleShape_setOutlineThickness(component->object->rectangle, 2);
     set_sound(ressources, component);
 }
 
@@ -61,10 +59,8 @@ ressources_t ressources, sfVector2f position)
 }
 
 void new_component_type(ressources_t ressources,
-node_component_t *component, renderer_objects_t objects,
-sfVector2f position)
+node_component_t *component, sfVector2f position)
 {
-    (void) objects;
     switch (component->type) {
         case C_TYPES_BUTTON:
         case C_TYPES_RECTANGLE:
