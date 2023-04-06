@@ -11,6 +11,7 @@
 #include "app/constants.h"
 #include "components/player.h"
 #include "types/list.h"
+#include "lib/output.h"
 
 static void set_music(ressources_t *ressources, app_t *app)
 {
@@ -24,8 +25,10 @@ static elements_t *element_create(ressources_t *ressources)
 {
     elements_t *element = malloc(sizeof(elements_t));
     player_t *player = player_create(ressources);
+    node_item_t *fitem = item_pure_new();
     list_item_t *items = list_item_init();
 
+    list_item_append(items, fitem);
     element->player = player;
     element->items = items;
     return element;
@@ -43,6 +46,7 @@ char *window_title, int window_frame_rate)
     elements_t *element = element_create(ressources);
     app_t app = { window, mouse, state, element };
 
+    app_create_all_item(app.element, ressources);
     app_set_icon(app.window, ressources);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
     sfRenderWindow_clear(app.window, W_COLOR);
@@ -55,6 +59,7 @@ void app_destroy(app_t *app)
 {
     if (app) {
         player_destroy(app->element->player);
+        list_item_free(app->element->items);
         free(app->element);
         state_free(app->state);
         sfRenderWindow_destroy(app->window);

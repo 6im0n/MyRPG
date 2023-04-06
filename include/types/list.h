@@ -49,4 +49,17 @@ list_item_t *list_item_init(void);
  */
 void list_item_free(list_item_t *list);
 
+/**
+ * @brief Init pure item
+ * @return node_item_t*
+ */
+node_item_t *item_pure_new(void);;
+
+/**
+ * @brief Remvoe node to list
+ * @param list list
+ * @param node node
+ */
+void list_remove(list_item_t *list, node_item_t *node);
+
 #endif /* !COMPONENTS_H_ */

@@ -27,6 +27,8 @@ _SRC =			main.c \
 				components/misc/events_default.c \
 				components/misc/events_annimation.c \
 				components/misc/state.c \
+				components/items/get.c \
+				components/items/new.c \
 				components/new/set.c \
 				components/new/type.c \
 				components/new/size.c \
@@ -35,6 +37,7 @@ _SRC =			main.c \
 				components/cursor.c \
 				\
 				components/player/player.c \
+				components/player/inventory.c \
 				\
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
@@ -71,6 +74,7 @@ _SRC =			main.c \
 				events/menu/help/bouton.c \
 				events/menu/help/keypress.c \
 				events/inventory/select.c \
+				events/inventory/selector.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
@@ -82,6 +86,8 @@ _SRC =			main.c \
 				types/list/component/append.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
+				types/list/player/switch.c \
+				types/list/player/remove.c \
 
 SRCDIR = 		src/
 

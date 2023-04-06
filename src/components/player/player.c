@@ -62,6 +62,5 @@ void player_destroy(player_t *player)
 {
     sfRectangleShape_destroy(player->character->shape);
     free(player->character);
-    list_item_free(player->inventory);
     free(player);
 }

@@ -21,3 +21,27 @@ void list_item_append(list_item_t *list, node_item_t *node)
     list->last = node;
     list->len++;
 }
+
+static void node_unlink(node_item_t *node)
+{
+    if (!node)
+        return;
+    if (node->next)
+        node->next->prev = node->prev;
+    if (node->prev)
+        node->prev->next = node->next;
+}
+
+void list_remove(list_item_t *list, node_item_t *node)
+{
+    node_unlink(node);
+    if (list->first == node)
+        list->first = node->next;
+    if (list->first)
+        list->first->prev = NULL;
+    if (list->last == node)
+        list->last = node->prev;
+    if (list->last)
+        list->last->next = NULL;
+    list->len--;
+}
