@@ -14,30 +14,18 @@
 #include "event/setting/bouton.h"
 #include "event/start_menu/bouton.h"
 
-static void append_menu_start(app_t *app, ressources_t ressources,
+static void append_menu_load_game(app_t *app, ressources_t ressources,
 renderer_objects_t objects, main_components_t *components)
 {
     sfVector2u size = sfRenderWindow_getSize(app->window);
-    node_component_t *fstart_menu = component_pure_new(size);
-    list_components_t *mstart_menu = list_components_init();
+    node_component_t *fload_game = component_pure_new(size);
+    list_components_t *mload_game = list_components_init();
 
-    fstart_menu->events.onkeypress = &event_menu_onkeypress;
-    list_component_append(mstart_menu, fstart_menu);
-    components->start_menu = mstart_menu;
-    components_get_start_menu(app, ressources, objects, mstart_menu);
-}
-
-static void append_menu_help(app_t *app, ressources_t ressources,
-renderer_objects_t objects, main_components_t *components)
-{
-    sfVector2u size = sfRenderWindow_getSize(app->window);
-    node_component_t *fhelp_menu = component_pure_new(size);
-    list_components_t *mhelp_menu = list_components_init();
-
-    fhelp_menu->events.onkeypress = &event_menu_onkeypress;
-    list_component_append(mhelp_menu, fhelp_menu);
-    components->help_menu = mhelp_menu;
-    components_get_help_menu(app, ressources, objects, mhelp_menu);
+    mload_game->id = S_MENU_LOAD_GAME;
+    fload_game->events.onkeypress = &event_menu_onkeypress;
+    list_component_append(mload_game, fload_game);
+    components->load_game = mload_game;
+    components_get_load_game(app, ressources, objects, mload_game);
 }
 
 static void append_inventory(app_t *app, ressources_t ressources,
@@ -47,33 +35,35 @@ renderer_objects_t objects, main_components_t *components)
     node_component_t *finventory = component_pure_new(size);
     list_components_t *minventory = list_components_init();
 
+    minventory->id = S_INVENTORY;
     finventory->events.onkeypress = &event_key_inventory_close_onkeypressed;
     list_component_append(minventory, finventory);
     components->inventory = minventory;
     components_get_inventory(app, ressources, objects, minventory);
 }
 
-static void append_settings(app_t *app, ressources_t ressources,
+static void append_cursor(app_t *app, ressources_t ressources,
 renderer_objects_t objects, main_components_t *components)
 {
     sfVector2u size = sfRenderWindow_getSize(app->window);
-    node_component_t *fsetting = component_pure_new(size);
-    list_components_t *msetting = list_components_init();
+    node_component_t *fcursor = component_pure_new(size);
+    list_components_t *mcursor = list_components_init();
 
-    fsetting->events.onkeypress = &event_key_settings_close_onkeypressed;
-    list_component_append(msetting, fsetting);
-    components->setting = msetting;
-    components_get_setting(app, ressources, objects, msetting);
+    mcursor->id = S_CURSOR;
+    list_component_append(mcursor, fcursor);
+    components->cursor = mcursor;
+    components_get_cursor(app, ressources, objects, mcursor);
 }
 
 main_components_t app_components_load(app_t *app, ressources_t ressources,
 renderer_objects_t objects)
 {
-    main_components_t components = { NULL, NULL, NULL, NULL, NULL };
+    main_components_t components = { NULL, NULL, NULL,
+        NULL, NULL, NULL, NULL };
 
-    append_menu_start(app, ressources, objects, &components);
-    append_menu_help(app, ressources, objects, &components);
+    append_menu(app, ressources, objects, &components);
+    append_cursor(app, ressources, objects, &components);
+    append_menu_load_game(app, ressources, objects, &components);
     append_inventory(app, ressources, objects, &components);
-    append_settings(app, ressources, objects, &components);
     return components;
 }

@@ -15,9 +15,9 @@ renderer_objects_t renderer_objects_create(sfRenderWindow *window)
     sfCircleShape *circle = sfCircleShape_create();
     sfRectangleShape *rectangle = sfRectangleShape_create();
     sfView *view = sfView_create();
+    sfClock *clock = sfClock_create();
     renderer_objects_t objects = {  window, view, sprite, text,
-                                    circle, rectangle  };
-
+                                    circle, rectangle, clock, NULL  };
     return (objects);
 }
 

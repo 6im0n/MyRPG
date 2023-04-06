@@ -11,6 +11,23 @@
     #include "types/type.h"
     #include "components/components.h"
 
+/**
+ * @brief Component cursor
+ * @param app App
+ * @param ressources Ressources
+ * @param objects Objects
+ * @param list List
+ */
+void component_cursor_default(app_t *app,ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+list_components_t *components_get_cursor(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *list);
+
+void event_cursor_onmove(node_component_t *component,
+event_t *event, app_t *app);
+
 //==================================================
 // START MENU
 //==================================================
@@ -50,6 +67,12 @@ renderer_objects_t objects, list_components_t *list);
 void components_menu_start_bouton_quit(app_t *app, ressources_t ressources,
 renderer_objects_t objects, list_components_t *list);
 
+void components_menu_start_annimation(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_menu_start_bouton_resume(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
 //==================================================
 // HELP MENU
 //==================================================
@@ -76,6 +99,45 @@ list_components_t *mstart_menu);
  */
 list_components_t *components_menu_help(app_t *app,ressources_t ressources,
 renderer_objects_t objects, list_components_t *mstart_menu);
+
+void components_help_bouton_move(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_help_command_setting(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_help_command_inventory(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+//==================================================
+// LOAD GAME
+//==================================================
+
+/**
+ * @brief Components Inventory
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
+list_components_t *components_get_load_game(app_t *app,
+ressources_t ressources, renderer_objects_t objects,
+list_components_t *list);
+
+/**
+ * @brief Components init Inventory
+ * @param app App
+ * @param ressources ressources
+ * @param objects ocjects
+ * @param list list
+ * @return list_components_t*
+ */
+list_components_t *components_load_game(app_t *app,ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void component_load_game_bouton(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
 
 //==================================================
 // INVENTORY
@@ -155,13 +217,49 @@ renderer_objects_t objects, list_components_t *list);
 void components_menu_setting_selector_sound(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
-void components_menu_setting_selector_sound_title(app_t *app,
+void components_menu_setting_selector_volume_music(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
-void components_menu_setting_selector_volume(app_t *app,
+void components_menu_setting_selector_volume_music_cursor(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
 
-void components_menu_setting_selector_volume_cursor(app_t *app,
+void components_menu_setting_selector_volume_sound(app_t *app,
 ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_volume_sound_cursor(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_volume_music_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_volume_sound_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_setting_bouton_quit(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_setting_bouton_resume(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_setting_bouton_fullscreen(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_framelimit(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_framelimit_cursor(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_menu_setting_selector_framerate_title(app_t *app,
+ressources_t ressources, renderer_objects_t objects, list_components_t *list);
+
+void components_resolution_1(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_resolution_2(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
+
+void components_resolution_3(app_t *app, ressources_t ressources,
+renderer_objects_t objects, list_components_t *list);
 
 #endif /* !GET_COMPONENTS_H_ */

@@ -7,6 +7,16 @@
 
 #include "components/components.h"
 
+static void set_sound(ressources_t ressources, node_component_t *component)
+{
+    if (component->features.styles.sound == SD_NONE)
+        return;
+    component->object->sound = sfSound_create();
+    sfSound_setBuffer(
+        component->object->sound,
+        ressources.sounds[SD_GRAB]);
+}
+
 static void init_rectangle(node_component_t *component,
 ressources_t ressources, sfVector2f position)
 {
@@ -21,8 +31,7 @@ ressources_t ressources, sfVector2f position)
     sfRectangleShape_setTexture(component->object->rectangle,
         texture, sfFalse);
     sfRectangleShape_setOrigin(component->object->rectangle, origin);
-    sfRectangleShape_setOutlineColor(component->object->rectangle, sfRed);
-    sfRectangleShape_setOutlineThickness(component->object->rectangle, 2);
+    set_sound(ressources, component);
 }
 
 static void init_circle(node_component_t *component,
@@ -36,17 +45,6 @@ ressources_t ressources, sfVector2f position)
     sfCircleShape_setPosition(component->object->circle, position);
     sfCircleShape_setTexture(component->object->circle, texture, sfFalse);
     sfCircleShape_setRadius(component->object->circle, size);
-}
-
-static void init_sprite(node_component_t *component,
-ressources_t ressources, sfVector2f position)
-{
-    sfTexture *texture = ressources.textures[
-        component->features.styles.texture];
-
-    component->object->sprite = sfSprite_create();
-    sfSprite_setPosition(component->object->sprite, position);
-    sfSprite_setTexture(component->object->sprite, texture, sfFalse);
 }
 
 static void init_text(node_component_t *component,
@@ -66,8 +64,8 @@ sfVector2f position)
 {
     (void) objects;
     switch (component->type) {
-        case C_TYPES_RECTANGLE:
         case C_TYPES_BUTTON:
+        case C_TYPES_RECTANGLE:
             init_rectangle(component, ressources, position);
             break;
         case C_TYPES_CIRCLE:
@@ -76,8 +74,10 @@ sfVector2f position)
         case C_TYPES_TEXT:
             init_text(component, ressources, position);
             break;
-        case C_TYPES_SPRITE:
-            init_sprite(component, ressources, position);
+        case C_TYPES_SIGN:
+        case C_TYPES_BTN_TXT:
+            init_text(component, ressources, position);
+            init_rectangle(component, ressources, position);
             break;
         default:
             break;

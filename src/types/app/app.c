@@ -9,6 +9,27 @@
 #include "app/app.h"
 #include "types/type.h"
 #include "app/constants.h"
+#include "components/player.h"
+#include "types/list.h"
+
+static void set_music(ressources_t *ressources, app_t *app)
+{
+    sfSound_setBuffer(app->state->sound->music,
+        ressources->sounds[SD_EXPLORATION]);
+    sfSound_setLoop(app->state->sound->music, sfTrue);
+    sfSound_play(app->state->sound->music);
+}
+
+static elements_t *element_create(ressources_t *ressources)
+{
+    elements_t *element = malloc(sizeof(elements_t));
+    player_t *player = player_create(ressources);
+    list_item_t *items = list_item_init();
+
+    element->player = player;
+    element->items = items;
+    return element;
+}
 
 app_t app_create(ressources_t *ressources, sfVideoMode window_mode,
 char *window_title, int window_frame_rate)
@@ -19,17 +40,22 @@ char *window_title, int window_frame_rate)
     );
     mouse_t mouse = mouse_init();
     state_t *state = state_new();
-    app_t app = { window, mouse, state };
+    elements_t *element = element_create(ressources);
+    app_t app = { window, mouse, state, element };
 
     app_set_icon(app.window, ressources);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
     sfRenderWindow_clear(app.window, W_COLOR);
+    sfRenderWindow_setMouseCursorVisible(app.window, sfFalse);
+    set_music(ressources, &app);
     return (app);
 }
 
 void app_destroy(app_t *app)
 {
     if (app) {
+        player_destroy(app->element->player);
+        free(app->element);
         state_free(app->state);
         sfRenderWindow_destroy(app->window);
     }

@@ -11,6 +11,7 @@
 typedef enum e_sound {
     SD_NONE,
     SD_GRAB,
+    SD_EXPLORATION,
     SD_LEN
 } sound_t;
 

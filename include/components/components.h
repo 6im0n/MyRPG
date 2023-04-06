@@ -39,7 +39,10 @@ typedef enum e_id_component {
     ID_SLOT_8,
     ID_SELECTOR,
     ID_MAIN_INV_SELECTOR,
-    ID_VOLUME_CURSOR,
+    ID_FPS_CURSOR,
+    ID_MUSIC_CURSOR,
+    ID_SOUND_CURSOR,
+    ID_CURSOR,
     ID_LEN
 } component_id_t;
 
@@ -47,6 +50,8 @@ typedef enum e_component_type {
     C_UNDEFINED,
     C_TYPES_RECTANGLE,
     C_TYPES_BUTTON,
+    C_TYPES_BTN_TXT,
+    C_TYPES_SIGN,
     C_TYPES_CIRCLE,
     C_TYPES_TEXT,
     C_TYPES_SPRITE,
@@ -62,6 +67,7 @@ typedef struct s_component_events {
     component_handler_t onmove;
     component_handler_t onnonclick;
     component_handler_t onkeypress;
+    component_handler_t ondisabled;
 } component_events_t;
 
 typedef struct s_component_styles {
@@ -78,12 +84,20 @@ typedef struct s_component_features {
     bool select;
 } component_feat_t;
 
+typedef struct s_component_annimation {
+    sfIntRect rect;
+    int index;
+    int max;
+    float speed;
+} component_annimation_t;
+
 typedef struct s_node_components {
     int state;
     component_id_t id;
     component_type_t type;
     renderer_objects_t *object;
     component_feat_t features;
+    component_annimation_t annimation;
     component_events_t events;
     struct s_node_components *next;
     struct s_node_components *prev;
@@ -93,14 +107,17 @@ typedef struct s_list_components {
     node_component_t *first;
     node_component_t *last;
     int len;
+    stage_t id;
 } list_components_t;
 
 typedef struct s_main_components {
     list_components_t *start_menu;
     list_components_t *help_menu;
+    list_components_t *load_game;
     list_components_t *game;
     list_components_t *inventory;
     list_components_t *setting;
+    list_components_t *cursor;
 } main_components_t;
 
 /**
@@ -134,6 +151,18 @@ node_component_t *component_pure_new(sfVector2u size);
  */
 void components_dispatch_event(list_components_t *components,
 event_t *event, app_t *app);
+
+void component_render_annimation(app_t *app,
+node_component_t *component);
+
+/**
+ * @brief Append menu to app menu
+ * @param components
+ * @param event
+ * @param app
+ */
+void append_menu(app_t *app, ressources_t ressources,
+renderer_objects_t objects, main_components_t *components);
 
 //==================================================
 // STATE

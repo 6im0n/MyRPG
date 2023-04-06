@@ -56,9 +56,28 @@ void set_component_text(node_component_t *component,
 char *string, sfColor color, int size);
 
 /**
+ * @brief Set the component text position
+ * @param component component
+ * @param position position
+ * @param middle for center the text
+ */
+void set_component_text_pos(node_component_t *component,
+sfVector2f position, int middle);
+
+/**
  * @brief Set id for inventory object
  * @param node node components
  */
 void inventory_object_add_id(node_component_t *node);
+
+/**
+ * @brief Set annimation for object
+ * @param component component
+ * @param annimation annimation movement
+ * @param index index to start the annimation
+ * @param max max index
+ */
+void new_component_annimation(node_component_t *component,
+sfIntRect annimation, int index, int max);
 
 #endif /* !NEW_H_ */

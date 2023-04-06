@@ -9,6 +9,7 @@
     #define LIST_H_
 
     #include "components/components.h"
+    #include "components/player.h"
 
 /**
  * @brief Initialise a list of components
@@ -29,5 +30,23 @@ void list_components_free(list_components_t *list);
  */
 void list_component_append(list_components_t *list, node_component_t *node);
 
+/**
+ * @brief Append a Item to List
+ * @param list
+ * @param node
+ */
+void list_item_append(list_item_t *list, node_item_t *node);
+
+/**
+ * @brief Initialise a list of components
+ * @return list_item_t*
+ */
+list_item_t *list_item_init(void);
+
+/**
+ * @brief Free a list of items
+ * @param list list to free
+ */
+void list_item_free(list_item_t *list);
 
 #endif /* !COMPONENTS_H_ */
