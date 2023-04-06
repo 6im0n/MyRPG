@@ -143,7 +143,6 @@ typedef struct s_app {
     mouse_t mouse;
     state_t *state;
     sfView *view;
-    player_t *player;
     elements_t *element;
 } app_t;
 

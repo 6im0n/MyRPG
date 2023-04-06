@@ -5,12 +5,10 @@
 ** bouton
 */
 
-#include "types/types.h"
 #include "components/components.h"
 #include <stdio.h>
 #include "lib/str.h"
 #include "event/global.h"
-#include "lib/output.h"
 #include "components/player.h"
 
 void event_key_inventory_open_onkeypressed(node_component_t *component,
@@ -47,6 +45,7 @@ void item_player_hover(node_component_t *component, event_t *event, app_t *app)
 {
     (void) event;
     (void) app;
+    printf("HERE\n");
     if (!sfMouse_isButtonPressed(sfMouseLeft)) {
         app->element->player->inventory->select = ID_UNDEFINED;
         app->element->player->inventory->last_select = ID_UNDEFINED;

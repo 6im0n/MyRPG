@@ -96,6 +96,6 @@ void app_component_render(app_t *app, list_components_t *components)
         if (tmp->id >= ID_SLOT_1 && tmp->id <= ID_SLOT_8)
             render_inventory(app, tmp->id,
             sfRectangleShape_getPosition(tmp->object->rectangle));
-        tmp = tmp2;
+        tmp = tmp->next;
     }
 }

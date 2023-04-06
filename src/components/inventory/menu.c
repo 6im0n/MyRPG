@@ -56,7 +56,7 @@ static void menu_title(app_t *app, ressources_t ressources,
 }
 
 static void annimation_env(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     float middle = sfRenderWindow_getSize(app->window).x / 2;
@@ -69,7 +69,7 @@ renderer_objects_t objects, list_components_t *list)
     (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 65, .left = 0, .top = 0, .width = 63},
         C_SIZE_MAX);
@@ -80,7 +80,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void annimation_player(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     float middle = sfRenderWindow_getSize(app->window).x / 2;
@@ -93,7 +93,7 @@ renderer_objects_t objects, list_components_t *list)
     (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 16 + 48, .top = 68, .width = 17},
         C_SIZE_MAX);
@@ -103,13 +103,12 @@ renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
-list_components_t *components_inventory(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+void components_inventory(app_t *app,ressources_t ressources,
+                            list_components_t *list)
 {
-    menu_board(app, ressources, objects, list);
-    menu_title(app, ressources, objects, list);
-    annimation_env(app, ressources, objects, list);
-    annimation_player(app, ressources, objects, list);
-    inventory_object(app, ressources, objects, list);
-    return list;
+    menu_board(app, ressources, list);
+    menu_title(app, ressources, list);
+    annimation_env(app, ressources, list);
+    annimation_player(app, ressources, list);
+    inventory_object(app, ressources, list);
 }

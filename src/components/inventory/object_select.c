@@ -15,7 +15,7 @@
 #include "event/inventory/bouton.h"
 
 static void selector(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
@@ -57,7 +57,7 @@ static void main_title(app_t *app, ressources_t ressources,
 }
 
 static void bouton_delete(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {-20, -20};
@@ -68,7 +68,7 @@ renderer_objects_t objects, list_components_t *list)
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 837, .top = 164, .width = 22},
         C_SIZE_SMALL);
@@ -81,7 +81,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 static void bouton_equipe(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {-20, -20};
@@ -92,7 +92,7 @@ renderer_objects_t objects, list_components_t *list)
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 837, .top = 132, .width = 22},
         C_SIZE_SMALL);
@@ -107,8 +107,8 @@ renderer_objects_t objects, list_components_t *list)
 void inventory_object_select(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    selector(app, ressources, objects, list);
-    main_title(app, ressources, objects, list);
-    bouton_delete(app, ressources, objects, list);
-    bouton_equipe(app, ressources, objects, list);
+    selector(app, ressources, list);
+    main_title(app, ressources, list);
+    bouton_delete(app, ressources, list);
+    bouton_equipe(app, ressources, list);
 }
