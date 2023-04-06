@@ -6,7 +6,6 @@
 */
 
 #include "app/app.h"
-#include "types/types.h"
 #include <SFML/Graphics.h>
 
 static void view_resize(app_t *app, event_t *event)

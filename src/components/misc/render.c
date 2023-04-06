@@ -59,16 +59,13 @@ node_component_t *component)
 void app_component_render(app_t *app, list_components_t *components)
 {
     node_component_t *tmp = components->first;
-    node_component_t *tmp2 = tmp;
 
     if (!tmp)
         return;
-    (void) app;
     while (tmp != NULL) {
-        tmp2 = tmp->next;
         component_render_annimation(app, tmp);
         component_render_dispatch_form(app, tmp);
         component_render_dispatch(app, tmp);
-        tmp = tmp2;
+        tmp = tmp->next;
     }
 }

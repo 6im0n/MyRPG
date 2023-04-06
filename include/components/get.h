@@ -53,22 +53,6 @@ ressources_t ressources, list_components_t *mstart_menu);
 void components_menu_start(app_t *app,ressources_t ressources,
 list_components_t *mstart_menu);
 
-void components_menu_start_bouton_play(app_t *app, ressources_t ressources,
-list_components_t *list);
-
-void components_menu_start_bouton_help(app_t *app, ressources_t ressources,
-list_components_t *list);
-
-void components_menu_start_bouton_setting(app_t *app, ressources_t ressources,
-list_components_t *list);
-
-void components_menu_start_bouton_quit(app_t *app, ressources_t ressources,
-list_components_t *list);
-
-void components_menu_start_annimation(ressources_t ressources,
-list_components_t *list);
-
-
 //==================================================
 // HELP MENU
 //==================================================

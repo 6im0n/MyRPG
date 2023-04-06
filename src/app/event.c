@@ -8,7 +8,6 @@
 #include <stdio.h>
 #include <SFML/Graphics.h>
 #include "app/app.h"
-#include "types/types.h"
 #include "components/view.h"
 
 static void event_handle_mouse(app_t *app, event_t *event)

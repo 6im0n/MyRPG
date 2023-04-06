@@ -38,8 +38,6 @@ _SRC =			main.c \
 				\
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
-				components/menu/start/bouton.c \
-				components/menu/start/annimation.c \
 				components/menu/load/get.c \
 				components/menu/load/menu.c \
 				components/menu/load/bouton.c \
@@ -84,7 +82,11 @@ _SRC =			main.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
 				\
-				parsing/buttons/parsing.c \
+				parsing/parsing.c \
+				parsing/function.c \
+				parsing/animation.c \
+				parsing/position.c \
+				parsing/utils.c \
 				\
 				utils/file.c \
 

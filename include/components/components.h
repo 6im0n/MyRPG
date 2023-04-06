@@ -89,6 +89,7 @@ typedef struct s_component_annimation {
     int index;
     int max;
     float speed;
+    float max_speed;
 } component_annimation_t;
 
 typedef struct s_node_components {
@@ -124,13 +125,37 @@ typedef struct s_main_components {
 // PARSING
 //==================================================
 
-typedef enum e_function {
+typedef enum e_disabled {
+    DISABLED_ANIMATION,
+    DISABLED_LEN
+} disabled_t;
+
+
+typedef enum e_hover {
+    ACTIVE_ANIMATION,
+    HOVER_LEN
+} hover_t;
+
+typedef enum e_clicked {
     MENU_LOAD_GAME,
     MENU_HELP,
     QUIT_APP,
     MENU_SETTINGS,
-    FUNCTION_LEN
+    CLICKED_LEN
+} clicked_t;
+
+typedef struct function_s {
+    clicked_t clicked;
+    hover_t hover;
+    disabled_t disabled;
 } function_t;
+
+typedef struct animation_s {
+    sfIntRect rect;
+    int index;
+    int max;
+    float speed;
+} animation_t;
 
 typedef struct parsing_s {
     char types[15];
@@ -141,6 +166,7 @@ typedef struct parsing_s {
     component_size_t c_size;
     component_styles style;
     function_t function;
+    animation_t animation;
 } parsing_t;
 
 /**

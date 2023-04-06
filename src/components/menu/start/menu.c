@@ -5,6 +5,7 @@
 ** set
 */
 
+#include <stdio.h>
 #include <SFML/Graphics.h>
 #include "components/components.h"
 #include "components/new.h"
@@ -12,6 +13,7 @@
 #include "ressources/textures.h"
 #include "event/start_menu/bouton.h"
 #include "components/get.h"
+#include "parsing/buttons.h"
 
 static void menu_background(app_t *app, ressources_t ressources,
                             list_components_t *list)
@@ -81,9 +83,7 @@ void components_menu_start(app_t *app,ressources_t ressources,
     menu_background(app, ressources, list);
     menu_board(app, ressources, list);
     setting_background(app, ressources, list);
-    components_menu_start_bouton_play(app, ressources, list);
-    // components_menu_start_bouton_help(app, ressources, list);
-    components_menu_start_bouton_setting(app, ressources, list);
-    components_menu_start_bouton_quit(app, ressources, list);
-    components_menu_start_annimation(ressources, list);
+    parsing_buttons(app, ressources, list, "assets/scripts/menu/button.txt");
+    printf("\n\n");
+    parsing_buttons(app, ressources, list, "assets/scripts/menu/animation.txt");
 }
