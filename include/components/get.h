@@ -95,7 +95,6 @@ list_components_t *list);
  * @brief Components Inventory
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */
@@ -106,7 +105,6 @@ list_components_t *list);
  * @brief Components init Inventory
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */
@@ -124,7 +122,6 @@ list_components_t *list);
  * @brief Components Inventory
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */
@@ -135,7 +132,6 @@ list_components_t *list);
  * @brief Components init Inventory
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */
@@ -146,7 +142,6 @@ void components_inventory(app_t *app,ressources_t ressources,
  * @brief Components set Inventory slot
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */
@@ -157,7 +152,6 @@ list_components_t *list);
  * @brief Components set Inventory selector slot
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */
@@ -172,7 +166,6 @@ list_components_t *list);
  * @brief Components Setting
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */
@@ -183,7 +176,6 @@ list_components_t *list);
  * @brief Components init Setting
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */
@@ -246,7 +238,6 @@ list_components_t *list);
  * @brief Components Inventory
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */
@@ -257,7 +248,6 @@ ressources_t ressources, list_components_t *list);
  * @brief Components init Inventory
  * @param app App
  * @param ressources ressources
- * @param objects ocjects
  * @param list list
  * @return list_components_t*
  */

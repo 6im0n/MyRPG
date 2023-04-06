@@ -62,8 +62,6 @@ static void game_player(app_t *app, ressources_t ressources, list_components_t *
 }
 
 
-
-
 list_components_t *components_game(app_t *app,ressources_t ressources,
 list_components_t *list)
 {

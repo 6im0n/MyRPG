@@ -48,5 +48,5 @@ event_t *event, app_t *app)
             app->state->back = app->state->stage;
         app->state->stage = S_SETTINGS;
     }
-   move_player(component, event, app);
+   //move_player(component, event, app);
 }
