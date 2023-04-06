@@ -17,6 +17,7 @@ list_components_t *list_components_init(void)
     tmp->first = NULL;
     tmp->last = NULL;
     tmp->len = 0;
+    tmp->id = S_LEN;
     return tmp;
 }
 

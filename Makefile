@@ -12,22 +12,65 @@ _SRC =			main.c \
 				app/event.c \
 				app/rendering.c \
 				app/component.c \
+				app/component_menu.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
 				ressources/sounds.c \
+				ressources/fonts.c \
 				\
 				components/free.c \
 				components/misc/render.c \
+				components/misc/effect_botton.c \
 				components/misc/events_dispatch.c \
 				components/misc/events_handlers.c \
+				components/misc/events_default.c \
+				components/misc/events_annimation.c \
 				components/misc/state.c \
 				components/new/set.c \
 				components/new/type.c \
 				components/new/size.c \
+				components/new/text.c \
+				components/new/annimation.c \
+				components/cursor.c \
 				\
-				components/start_menu/get.c \
-				components/start_menu/menu.c \
+				components/player/player.c \
+				\
+				components/menu/start/get.c \
+				components/menu/start/menu.c \
+				components/menu/start/bouton.c \
+				components/menu/start/annimation.c \
+				components/menu/load/get.c \
+				components/menu/load/menu.c \
+				components/menu/load/bouton.c \
+				components/menu/help/get.c \
+				components/menu/help/menu.c \
+				components/menu/help/move.c \
+				components/menu/help/command.c \
+				components/inventory/get.c \
+				components/inventory/menu.c \
+				components/inventory/object.c \
+				components/inventory/object_select.c \
+				components/setting/get.c \
+				components/setting/menu.c \
+				components/setting/sound.c \
+				components/setting/bouton.c \
+				components/setting/screen.c \
+				\
+				events/help.c \
+				events/cursor.c \
+				events/setting.c \
+				events/annimation.c \
+				\
+				events/setting/open.c \
+				events/setting/screen.c \
+				events/setting/volume.c \
+				events/setting/framerate.c \
+				events/setting/hover.c \
+				events/menu/start/bouton.c \
+				events/menu/help/bouton.c \
+				events/menu/help/keypress.c \
+				events/inventory/select.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
@@ -37,6 +80,8 @@ _SRC =			main.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
+				types/list/player/list.c \
+				types/list/player/append.c \
 
 SRCDIR = 		src/
 

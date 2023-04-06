@@ -7,6 +7,7 @@
 
 #ifndef APP_H_
     #define APP_H_
+
     #include <SFML/Graphics.h>
     #include "types/type.h"
     #include "components/components.h"

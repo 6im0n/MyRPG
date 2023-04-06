@@ -11,6 +11,7 @@
 mouse_t mouse_init(void)
 {
     mouse_t mouse = {
+        true,
         false,
         DFT_MOUSE_POSITION,
         DFT_MOUSE_POSITION,

@@ -7,6 +7,7 @@
 
 #ifndef APP_RESSOURCES_H_
     #define APP_RESSOURCES_H_
+
     #include <SFML/Graphics.h>
     #include "types/type.h"
     #include <SFML/Audio.h>
@@ -43,5 +44,16 @@ sfSoundBuffer**ressources_import_sounds(void);
  * @param sounds Sounds to destroy
  */
 void ressources_destroy_sounds(sfSoundBuffer**sounds);
+
+/**
+ * @brief Import fonts
+ */
+sfFont **ressources_import_fonts(void);
+
+/**
+ * @brief Destroy given fonts
+ * @param fonts Fonts to destroy
+ */
+void ressources_destroy_fonts(sfFont **fonts);
 
 #endif /* !APP_RESSOURCES_H_ */

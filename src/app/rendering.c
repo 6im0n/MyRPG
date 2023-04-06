@@ -13,11 +13,54 @@
 #include <SFML/Graphics.h>
 #include <stdio.h>
 
+static void dispatch(app_t *app,
+main_components_t *components, list_components_t *list)
+{
+    switch (app->state->back) {
+        case S_MENU_START:
+            app_component_render(app, components->start_menu);
+            break;
+        case S_MENU_HELP:
+            app_component_render(app, components->help_menu);
+            break;
+        case S_MENU_LOAD_GAME:
+            app_component_render(app, components->load_game);
+            break;
+        default:
+            break;
+    }
+    app_component_render(app, list);
+}
+
 static void component_render_dispatch(app_t *app,
 main_components_t *components)
 {
-    if (app->state->stage == S_START_MENU)
-        app_component_render(app, components->start_menu);
+    switch (app->state->stage) {
+        case S_MENU_START:
+            app_component_render(app, components->start_menu);
+            break;
+        case S_MENU_LOAD_GAME:
+            app_component_render(app, components->load_game);
+            break;
+        case S_MENU_HELP:
+            app_component_render(app, components->help_menu);
+            break;
+        case S_INVENTORY:
+            dispatch(app, components, components->inventory);
+            break;
+        case S_SETTINGS:
+            dispatch(app, components, components->setting);
+            break;
+        default:
+            break;
+    }
+    app_component_render(app, components->cursor);
+}
+
+static void player_render(app_t *app)
+{
+    sfRenderWindow_drawRectangleShape(app->window,
+        app->element->player->character->shape, NULL);
 }
 
 void app_render(app_t *app, ressources_t *ressources,
@@ -26,5 +69,6 @@ main_components_t *components)
     (void) ressources;
     sfRenderWindow_clear(app->window, W_COLOR);
     component_render_dispatch(app, components);
+    player_render(app);
     sfRenderWindow_display(app->window);
 }
