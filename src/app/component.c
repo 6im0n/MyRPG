@@ -13,6 +13,7 @@
 #include "event/inventory/bouton.h"
 #include "event/setting/bouton.h"
 #include "event/start_menu/bouton.h"
+#include "event/game/global.h"
 
 static void append_menu_load_game(app_t *app, ressources_t ressources,
 renderer_objects_t objects, main_components_t *components)
@@ -55,6 +56,20 @@ renderer_objects_t objects, main_components_t *components)
     components_get_cursor(app, ressources, objects, mcursor);
 }
 
+static void append_game(app_t *app, ressources_t ressources,
+renderer_objects_t objects, main_components_t *components)
+{
+    sfVector2u size = sfRenderWindow_getSize(app->window);
+    node_component_t *fgame = component_pure_new(size);
+    list_components_t *mgame = list_components_init();
+
+    mgame->id = S_GAME;
+    fgame->events.onkeypress = &event_game_onkeypress;
+    list_component_append(mgame, fgame);
+    components->game = mgame;
+    components_get_game(app, ressources, objects, mgame);
+}
+
 main_components_t app_components_load(app_t *app, ressources_t ressources,
 renderer_objects_t objects)
 {
@@ -65,5 +80,6 @@ renderer_objects_t objects)
     append_cursor(app, ressources, objects, &components);
     append_menu_load_game(app, ressources, objects, &components);
     append_inventory(app, ressources, objects, &components);
+    append_game(app, ressources, objects, &components);
     return components;
 }

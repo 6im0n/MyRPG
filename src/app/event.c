@@ -51,6 +51,9 @@ event_t *event, main_components_t *components)
         case S_MENU_LOAD_GAME:
             components_dispatch_event(components->load_game, event, app);
             break;
+        case S_GAME:
+            components_dispatch_event(components->game, event, app);
+            break;
         default:
             break;
     }
