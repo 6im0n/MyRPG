@@ -18,8 +18,7 @@
  * @param objects Objects
  * @param list List
  */
-void component_cursor_default(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *list);
+void component_cursor_default(app_t *app,ressources_t ressources, list_components_t *list);
 
 void components_get_cursor(app_t *app, ressources_t ressources,
                             list_components_t *list);
@@ -252,8 +251,7 @@ list_components_t *list);
  * @return list_components_t*
  */
 list_components_t *components_get_game(app_t *app,
-ressources_t ressources, renderer_objects_t objects,
-list_components_t *list);
+ressources_t ressources, list_components_t *list);
 
 /**
  * @brief Components init Inventory
@@ -263,7 +261,6 @@ list_components_t *list);
  * @param list list
  * @return list_components_t*
  */
-list_components_t *components_game(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *list);
+list_components_t *components_game(app_t *app, ressources_t ressources, list_components_t *list);
 
 #endif /* !GET_COMPONENTS_H_ */

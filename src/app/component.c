@@ -57,7 +57,7 @@ static void append_cursor(app_t *app, ressources_t ressources,
 }
 
 static void append_game(app_t *app, ressources_t ressources,
-renderer_objects_t objects, main_components_t *components)
+main_components_t *components)
 {
     sfVector2u size = sfRenderWindow_getSize(app->window);
     node_component_t *fgame = component_pure_new(size);
@@ -67,18 +67,17 @@ renderer_objects_t objects, main_components_t *components)
     fgame->events.onkeypress = &event_game_onkeypress;
     list_component_append(mgame, fgame);
     components->game = mgame;
-    components_get_game(app, ressources, objects, mgame);
+    components_get_game(app, ressources, mgame);
 }
 
-main_components_t app_components_load(app_t *app, ressources_t ressources,
-renderer_objects_t objects)
+main_components_t app_components_load(app_t *app, ressources_t ressources)
 {
     main_components_t components = { NULL, NULL, NULL,
         NULL, NULL, NULL, NULL };
-    append_menu(app, ressources, objects, &components);
-    append_cursor(app, ressources, objects, &components);
-    append_menu_load_game(app, ressources, objects, &components);
-    append_inventory(app, ressources, objects, &components);
-    append_game(app, ressources, objects, &components);
+    append_menu(app, ressources, &components);
+    append_cursor(app, ressources, &components);
+    append_menu_load_game(app, ressources, &components);
+    append_inventory(app, ressources, &components);
+    append_game(app, ressources, &components);
     return components;
 }

@@ -5,7 +5,7 @@
 ** bouton
 */
 
-#include "types/types.h"
+#include "types/type.h"
 #include "components/components.h"
 #include "event/global.h"
 
