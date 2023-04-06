@@ -45,7 +45,6 @@ void item_player_hover(node_component_t *component, event_t *event, app_t *app)
 {
     (void) event;
     (void) app;
-    printf("HERE\n");
     if (!sfMouse_isButtonPressed(sfMouseLeft)) {
         app->element->player->inventory->select = ID_UNDEFINED;
         app->element->player->inventory->last_select = ID_UNDEFINED;

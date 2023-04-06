@@ -15,7 +15,6 @@ sfVector2f size, sfIntRect rect)
     if (rect.width != 0 && rect.height != 0)
         sfRectangleShape_setTextureRect(component->object->rectangle, rect);
     sfRectangleShape_setSize(component->object->rectangle, size);
-    if (component->type != C_TYPES_RECTANGLE)
         component->features.rendered_rect =
         sfRectangleShape_getGlobalBounds(component->object->rectangle);
 }
