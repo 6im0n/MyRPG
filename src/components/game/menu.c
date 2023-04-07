@@ -16,7 +16,8 @@
 #include "event/annimation.h"
 #include "event/game/global.h"
 
-static void game_background(app_t *app, ressources_t ressources, list_components_t *list)
+static void game_background(app_t *app, ressources_t ressources,
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
@@ -40,31 +41,30 @@ static void game_background(app_t *app, ressources_t ressources, list_components
 static void game_player(app_t *app, ressources_t ressources)
 {
     sfVector2f size = {70, 100};
+    sfFloatRect player_frect = {0, 0, 0, 0};
+    sfRectangleShape *rect = sfRectangleShape_create();
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
         sfRenderWindow_getSize(app->window).y / 2};
-    sfIntRect rect = {.height = 24, .left = 16+48, .top = 20, .width = 17};
+    sfIntRect in_rect = {16 + 48, 20, 17, 24};
     app->element->player->character->clock = sfClock_create();
 
-    app->element->player->character->shape = sfRectangleShape_create();
-    sfRectangleShape_setSize(app->element->player->character->shape, size);
-    sfRectangleShape_setPosition(app->element->player->character->shape, middle);
-    sfRectangleShape_setTexture(app->element->player->character->shape,
-        ressources.textures[TX_PLAYER], sfFalse);
-    sfRectangleShape_setTextureRect(app->element->player->character->shape, rect);
-
-    app->element->player->character->irect = rect;
-    app->element->player->character->frect = sfRectangleShape_getGlobalBounds(app->element->player->character->shape);
+    sfRectangleShape_setSize(rect, size);
+    sfRectangleShape_setPosition(rect, middle);
+    sfRectangleShape_setTexture(rect, ressources.textures[TX_PLAYER], sfFalse);
+    sfRectangleShape_setTextureRect(rect, in_rect);
+    player_frect = sfRectangleShape_getGlobalBounds(rect);
+    app->element->player->character->shape = rect;
+    app->element->player->character->irect = in_rect;
+    app->element->player->character->frect = player_frect;
     app->element->player->character->key.down = false;
     app->element->player->character->key.up = false;
     app->element->player->character->key.left = false;
     app->element->player->character->key.right = false;
 }
 
-
-list_components_t *components_game(app_t *app,ressources_t ressources,
+void components_game(app_t *app,ressources_t ressources,
 list_components_t *list)
 {
     game_background(app, ressources, list);
     game_player(app, ressources);
-    return list;
 }

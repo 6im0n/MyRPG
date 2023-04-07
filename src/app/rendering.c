@@ -36,6 +36,18 @@ main_components_t *components, list_components_t *list)
     app_component_render(app, list);
 }
 
+static void component_render_dispatch_extend(app_t *app,
+main_components_t *components)
+{
+    switch (app->state->stage) {
+        case S_GAME:
+            app_component_render(app, components->game);
+            break;
+        default:
+            break;
+    }
+}
+
 static void component_render_dispatch(app_t *app,
 main_components_t *components)
 {
@@ -55,12 +67,10 @@ main_components_t *components)
         case S_SETTINGS:
             dispatch(app, components, components->setting);
             break;
-        case S_GAME:
-            app_component_render(app, components->game);
-            break;
         default:
             break;
     }
+    component_render_dispatch_extend(app, components);
 }
 
 static void player_render(app_t *app)

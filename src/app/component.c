@@ -65,6 +65,7 @@ main_components_t *components)
 
     mgame->id = S_GAME;
     fgame->events.onkeypress = &event_game_onkeypress;
+    fgame->events.onkeyrelease = &event_key_switch;
     list_component_append(mgame, fgame);
     components->game = mgame;
     components_get_game(app, ressources, mgame);

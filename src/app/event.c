@@ -33,6 +33,21 @@ static void event_handle_mouse(app_t *app, event_t *event)
         event->mouse->pressed = false;
 }
 
+static void component_event_dispach_extend(app_t *app,
+event_t *event, main_components_t *components)
+{
+    switch (app->state->stage) {
+        case S_MENU_LOAD_GAME:
+            components_dispatch_event(components->load_game, event, app);
+            break;
+        case S_GAME:
+            components_dispatch_event(components->game, event, app);
+            break;
+        default:
+            break;
+    }
+}
+
 static void component_event_dispatch(app_t *app,
 event_t *event, main_components_t *components)
 {
@@ -49,40 +64,31 @@ event_t *event, main_components_t *components)
         case S_SETTINGS:
             components_dispatch_event(components->setting, event, app);
             break;
-        case S_MENU_LOAD_GAME:
-            components_dispatch_event(components->load_game, event, app);
-            break;
-        case S_GAME:
-            components_dispatch_event(components->game, event, app);
-            break;
         default:
             break;
     }
+    component_event_dispach_extend(app, event, components);
     components_dispatch_event(components->cursor, event, app);
 }
 
 void move_player(app_t *app)
 {
-    sfVector2f position = sfRectangleShape_getPosition(app->element->player->character->shape);
-    //float move = 5.0f;
-    fflush(stdout);
-    static int i = 0;
-    printf("passage\n%d" , i);
-    i++;
-    
-    // if (sfKeyboard_isKeyPressed(sfKeyZ))
-    //     app->element->player->character->key->up = 1;
-    // if (sfKeyboard_isKeyPressed(sfKeyQ))
-    //     app->element->player->character->key->left = 1;
-    // if (sfKeyboard_isKeyPressed(sfKeyS))
-    //     app->element->player->character->key->down = 1;
-    // if (sfKeyboard_isKeyPressed(sfKeyD))
-    //     app->element->player->character->key->right = 1;
+    sfRectangleShape *player_rect = app->element->player->character->shape;
+    sfVector2f position = sfRectangleShape_getPosition(player_rect);
+    sfFloatRect tmp_rect = {0, 0, 0, 0};
+    float move = 2;
 
-
-    sfRectangleShape_setPosition(app->element->player->character->shape, position);
-    sfFloatRect rect = sfRectangleShape_getGlobalBounds(app->element->player->character->shape);
-    app->element->player->character->frect = rect;
+    if (app->element->player->character->key.up)
+        position.y -= move;
+    if (app->element->player->character->key.down)
+        position.y += move;
+    if (app->element->player->character->key.right)
+        position.x += move;
+    if (app->element->player->character->key.left)
+        position.x -= move;
+    sfRectangleShape_setPosition(player_rect, position);
+    tmp_rect = sfRectangleShape_getGlobalBounds(player_rect);
+    app->element->player->character->frect = tmp_rect;
 }
 
 void app_handle_events(app_t *app, main_components_t *components)
@@ -93,12 +99,11 @@ void app_handle_events(app_t *app, main_components_t *components)
         if (event.original.type == sfEvtClosed)
             sfRenderWindow_close(app->window);
         event.mouse = &(app->mouse);
-        if (app->state->stage == S_GAME){
-            move_player(app);
-
-        }
         event_handle_mouse(app, &event);
         component_event_dispatch(app, &event, components);
         manage_view(app, &event, components);
+    }
+    if (app->state->stage == S_GAME) {
+        move_player(app);
     }
 }
