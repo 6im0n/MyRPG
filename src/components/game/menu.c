@@ -43,6 +43,7 @@ static void game_player(app_t *app, ressources_t ressources)
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
         sfRenderWindow_getSize(app->window).y / 2};
     sfIntRect rect = {.height = 24, .left = 16+48, .top = 20, .width = 17};
+    app->element->player->character->clock = sfClock_create();
 
     app->element->player->character->shape = sfRectangleShape_create();
     sfRectangleShape_setSize(app->element->player->character->shape, size);
