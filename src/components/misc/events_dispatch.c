@@ -23,6 +23,8 @@ static void catch(node_component_t *component, event_t *event, app_t *app)
         component_onnonclick(component, event, app);
     if (event->original.type == sfEvtTextEntered)
         component_onkeypress(component, event, app);
+    if (event->original.type == sfEvtKeyReleased)
+        component_onkeyrelease(component, event, app);
     if (!ST_IS_HOVER(component))
         component_ondisabled(component, event, app);
 }

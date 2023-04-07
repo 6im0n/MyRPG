@@ -18,7 +18,6 @@
  * @brief New component type
  * @param ressources ressources
  * @param component components
- * @param objects objects
  * @param position position object
  */
 void new_component_type(ressources_t ressources,
