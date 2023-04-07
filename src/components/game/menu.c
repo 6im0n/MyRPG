@@ -38,7 +38,7 @@ list_components_t *list)
     list_component_append(list, obj);
 }
 
-static void game_player(app_t *app, ressources_t ressources)
+static void init_game_player(app_t *app, ressources_t ressources)
 {
     sfVector2f size = {70, 100};
     sfFloatRect player_frect = {0, 0, 0, 0};
@@ -62,9 +62,17 @@ static void game_player(app_t *app, ressources_t ressources)
     app->element->player->character->key.right = false;
 }
 
+static void init_player_animation(app_t *app)
+{
+    new_player_annimation(app, (sfIntRect){.height = 0, .left = 48,
+        .top = 0, .width = 0}, 0, 4);
+    app->element->player->character->annimation.speed = 0.3;
+}
+
 void components_game(app_t *app,ressources_t ressources,
 list_components_t *list)
 {
     game_background(app, ressources, list);
-    game_player(app, ressources);
+    init_player_animation(app);
+    init_game_player(app, ressources);
 }

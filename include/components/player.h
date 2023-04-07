@@ -50,4 +50,9 @@ void list_item_delete(list_item_t *list, component_id_t slot);
 void event_key_switch(node_component_t *component,
 event_t *event, app_t *app);
 
+void player_render_annimation(app_t *app);
+
+void new_player_annimation(app_t *app, sfIntRect annimation, int index, int max);
+
+
 #endif /* !PLAYER_H_ */
