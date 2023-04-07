@@ -95,6 +95,8 @@ _SRC =			main.c \
 				parsing/animation.c \
 				parsing/position.c \
 				parsing/utils.c \
+				parsing/size.c \
+				parsing/type.c \
 				\
 				utils/file.c \
 				types/list/player/switch.c \

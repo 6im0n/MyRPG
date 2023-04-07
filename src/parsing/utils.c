@@ -5,42 +5,15 @@
 ** utils
 */
 
-#include <stdio.h>
 #include <SFML/Graphics.h>
 #include "lib/str.h"
-#include "utils/file.h"
-#include "types/type.h"
-#include "types/list.h"
-#include "components/new.h"
 #include "components/components.h"
-#include "event/start_menu/bouton.h"
-#include "event/functions.h"
 #include "parsing/utils.h"
 
 void clean_char(char *data, int size)
 {
     for (int i = 0; i < size; i++) {
         data[i] = '\0';
-    }
-}
-
-void get_position(char *nb, parsing_t *element, app_t *app)
-{
-    int number = 0;
-
-    number = my_strtoint(nb);
-    if (nb[0] == '.') {
-        if (element->position.x == -1)
-            element->position.x =
-            sfRenderWindow_getSize(app->window).x * (number / 100.0);
-        else
-            element->position.y =
-            sfRenderWindow_getSize(app->window).y * (number / 100.0);
-    } else {
-        if (element->position.x == -1)
-            element->position.x = number;
-        else
-            element->position.y = number;
     }
 }
 
