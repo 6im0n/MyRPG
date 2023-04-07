@@ -74,12 +74,32 @@ typedef struct s_skills {
     int resitance;
 } skills_t;
 
+typedef struct s_character_annimation {
+    sfIntRect rect;
+    int index;
+    int max;
+    float speed;
+    float max_speed;
+} character_annimation_t;
+
+typedef struct s_key_player {
+    bool up;
+    bool down;
+    bool left;
+    bool right;
+} key_player_t;
+
 typedef struct s_character {
     sfTexture *texture;
     sfRectangleShape *shape;
     sfFloatRect frect;
     sfIntRect irect;
+    character_annimation_t annimation;
+    sfClock *clock;
+    //key_t *key;
+
 } character_t;
+
 
 typedef struct s_player {
     list_item_t *inventory;

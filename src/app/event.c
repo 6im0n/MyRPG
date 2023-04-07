@@ -9,6 +9,7 @@
 #include <SFML/Graphics.h>
 #include "app/app.h"
 #include "components/view.h"
+#include <math.h>
 
 static void event_handle_mouse(app_t *app, event_t *event)
 {
@@ -60,6 +61,30 @@ event_t *event, main_components_t *components)
     components_dispatch_event(components->cursor, event, app);
 }
 
+void move_player(app_t *app)
+{
+    sfVector2f position = sfRectangleShape_getPosition(app->element->player->character->shape);
+    //float move = 5.0f;
+    fflush(stdout);
+    static int i = 0;
+    printf("passage\n%d" , i);
+    i++;
+    
+    // if (sfKeyboard_isKeyPressed(sfKeyZ))
+    //     app->element->player->character->key->up = 1;
+    // if (sfKeyboard_isKeyPressed(sfKeyQ))
+    //     app->element->player->character->key->left = 1;
+    // if (sfKeyboard_isKeyPressed(sfKeyS))
+    //     app->element->player->character->key->down = 1;
+    // if (sfKeyboard_isKeyPressed(sfKeyD))
+    //     app->element->player->character->key->right = 1;
+
+
+    sfRectangleShape_setPosition(app->element->player->character->shape, position);
+    sfFloatRect rect = sfRectangleShape_getGlobalBounds(app->element->player->character->shape);
+    app->element->player->character->frect = rect;
+}
+
 void app_handle_events(app_t *app, main_components_t *components)
 {
     event_t event;
@@ -68,6 +93,10 @@ void app_handle_events(app_t *app, main_components_t *components)
         if (event.original.type == sfEvtClosed)
             sfRenderWindow_close(app->window);
         event.mouse = &(app->mouse);
+        if (app->state->stage == S_GAME){
+            move_player(app);
+
+        }
         event_handle_mouse(app, &event);
         component_event_dispatch(app, &event, components);
         manage_view(app, &event, components);
