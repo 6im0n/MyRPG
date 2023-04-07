@@ -22,7 +22,7 @@ event_t *event, app_t *app)
 {
     (void) event;
     (void) app;
-    (void)component;
+    (void) component;
     component->features.texture_rect.left = 11;
 }
 

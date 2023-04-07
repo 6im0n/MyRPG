@@ -54,6 +54,10 @@ static void game_player(app_t *app, ressources_t ressources)
 
     app->element->player->character->irect = rect;
     app->element->player->character->frect = sfRectangleShape_getGlobalBounds(app->element->player->character->shape);
+    app->element->player->character->key.down = false;
+    app->element->player->character->key.up = false;
+    app->element->player->character->key.left = false;
+    app->element->player->character->key.right = false;
 }
 
 

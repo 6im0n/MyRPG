@@ -96,7 +96,7 @@ typedef struct s_character {
     sfIntRect irect;
     character_annimation_t annimation;
     sfClock *clock;
-    //key_t *key;
+    key_player_t key;
 
 } character_t;
 
