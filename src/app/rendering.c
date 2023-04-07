@@ -13,6 +13,7 @@
 #include <SFML/Graphics.h>
 #include <stdio.h>
 #include "lib/output.h"
+#include "components/player.h"
 
 static void dispatch(app_t *app,
 main_components_t *components, list_components_t *list)
@@ -75,9 +76,11 @@ main_components_t *components)
 
 static void player_render(app_t *app)
 {
-    if (app->state->stage == S_GAME)
+    if (app->state->stage == S_GAME){
+        player_render_annimation(app);
         sfRenderWindow_drawRectangleShape(app->window,
             app->element->player->character->shape, NULL);
+    }
 }
 
 void app_render(app_t *app, ressources_t *ressources,
