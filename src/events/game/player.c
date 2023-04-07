@@ -12,28 +12,33 @@
 #include "components/new.h"
 #include "event/start_menu/bouton.h"
 
-static void event_bouton_help_move_onkeypress(node_component_t *component,
-event_t *event, app_t *app, int id)
+static void event_bouton_help_move_onkeypress(app_t *app, int id)
 {
-    (void) event;
-    (void) component;
-    if (id == 1)
+    if (id == 1){
         app->element->player->character->key.up = true;
-    if (id == 2)
+        app->element->player->character->irect.top = 260;
+    }
+    if (id == 2){
         app->element->player->character->key.left = true;
-    if (id == 3)
+        app->element->player->character->irect.top = 357;
+
+    }
+    if (id == 3){
         app->element->player->character->key.down = true;
-    if (id == 4)
+        app->element->player->character->irect.top = 164;
+    }
+    if (id == 4){
         app->element->player->character->key.right = true;
+        app->element->player->character->irect.top = 212;
+    }
 }
 
-static void event_bouton_help_move_ondisabledt(node_component_t *component,
-event_t *event, app_t *app, int id)
+static void event_bouton_help_move_ondisabledt(app_t *app, int id)
 {
-    (void) event;
-    (void) component;
-    if (id == 1)
+    if (id == 1){
         app->element->player->character->key.up = false;
+        app->element->player->character->irect.top = 20;
+    }
     if (id == 2)
         app->element->player->character->key.left = false;
     if (id == 3)
@@ -45,31 +50,24 @@ event_t *event, app_t *app, int id)
 void event_key_switch(node_component_t *component,
 event_t *event, app_t *app)
 {
-    (void)component;
-    if (sfKeyboard_isKeyPressed(sfKeyZ))
-        event_bouton_help_move_onkeypress(NULL, event, app, 1);
-    else
-        event_bouton_help_move_ondisabledt(NULL, event, app, 1);
-    if (sfKeyboard_isKeyPressed(sfKeyQ))
-        event_bouton_help_move_onkeypress(NULL, event, app, 2);
-    else
-        event_bouton_help_move_ondisabledt(NULL, event, app, 2);
-    if (sfKeyboard_isKeyPressed(sfKeyS))
-        event_bouton_help_move_onkeypress(NULL, event, app, 3);
-    else
-        event_bouton_help_move_ondisabledt(NULL, event, app, 3);
-    if (sfKeyboard_isKeyPressed(sfKeyD))
-        event_bouton_help_move_onkeypress(NULL, event, app, 4);
-    else
-        event_bouton_help_move_ondisabledt(NULL, event, app, 4);
-}
-
-void idle_player(node_component_t *component,
-event_t *event, app_t *app)
-{
     (void) event;
-    (void) app;
     (void) component;
+    if (sfKeyboard_isKeyPressed(sfKeyZ))
+        event_bouton_help_move_onkeypress(app, 1);
+    else
+        event_bouton_help_move_ondisabledt(app, 1);
+    if (sfKeyboard_isKeyPressed(sfKeyQ))
+        event_bouton_help_move_onkeypress(app, 2);
+    else
+        event_bouton_help_move_ondisabledt(app, 2);
+    if (sfKeyboard_isKeyPressed(sfKeyS))
+        event_bouton_help_move_onkeypress(app, 3);
+    else
+        event_bouton_help_move_ondisabledt(app, 3);
+    if (sfKeyboard_isKeyPressed(sfKeyD))
+        event_bouton_help_move_onkeypress(app, 4);
+    else
+        event_bouton_help_move_ondisabledt(app, 4);
 }
 
 void event_game_onkeypress(node_component_t *component,

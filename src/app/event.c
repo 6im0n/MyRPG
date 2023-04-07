@@ -9,6 +9,7 @@
 #include <SFML/Graphics.h>
 #include "app/app.h"
 #include "components/view.h"
+#include "components/player.h"
 #include <math.h>
 
 static void event_handle_mouse(app_t *app, event_t *event)
@@ -78,8 +79,9 @@ void move_player(app_t *app)
     sfFloatRect tmp_rect = {0, 0, 0, 0};
     float move = 2;
 
-    if (app->element->player->character->key.up)
+    if (app->element->player->character->key.up){
         position.y -= move;
+    } 
     if (app->element->player->character->key.down)
         position.y += move;
     if (app->element->player->character->key.right)
