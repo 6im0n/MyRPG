@@ -27,6 +27,7 @@ _SRC =			main.c \
 				components/misc/events_handlers_keys.c \
 				components/misc/events_default.c \
 				components/misc/events_annimation.c \
+				components/misc/player_annimation.c \
 				components/misc/state.c \
 				components/items/get.c \
 				components/items/new.c \

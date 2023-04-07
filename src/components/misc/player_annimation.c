@@ -5,50 +5,51 @@
 ** Annimation
 */
 
-
 #include "components/components.h"
 #include "types/type.h"
 
 static void draw_player_annimation(app_t *app, sfIntRect rect)
 {
-    sfRectangleShape_setTextureRect(app->player->character->shape,
+    sfRectangleShape_setTextureRect( app->element->player->character->shape,
     rect);
 }
 
 static void player_annimation_edit(app_t *app)
 {
-    sfIntRect rect = app->player->character->irect;
-    sfIntRect rect_a = app->player->character->annimation.rect;
+    sfIntRect rect = app->element->player->character->irect;
+    sfIntRect rect_a = app->element->player->character->annimation.rect;
 
-    if (app->player->character->annimation.index > app->player->character->annimation.max)
-        app->player->character->annimation.index = 0;
-    rect_a.height *= app->player->character->annimation.index;
-    rect_a.top *= app->player->character->annimation.index;
-    rect_a.left *= app->player->character->annimation.index;
-    rect_a.width *= app->player->character->annimation.index;
+    if ( app->element->player->character->annimation.index >
+    app->element->player->character->annimation.max)
+        app->element->player->character->annimation.index = 0;
+    rect_a.height *= app->element->player->character->annimation.index;
+    rect_a.top *= app->element->player->character->annimation.index;
+    rect_a.left *= app->element->player->character->annimation.index;
+    rect_a.width *= app->element->player->character->annimation.index;
     rect.height += rect_a.height;
     rect.top += rect_a.top;
     rect.left += rect_a.left;
     rect.width += rect_a.width;
-    draw_render_annimation(app, rect);
-    app->player->character->annimation.index++;
+    draw_player_annimation(app, rect);
+    app->element->player->character->annimation.index++;
 }
 
 static void render_player_annimation(app_t *app)
 {
-    sfTime time = sfClock_getElapsedTime(app->player->character->clock);
+    sfTime time = sfClock_getElapsedTime(
+        app->element->player->character->clock);
     float seconds = time.microseconds / 1000000.0;
 
     (void) app;
-    if (seconds > app->player->character->annimation.speed) {
-        annimation_edit(app);
-        sfClock_restart(app->player->character->object->clock);
+    if (seconds > app->element->player->character->annimation.speed) {
+        player_annimation_edit(app);
+        sfClock_restart(app->element->player->character->clock);
     }
 }
 
 void player_render_annimation(app_t *app)
 {
-    if (!(app->player->character->annimation.speed > 0))
+    if (!(app->element->player->character->annimation.speed > 0))
         return;
     render_player_annimation(app);
 }
