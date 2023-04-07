@@ -42,18 +42,18 @@ static void init_game_player(app_t *app, ressources_t ressources)
 {
     sfVector2f size = {70, 100};
     sfFloatRect player_frect = {0, 0, 0, 0};
-    sfRectangleShape *rect = sfRectangleShape_create();
+    sfRectangleShape *shape = sfRectangleShape_create();
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
         sfRenderWindow_getSize(app->window).y / 2};
     sfIntRect in_rect = {16 + 48, 20, 17, 24};
     app->element->player->character->clock = sfClock_create();
 
-    sfRectangleShape_setSize(rect, size);
-    sfRectangleShape_setPosition(rect, middle);
-    sfRectangleShape_setTexture(rect, ressources.textures[TX_PLAYER], sfFalse);
-    sfRectangleShape_setTextureRect(rect, in_rect);
-    player_frect = sfRectangleShape_getGlobalBounds(rect);
-    app->element->player->character->shape = rect;
+    sfRectangleShape_setSize(shape, size);
+    sfRectangleShape_setPosition(shape, middle);
+    sfRectangleShape_setTexture(shape, ressources.textures[TX_PLAYER], sfFalse);
+    sfRectangleShape_setTextureRect(shape, in_rect);
+    player_frect = sfRectangleShape_getGlobalBounds(shape);
+    app->element->player->character->shape = shape;
     app->element->player->character->irect = in_rect;
     app->element->player->character->frect = player_frect;
     app->element->player->character->key.down = false;
@@ -66,7 +66,7 @@ static void init_player_animation(app_t *app)
 {
     new_player_annimation(app, (sfIntRect){.height = 0, .left = 48,
         .top = 0, .width = 0}, 0, 4);
-    app->element->player->character->annimation.speed = 0.3;
+    app->element->player->character->annimation.speed = 0.1;
 }
 
 void components_game(app_t *app,ressources_t ressources,
