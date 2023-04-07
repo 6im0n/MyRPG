@@ -5,42 +5,15 @@
 ** utils
 */
 
-#include <stdio.h>
 #include <SFML/Graphics.h>
 #include "lib/str.h"
-#include "utils/file.h"
-#include "types/type.h"
-#include "types/list.h"
-#include "components/new.h"
 #include "components/components.h"
-#include "event/start_menu/bouton.h"
-#include "event/functions.h"
 #include "parsing/utils.h"
 
 void clean_char(char *data, int size)
 {
     for (int i = 0; i < size; i++) {
         data[i] = '\0';
-    }
-}
-
-void get_position(char *nb, parsing_t *element, app_t *app)
-{
-    int number = 0;
-
-    number = my_strtoint(nb);
-    if (nb[0] == '.') {
-        if (element->position.x == -1)
-            element->position.x =
-            sfRenderWindow_getSize(app->window).x * (number / 100.0);
-        else
-            element->position.y =
-            sfRenderWindow_getSize(app->window).y * (number / 100.0);
-    } else {
-        if (element->position.x == -1)
-            element->position.x = number;
-        else
-            element->position.y = number;
     }
 }
 
@@ -54,6 +27,22 @@ static void manage_data_extend(char *nb, parsing_t *element)
         get_anim_max(nb, element);
     if (my_strcmp(element->types, "anim_speed") == 0)
         get_anim_speed(nb, element);
+}
+
+static void manage_functions(char *nb, parsing_t *element)
+{
+    if (my_strcmp(element->types, "clicked") == 0)
+        get_clicked(nb, element);
+    if (my_strcmp(element->types, "hover") == 0)
+        get_hover(nb, element);
+    if (my_strcmp(element->types, "disabled") == 0)
+        get_disabled(nb, element);
+    if (my_strcmp(element->types, "moved") == 0)
+        get_clicked(nb, element);
+    if (my_strcmp(element->types, "pressed") == 0)
+        get_hover(nb, element);
+    if (my_strcmp(element->types, "released") == 0)
+        get_disabled(nb, element);
 }
 
 static void manage_data(char *nb, parsing_t *element, app_t *app)
@@ -70,12 +59,7 @@ static void manage_data(char *nb, parsing_t *element, app_t *app)
         get_type(nb, element);
     if (my_strcmp(element->types, "c_size") == 0)
         get_c_size(nb, element);
-    if (my_strcmp(element->types, "clicked") == 0)
-        get_clicked(nb, element);
-    if (my_strcmp(element->types, "hover") == 0)
-        get_hover(nb, element);
-    if (my_strcmp(element->types, "disabled") == 0)
-        get_disabled(nb, element);
+    manage_functions(nb, element);
     manage_data_extend(nb, element);
 }
 

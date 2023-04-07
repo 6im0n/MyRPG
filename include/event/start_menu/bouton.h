@@ -34,6 +34,9 @@ event_t *event, app_t *app);
 void event_menu_help_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
 
+void event_menu_help_onkeyrelease(node_component_t *component,
+event_t *event, app_t *app);
+
 void event_bouton_help_move_ondisabled(node_component_t *component,
 event_t *event, app_t *app);
 
