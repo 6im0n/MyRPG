@@ -24,6 +24,9 @@ void get_anim_rect(char *nb, parsing_t *element);
 void get_anim_index(char *nb, parsing_t *element);
 void get_anim_max(char *nb, parsing_t *element);
 void get_anim_speed(char *nb, parsing_t *element);
+void get_moved(char *nb, parsing_t *element);
+void get_released(char *nb, parsing_t *element);
+void get_pressed(char *nb, parsing_t *element);
 void get_position(char *nb, parsing_t *element, app_t *app);
 
 void clean_char(char *data, int size);

@@ -20,7 +20,6 @@ void get_c_size(char *nb, parsing_t *element)
     }
 }
 
-
 void get_size(char *nb, parsing_t *element, app_t *app)
 {
     int number = 0;

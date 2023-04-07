@@ -90,6 +90,8 @@ _SRC =			main.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
 				\
+				types/node/component/node.c \
+				\
 				parsing/parsing.c \
 				parsing/function.c \
 				parsing/animation.c \
@@ -97,6 +99,7 @@ _SRC =			main.c \
 				parsing/utils.c \
 				parsing/size.c \
 				parsing/type.c \
+				parsing/functions.c \
 				\
 				utils/file.c \
 				types/list/player/switch.c \

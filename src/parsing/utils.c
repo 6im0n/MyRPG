@@ -29,6 +29,22 @@ static void manage_data_extend(char *nb, parsing_t *element)
         get_anim_speed(nb, element);
 }
 
+static void manage_functions(char *nb, parsing_t *element)
+{
+    if (my_strcmp(element->types, "clicked") == 0)
+        get_clicked(nb, element);
+    if (my_strcmp(element->types, "hover") == 0)
+        get_hover(nb, element);
+    if (my_strcmp(element->types, "disabled") == 0)
+        get_disabled(nb, element);
+    if (my_strcmp(element->types, "moved") == 0)
+        get_clicked(nb, element);
+    if (my_strcmp(element->types, "pressed") == 0)
+        get_hover(nb, element);
+    if (my_strcmp(element->types, "released") == 0)
+        get_disabled(nb, element);
+}
+
 static void manage_data(char *nb, parsing_t *element, app_t *app)
 {
     if (my_strcmp(element->types, "position") == 0)
@@ -43,12 +59,7 @@ static void manage_data(char *nb, parsing_t *element, app_t *app)
         get_type(nb, element);
     if (my_strcmp(element->types, "c_size") == 0)
         get_c_size(nb, element);
-    if (my_strcmp(element->types, "clicked") == 0)
-        get_clicked(nb, element);
-    if (my_strcmp(element->types, "hover") == 0)
-        get_hover(nb, element);
-    if (my_strcmp(element->types, "disabled") == 0)
-        get_disabled(nb, element);
+    manage_functions(nb, element);
     manage_data_extend(nb, element);
 }
 

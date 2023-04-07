@@ -26,4 +26,3 @@ event_t *event, app_t *app)
     if (handler)
         handler(component, event, app);
 }
-

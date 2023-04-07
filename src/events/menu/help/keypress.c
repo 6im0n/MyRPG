@@ -5,7 +5,7 @@
 ** bouton
 */
 
-
+#include <stdio.h>
 #include "components/components.h"
 #include "lib/output.h"
 
@@ -17,11 +17,12 @@ event_t *event, app_t *app)
     component->features.texture_rect.left = 107;
 }
 
-void event_bouton_help_move_ondisabled(node_component_t *component,
+static void event_bouton_help_move_ondisabled(node_component_t *component,
 event_t *event, app_t *app)
 {
     (void) event;
     (void) app;
+    (void)component;
     component->features.texture_rect.left = 11;
 }
 
@@ -71,4 +72,29 @@ event_t *event, app_t *app)
         app->state->stage = S_SETTINGS;
     }
     event_key_switch(component->next->next->next, event, app);
+}
+
+void event_menu_help_onkeyrelease(node_component_t *component,
+event_t *event, app_t *app)
+{
+    node_component_t *keyZ = component->next->next->next;
+    node_component_t *keyQ = keyZ->next;
+    node_component_t *keyS = keyQ->next;
+
+    if (sfKeyboard_isKeyPressed(sfKeyZ))
+        event_bouton_help_move_onkeypress(keyZ, event, app);
+    else
+        event_bouton_help_move_ondisabled(keyZ, event, app);
+    if (sfKeyboard_isKeyPressed(sfKeyQ))
+        event_bouton_help_move_onkeypress(keyQ, event, app);
+    else
+        event_bouton_help_move_ondisabled(keyQ, event, app);
+    if (sfKeyboard_isKeyPressed(sfKeyS))
+        event_bouton_help_move_onkeypress(keyS, event, app);
+    else
+        event_bouton_help_move_ondisabled(keyS, event, app);
+    if (sfKeyboard_isKeyPressed(sfKeyD))
+        event_bouton_help_move_onkeypress(keyS->next, event, app);
+    else
+        event_bouton_help_move_ondisabled(keyS->next, event, app);
 }
