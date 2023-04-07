@@ -33,7 +33,7 @@ event_t *event, app_t *app)
     sfRectangleShape_setPosition(app->element->player->character->shape, position);
     sfFloatRect rect = sfRectangleShape_getGlobalBounds(app->element->player->character->shape);
     app->element->player->character->frect = rect;
-    
+
 }
 
 void idle_player(node_component_t *component,

@@ -37,10 +37,8 @@ static void game_background(app_t *app, ressources_t ressources, list_components
     list_component_append(list, obj);
 }
 
-static void game_player(app_t *app, ressources_t ressources, list_components_t *list)
+static void game_player(app_t *app, ressources_t ressources)
 {
-    (void) list;
-
     sfVector2f size = {70, 100};
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
         sfRenderWindow_getSize(app->window).y / 2};
@@ -52,6 +50,9 @@ static void game_player(app_t *app, ressources_t ressources, list_components_t *
     sfRectangleShape_setTexture(app->element->player->character->shape,
         ressources.textures[TX_PLAYER], sfFalse);
     sfRectangleShape_setTextureRect(app->element->player->character->shape, rect);
+
+    app->element->player->character->irect = rect;
+    app->element->player->character->frect = sfRectangleShape_getGlobalBounds(app->element->player->character->shape);
 }
 
 
@@ -59,6 +60,6 @@ list_components_t *components_game(app_t *app,ressources_t ressources,
 list_components_t *list)
 {
     game_background(app, ressources, list);
-    game_player(app, ressources, list);
+    game_player(app, ressources);
     return list;
 }
