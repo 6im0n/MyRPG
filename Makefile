@@ -42,6 +42,8 @@ _SRC =			main.c \
 				components/player/player.c \
 				components/player/inventory.c \
 				\
+				components/mobs/mobs.c \
+				\
 				components/game/get.c \
 				components/game/menu.c \
 				components/menu/start/get.c \
