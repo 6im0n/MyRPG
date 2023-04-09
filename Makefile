@@ -26,8 +26,9 @@ _SRC =			main.c \
 				components/misc/events_handlers.c \
 				components/misc/events_handlers_keys.c \
 				components/misc/events_default.c \
-				components/misc/events_annimation.c \
-				components/misc/player_annimation.c \
+				components/misc/events_animation.c \
+				components/misc/player_animation.c \
+				components/misc/mobs_animation.c \
 				components/misc/state.c \
 				components/items/get.c \
 				components/items/new.c \
@@ -35,7 +36,7 @@ _SRC =			main.c \
 				components/new/type.c \
 				components/new/size.c \
 				components/new/text.c \
-				components/new/annimation.c \
+				components/new/animation.c \
 				components/cursor.c \
 				\
 				components/player/player.c \
@@ -66,7 +67,7 @@ _SRC =			main.c \
 				events/help.c \
 				events/cursor.c \
 				events/setting.c \
-				events/annimation.c \
+				events/animation.c \
 				\
 				events/setting/open.c \
 				events/setting/screen.c \
