@@ -14,8 +14,6 @@ jobs:
       SIZE_MAX_O: 30MB
     steps:
     - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
     - name: Get Repo Size
       run: |
         repo_size=$(git ls-tree -r --name-only main | xargs du -c --exclude=".git" | tail -n 1 | awk '{print $1}')
