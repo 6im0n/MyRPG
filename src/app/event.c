@@ -81,7 +81,7 @@ void move_player(app_t *app)
     bool array[4] = {false, false, false, false};
     float move = 1.5;
 
-    collisions(array, position, app->element->player);    
+    collisions(array, position, app->element->player);
     if (app->element->player->character->key.up && array[0])
         position.y -= move;
     if (app->element->player->character->key.down && array[1])

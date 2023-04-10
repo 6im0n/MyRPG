@@ -8,20 +8,30 @@
 #include <stdio.h>
 #include "types/type.h"
 
+static void update_colors(player_t *player, sfVector2f position)
+{
+    int x = position.x + 14;
+    int y = position.y + 20;
+    sfColor top = sfImage_getPixel(player->collisions, x, y);
+    sfColor bottom = sfImage_getPixel(player->collisions, x, y + 20);
+    sfColor left = sfImage_getPixel(player->collisions, x - 14, y + 10);
+    sfColor right = sfImage_getPixel(player->collisions, x + 14, y + 10);
+
+    player->colors.top = top;
+    player->colors.bottom = bottom;
+    player->colors.right = right;
+    player->colors.left = left;
+}
+
 void collisions(bool *array, sfVector2f position, player_t *player)
 {
-    sfColor top = sfImage_getPixel(player->collisions, position.x + 17.5 - 0, position.y + 25 - 10);
-    sfColor bottom = sfImage_getPixel(player->collisions, position.x + 17.5 + 0, position.y + 25 + 25);
-    sfColor left = sfImage_getPixel(player->collisions, position.x - 17.5 + 17.5, position.y + 25 + 25);
-    sfColor right = sfImage_getPixel(player->collisions, position.x + 17.5 + 17.5, position.y + 25 + 25);
-
-    printf("Positon: x: %.2f | y: %.2f\n", position.x, position.y);
-    if (top.a != 255)
+    update_colors(player, position);
+    if (player->colors.top.a != 255)
         array[0] = true;
-    if (bottom.a != 255)
+    if (player->colors.bottom.a != 255)
         array[1] = true;
-    if (right.a != 255)
+    if (player->colors.right.a != 255)
         array[2] = true;
-    if (left.a!= 255)
+    if (player->colors.left.a != 255)
         array[3] = true;
 }
