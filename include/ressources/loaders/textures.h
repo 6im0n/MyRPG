@@ -25,6 +25,8 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_PLAYER] = "assets/charactere/player.png",
     [TX_INV_SELECTOR] = "assets/assets_rpg/selector.png",
     [TX_INV_SELECTOR2] = "assets/assets_rpg/main_selector.png",
+    [TX_MOBS] = "assets/charactere/mobs.png",
+    [TX_MOBS2] = "assets/charactere/mobs2.png"
     [TX_GAME_MAP] = "assets/maps/map-v1.png"
 };
 

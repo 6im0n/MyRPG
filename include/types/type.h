@@ -117,9 +117,37 @@ typedef struct s_player {
     colors_t colors;
 } player_t;
 
+//==================================================
+// MOBS
+//==================================================
+
+typedef struct s_mobs_annimation {
+    sfIntRect rect;
+    int index;
+    int max;
+    float speed;
+    float max_speed;
+} mobs_annimation_t;
+
+typedef struct s_mobs_component {
+    sfTexture *texture;
+    sfRectangleShape *shape;
+    sfFloatRect frect;
+    sfIntRect irect;
+    mobs_annimation_t annimation;
+    sfClock *clock;
+
+} mobs_component_t;
+
+typedef struct s_mobs {
+    mobs_component_t *character;
+    skills_t skills;
+} mobs_t;
+
 typedef struct s_game_elements {
     list_item_t *items;
     player_t *player;
+    mobs_t *mobs;
 } elements_t;
 
 //==================================================
