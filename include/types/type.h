@@ -74,23 +74,80 @@ typedef struct s_skills {
     int resitance;
 } skills_t;
 
+typedef struct s_character_annimation {
+    sfIntRect rect;
+    int index;
+    int max;
+    float speed;
+    float max_speed;
+} character_annimation_t;
+
+typedef struct s_key_player {
+    bool up;
+    bool down;
+    bool left;
+    bool right;
+} key_player_t;
+
 typedef struct s_character {
     sfTexture *texture;
     sfRectangleShape *shape;
     sfFloatRect frect;
     sfIntRect irect;
+    character_annimation_t annimation;
+    sfClock *clock;
+    key_player_t key;
 } character_t;
+
+typedef struct s_colors {
+    sfColor top ;
+    sfColor bottom;
+    sfColor right;
+    sfColor left;
+} colors_t;
+
 
 typedef struct s_player {
     list_item_t *inventory;
     character_t *character;
     skills_t skills;
     experience_t exprerience;
+    sfView *view;
+    sfImage *collisions;
+    colors_t colors;
 } player_t;
+
+//==================================================
+// MOBS
+//==================================================
+
+typedef struct s_mobs_annimation {
+    sfIntRect rect;
+    int index;
+    int max;
+    float speed;
+    float max_speed;
+} mobs_annimation_t;
+
+typedef struct s_mobs_component {
+    sfTexture *texture;
+    sfRectangleShape *shape;
+    sfFloatRect frect;
+    sfIntRect irect;
+    mobs_annimation_t annimation;
+    sfClock *clock;
+
+} mobs_component_t;
+
+typedef struct s_mobs {
+    mobs_component_t *character;
+    skills_t skills;
+} mobs_t;
 
 typedef struct s_game_elements {
     list_item_t *items;
     player_t *player;
+    mobs_t *mobs;
 } elements_t;
 
 //==================================================

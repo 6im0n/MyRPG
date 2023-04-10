@@ -26,7 +26,9 @@ _SRC =			main.c \
 				components/misc/events_handlers.c \
 				components/misc/events_handlers_keys.c \
 				components/misc/events_default.c \
-				components/misc/events_annimation.c \
+				components/misc/events_animation.c \
+				components/misc/player_animation.c \
+				components/misc/mobs_animation.c \
 				components/misc/state.c \
 				components/items/get.c \
 				components/items/new.c \
@@ -34,11 +36,13 @@ _SRC =			main.c \
 				components/new/type.c \
 				components/new/size.c \
 				components/new/text.c \
-				components/new/annimation.c \
+				components/new/animation.c \
 				components/cursor.c \
 				\
 				components/player/player.c \
 				components/player/inventory.c \
+				\
+				components/mobs/mobs.c \
 				\
 				components/game/get.c \
 				components/game/menu.c \
@@ -60,12 +64,13 @@ _SRC =			main.c \
 				components/setting/sound.c \
 				components/setting/bouton.c \
 				components/setting/screen.c \
-				\
 				components/view/manage.c \
+				components/view/player.c \
+				\
 				events/help.c \
 				events/cursor.c \
 				events/setting.c \
-				events/annimation.c \
+				events/animation.c \
 				\
 				events/setting/open.c \
 				events/setting/screen.c \
@@ -78,23 +83,28 @@ _SRC =			main.c \
 				events/inventory/select.c \
 				events/inventory/selector.c \
 				events/game/player.c \
+				events/game/collisions.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
 				types/app/mouse.c \
 				types/app/state.c \
-				types/renderer/objects.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
 				\
+				types/node/component/node.c \
+				\
 				parsing/parsing.c \
 				parsing/function.c \
 				parsing/animation.c \
 				parsing/position.c \
 				parsing/utils.c \
+				parsing/size.c \
+				parsing/type.c \
+				parsing/functions.c \
 				\
 				utils/file.c \
 				types/list/player/switch.c \

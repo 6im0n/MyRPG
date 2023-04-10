@@ -33,5 +33,16 @@ static const parsing_handler_t disable_event[DISABLED_LEN] = {
     [DISABLED_ANIMATION] = &event_pause_annimation
 };
 
+static const parsing_handler_t nonclicked_event[NONCLICKED_LEN] = {
+};
+
+static const parsing_handler_t pressed_event[KEYPRESSED_LEN] = {
+};
+
+static const parsing_handler_t released_event[KEYRELEASED_LEN] = {
+};
+
+static const parsing_handler_t moved_event[MOVED_LEN] = {
+};
 
 #endif /* !EVENT_SETTINGS_H_ */

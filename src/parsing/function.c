@@ -48,3 +48,14 @@ void get_disabled(char *nb, parsing_t *element)
         return;
     }
 }
+
+void get_moved(char *nb, parsing_t *element)
+{
+    int number = 0;
+
+    number = my_strtoint(nb);
+    if (element->function.moved == MOVED_LEN) {
+        element->function.moved = number;
+        return;
+    }
+}

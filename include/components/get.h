@@ -18,7 +18,8 @@
  * @param objects Objects
  * @param list List
  */
-void component_cursor_default(app_t *app,ressources_t ressources, list_components_t *list);
+void component_cursor_default(app_t *app,ressources_t ressources,
+list_components_t *list);
 
 void components_get_cursor(app_t *app, ressources_t ressources,
                             list_components_t *list);
@@ -249,8 +250,8 @@ ressources_t ressources, list_components_t *list);
  * @param app App
  * @param ressources ressources
  * @param list list
- * @return list_components_t*
  */
-list_components_t *components_game(app_t *app, ressources_t ressources, list_components_t *list);
+void components_game(app_t *app, ressources_t ressources,
+list_components_t *list);
 
 #endif /* !GET_COMPONENTS_H_ */

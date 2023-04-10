@@ -16,8 +16,9 @@
 #include "event/start_menu/bouton.h"
 #include "event/functions.h"
 #include "parsing/utils.h"
+#include "types/node.h"
 
-void display_parsing(parsing_t *elements)
+static void parsing_init(parsing_t *elements)
 {
     elements->types[0] = '\0';
     elements->position = (sfVector2f){-1, -1};
@@ -29,6 +30,10 @@ void display_parsing(parsing_t *elements)
     elements->function.clicked = CLICKED_LEN;
     elements->function.hover = HOVER_LEN;
     elements->function.disabled = DISABLED_LEN;
+    elements->function.moved = MOVED_LEN;
+    elements->function.nonclicked = NONCLICKED_LEN;
+    elements->function.pressed = KEYPRESSED_LEN;
+    elements->function.released = KEYRELEASED_LEN;
     elements->animation.rect = (sfIntRect){-1, -1, -1, -1};
     elements->animation.index = -1;
     elements->animation.max = -1;
@@ -43,12 +48,18 @@ void parsing_set_functions(node_component_t *obj, parsing_t *element)
         obj->events.onhover = hover_event[element->function.hover];
     if (element->function.disabled != DISABLED_LEN)
         obj->events.ondisabled = disable_event[element->function.disabled];
+    if (element->function.moved != MOVED_LEN)
+        obj->events.onhover = moved_event[element->function.moved];
+    if (element->function.pressed != KEYPRESSED_LEN)
+        obj->events.onkeypress = pressed_event[element->function.pressed];
+    if (element->function.released != KEYRELEASED_LEN)
+        obj->events.onkeyrelease = released_event[element->function.released];
 }
 
 static void parsing_append(parsing_t *element, ressources_t ressources,
                             list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f size = element->size;
     sfVector2f position = element->position;
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -93,19 +104,17 @@ static void extend_function(app_t *app, parsing_t *element, int *index,
 void parsing_buttons(app_t *app, ressources_t ressources,
                     list_components_t *list, char *filepath)
 {
-    parsing_t element = {{'\0'}, {-1, -1}, {-1, -1}, {-1, -1, -1, -1},
-                        C_TYPES_LEN, C_SIZE_LEN, {TX_LEN, SD_LEN, FT_LEN},
-                        {CLICKED_LEN, HOVER_LEN, DISABLED_LEN},
-                        {{-1, -1, -1, -1}, -1, -1, -1}};
+    parsing_t element;
     char *file = file_load(filepath);
     int index = 0;
 
+    parsing_init(&element);
     clean_char(element.types, 15);
     while (file[index] != '\0') {
         extend_function(app, &element, &index, file);
         index += 3;
         parsing_append(&element, ressources, list);
-        display_parsing(&element);
+        parsing_init(&element);
     }
     free(file);
 }

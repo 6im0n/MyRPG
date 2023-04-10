@@ -10,6 +10,7 @@
 #include "types/type.h"
 #include "app/constants.h"
 #include "components/player.h"
+#include "components/mobs.h"
 #include "types/list.h"
 #include "lib/output.h"
 
@@ -25,13 +26,23 @@ static elements_t *element_create(ressources_t *ressources)
 {
     elements_t *element = malloc(sizeof(elements_t));
     player_t *player = player_create(ressources);
+    mobs_t *mobs = mobs_create(ressources);
     node_item_t *fitem = item_pure_new();
     list_item_t *items = list_item_init();
 
     list_item_append(items, fitem);
     element->player = player;
+    element->mobs = mobs;
     element->items = items;
     return element;
+}
+
+static void player_set_view(elements_t *element, sfRenderWindow *window)
+{
+    sfVector2u window_size = sfRenderWindow_getSize(window);
+    sfVector2f view_size = {window_size.x / 3.8, window_size.y / 3.8};
+
+    sfView_setSize(element->player->view, view_size);
 }
 
 app_t app_create(ressources_t *ressources, sfVideoMode window_mode,
@@ -49,6 +60,7 @@ char *window_title, int window_frame_rate)
 
     app_create_all_item(app.element, ressources);
     app_set_icon(app.window, ressources);
+    player_set_view(element, window);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
     sfRenderWindow_clear(app.window, W_COLOR);
     sfRenderWindow_setMouseCursorVisible(app.window, sfFalse);

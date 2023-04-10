@@ -118,6 +118,22 @@ typedef enum e_hover {
     HOVER_LEN
 } hover_t;
 
+typedef enum e_keypressed {
+    KEYPRESSED_LEN
+} keypressed_t;
+
+typedef enum e_keyreleased {
+    KEYRELEASED_LEN
+} keyreleased_t;
+
+typedef enum e_nonclicked {
+    NONCLICKED_LEN
+} nonclicked_t;
+
+typedef enum e_moved {
+    MOVED_LEN
+} moved_t;
+
 typedef enum e_clicked {
     MENU_LOAD_GAME,
     MENU_HELP,
@@ -129,6 +145,10 @@ typedef enum e_clicked {
 typedef struct function_s {
     clicked_t clicked;
     hover_t hover;
+    moved_t moved;
+    nonclicked_t nonclicked;
+    keypressed_t pressed;
+    keyreleased_t released;
     disabled_t disabled;
 } function_t;
 

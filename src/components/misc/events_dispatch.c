@@ -21,7 +21,7 @@ static void catch(node_component_t *component, event_t *event, app_t *app)
         component_onmove(component, event, app);
     if (sfMouse_isButtonPressed(sfMouseLeft) && !ST_IS_CLICKED(component))
         component_onnonclick(component, event, app);
-    if (event->original.type == sfEvtTextEntered)
+    if (event->original.type == sfEvtKeyPressed)
         component_onkeypress(component, event, app);
     if (event->original.type == sfEvtKeyReleased)
         component_onkeyrelease(component, event, app);

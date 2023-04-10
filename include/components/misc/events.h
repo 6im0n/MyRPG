@@ -32,7 +32,7 @@
      * @brief Get component onkeypress handler
      */
     #define COMPONENT_ON_KEYPRESS(component) (component->events.onkeypress)
-    
+
     /**
      * @brief Get component onkeyrelease handler
      */
@@ -94,7 +94,8 @@ event_t *event, app_t *app);
  * @param event Event
  * @param app App object
  */
-void component_onkeyrelease(node_component_t *component,event_t *event, app_t *app);
+void component_onkeyrelease(node_component_t *component,event_t *event,
+app_t *app);
 
 /**
  * @brief Function if component is not hover

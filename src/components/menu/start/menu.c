@@ -84,6 +84,5 @@ void components_menu_start(app_t *app,ressources_t ressources,
     menu_board(app, ressources, list);
     setting_background(app, ressources, list);
     parsing_buttons(app, ressources, list, "assets/scripts/menu/button.txt");
-    printf("\n\n");
     parsing_buttons(app, ressources, list, "assets/scripts/menu/animation.txt");
 }
