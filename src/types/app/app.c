@@ -34,6 +34,14 @@ static elements_t *element_create(ressources_t *ressources)
     return element;
 }
 
+static void player_set_view(elements_t *element, sfRenderWindow *window)
+{
+    sfVector2u window_size = sfRenderWindow_getSize(window);
+    sfVector2f view_size = {window_size.x / 3.8, window_size.y / 3.8};
+
+    sfView_setSize(element->player->view, view_size);
+}
+
 app_t app_create(ressources_t *ressources, sfVideoMode window_mode,
 char *window_title, int window_frame_rate)
 {
@@ -49,6 +57,7 @@ char *window_title, int window_frame_rate)
 
     app_create_all_item(app.element, ressources);
     app_set_icon(app.window, ressources);
+    player_set_view(element, window);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
     sfRenderWindow_clear(app.window, W_COLOR);
     sfRenderWindow_setMouseCursorVisible(app.window, sfFalse);

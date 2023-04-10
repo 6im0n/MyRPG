@@ -20,19 +20,21 @@ static void game_background(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f middle = {0, 0};
     sfVector2f position = {middle.x, middle.y };
-    sfVector2f size = {sfRenderWindow_getSize(app->window).x,
-        sfRenderWindow_getSize(app->window).y};
+    sfVector2u size = {0, 0};
+    sfVector2f real_size = {0, 0};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_GAME_MAP, SD_NONE, FT_ARIAL };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, position);
-    new_component_size(obj, size,
+    size = sfTexture_getSize(ressources.textures[TX_GAME_MAP]);
+    real_size = (sfVector2f){size.x, size.y};
+    new_component_size(obj, real_size,
         (sfIntRect){.height = 0, .left = 0, .top = 0, .width = 0},
         C_SIZE_MAX);
     list_component_append(list, obj);
@@ -40,11 +42,10 @@ list_components_t *list)
 
 static void init_game_player(app_t *app, ressources_t ressources)
 {
-    sfVector2f size = {70, 100};
+    sfVector2f size = {70 / 2.5, 100 / 2.5};
     sfFloatRect player_frect = {0, 0, 0, 0};
     sfRectangleShape *shape = sfRectangleShape_create();
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f middle = {2420, 6375};
     sfIntRect in_rect = {16 + 48, 20, 17, 24};
     app->element->player->character->clock = sfClock_create();
 

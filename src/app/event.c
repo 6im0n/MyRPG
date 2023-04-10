@@ -5,12 +5,13 @@
 ** events
 */
 
+#include <math.h>
 #include <stdio.h>
 #include <SFML/Graphics.h>
 #include "app/app.h"
 #include "components/view.h"
 #include "components/player.h"
-#include <math.h>
+#include "event/game/global.h"
 
 static void event_handle_mouse(app_t *app, event_t *event)
 {
@@ -77,16 +78,17 @@ void move_player(app_t *app)
     sfRectangleShape *player_rect = app->element->player->character->shape;
     sfVector2f position = sfRectangleShape_getPosition(player_rect);
     sfFloatRect tmp_rect = {0, 0, 0, 0};
-    float move = 2;
+    bool array[4] = {false, false, false, false};
+    float move = 1.5;
 
-    if (app->element->player->character->key.up){
+    collisions(array, position, app->element->player);
+    if (app->element->player->character->key.up && array[0])
         position.y -= move;
-    } 
-    if (app->element->player->character->key.down)
+    if (app->element->player->character->key.down && array[1])
         position.y += move;
-    if (app->element->player->character->key.right)
+    if (app->element->player->character->key.right && array[2])
         position.x += move;
-    if (app->element->player->character->key.left)
+    if (app->element->player->character->key.left && array[3])
         position.x -= move;
     sfRectangleShape_setPosition(player_rect, position);
     tmp_rect = sfRectangleShape_getGlobalBounds(player_rect);

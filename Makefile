@@ -61,8 +61,9 @@ _SRC =			main.c \
 				components/setting/sound.c \
 				components/setting/bouton.c \
 				components/setting/screen.c \
-				\
 				components/view/manage.c \
+				components/view/player.c \
+				\
 				events/help.c \
 				events/cursor.c \
 				events/setting.c \
@@ -79,6 +80,7 @@ _SRC =			main.c \
 				events/inventory/select.c \
 				events/inventory/selector.c \
 				events/game/player.c \
+				events/game/collisions.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

@@ -97,8 +97,14 @@ typedef struct s_character {
     character_annimation_t annimation;
     sfClock *clock;
     key_player_t key;
-
 } character_t;
+
+typedef struct s_colors {
+    sfColor top ;
+    sfColor bottom;
+    sfColor right;
+    sfColor left;
+} colors_t;
 
 
 typedef struct s_player {
@@ -106,6 +112,9 @@ typedef struct s_player {
     character_t *character;
     skills_t skills;
     experience_t exprerience;
+    sfView *view;
+    sfImage *collisions;
+    colors_t colors;
 } player_t;
 
 typedef struct s_game_elements {

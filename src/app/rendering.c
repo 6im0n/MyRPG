@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "lib/output.h"
 #include "components/player.h"
+#include "components/view.h"
 
 static void dispatch(app_t *app,
 main_components_t *components, list_components_t *list)
@@ -89,8 +90,10 @@ main_components_t *components)
     (void) ressources;
     sfRenderWindow_clear(app->window, W_COLOR);
     sfRenderWindow_setView(app->window, app->view);
+    player_view(app);
     component_render_dispatch(app, components);
     player_render(app);
-    app_component_render(app, components->cursor);
+    if (app->state->stage != S_GAME)
+        app_component_render(app, components->cursor);
     sfRenderWindow_display(app->window);
 }
