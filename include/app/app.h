@@ -80,4 +80,12 @@ void app_component_render(app_t *app, list_components_t *components);
  */
 void app_destroy(app_t *app);
 
+/**
+ * @brief Create element
+ * @param element element
+ * @param ressources ressources
+ */
+void app_create_all_item(elements_t *element,
+ressources_t *ressources);
+
 #endif /* !APP_H_ */

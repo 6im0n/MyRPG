@@ -27,25 +27,6 @@ typedef enum e_component_size {
     C_SIZE_LEN
 } component_size_t;
 
-typedef enum e_id_component {
-    ID_UNDEFINED,
-    ID_SLOT_1,
-    ID_SLOT_2,
-    ID_SLOT_3,
-    ID_SLOT_4,
-    ID_SLOT_5,
-    ID_SLOT_6,
-    ID_SLOT_7,
-    ID_SLOT_8,
-    ID_SELECTOR,
-    ID_MAIN_INV_SELECTOR,
-    ID_FPS_CURSOR,
-    ID_MUSIC_CURSOR,
-    ID_SOUND_CURSOR,
-    ID_CURSOR,
-    ID_LEN
-} component_id_t;
-
 typedef enum e_component_type {
     C_UNDEFINED,
     C_TYPES_RECTANGLE,
@@ -67,6 +48,7 @@ typedef struct s_component_events {
     component_handler_t onmove;
     component_handler_t onnonclick;
     component_handler_t onkeypress;
+    component_handler_t onkeyrelease;
     component_handler_t ondisabled;
 } component_events_t;
 
@@ -89,6 +71,7 @@ typedef struct s_component_annimation {
     int index;
     int max;
     float speed;
+    float max_speed;
 } component_annimation_t;
 
 typedef struct s_node_components {
@@ -120,6 +103,74 @@ typedef struct s_main_components {
     list_components_t *cursor;
 } main_components_t;
 
+//==================================================
+// PARSING
+//==================================================
+
+typedef enum e_disabled {
+    DISABLED_ANIMATION,
+    DISABLED_LEN
+} disabled_t;
+
+
+typedef enum e_hover {
+    ACTIVE_ANIMATION,
+    HOVER_LEN
+} hover_t;
+
+typedef enum e_keypressed {
+    KEYPRESSED_LEN
+} keypressed_t;
+
+typedef enum e_keyreleased {
+    KEYRELEASED_LEN
+} keyreleased_t;
+
+typedef enum e_nonclicked {
+    NONCLICKED_LEN
+} nonclicked_t;
+
+typedef enum e_moved {
+    MOVED_LEN
+} moved_t;
+
+typedef enum e_clicked {
+    MENU_LOAD_GAME,
+    MENU_HELP,
+    QUIT_APP,
+    MENU_SETTINGS,
+    CLICKED_LEN
+} clicked_t;
+
+typedef struct function_s {
+    clicked_t clicked;
+    hover_t hover;
+    moved_t moved;
+    nonclicked_t nonclicked;
+    keypressed_t pressed;
+    keyreleased_t released;
+    disabled_t disabled;
+} function_t;
+
+typedef struct animation_s {
+    sfIntRect rect;
+    int index;
+    int max;
+    float speed;
+} animation_t;
+
+typedef struct parsing_s {
+    char types[15];
+    sfVector2f position;
+    sfVector2f size;
+    sfIntRect rect;
+    component_type_t type;
+    component_size_t c_size;
+    component_styles style;
+    function_t function;
+    animation_t animation;
+} parsing_t;
+
 /**
  * @brief Load component
  * @param app App
@@ -127,8 +178,7 @@ typedef struct s_main_components {
  * @param objects objects
  * @return main_components_t
  */
-main_components_t app_components_load(app_t *app, ressources_t ressources,
-renderer_objects_t objects);
+main_components_t app_components_load(app_t *app, ressources_t ressources);
 
 /**
  * @brief Free component
@@ -162,7 +212,7 @@ node_component_t *component);
  * @param app
  */
 void append_menu(app_t *app, ressources_t ressources,
-renderer_objects_t objects, main_components_t *components);
+main_components_t *components);
 
 //==================================================
 // STATE

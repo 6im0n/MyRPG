@@ -5,7 +5,7 @@
 ** bouton
 */
 
-#include "types/types.h"
+
 #include "components/components.h"
 
 void event_menu_onkeypress(node_component_t *component,

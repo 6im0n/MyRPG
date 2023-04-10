@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -16,7 +16,7 @@
 #include "event/global.h"
 
 void components_setting_bouton_quit(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 + 200,
@@ -28,7 +28,7 @@ renderer_objects_t objects, list_components_t *list)
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 772, .top = 163, .width = 22},
         C_SIZE_SMALL);
@@ -39,7 +39,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void components_setting_bouton_resume(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 200,
@@ -51,7 +51,7 @@ renderer_objects_t objects, list_components_t *list)
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 24, .left = 837, .top = 164, .width = 22},
         C_SIZE_SMALL);
@@ -62,7 +62,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void components_resolution_1(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 0};
@@ -74,7 +74,7 @@ renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,(sfIntRect){.height = 28,.left = 11,
                                         .top = 11, .width = 26}, C_SIZE_BIG);
     set_component_text(obj, "Resolution\n1920x1080", sfBlack, 22);
@@ -86,7 +86,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void components_resolution_2(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 0};
@@ -98,7 +98,7 @@ renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,(sfIntRect){.height = 28,.left = 11,
                                         .top = 11, .width = 26}, C_SIZE_BIG);
     set_component_text(obj, "Resolution\n 1440x900", sfBlack, 22);
@@ -110,7 +110,7 @@ renderer_objects_t objects, list_components_t *list)
 }
 
 void components_resolution_3(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 0};
@@ -122,7 +122,7 @@ renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,(sfIntRect){.height = 28,.left = 11,
                                         .top = 11, .width = 26}, C_SIZE_BIG);
     set_component_text(obj, " Resolution\n44340x12679", sfBlack, 22);

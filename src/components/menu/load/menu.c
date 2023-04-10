@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -15,7 +15,7 @@
 #include "components/get.h"
 
 static void menu_background(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                            list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
@@ -25,18 +25,18 @@ renderer_objects_t objects, list_components_t *list)
         sfRenderWindow_getSize(app->window).y};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_BACKGROUND_MENU, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_GAME_MAP, SD_NONE, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 0, .left = 0,
         .top = 0, .width = 0}, C_SIZE_MAX);
     list_component_append(list, obj);
 }
 
 static void menu_board(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+                        list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
@@ -49,7 +49,7 @@ renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);
@@ -58,11 +58,10 @@ renderer_objects_t objects, list_components_t *list)
     list_component_append(list, obj);
 }
 
-list_components_t *components_load_game(app_t *app,ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+void components_load_game(app_t *app,ressources_t ressources,
+                                        list_components_t *list)
 {
-    menu_background(app, ressources, objects, list);
-    menu_board(app, ressources, objects, list);
-    component_load_game_bouton(app, ressources, objects, list);
-    return list;
+    menu_background(app, ressources, list);
+    menu_board(app, ressources, list);
+    component_load_game_bouton(app, ressources, list);
 }

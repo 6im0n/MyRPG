@@ -8,7 +8,6 @@
 #ifndef EVENT_SETTING_H_
     #define EVENT_SETTING_H_
 
-    #include "types/types.h"
     #include "components/components.h"
 
 /**

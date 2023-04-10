@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -15,7 +15,7 @@
 #include "event/setting/bouton.h"
 
 void components_menu_setting_selector_sound(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list)
+ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
@@ -28,7 +28,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 18, .left = 434,
                             .top = 103, .width = 28}, C_SIZE_TOP_MEDIUM);
     set_component_text(obj, "Music", sfBlack, 35);
@@ -40,7 +40,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 }
 
 void components_setting_bouton_fullscreen(app_t *app, ressources_t ressources,
-renderer_objects_t objects, list_components_t *list)
+list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 200,
@@ -52,7 +52,7 @@ renderer_objects_t objects, list_components_t *list)
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 18, .left = 434,
                             .top = 103, .width = 28}, C_SIZE_TOP_MEDIUM);
     set_component_text(obj, "FullScreen", sfBlack, 35);
@@ -75,7 +75,7 @@ static sfVector2f find_position_framelimit(app_t *app, list_components_t *list)
 }
 
 void components_menu_setting_selector_framelimit(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list)
+ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
@@ -88,7 +88,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 4, .left = 277, .top = 166, .width = 38},
         C_SIZE_TOP_MEDIUM);
@@ -99,18 +99,18 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 }
 
 void components_menu_setting_selector_framelimit_cursor(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list)
+ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = find_position_framelimit(app, list);
     sfVector2f size = {30 / 1.3, 50 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 21, .left = 65, .top = 197, .width = 14},
         C_SIZE_TOP_MEDIUM);

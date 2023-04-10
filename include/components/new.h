@@ -18,12 +18,10 @@
  * @brief New component type
  * @param ressources ressources
  * @param component components
- * @param objects objects
  * @param position position object
  */
 void new_component_type(ressources_t ressources,
-node_component_t *component, renderer_objects_t objects,
-sfVector2f position);
+node_component_t *component, sfVector2f position);
 
 /**
  * @brief New component size
@@ -79,5 +77,32 @@ void inventory_object_add_id(node_component_t *node);
  */
 void new_component_annimation(node_component_t *component,
 sfIntRect annimation, int index, int max);
+
+/**
+ * @brief Add new item
+ * @param id id
+ * @param irect floatrect
+ * @param frect intrect
+ * @return node_item_t*
+ */
+node_item_t *new_items(node_item_t *item, item_t id, sfIntRect irect,
+sfFloatRect frect);
+
+/**
+ * @brief Add texture
+ * @param item item
+ * @param ressources ressources
+ * @param item_texture item texture
+ * @param position position item
+ */
+void new_items_texture(node_item_t *item, ressources_t *ressources,
+texture_t item_texture, sfVector2f position);
+
+/**
+ * @brief Set size item
+ * @param item item
+ * @param size size
+ */
+void new_items_size(node_item_t *item, sfVector2f size);
 
 #endif /* !NEW_H_ */

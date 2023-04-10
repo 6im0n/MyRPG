@@ -10,7 +10,6 @@
     #include "ressources/fonts.h"
 
 static const char *fonts_loaders[FT_LEN] = {
-    [FT_ARIAL] = "assets/fonts/arial.ttf",
     [FT_IMMORTAL] = "assets/fonts/immortal.ttf",
     [FT_DROID] = "assets/fonts/droid.ttf"
 };

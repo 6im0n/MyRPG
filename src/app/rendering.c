@@ -5,13 +5,17 @@
 ** render
 */
 
-#include "types/types.h"
+
 #include "app/app.h"
 #include "app/ressources.h"
 #include "app/constants.h"
 #include "components/components.h"
 #include <SFML/Graphics.h>
 #include <stdio.h>
+#include "lib/output.h"
+#include "components/player.h"
+#include "components/mobs.h"
+#include "components/view.h"
 
 static void dispatch(app_t *app,
 main_components_t *components, list_components_t *list)
@@ -26,10 +30,25 @@ main_components_t *components, list_components_t *list)
         case S_MENU_LOAD_GAME:
             app_component_render(app, components->load_game);
             break;
+        case S_GAME:
+            app_component_render(app, components->game);
+            break;
         default:
             break;
     }
     app_component_render(app, list);
+}
+
+static void component_render_dispatch_extend(app_t *app,
+main_components_t *components)
+{
+    switch (app->state->stage) {
+        case S_GAME:
+            app_component_render(app, components->game);
+            break;
+        default:
+            break;
+    }
 }
 
 static void component_render_dispatch(app_t *app,
@@ -54,13 +73,19 @@ main_components_t *components)
         default:
             break;
     }
-    app_component_render(app, components->cursor);
+    component_render_dispatch_extend(app, components);
 }
 
 static void player_render(app_t *app)
 {
-    sfRenderWindow_drawRectangleShape(app->window,
-        app->element->player->character->shape, NULL);
+    if (app->state->stage == S_GAME){
+        player_render_annimation(app);
+        sfRenderWindow_drawRectangleShape(app->window,
+            app->element->player->character->shape, NULL);
+        mobs_render_annimation(app);
+        sfRenderWindow_drawRectangleShape(app->window,
+            app->element->mobs->character->shape, NULL);
+    }
 }
 
 void app_render(app_t *app, ressources_t *ressources,
@@ -68,7 +93,12 @@ main_components_t *components)
 {
     (void) ressources;
     sfRenderWindow_clear(app->window, W_COLOR);
+    sfRenderWindow_setView(app->window, app->view);
+    player_view(app);
     component_render_dispatch(app, components);
     player_render(app);
+    app_component_render(app, components->cursor);
+    if (app->state->stage != S_GAME)
+        app_component_render(app, components->cursor);
     sfRenderWindow_display(app->window);
 }

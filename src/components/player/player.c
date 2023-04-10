@@ -13,12 +13,14 @@ static character_t *init_character(ressources_t *ressources)
     character_t *character = malloc(sizeof(character_t));
     sfFloatRect frect = {0, 0, 0, 0};
     sfIntRect irect = {0, 0, 0, 0};
+
     if (!character)
         return NULL;
     character->texture = ressources->textures[TX_APP_ICON];
     character->shape = sfRectangleShape_create();
     character->frect = frect;
     character->irect = irect;
+    character->key = (key_player_t){false, false, false, false};
     return character;
 }
 
@@ -48,6 +50,7 @@ player_t *player_create(ressources_t *ressources)
     skills_t skills = init_skills();
     experience_t xp = init_experience();
     player_t *player = malloc(sizeof(player_t));
+    char *collision_path = "assets/maps/test-collisions.png";
 
     if (!player)
         return NULL;
@@ -55,13 +58,16 @@ player_t *player_create(ressources_t *ressources)
     player->inventory = inventory;
     player->exprerience = xp;
     player->skills = skills;
+    player->view = sfView_create();
+    player->collisions = sfImage_createFromFile(collision_path);
+    player->colors = (colors_t) {sfBlack, sfBlack, sfBlack, sfBlack};
     return player;
 }
 
 void player_destroy(player_t *player)
 {
     sfRectangleShape_destroy(player->character->shape);
+    sfView_destroy(player->view);
     free(player->character);
-    list_item_free(player->inventory);
     free(player);
 }

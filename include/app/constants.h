@@ -16,5 +16,4 @@
     #define W_COLOR ((sfColor) {237, 237, 237, 255})
 
     #define DFT_MOUSE_POSITION ((sfVector2f) {0, 0})
-
 #endif /* !APP_CONSTANTS_H_ */

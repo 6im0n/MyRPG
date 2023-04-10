@@ -34,6 +34,11 @@
     #define COMPONENT_ON_KEYPRESS(component) (component->events.onkeypress)
 
     /**
+     * @brief Get component onkeyrelease handler
+     */
+    #define COMPONENT_ON_KEYRELEASE(component) (component->events.onkeyrelease)
+
+    /**
      * @brief Get component onkeypress handler
      */
     #define COMPONENT_ON_DISABLED(component) (component->events.ondisabled)
@@ -82,6 +87,15 @@ event_t *event, app_t *app);
  */
 void component_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
+
+/**
+ * @brief Function if a key is released
+ * @param component Component to state
+ * @param event Event
+ * @param app App object
+ */
+void component_onkeyrelease(node_component_t *component,event_t *event,
+app_t *app);
 
 /**
  * @brief Function if component is not hover

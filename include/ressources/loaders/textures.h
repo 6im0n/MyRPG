@@ -14,7 +14,14 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_APP_ICON] = "assets/ship/ship10.png",
     [TX_CHARACTERE_1] = "assets/charactere/player.png",
     [TX_SHIP] = "assets/ship/sprPlayer_strip16.png",
-    [TX_BACKGROUND_MENU] = "assets/map/menu_background.png",
+    [TX_PEPPA_PIG] = "assets/assets_rpg/peppapig.png",
+    [TX_WEAPONS] = "assets/assets_rpg/RPG_Weapons.png",
+    [TX_PLAYER] = "assets/charactere/player.png",
+    [TX_INV_SELECTOR] = "assets/assets_rpg/selector.png",
+    [TX_INV_SELECTOR2] = "assets/assets_rpg/main_selector.png",
+    [TX_MOBS] = "assets/charactere/mobs.png",
+    [TX_MOBS2] = "assets/charactere/mobs2.png",
+    [TX_GAME_MAP] = "assets/maps/map-v1.png",
     [TX_DIALOG_MENU_BGR] = "assets/ui/setting_menu.png",
     [TX_UI_MENU_ALL] = "assets/ui/menu_all.png",
     [TX_UI_ELEMENTS] = "assets/ui/UIelements32x32original.png",
@@ -32,6 +39,6 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_PARTICALES] = "assets/ruins-world/particles64x64-.png",
     [TX_RITUALS] = "assets/ruins-world/Ritual2.png",
     [TX_FOUNTAIN] = "assets/ruins-world/fountain160x128.png"
-} ;
+};
 
 #endif /* !RESSOURCES_TEXTURES_LOADERS_H_ */

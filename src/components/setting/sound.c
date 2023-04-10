@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/types.h"
+
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -26,7 +26,7 @@ static sfVector2f find_position_volume(app_t *app, list_components_t *list)
 }
 
 void components_menu_setting_selector_volume_music(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list)
+ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
@@ -39,7 +39,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 4, .left = 277, .top = 166, .width = 38},
         C_SIZE_TOP_MEDIUM);
@@ -50,7 +50,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 }
 
 void components_menu_setting_selector_volume_music_cursor(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list)
+ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = find_position_volume(app, list);
@@ -61,7 +61,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 21, .left = 65,
                             .top = 197, .width = 14}, C_SIZE_TOP_MEDIUM);
     obj->events.onmove = &event_settings_selector_volume_onclick;
@@ -71,7 +71,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 }
 
 void components_menu_setting_selector_volume_sound(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list)
+ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
@@ -84,7 +84,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size,
         (sfIntRect){.height = 4, .left = 277, .top = 166, .width = 38},
         C_SIZE_TOP_MEDIUM);
@@ -95,7 +95,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 }
 
 void components_menu_setting_selector_volume_sound_cursor(app_t *app,
-ressources_t ressources, renderer_objects_t objects, list_components_t *list)
+ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
     sfVector2f position = find_position_volume(app, list);
@@ -106,7 +106,7 @@ ressources_t ressources, renderer_objects_t objects, list_components_t *list)
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
-    new_component_type(ressources, obj, objects, position);
+    new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 21, .left = 65,
                             .top = 197, .width = 14}, C_SIZE_TOP_MEDIUM);
     obj->events.onmove = &event_settings_selector_volume_onclick;
