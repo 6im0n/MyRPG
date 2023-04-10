@@ -13,7 +13,7 @@
 typedef enum e_texture {
     TX_APP_ICON,
     TX_DIALOG_MENU_BGR,
-    TX_BACKGROUND_MENU,
+    TX_CAMPFIRE,
     TX_INVENTORY_COMPO,
     TX_UI_MENU_ALL,
     TX_CHALICE,
@@ -29,7 +29,6 @@ typedef enum e_texture {
     TX_UI_ELEMENTS,
     TX_MOBS,
     TX_MOBS2,
-    TX_CAMPFIRE,
     TX_NPC_ATTENTION,
     TX_SHRINE_ACTIVATING,
     TX_SHRINE_AVAILABLE,

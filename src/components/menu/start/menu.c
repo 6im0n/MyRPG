@@ -26,7 +26,7 @@ static void menu_background(app_t *app, ressources_t ressources,
         sfRenderWindow_getSize(app->window).y};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_BACKGROUND_MENU, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_GAME_MAP, SD_NONE, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
@@ -67,7 +67,7 @@ static void setting_background(app_t *app, ressources_t ressources,
     sfVector2f size = {300, 100};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_DROID };
 
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, position);

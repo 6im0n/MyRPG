@@ -23,7 +23,7 @@ list_components_t *list)
     sfVector2f size = {90, 90};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_INV_SELECTOR, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_INV_SELECTOR, SD_NONE, FT_DROID };
 
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, position);

@@ -23,7 +23,7 @@ static void menu_board(app_t *app, ressources_t ressources,
     sfVector2f size = {middle.x * 1.8 , middle.y * 1.6};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);

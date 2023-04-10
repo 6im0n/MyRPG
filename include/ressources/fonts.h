@@ -9,7 +9,6 @@
     #define RESSOURCES_FONTS_H_
 
 typedef enum e_font {
-    FT_ARIAL,
     FT_IMMORTAL,
     FT_DROID,
     FT_LEN

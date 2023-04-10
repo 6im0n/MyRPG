@@ -48,7 +48,7 @@ list_components_t *list)
     sfVector2f size = {80, 80};
     sfFloatRect rect = {pos.x - (size.x / 2),
         (pos.y - (size.y / 2)), size.x, size.y};
-    component_styles style = { TX_INVENTORY_COMPO, SD_GRAB, FT_ARIAL };
+    component_styles style = { TX_INVENTORY_COMPO, SD_GRAB, FT_DROID };
     float angle = 360 / 8;
     sfVector2f pos_angle = {pos.x + 230, pos.y};
 

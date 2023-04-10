@@ -22,7 +22,6 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_MOBS] = "assets/charactere/mobs.png",
     [TX_MOBS2] = "assets/charactere/mobs2.png",
     [TX_GAME_MAP] = "assets/maps/map-v1.png",
-    [TX_BACKGROUND_MENU] = "assets/map/menu_background.png",
     [TX_DIALOG_MENU_BGR] = "assets/ui/setting_menu.png",
     [TX_UI_MENU_ALL] = "assets/ui/menu_all.png",
     [TX_UI_ELEMENTS] = "assets/ui/UIelements32x32original.png",

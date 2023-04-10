@@ -27,7 +27,7 @@ list_components_t *list)
     sfVector2f real_size = {0, 0};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_GAME_MAP, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_GAME_MAP, SD_NONE, FT_DROID };
 
     (void) app;
     obj->events = (component_events_t) { NULL };
