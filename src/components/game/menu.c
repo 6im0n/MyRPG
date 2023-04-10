@@ -40,7 +40,7 @@ list_components_t *list)
 
 static void init_game_player(app_t *app, ressources_t ressources)
 {
-    sfVector2f size = {70, 100};
+    sfVector2f size = {70 / 12.0, 100 / 12.0};
     sfFloatRect player_frect = {0, 0, 0, 0};
     sfRectangleShape *shape = sfRectangleShape_create();
     sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,

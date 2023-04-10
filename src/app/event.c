@@ -77,11 +77,10 @@ void move_player(app_t *app)
     sfRectangleShape *player_rect = app->element->player->character->shape;
     sfVector2f position = sfRectangleShape_getPosition(player_rect);
     sfFloatRect tmp_rect = {0, 0, 0, 0};
-    float move = 2;
+    float move = 0.5;
 
-    if (app->element->player->character->key.up){
+    if (app->element->player->character->key.up)
         position.y -= move;
-    } 
     if (app->element->player->character->key.down)
         position.y += move;
     if (app->element->player->character->key.right)

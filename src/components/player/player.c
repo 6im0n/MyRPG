@@ -13,6 +13,7 @@ static character_t *init_character(ressources_t *ressources)
     character_t *character = malloc(sizeof(character_t));
     sfFloatRect frect = {0, 0, 0, 0};
     sfIntRect irect = {0, 0, 0, 0};
+
     if (!character)
         return NULL;
     character->texture = ressources->textures[TX_APP_ICON];
@@ -56,12 +57,14 @@ player_t *player_create(ressources_t *ressources)
     player->inventory = inventory;
     player->exprerience = xp;
     player->skills = skills;
+    player->view = sfView_create();
     return player;
 }
 
 void player_destroy(player_t *player)
 {
     sfRectangleShape_destroy(player->character->shape);
+    sfView_destroy(player->view);
     free(player->character);
     free(player);
 }

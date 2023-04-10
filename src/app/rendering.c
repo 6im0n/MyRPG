@@ -83,12 +83,22 @@ static void player_render(app_t *app)
     }
 }
 
+static void player_view(app_t *app)
+{
+    if (app->state->stage == S_GAME){
+        sfVector2f position =  sfRectangleShape_getPosition(app->element->player->character->shape);
+        sfView_setCenter(app->element->player->view, position);
+        sfRenderWindow_setView(app->window, app->element->player->view);
+    }
+}
+
 void app_render(app_t *app, ressources_t *ressources,
 main_components_t *components)
 {
     (void) ressources;
     sfRenderWindow_clear(app->window, W_COLOR);
     sfRenderWindow_setView(app->window, app->view);
+    player_view(app);
     component_render_dispatch(app, components);
     player_render(app);
     app_component_render(app, components->cursor);

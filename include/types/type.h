@@ -106,6 +106,7 @@ typedef struct s_player {
     character_t *character;
     skills_t skills;
     experience_t exprerience;
+    sfView *view;
 } player_t;
 
 typedef struct s_game_elements {
