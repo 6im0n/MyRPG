@@ -52,7 +52,8 @@ event_t *event, app_t *app);
 
 void player_render_annimation(app_t *app);
 
-void new_player_annimation(app_t *app, sfIntRect annimation, int index, int max);
+void new_player_annimation(app_t *app, sfIntRect annimation, int index,
+                            int max);
 
 
 #endif /* !PLAYER_H_ */

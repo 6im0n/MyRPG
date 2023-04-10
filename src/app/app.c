@@ -24,9 +24,6 @@ int app_run(void)
     add_item_player(&app, I_SWORD_LEV1);
     add_item_player(&app, I_SWORD_LEV1);
     add_item_player(&app, I_SWORD_PIG);
-    sfVector2u window_size = sfRenderWindow_getSize(app.window);
-    sfVector2f view_size = {window_size.x / 15.0, window_size.y / 15.0};
-    sfView_setSize(app.element->player->view, view_size);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);

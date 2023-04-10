@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "lib/output.h"
 #include "components/player.h"
+#include "components/view.h"
 
 static void dispatch(app_t *app,
 main_components_t *components, list_components_t *list)
@@ -83,15 +84,6 @@ static void player_render(app_t *app)
     }
 }
 
-static void player_view(app_t *app)
-{
-    if (app->state->stage == S_GAME){
-        sfVector2f position =  sfRectangleShape_getPosition(app->element->player->character->shape);
-        sfView_setCenter(app->element->player->view, position);
-        sfRenderWindow_setView(app->window, app->element->player->view);
-    }
-}
-
 void app_render(app_t *app, ressources_t *ressources,
 main_components_t *components)
 {
@@ -101,6 +93,7 @@ main_components_t *components)
     player_view(app);
     component_render_dispatch(app, components);
     player_render(app);
-    app_component_render(app, components->cursor);
+    if (app->state->stage != S_GAME)
+        app_component_render(app, components->cursor);
     sfRenderWindow_display(app->window);
 }
