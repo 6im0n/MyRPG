@@ -20,4 +20,10 @@
  */
 void manage_view(app_t *app, event_t *event, main_components_t *components);
 
+/**
+ * @brief Set player view
+ * @param app App struct
+ */
+void player_view(app_t *app);
+
 #endif /* !VIEW_H_ */
