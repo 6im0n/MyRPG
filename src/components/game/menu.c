@@ -85,10 +85,6 @@ static void init_player_animation(app_t *app)
     new_player_annimation(app, (sfIntRect){.height = 0, .left = 48,
         .top = 0, .width = 0}, 0, 4);
     app->element->player->character->annimation.speed = 0.1;
-}
-
-static void init_mobs_animation(app_t *app)
-{
     new_mobs_annimation(app, (sfIntRect){.height = 0, .left = 224,
         .top = 0, .width = 0}, 0, 15);
     app->element->mobs->character->annimation.speed = 0.1;
@@ -101,5 +97,4 @@ list_components_t *list)
     init_player_animation(app);
     init_game_player(app, ressources);
     init_game_mobs(app, ressources);
-    init_mobs_animation(app);
 }

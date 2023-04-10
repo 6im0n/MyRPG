@@ -67,7 +67,7 @@ static void setting_background(app_t *app, ressources_t ressources,
     sfVector2f size = {300, 100};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_ARIAL };
 
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, position);

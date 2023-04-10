@@ -23,7 +23,7 @@ static void components_help_bouton_setting(app_t *app, ressources_t ressources,
     sfVector2f size = {120, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
@@ -66,7 +66,7 @@ ressources_t ressources, list_components_t *list)
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, position);

@@ -20,7 +20,7 @@ static void component_cursor_filter(app_t *app,ressources_t ressources,
     sfVector2f position = {size.x / 2, size.y / 2};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_ARIAL };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
@@ -40,7 +40,7 @@ static void component_cursor(app_t *app,ressources_t ressources,
     sfVector2f size = {40, 45};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_NONE, FT_ARIAL };
+    component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_ARIAL };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BUTTON, style);

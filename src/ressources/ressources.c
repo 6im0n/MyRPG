@@ -6,6 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
+#include <stdio.h>
 #include "app/ressources.h"
 
 ressources_t ressources_load(void)

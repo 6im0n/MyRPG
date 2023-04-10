@@ -37,6 +37,7 @@ _SRC =			main.c \
 				components/new/size.c \
 				components/new/text.c \
 				components/new/animation.c \
+				components/new/mob.c \
 				components/cursor.c \
 				\
 				components/player/player.c \

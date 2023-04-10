@@ -24,7 +24,7 @@ list_components_t *list)
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
@@ -47,7 +47,7 @@ list_components_t *list)
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
@@ -70,7 +70,7 @@ list_components_t *list)
     sfVector2f size = {155, 85};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
@@ -94,7 +94,7 @@ list_components_t *list)
     sfVector2f size = {150, 70};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
@@ -118,7 +118,7 @@ list_components_t *list)
     sfVector2f size = {160, 100};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_MENU_ALL, SD_GRAB, FT_DROID };
+    component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);

@@ -82,12 +82,6 @@ static void player_render(app_t *app)
         player_render_annimation(app);
         sfRenderWindow_drawRectangleShape(app->window,
             app->element->player->character->shape, NULL);
-    }
-}
-
-static void mobs_render(app_t *app)
-{
-    if (app->state->stage == S_GAME){
         mobs_render_annimation(app);
         sfRenderWindow_drawRectangleShape(app->window,
             app->element->mobs->character->shape, NULL);
@@ -103,7 +97,6 @@ main_components_t *components)
     player_view(app);
     component_render_dispatch(app, components);
     player_render(app);
-    mobs_render(app);
     app_component_render(app, components->cursor);
     if (app->state->stage != S_GAME)
         app_component_render(app, components->cursor);
