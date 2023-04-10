@@ -80,6 +80,7 @@ _SRC =			main.c \
 				events/inventory/select.c \
 				events/inventory/selector.c \
 				events/game/player.c \
+				events/game/collisions.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

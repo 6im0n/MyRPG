@@ -58,6 +58,7 @@ player_t *player_create(ressources_t *ressources)
     player->exprerience = xp;
     player->skills = skills;
     player->view = sfView_create();
+    player->collisions = sfImage_createFromFile("assets/maps/test-collisions.png");
     return player;
 }
 

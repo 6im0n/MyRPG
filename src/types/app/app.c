@@ -37,7 +37,7 @@ static elements_t *element_create(ressources_t *ressources)
 static void player_set_view(elements_t *element, sfRenderWindow *window)
 {
     sfVector2u window_size = sfRenderWindow_getSize(window);
-    sfVector2f view_size = {window_size.x / 15.0, window_size.y / 15.0};
+    sfVector2f view_size = {window_size.x / 2, window_size.y / 2};
 
     sfView_setSize(element->player->view, view_size);
 }
