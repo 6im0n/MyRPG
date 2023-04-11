@@ -21,7 +21,7 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_INV_SELECTOR2] = "assets/assets_rpg/main_selector.png",
     [TX_MOBS] = "assets/charactere/mobs.png",
     [TX_MOBS2] = "assets/charactere/mobs2.png",
-    [TX_GAME_MAP] = "assets/maps/map-v1.png",
+    [TX_GAME_MAP] = "assets/maps/mapv5.png",
     [TX_DIALOG_MENU_BGR] = "assets/ui/setting_menu.png",
     [TX_UI_MENU_ALL] = "assets/ui/menu_all.png",
     [TX_UI_ELEMENTS] = "assets/ui/UIelements32x32original.png",
@@ -38,7 +38,9 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_OBELISK_DEACTIVATING] = "assets/ruins-world/Obelisk2d70x150.png",
     [TX_PARTICALES] = "assets/ruins-world/particles64x64-.png",
     [TX_RITUALS] = "assets/ruins-world/Ritual2.png",
-    [TX_FOUNTAIN] = "assets/ruins-world/fountain160x128.png"
+    [TX_FOUNTAIN] = "assets/ruins-world/fountain160x128.png",
+    [TX_LAYER] = "assets/maps/layerv5.png",
+    [TX_COLLISION] = "assets/maps/collisionv5.png"
 };
 
 #endif /* !RESSOURCES_TEXTURES_LOADERS_H_ */

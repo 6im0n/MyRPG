@@ -65,8 +65,7 @@ static void init_game_mobs(app_t *app, ressources_t ressources)
     sfVector2f size = {384, 384};
     sfFloatRect mobs_frect = {0, 0, 0, 0};
     sfRectangleShape *shape = sfRectangleShape_create();
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f middle = {2420 - 200, 6375 - 200};
     sfIntRect in_rect = {192, 384, 224, 224};
     app->element->mobs->character->clock = sfClock_create();
     (void) ressources;

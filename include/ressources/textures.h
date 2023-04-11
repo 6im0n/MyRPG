@@ -39,6 +39,8 @@ typedef enum e_texture {
     TX_PARTICALES,
     TX_RITUALS,
     TX_FOUNTAIN,
+    TX_LAYER,
+    TX_COLLISION,
     TX_LEN
 } texture_t;
 

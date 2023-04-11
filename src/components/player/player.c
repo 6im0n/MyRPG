@@ -7,6 +7,7 @@
 
 #include "components/player.h"
 #include "types/list.h"
+#include "ressources/loaders/textures.h"
 
 static character_t *init_character(ressources_t *ressources)
 {
@@ -50,7 +51,6 @@ player_t *player_create(ressources_t *ressources)
     skills_t skills = init_skills();
     experience_t xp = init_experience();
     player_t *player = malloc(sizeof(player_t));
-    char *collision_path = "assets/maps/test-collisions.png";
 
     if (!player)
         return NULL;
@@ -59,7 +59,7 @@ player_t *player_create(ressources_t *ressources)
     player->exprerience = xp;
     player->skills = skills;
     player->view = sfView_create();
-    player->collisions = sfImage_createFromFile(collision_path);
+    player->collisions = sfImage_createFromFile(textures_loaders[TX_COLLISION]);
     player->colors = (colors_t) {sfBlack, sfBlack, sfBlack, sfBlack};
     return player;
 }
