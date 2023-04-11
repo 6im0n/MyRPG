@@ -16,6 +16,9 @@
 #include "event/annimation.h"
 #include "event/game/global.h"
 #include "components/mobs.h"
+#include "parsing/buttons.h"
+#include "event/game/dialog.h"
+#include <stdio.h>
 
 static void game_background(app_t *app, ressources_t ressources,
 list_components_t *list)
@@ -96,4 +99,9 @@ list_components_t *list)
     init_player_animation(app);
     init_game_player(app, ressources);
     init_game_mobs(app, ressources);
+    parsing_buttons(app, ressources, list, "assets/scripts/game/object.txt");
+    list->last->events.next_to = &dialog_main_quests_next_to;
+    list->last->events.onkeypress = &dialog_main_quests_onkeypress;
+    list->last->events.ondisabled = &dialog_main_quests_disabled;
+    list->last->features.radius = 20;
 }

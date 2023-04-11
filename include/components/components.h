@@ -50,6 +50,7 @@ typedef struct s_component_events {
     component_handler_t onkeypress;
     component_handler_t onkeyrelease;
     component_handler_t ondisabled;
+    component_handler_t next_to;
 } component_events_t;
 
 typedef struct s_component_styles {
@@ -64,6 +65,7 @@ typedef struct s_component_features {
     sfFloatRect rendered_rect;
     sfIntRect texture_rect;
     bool select;
+    int radius;
 } component_feat_t;
 
 typedef struct s_component_annimation {

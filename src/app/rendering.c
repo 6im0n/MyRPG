@@ -100,6 +100,5 @@ main_components_t *components)
     component_render_dispatch(app, components);
     player_render(app);
     app_component_render(app, components->cursor);
-    app_component_render(app, components->cursor);
     sfRenderWindow_display(app->window);
 }
