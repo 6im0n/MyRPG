@@ -12,6 +12,7 @@
 #include "components/view.h"
 #include "components/player.h"
 #include "event/game/global.h"
+#include "components/misc/events.h"
 
 static void event_handle_mouse(app_t *app, event_t *event)
 {
@@ -73,28 +74,6 @@ event_t *event, main_components_t *components)
     components_dispatch_event(components->cursor, event, app);
 }
 
-void move_player(app_t *app)
-{
-    sfRectangleShape *player_rect = app->element->player->character->shape;
-    sfVector2f position = sfRectangleShape_getPosition(player_rect);
-    sfFloatRect tmp_rect = {0, 0, 0, 0};
-    bool array[4] = {false, false, false, false};
-    float move = 1.5;
-
-    collisions(array, position, app->element->player);
-    if (app->element->player->character->key.up && array[0])
-        position.y -= move;
-    if (app->element->player->character->key.down && array[1])
-        position.y += move;
-    if (app->element->player->character->key.right && array[2])
-        position.x += move;
-    if (app->element->player->character->key.left && array[3])
-        position.x -= move;
-    sfRectangleShape_setPosition(player_rect, position);
-    tmp_rect = sfRectangleShape_getGlobalBounds(player_rect);
-    app->element->player->character->frect = tmp_rect;
-}
-
 void app_handle_events(app_t *app, main_components_t *components)
 {
     event_t event;
@@ -109,5 +88,6 @@ void app_handle_events(app_t *app, main_components_t *components)
     }
     if (app->state->stage == S_GAME) {
         move_player(app);
+        component_near(components->game, app, &event);
     }
 }

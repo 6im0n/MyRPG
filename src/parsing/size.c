@@ -21,6 +21,17 @@ void get_c_size(char *nb, parsing_t *element)
     }
 }
 
+void get_radius(char *nb, parsing_t *element)
+{
+    int number = 0;
+
+    number = my_strtoint(nb);
+    if (element->radius == 0) {
+        element->radius = number;
+        return;
+    }
+}
+
 void get_size(char *nb, parsing_t *element)
 {
     int number = 0;

@@ -38,3 +38,14 @@ void get_type(char *nb, parsing_t *element)
         return;
     }
 }
+
+void get_id(char *nb, parsing_t *element)
+{
+    int number = 0;
+
+    number = my_strtoint(nb);
+    if (element->id == ID_UNDEFINED) {
+        element->id = number;
+        return;
+    }
+}

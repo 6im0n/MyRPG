@@ -34,10 +34,12 @@ static void parsing_init(parsing_t *elements)
     elements->function.nonclicked = NONCLICKED_LEN;
     elements->function.pressed = KEYPRESSED_LEN;
     elements->function.released = KEYRELEASED_LEN;
+    elements->function.next_to = NEXT_TO_LEN;
     elements->animation.rect = (sfIntRect){-1, -1, -1, -1};
     elements->animation.index = -1;
     elements->animation.max = -1;
     elements->animation.speed = -1;
+    elements->radius = 0;
 }
 
 void parsing_set_functions(node_component_t *obj, parsing_t *element)
@@ -54,6 +56,8 @@ void parsing_set_functions(node_component_t *obj, parsing_t *element)
         obj->events.onkeypress = pressed_event[element->function.pressed];
     if (element->function.released != KEYRELEASED_LEN)
         obj->events.onkeyrelease = released_event[element->function.released];
+    if (element->function.next_to != NEXT_TO_LEN)
+        obj->events.next_to = next_to_event[element->function.next_to];
 }
 
 static void parsing_append(parsing_t *element, ressources_t ressources,
@@ -75,6 +79,8 @@ static void parsing_append(parsing_t *element, ressources_t ressources,
         obj->annimation.max_speed = element->animation.speed;
         obj->annimation.speed = element->animation.speed;
     }
+    obj->id = element->id;
+    obj->features.radius = element->radius;
     parsing_set_functions(obj, element);
     list_component_append(list, obj);
 }
@@ -110,6 +116,7 @@ void parsing_buttons(app_t *app, ressources_t ressources,
 
     (void)app;
     parsing_init(&element);
+    element.id = ID_UNDEFINED;
     clean_char(element.types, 15);
     while (file[index] != '\0') {
         extend_function(&element, &index, file);

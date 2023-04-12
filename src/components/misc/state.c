@@ -5,10 +5,12 @@
 ** state
 */
 
-#include "components/components.h"
 #include <stdio.h>
+#include "components/components.h"
+#include "components/misc/events.h"
 
-static void targeted_set_state(node_component_t *component, event_t *event)
+static void targeted_set_state(node_component_t *component,
+event_t *event, app_t *app)
 {
     bool right = event->original.mouseButton.button == sfMouseRight;
     bool left = event->original.mouseButton.button == sfMouseLeft;
@@ -25,7 +27,7 @@ static void targeted_set_state(node_component_t *component, event_t *event)
         component->state = ST_SET_MOVED(component, true);
     else
         component->state = ST_SET_MOVED(component, false);
-    component->state = ST_SET_HOVER(component, true);
+    (void) app;
 }
 
 static void non_targeted_set_state(node_component_t *component)
@@ -39,16 +41,23 @@ static void non_targeted_set_state(node_component_t *component)
 }
 
 void component_set_state_from_event(node_component_t *component,
-event_t *event)
+event_t *event, app_t *app)
 {
     sfFloatRect *rect = &component->features.rendered_rect;
     sfVector2f press = event->mouse->press_position;
     sfVector2f pos = event->mouse->position;
+    sfVector2f pos_p =
+        sfRectangleShape_getPosition(app->element->player->character->shape);
     bool on_me = sfFloatRect_contains(rect, pos.x, pos.y);
+    bool on_player = sfFloatRect_contains(rect, pos_p.x, pos_p.y);
 
-    if ((sfFloatRect_contains(rect, press.x, press.y)
+    if (ST_IS_NEAR(component) || (sfFloatRect_contains(rect, press.x, press.y)
         && event->mouse->pressed) || (!event->mouse->pressed && on_me)) {
-        targeted_set_state(component, event);
+        targeted_set_state(component, event, app);
+        if ((sfFloatRect_contains(rect, press.x, press.y)
+            && event->mouse->pressed) || (!event->mouse->pressed && on_me) ||
+            (on_player))
+            component->state = ST_SET_HOVER(component, true);
     } else {
         non_targeted_set_state(component);
     }
