@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-
+#include "app/constants.h"
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -19,7 +19,7 @@ void components_setting_bouton_quit(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 + 200,
+    sfVector2f position = {W_VIDEO_MODE.width / 2 + 200,
         835};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -42,7 +42,7 @@ void components_setting_bouton_resume(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 200,
+    sfVector2f position = {W_VIDEO_MODE.width / 2 - 200,
         835};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -65,13 +65,14 @@ void components_resolution_1(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 0};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2, 0};
     sfVector2f position = {middle.x, 750 };
     sfVector2f size = {155, 85};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, position);
@@ -89,13 +90,14 @@ void components_resolution_2(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 0};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2, 0};
     sfVector2f position = {middle.x - 220, 750 };
     sfVector2f size = {150, 70};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, position);
@@ -113,13 +115,14 @@ void components_resolution_3(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 0};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2, 0};
     sfVector2f position = {middle.x + 220, 750 };
     sfVector2f size = {160, 100};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, position);

@@ -45,12 +45,12 @@ static void manage_functions(char *nb, parsing_t *element)
         get_disabled(nb, element);
 }
 
-static void manage_data(char *nb, parsing_t *element, app_t *app)
+static void manage_data(char *nb, parsing_t *element)
 {
     if (my_strcmp(element->types, "position") == 0)
-        get_position(nb, element, app);
+        get_position(nb, element);
     if (my_strcmp(element->types, "size") == 0)
-        get_size(nb, element, app);
+        get_size(nb, element);
     if (my_strcmp(element->types, "rect") == 0)
         get_rect(nb, element);
     if (my_strcmp(element->types, "style") == 0)
@@ -63,7 +63,7 @@ static void manage_data(char *nb, parsing_t *element, app_t *app)
     manage_data_extend(nb, element);
 }
 
-void manage_number(char *file, parsing_t *element, app_t *app, int *index)
+void manage_number(char *file, parsing_t *element, int *index)
 {
     char nb[6];
     int nb_index = 0;
@@ -73,7 +73,7 @@ void manage_number(char *file, parsing_t *element, app_t *app, int *index)
     do {
         *index += 1;
         if (file[*index] == ' ' || file[*index] == '\n') {
-            manage_data(nb, element, app);
+            manage_data(nb, element);
             clean_char(nb, 6);
             nb_index = 0;
         } else {

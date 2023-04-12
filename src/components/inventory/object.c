@@ -16,6 +16,7 @@
 #include "components/get.h"
 #include "lib/output.h"
 #include <math.h>
+#include "app/constants.h"
 
 static sfVector2f angle_set_rotate(sfVector2f point,
 sfVector2f origin, float angle)
@@ -39,11 +40,11 @@ static void set_event_item_inventory(node_component_t *obj)
     obj->events.onhover = &item_player_hover;
 }
 
-static void object_item_inventory(app_t *app, ressources_t ressources,
+static void object_item_inventory(ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = NULL;
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2, 600};
     sfVector2f pos = {middle.x, middle.y};
     sfVector2f size = {80, 80};
     sfFloatRect rect = {pos.x - (size.x / 2),
@@ -68,13 +69,14 @@ static void main_selector(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2, 600};
     sfVector2f position = {middle.x, 380};
     sfVector2f size = {90, 90};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_INV_SELECTOR2, SD_NONE, FT_DROID };
 
+    (void) app;
     new_component_set(obj, rect, C_TYPES_SIGN, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size,
@@ -88,7 +90,7 @@ list_components_t *list)
 void inventory_object(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    object_item_inventory(app, ressources, list);
+    object_item_inventory(ressources, list);
     inventory_object_add_id(list->last);
     inventory_object_select(app, ressources, list);
     main_selector(app, ressources, list);

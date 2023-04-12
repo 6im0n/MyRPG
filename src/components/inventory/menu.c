@@ -12,19 +12,20 @@
 #include "types/list.h"
 #include "ressources/textures.h"
 #include "components/get.h"
+#include "app/constants.h"
 
 static void menu_board(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2, W_VIDEO_MODE.height / 2};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {middle.x * 1.8 , middle.y * 1.6};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, position);
@@ -38,13 +39,14 @@ static void menu_title(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    float middle = sfRenderWindow_getSize(app->window).x / 2;
+    float middle = W_VIDEO_MODE.width / 2;
     sfVector2f position = { middle, 180 };
     sfVector2f size = {40, 40};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_IMMORTAL };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_TEXT, style);
     new_component_type(ressources, obj, position);
@@ -59,7 +61,7 @@ static void annimation_env(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    float middle = sfRenderWindow_getSize(app->window).x / 2;
+    float middle = W_VIDEO_MODE.width / 2;
     sfVector2f position = { middle - 50, 600 };
     sfVector2f size = {700, 620};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
@@ -83,7 +85,7 @@ static void annimation_player(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    float middle = sfRenderWindow_getSize(app->window).x / 2;
+    float middle = W_VIDEO_MODE.width / 2;
     sfVector2f position = { middle, 600 };
     sfVector2f size = {200, 300};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
