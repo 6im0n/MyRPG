@@ -7,31 +7,31 @@
 
 #include "types/type.h"
 
-static void mobs_annimation_edit(app_t *app)
+static void mobs_annimation_edit(node_mobs_t *mobs)
 {
-    sfIntRect rect = app->element->mobs->character->irect;
-    sfIntRect rect_a = app->element->mobs->character->annimation.rect;
+    sfIntRect rect = mobs->irect;
+    sfIntRect rect_a = mobs->annimation.rect;
 
-    rect_a.height *= app->element->mobs->character->annimation.index;
-    rect_a.top *= app->element->mobs->character->annimation.index;
-    rect_a.left *= app->element->mobs->character->annimation.index;
-    rect_a.width *= app->element->mobs->character->annimation.index;
+    rect_a.height *= mobs->annimation.index;
+    rect_a.top *= mobs->annimation.index;
+    rect_a.left *= mobs->annimation.index;
+    rect_a.width *= mobs->annimation.index;
     rect.height += rect_a.height;
     rect.top += rect_a.top;
     rect.left += rect_a.left;
     rect.width += rect_a.width;
-    sfRectangleShape_setTextureRect(app->element->mobs->character->shape,
+    sfRectangleShape_setTextureRect(mobs->shape,
     rect);
-    app->element->mobs->character->annimation.index++;
+    mobs->annimation.index++;
 }
 
-void new_mobs_annimation(app_t *app, sfIntRect annimation, int index, int max)
+void new_mobs_annimation(node_mobs_t *mobs, sfIntRect annimation, int index, int max)
 {
-    if (!app->element->mobs->character)
+    if (!mobs)
         return;
-    app->element->mobs->character->clock = sfClock_create();
-    app->element->mobs->character->annimation.index = index;
-    app->element->mobs->character->annimation.max = max;
-    app->element->mobs->character->annimation.rect = annimation;
-    mobs_annimation_edit(app);
+    mobs->clock = sfClock_create();
+    mobs->annimation.index = index;
+    mobs->annimation.max = max;
+    mobs->annimation.rect = annimation;
+    mobs_annimation_edit(mobs);
 }

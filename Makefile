@@ -95,6 +95,9 @@ _SRC =			main.c \
 				types/list/component/append.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
+				types/list/mobs/list.c \
+				types/list/mobs/append.c \
+				types/list/mobs/node.c \
 				\
 				types/node/component/node.c \
 				\

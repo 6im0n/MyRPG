@@ -129,25 +129,30 @@ typedef struct s_mobs_annimation {
     float max_speed;
 } mobs_annimation_t;
 
-typedef struct s_mobs_component {
+typedef struct s_node_mobs {
     sfTexture *texture;
     sfRectangleShape *shape;
     sfFloatRect frect;
     sfIntRect irect;
     mobs_annimation_t annimation;
     sfClock *clock;
-
-} mobs_component_t;
-
-typedef struct s_mobs {
-    mobs_component_t *character;
     skills_t skills;
-} mobs_t;
+
+    int state;
+    struct s_node_mobs *next;
+    struct s_node_mobs *prev;
+} node_mobs_t;
+
+typedef struct list_mobs {
+    int len;
+    struct s_node_mobs *first;
+    struct s_node_mobs *last;
+} list_mobs_t;
 
 typedef struct s_game_elements {
     list_item_t *items;
     player_t *player;
-    mobs_t *mobs;
+    list_mobs_t *mobs;
 } elements_t;
 
 //==================================================
