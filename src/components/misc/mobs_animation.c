@@ -45,7 +45,6 @@ static void render_mobs_annimation(app_t *app, node_mobs_t *mobs)
     }
 }
 
-
 void mobs_render_annimation(app_t *app)
 {
     node_mobs_t *tmp = app->element->mobs->first;

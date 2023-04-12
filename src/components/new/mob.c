@@ -25,7 +25,8 @@ static void mobs_annimation_edit(node_mobs_t *mobs)
     mobs->annimation.index++;
 }
 
-void new_mobs_annimation(node_mobs_t *mobs, sfIntRect annimation, int index, int max)
+void new_mobs_annimation(node_mobs_t *mobs,
+sfIntRect annimation, int index, int max)
 {
     if (!mobs)
         return;

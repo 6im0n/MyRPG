@@ -24,7 +24,8 @@ void mobs_destroy(list_mobs_t *mobs);
 
 void mobs_render_annimation(app_t *app);
 
-void new_mobs_annimation(node_mobs_t *mobs, sfIntRect annimation, int index, int max);
+void new_mobs_annimation(node_mobs_t *mobs,
+sfIntRect annimation, int index, int max);
 
 list_mobs_t *list_mobs_init(void);
 
