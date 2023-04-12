@@ -6,7 +6,6 @@
 */
 
 #include <SFML/Graphics.h>
-
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -34,17 +33,8 @@ static void bouton_newgame(app_t *app, ressources_t ressources,
         C_SIZE_BIG);
     set_component_text(obj, "New Game", sfBlack, 40);
     set_component_text_pos(obj, (sfVector2f){ 0, -12}, 0);
+    obj->events.onclick = &launch_new_game;
     list_component_append(list, obj);
-}
-
-static void launch_game(node_component_t *component,
-event_t *event, app_t *app)
-{
-    (void) component;
-    (void) event;
-    event_play_music(component, app);
-    app->state->back = app->state->stage;
-    app->state->stage = S_GAME;
 }
 
 static void bouton_resume(app_t *app, ressources_t ressources,

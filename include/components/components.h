@@ -100,6 +100,7 @@ typedef struct s_main_components {
     list_components_t *help_menu;
     list_components_t *load_game;
     list_components_t *game;
+    list_components_t *new_game;
     list_components_t *inventory;
     list_components_t *setting;
     list_components_t *cursor;
@@ -147,6 +148,11 @@ typedef enum e_clicked {
     MENU_HELP,
     QUIT_APP,
     MENU_SETTINGS,
+    MENU_OPEN_HOME,
+    GAME_LUNCH,
+    CHARACTER_SELECT_1,
+    CHARACTER_SELECT_2,
+    CHARACTER_SELECT_3,
     CLICKED_LEN
 } clicked_t;
 

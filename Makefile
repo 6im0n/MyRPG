@@ -48,6 +48,8 @@ _SRC =			main.c \
 				\
 				components/game/get.c \
 				components/game/menu.c \
+				components/new_game/get.c \
+				components/new_game/menu.c \
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
 				components/menu/load/get.c \
@@ -87,6 +89,8 @@ _SRC =			main.c \
 				events/game/player.c \
 				events/game/collisions.c \
 				events/game/dialog.c \
+				events/game/lunch.c \
+				events/game/select_character.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

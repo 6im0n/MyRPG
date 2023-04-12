@@ -55,4 +55,19 @@ event_t *event, app_t *app);
 void event_open_load_game_onclick(node_component_t *component,
 event_t *event, app_t *app);
 
+void launch_new_game(node_component_t *component,
+event_t *event, app_t *app);
+
+void launch_game(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_character1_select_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_character2_select_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_character3_select_onclick(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_START_MENU_BOUTON_H_ */
