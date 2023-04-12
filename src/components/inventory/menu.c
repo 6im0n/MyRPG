@@ -88,7 +88,7 @@ list_components_t *list)
     sfVector2f size = {200, 300};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
-    component_styles style = { TX_PLAYER, SD_NONE, FT_IMMORTAL };
+    component_styles style = { TX_PLAYER_1, SD_NONE, FT_IMMORTAL };
 
     (void) app;
     obj->events = (component_events_t) { NULL };

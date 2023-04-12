@@ -12,7 +12,7 @@ anim_speed: 12
 position: 2285 6256
 size: 25 20
 rect: 0 0 32 32
-style: 18 0 1
+style: 20 0 1
 type: 4
 c_size: 3
 anim_rect: 33 0 0 0
@@ -23,7 +23,7 @@ anim_speed: 12
 position: 2256 6256
 size: 28 40
 rect: 64 500 18 24
-style: 10 0 1
+style: 16 0 1
 type: 4
 c_size: 3
 radius: 20

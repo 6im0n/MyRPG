@@ -55,7 +55,7 @@ static void init_game_player(app_t *app, ressources_t ressources)
 
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setPosition(shape, middle);
-    sfRectangleShape_setTexture(shape, ressources.textures[TX_PLAYER], sfFalse);
+    sfRectangleShape_setTexture(shape, ressources.textures[TX_PLAYER_1], sfFalse);
     sfRectangleShape_setTextureRect(shape, in_rect);
     player_frect = sfRectangleShape_getGlobalBounds(shape);
     app->element->player->character->shape = shape;
