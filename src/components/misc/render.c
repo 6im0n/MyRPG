@@ -37,7 +37,8 @@ node_component_t *component)
 static void component_render_dispatch_form(app_t *app,
 node_component_t *component)
 {
-    if ((component->id == ID_CURSOR && app->mouse.custom == false))
+    if (component->id == ID_CURSOR &&
+    (app->mouse.custom == false || app->state->stage == S_GAME))
         return;
     switch (component->type) {
         case C_TYPES_RECTANGLE:
