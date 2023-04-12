@@ -30,3 +30,14 @@ void get_released(char *nb, parsing_t *element)
         return;
     }
 }
+
+void get_next_to(char *nb, parsing_t *element)
+{
+    int number = 0;
+
+    number = my_strtoint(nb);
+    if (element->function.next_to == NEXT_TO_LEN) {
+        element->function.next_to = number;
+        return;
+    }
+}
