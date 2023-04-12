@@ -6,9 +6,8 @@
 */
 
 #include <stdio.h>
-#include "components/components.h"
 #include <SFML/Graphics.h>
-#include "lib/output.h"
+#include "components/components.h"
 #include "components/misc/events.h"
 
 static void catch(node_component_t *component, event_t *event, app_t *app)
