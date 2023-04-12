@@ -114,6 +114,9 @@ typedef enum e_disabled {
     DISABLED_LEN
 } disabled_t;
 
+typedef enum e_nextto {
+    NEXT_TO_LEN
+} next_to_t;
 
 typedef enum e_hover {
     ACTIVE_ANIMATION,
@@ -152,6 +155,7 @@ typedef struct function_s {
     keypressed_t pressed;
     keyreleased_t released;
     disabled_t disabled;
+    next_to_t next_to;
 } function_t;
 
 typedef struct animation_s {
@@ -171,6 +175,7 @@ typedef struct parsing_s {
     component_styles style;
     function_t function;
     animation_t animation;
+    component_id_t id;
 } parsing_t;
 
 /**

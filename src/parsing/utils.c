@@ -59,6 +59,10 @@ static void manage_data(char *nb, parsing_t *element, app_t *app)
         get_type(nb, element);
     if (my_strcmp(element->types, "c_size") == 0)
         get_c_size(nb, element);
+    if (my_strcmp(element->types, "id") == 0)
+        get_id(nb, element);
+    if (my_strcmp(element->types, "radius") == 0)
+        get_next_to(nb, element);
     manage_functions(nb, element);
     manage_data_extend(nb, element);
 }

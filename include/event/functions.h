@@ -45,4 +45,7 @@ static const parsing_handler_t released_event[KEYRELEASED_LEN] = {
 static const parsing_handler_t moved_event[MOVED_LEN] = {
 };
 
+static const parsing_handler_t next_to_event[NEXT_TO_LEN] = {
+};
+
 #endif /* !EVENT_SETTINGS_H_ */
