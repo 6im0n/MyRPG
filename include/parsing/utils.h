@@ -28,7 +28,7 @@ void get_moved(char *nb, parsing_t *element);
 void get_released(char *nb, parsing_t *element);
 void get_pressed(char *nb, parsing_t *element);
 void get_position(char *nb, parsing_t *element);
-void get_position(char *nb, parsing_t *element, app_t *app);
+void get_position(char *nb, parsing_t *element);
 void get_id(char *nb, parsing_t *element);
 void get_next_to(char *nb, parsing_t *element);
 void get_radius(char *nb, parsing_t *element);
