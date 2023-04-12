@@ -10,6 +10,7 @@ _SRC =			main.c \
 				\
 				app/app.c \
 				app/event.c \
+				app/render.c \
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \
