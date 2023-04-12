@@ -15,12 +15,12 @@
 void dialog_main_quests_next_to(node_component_t *component,
 event_t *event, app_t *app)
 {
-    (void) app;
-    (void) event;
-    (void) component;
     sfVector2f scale =
         sfRectangleShape_getScale(component->prev->object->rectangle);
 
+    (void) app;
+    (void) event;
+    (void) component;
     if (scale.x > 0) {
         scale.x -= 0.05;
         scale.y -= 0.05;
@@ -31,12 +31,12 @@ event_t *event, app_t *app)
 void dialog_main_quests_disabled(node_component_t *component,
 event_t *event, app_t *app)
 {
-    (void) app;
-    (void) event;
-    (void) component;
     sfVector2f scale =
         sfRectangleShape_getScale(component->prev->object->rectangle);
 
+    (void) app;
+    (void) event;
+    (void) component;
     if (scale.x < 1) {
         scale.x += 0.05;
         scale.y += 0.05;
