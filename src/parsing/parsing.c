@@ -39,7 +39,7 @@ static void parsing_init(parsing_t *elements)
     elements->animation.index = -1;
     elements->animation.max = -1;
     elements->animation.speed = -1;
-    elements->id = ID_UNDEFINED;
+    elements->radius = 0;
 }
 
 void parsing_set_functions(node_component_t *obj, parsing_t *element)
@@ -80,6 +80,7 @@ static void parsing_append(parsing_t *element, ressources_t ressources,
         obj->annimation.speed = element->animation.speed;
     }
     obj->id = element->id;
+    obj->features.radius = element->radius;
     parsing_set_functions(obj, element);
     list_component_append(list, obj);
 }
@@ -114,6 +115,7 @@ void parsing_buttons(app_t *app, ressources_t ressources,
     int index = 0;
 
     parsing_init(&element);
+    element.id = ID_UNDEFINED;
     clean_char(element.types, 15);
     while (file[index] != '\0') {
         extend_function(app, &element, &index, file);

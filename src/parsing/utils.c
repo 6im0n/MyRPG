@@ -40,9 +40,11 @@ static void manage_functions(char *nb, parsing_t *element)
     if (my_strcmp(element->types, "moved") == 0)
         get_clicked(nb, element);
     if (my_strcmp(element->types, "pressed") == 0)
-        get_hover(nb, element);
+        get_pressed(nb, element);
     if (my_strcmp(element->types, "released") == 0)
         get_disabled(nb, element);
+    if (my_strcmp(element->types, "next_to") == 0)
+        get_next_to(nb, element);
 }
 
 static void manage_data(char *nb, parsing_t *element, app_t *app)
@@ -62,7 +64,7 @@ static void manage_data(char *nb, parsing_t *element, app_t *app)
     if (my_strcmp(element->types, "id") == 0)
         get_id(nb, element);
     if (my_strcmp(element->types, "radius") == 0)
-        get_next_to(nb, element);
+        get_radius(nb, element);
     manage_functions(nb, element);
     manage_data_extend(nb, element);
 }

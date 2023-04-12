@@ -111,10 +111,12 @@ typedef struct s_main_components {
 
 typedef enum e_disabled {
     DISABLED_ANIMATION,
+    QUEST_MAIN_FIRST_DIALOG,
     DISABLED_LEN
 } disabled_t;
 
 typedef enum e_nextto {
+    QUEST_MAIN_FIRST_DIALOG_NEXTTO,
     NEXT_TO_LEN
 } next_to_t;
 
@@ -124,6 +126,7 @@ typedef enum e_hover {
 } hover_t;
 
 typedef enum e_keypressed {
+    QUEST_MAIN_FIRST_DIALOG_PRESSED,
     KEYPRESSED_LEN
 } keypressed_t;
 
@@ -176,6 +179,7 @@ typedef struct parsing_s {
     function_t function;
     animation_t animation;
     component_id_t id;
+    int radius;
 } parsing_t;
 
 /**

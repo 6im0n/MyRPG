@@ -25,7 +25,6 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_DIALOG_MENU_BGR] = "assets/ui/setting_menu.png",
     [TX_UI_MENU_ALL] = "assets/ui/menu_all.png",
     [TX_UI_ELEMENTS] = "assets/ui/UIelements32x32original.png",
-    [TX_INVENTORY_COMPO] = "assets/ui/Inventory_background.png",
     [TX_CAMPFIRE] = "assets/grass-world/campfire.png",
     [TX_NPC_ATTENTION] = "assets/grass-world/npc-icon-attention.png",
     [TX_SHRINE_ACTIVATING] = "assets/grass-world/shrine2activating.png",

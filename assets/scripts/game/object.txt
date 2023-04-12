@@ -26,4 +26,8 @@ rect: 64 500 18 24
 style: 10 0 1
 type: 4
 c_size: 3
+radius: 20
+disabled: 1
+next_to: 0
+pressed: 0
 ###

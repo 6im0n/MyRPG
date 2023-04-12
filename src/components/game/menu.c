@@ -100,8 +100,4 @@ list_components_t *list)
     init_game_player(app, ressources);
     init_game_mobs(app, ressources);
     parsing_buttons(app, ressources, list, "assets/scripts/game/object.txt");
-    list->last->events.next_to = &dialog_main_quests_next_to;
-    list->last->events.onkeypress = &dialog_main_quests_onkeypress;
-    list->last->events.ondisabled = &dialog_main_quests_disabled;
-    list->last->features.radius = 20;
 }
