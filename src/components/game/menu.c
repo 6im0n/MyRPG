@@ -91,7 +91,7 @@ static node_mobs_t *init_game_animation(app_t *app, node_mobs_t *mobs)
     mobs->annimation.speed = 0.1;
     return mobs;
 }
-#include <stdio.h>
+
 void components_game(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
