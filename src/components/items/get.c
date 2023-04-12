@@ -8,6 +8,7 @@
 #include "types/type.h"
 #include "types/list.h"
 #include "components/new.h"
+#include "components/misc/item.h"
 
 static void append_peppa_pig(list_item_t *list, ressources_t *ressources)
 {
@@ -36,22 +37,6 @@ static void append_chalic(list_item_t *list, ressources_t *ressources)
         (sfIntRect){.height = 65, .left = 0, .top = 0, .width = 63}, rect);
     new_items_texture(item, ressources, TX_CHALICE, position);
     new_items_size(item, size);
-    list_item_append(list, item);
-}
-
-static void append_sword(list_item_t *list, ressources_t *ressources)
-{
-    node_item_t *item = malloc(sizeof(node_item_t));
-    sfVector2f position = {300, 835};
-    sfVector2f size = {100, 100};
-    sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
-        .top = (position.y - (size.y / 2)), .width = size.x};
-
-    item = new_items(item, I_SWORD_LEV1,
-        (sfIntRect){.height = 60, .left = 35, .top = 40, .width = 60}, rect);
-    new_items_texture(item, ressources, TX_WEAPONS, position);
-    new_items_size(item, size);
-    sfRectangleShape_setRotation(item->shape, 35);
     list_item_append(list, item);
 }
 

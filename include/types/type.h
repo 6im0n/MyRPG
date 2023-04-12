@@ -39,6 +39,9 @@ typedef enum e_item {
     I_NONE,
     I_SWORD_PIG,
     I_SWORD_LEV1,
+    I_SWORD_LEV2,
+    I_SWORD_LEV3,
+    I_SWORD_LEV4,
     I_CHALICE,
     I_HEALT_POTION
 } item_t;

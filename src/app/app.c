@@ -27,8 +27,9 @@ static void dev_add_item_inv(app_t *app)
 {
     add_item_player(app, I_CHALICE);
     add_item_player(app, I_SWORD_LEV1);
-    add_item_player(app, I_SWORD_LEV1);
-    add_item_player(app, I_SWORD_PIG);
+    add_item_player(app, I_SWORD_LEV2);
+    add_item_player(app, I_SWORD_LEV3);
+    add_item_player(app, I_SWORD_LEV4);
 }
 
 int app_run(void)

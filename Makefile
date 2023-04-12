@@ -33,6 +33,7 @@ _SRC =			main.c \
 				components/misc/state.c \
 				components/items/get.c \
 				components/items/new.c \
+				components/items/sword.c \
 				components/new/set.c \
 				components/new/type.c \
 				components/new/size.c \
