@@ -17,6 +17,8 @@ static void view_resize(app_t *app, event_t *event)
     float widht = event->original.size.width / 1920.0;
     float height = event->original.size.height / 1080.0;
 
+    sfView_setSize(app->element->player->view, tmp);
+    sfView_zoom(app->element->player->view, 0.3);
     sfView_setSize(app->view, tmp);
     sfView_setCenter(app->view, center);
     if (widht < height)
