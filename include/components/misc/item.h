@@ -38,4 +38,11 @@ void append_hammer(list_item_t *list, ressources_t *ressources);
  */
 void append_spear(list_item_t *list, ressources_t *ressources);
 
+/**
+ * @brief Append axe
+ * @param list list
+ * @param ressources ressources
+ */
+void append_axe(list_item_t *list, ressources_t *ressources);
+
 #endif /* !ITEM_H_ */

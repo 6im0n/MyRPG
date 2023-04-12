@@ -36,6 +36,7 @@ _SRC =			main.c \
 				components/items/sword.c \
 				components/items/knif.c \
 				components/items/hammer.c \
+				components/items/axe.c \
 				components/items/spear.c \
 				components/new/set.c \
 				components/new/type.c \

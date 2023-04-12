@@ -49,4 +49,5 @@ ressources_t *ressources)
     append_knif(element->items, ressources);
     append_hammer(element->items, ressources);
     append_spear(element->items, ressources);
+    append_axe(element->items, ressources);
 }
