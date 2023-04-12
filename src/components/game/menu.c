@@ -6,19 +6,14 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/type.h"
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
 #include "ressources/textures.h"
-#include "event/start_menu/bouton.h"
 #include "components/get.h"
-#include "event/annimation.h"
 #include "event/game/global.h"
 #include "components/mobs.h"
 #include "parsing/buttons.h"
-#include "event/game/dialog.h"
-#include <stdio.h>
 
 static void game_background(app_t *app, ressources_t ressources,
 list_components_t *list)
