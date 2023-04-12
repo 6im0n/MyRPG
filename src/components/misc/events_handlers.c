@@ -46,3 +46,12 @@ event_t *event, app_t *app)
     if (handler)
         handler(component, event, app);
 }
+
+void component_next_to(node_component_t *component,
+event_t *event, app_t *app)
+{
+    component_handler_t handler = COMPONENT_NEXT_TO(component);
+
+    if (handler)
+        handler(component, event, app);
+}

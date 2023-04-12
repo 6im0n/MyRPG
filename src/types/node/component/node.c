@@ -24,7 +24,7 @@ node_component_t *node_component_init(void)
     tmp->features.styles = (component_styles){TX_LEN, SD_LEN, FT_LEN};
     tmp->features.select = false;
     tmp->events =
-    (component_events_t){NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+    (component_events_t){NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
     tmp->next = NULL;
     tmp->prev = NULL;
     return tmp;

@@ -16,6 +16,17 @@ void inventory_object_add_id(node_component_t *node)
     }
 }
 
+static void set_feature(node_component_t *component,
+sfIntRect intrect, sfFloatRect rect, component_styles style)
+{
+    component->features.styles = style;
+    component->features.rendered_rect = rect;
+    component->features.size = C_SIZE_MEDIUM;
+    component->features.texture_rect = intrect;
+    component->features.select = false;
+    component->features.radius = 0;
+}
+
 void new_component_set(node_component_t *component,
 sfFloatRect rect, component_type_t type, component_styles style)
 {
@@ -24,11 +35,7 @@ sfFloatRect rect, component_type_t type, component_styles style)
     if (!component)
         return;
     component->object = malloc(sizeof(renderer_objects_t));
-    component->features.styles = style;
-    component->features.rendered_rect = rect;
-    component->features.size = C_SIZE_MEDIUM;
-    component->features.texture_rect = intrect;
-    component->features.select = false;
+    set_feature(component, intrect, rect, style);
     component->annimation.index = 0;
     component->annimation.max = 0;
     component->annimation.speed = 0;
@@ -37,6 +44,6 @@ sfFloatRect rect, component_type_t type, component_styles style)
     component->type = type;
     component->state = 0;
     component->next = NULL;
-    component->events = (component_events_t) { NULL, NULL, NULL,
+    component->events = (component_events_t) { NULL, NULL, NULL, NULL,
                                                 NULL, NULL, NULL, NULL };
 }

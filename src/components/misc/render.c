@@ -9,6 +9,7 @@
 #include "components/components.h"
 #include "types/renderer.h"
 #include "lib/output.h"
+#include <stdio.h>
 
 static void component_render_dispatch(app_t *app,
 node_component_t *component)
