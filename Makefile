@@ -21,6 +21,7 @@ _SRC =			main.c \
 				\
 				components/free.c \
 				components/misc/render.c \
+				components/misc/render_background.c \
 				components/misc/effect_botton.c \
 				components/misc/events_dispatch.c \
 				components/misc/events_handlers.c \

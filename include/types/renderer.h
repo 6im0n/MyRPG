@@ -36,4 +36,11 @@ void renderer_objects_destroy(renderer_objects_t *objects);
  */
 void render_button_effect(app_t *app, node_component_t *component);
 
+/**
+ * @brief Render Background Component
+ * @param app struct
+ * @param component node
+ */
+void component_render_background(app_t *app, node_component_t *component);
+
 #endif /* !RENDERER_H_ */

@@ -17,6 +17,8 @@ sfVector2f size, sfIntRect rect)
     sfRectangleShape_setSize(component->object->rectangle, size);
         component->features.rendered_rect =
         sfRectangleShape_getGlobalBounds(component->object->rectangle);
+    sfRectangleShape_setOutlineColor(component->object->rectangle, sfRed);
+    sfRectangleShape_setOutlineThickness(component->object->rectangle, 1);
 }
 
 static void init_circle(node_component_t *component,
@@ -65,6 +67,7 @@ sfVector2f size, sfIntRect rect, component_size_t e_size)
     switch (component->type) {
         case C_TYPES_BUTTON:
         case C_TYPES_RECTANGLE:
+        case C_TYPES_BACKGROUND:
             init_rectangle(component, size, rect);
             break;
         case C_TYPES_BTN_TXT:

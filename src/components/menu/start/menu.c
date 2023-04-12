@@ -29,7 +29,7 @@ static void menu_background(app_t *app, ressources_t ressources,
     component_styles style = { TX_GAME_MAP, SD_NONE, FT_DROID };
 
     obj->events = (component_events_t) { NULL };
-    new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
+    new_component_set(obj, rect, C_TYPES_BACKGROUND, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 0, .left = 0,
         .top = 0, .width = 0}, C_SIZE_MAX);
