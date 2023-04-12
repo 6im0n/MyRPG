@@ -46,6 +46,10 @@ typedef enum e_item {
     I_KNIFE_LEV2,
     I_KNIFE_LEV3,
     I_KNIFE_LEV4,
+    I_HAMMER_LEV1,
+    I_HAMMER_LEV2,
+    I_HAMMER_LEV3,
+    I_HAMMER_LEV4,
     I_CHALICE,
     I_HEALT_POTION
 } item_t;

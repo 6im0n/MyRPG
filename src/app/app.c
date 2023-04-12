@@ -25,10 +25,10 @@ static void game_set_layer(app_t *app, ressources_t *ressources)
 
 static void dev_add_item_inv(app_t *app)
 {
-    add_item_player(app, I_KNIFE_LEV1);
-    add_item_player(app, I_KNIFE_LEV2);
-    add_item_player(app, I_KNIFE_LEV3);
-    add_item_player(app, I_KNIFE_LEV4);
+    add_item_player(app, I_HAMMER_LEV1);
+    add_item_player(app, I_HAMMER_LEV2);
+    add_item_player(app, I_HAMMER_LEV3);
+    add_item_player(app, I_HAMMER_LEV4);
 }
 
 int app_run(void)
