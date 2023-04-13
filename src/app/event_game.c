@@ -59,7 +59,7 @@ app_t *app, event_t *event)
 static sfVector2f move_player_diagonaly(key_player_t key_tmp,
 sfVector2f position, app_t *app, bool *array)
 {
-    float move = app.element->player->skills->move * 1.1;
+    float move = ((float)app->element->player->skills.speed / 10.F)* 1.1;
 
     if (key_tmp.up && key_tmp.right && array[0] && array[2]) {
         position.y -= sin(45) * move;
@@ -86,7 +86,7 @@ void move_player(app_t *app)
     sfVector2f position = sfRectangleShape_getPosition(player_rect);
     sfFloatRect tmp_rect = {0, 0, 0, 0};
     bool array[4] = {false, false, false, false};
-    float move = app->element->player->skills->speed;
+    float move = (float)app->element->player->skills.speed / 10.F;
     key_player_t key_tmp = app->element->player->character->key;
 
     collisions(array, position, app->element->player);
