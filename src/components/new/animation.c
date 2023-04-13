@@ -68,7 +68,7 @@ void new_player_annimation(app_t *app, sfIntRect annimation, int index, int max)
 {
     if (!app->element->player->character)
         return;
-    app->element->player->character->annimation.clock  = sfClock_create();
+    app->element->player->character->annimation.clock = sfClock_create();
     app->element->player->character->annimation.index = index;
     app->element->player->character->annimation.max = max;
     app->element->player->character->annimation.rect = annimation;

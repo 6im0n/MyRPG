@@ -56,16 +56,15 @@ app_t *app, event_t *event)
     }
 }
 
-static float get_move(app_t *app)
+static float update_move(app_t *app)
 {
-    float move = (float)app->element->player->skills.speed * 10.F;
+    float move = (float)app->element->player->skills.speed * 13.F;
     sfTime time = sfClock_getElapsedTime(app->state->clock);
     float seconds = time.microseconds / 1000000.0;
     sfTime old_time = app->element->player->character->time;
     float seconds_old = old_time.microseconds / 1000000.0;
     app->element->player->character->time = time;
     float spend = seconds - seconds_old;
-    printf("time spend %f\n",(spend));
     move *= spend;
 
     return move;
@@ -101,7 +100,7 @@ void move_player(app_t *app)
     sfVector2f position = sfRectangleShape_getPosition(player_rect);
     sfFloatRect tmp_rect = {0, 0, 0, 0};
     bool array[4] = {false, false, false, false};
-    float move = get_move(app);
+    float move = update_move(app);
     key_player_t key_tmp = app->element->player->character->key;
 
     collisions(array, position, app->element->player);
