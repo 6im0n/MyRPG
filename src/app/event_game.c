@@ -37,9 +37,10 @@ app_t *app)
 void component_near(list_components_t *component,
 app_t *app, event_t *event)
 {
+    (void) event;
     node_component_t *tmp = component->first;
     node_component_t *tmp2 = tmp;
-    (void) event;
+
     if (!component)
         return;
     while (tmp != NULL) {
@@ -55,22 +56,48 @@ app_t *app, event_t *event)
     }
 }
 
+static sfVector2f move_player_diagonaly(key_player_t key_tmp,
+sfVector2f position, app_t *app, bool *array)
+{
+    float move = ((float)app->element->player->skills.speed / 10.F)* 1.1;
+
+    if (key_tmp.up && key_tmp.right && array[0] && array[2]) {
+        position.y -= sin(45) * move;
+        position.x += cos(45) * move;
+    }
+    if (key_tmp.down && array[1] && array[2] && key_tmp.right) {
+        position.y += cos(45) * move;
+        position.x += cos(45) * move;
+    }
+    if (key_tmp.up && array[0] && array[3] && key_tmp.left) {
+        position.y -= cos(45) * move;
+        position.x -= cos(45) * move;
+    }
+    if (key_tmp.down && array[1] && array[3] && key_tmp.left) {
+        position.y += cos(45) * move;
+        position.x -= cos(45) * move;
+    }
+    return position;
+}
+
 void move_player(app_t *app)
 {
     sfRectangleShape *player_rect = app->element->player->character->shape;
     sfVector2f position = sfRectangleShape_getPosition(player_rect);
     sfFloatRect tmp_rect = {0, 0, 0, 0};
     bool array[4] = {false, false, false, false};
-    float move = 1.5;
+    float move = (float)app->element->player->skills.speed / 10.F;
+    key_player_t key_tmp = app->element->player->character->key;
 
     collisions(array, position, app->element->player);
-    if (app->element->player->character->key.up && array[0])
+    position = move_player_diagonaly(key_tmp, position, app, array);
+    if (key_tmp.up && array[0] && !key_tmp.right && !key_tmp.left)
         position.y -= move;
-    if (app->element->player->character->key.down && array[1])
+    if (key_tmp.down && array[1] && !key_tmp.right && !key_tmp.left)
         position.y += move;
-    if (app->element->player->character->key.right && array[2])
+    if (key_tmp.right && array[2] && !key_tmp.up && !key_tmp.down)
         position.x += move;
-    if (app->element->player->character->key.left && array[3])
+    if (key_tmp.left && array[3] && !key_tmp.up && !key_tmp.down)
         position.x -= move;
     sfRectangleShape_setPosition(player_rect, position);
     tmp_rect = sfRectangleShape_getGlobalBounds(player_rect);
