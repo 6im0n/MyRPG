@@ -104,9 +104,7 @@ list_components_t *list)
     mobs1 = init_game_animation(app, mobs1);
     mobs2 = init_game_mobs(mobs2, ressources);
     mobs2 = init_game_animation(app, mobs2);
-    sfRectangleShape_setPosition(mobs2->shape, (sfVector2f){2420,
-        6375});
+    sfRectangleShape_setPosition(mobs2->shape, (sfVector2f){2420, 6375});
     list_mobs_append(app->element->mobs, mobs1);
     list_mobs_append(app->element->mobs, mobs2);
-
 }
