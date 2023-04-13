@@ -254,4 +254,27 @@ ressources_t ressources, list_components_t *list);
 void components_game(app_t *app, ressources_t ressources,
 list_components_t *list);
 
+//==================================================
+// NEW GAME
+//==================================================
+
+/**
+ * @brief Components new game
+ * @param app App
+ * @param ressources ressources
+ * @param list list
+ * @return list_components_t*
+ */
+list_components_t *components_get_new_game(app_t *app,
+ressources_t ressources, list_components_t *list);
+
+/**
+ * @brief Components init new game
+ * @param app App
+ * @param ressources ressources
+ * @param list list
+ */
+void components_new_game(app_t *app,ressources_t ressources,
+list_components_t *list);
+
 #endif /* !GET_COMPONENTS_H_ */

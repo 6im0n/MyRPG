@@ -29,6 +29,9 @@ main_components_t *components, list_components_t *list)
         case S_GAME:
             app_component_render(app, components->game);
             break;
+        case S_NEW_GAME:
+            app_component_render(app, components->new_game);
+            break;
         default:
             break;
     }
@@ -42,6 +45,9 @@ main_components_t *components)
     switch (app->state->stage) {
         case S_GAME:
             app_component_render(app, components->game);
+            break;
+        case S_NEW_GAME:
+            app_component_render(app, components->new_game);
             break;
         default:
             break;

@@ -24,21 +24,13 @@ static void game_set_layer(app_t *app, ressources_t *ressources)
         sfImage_getSize(app->element->player->collisions).y});
 }
 
-static void dev_add_item_inv(app_t *app)
-{
-    add_item_player(app, I_CHALICE);
-    add_item_player(app, I_SWORD_LEV1);
-    add_item_player(app, I_SWORD_LEV1);
-    add_item_player(app, I_SWORD_PIG);
-}
-
 int app_run(void)
 {
     ressources_t ressources = ressources_load();
     app_t app = app_create(&ressources, W_VIDEO_MODE, W_TITLE, W_FRAMERATE);
     main_components_t components = app_components_load(&app, ressources);
 
-    dev_add_item_inv(&app);
+    add_item_player(&app, I_SWORD_LEV1);
     game_set_layer(&app, &ressources);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);

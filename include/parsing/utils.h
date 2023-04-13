@@ -11,8 +11,7 @@
     #include "types/type.h"
     #include "components/components.h"
 
-
-void get_size(char *nb, parsing_t *element);
+void get_size(char *nb, parsing_t *element, app_t *app);
 void get_rect(char *nb, parsing_t *element);
 void get_style(char *nb, parsing_t *element);
 void get_type(char *nb, parsing_t *element);

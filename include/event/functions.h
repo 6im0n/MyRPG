@@ -23,7 +23,12 @@ static const parsing_handler_t clicked_event[CLICKED_LEN] = {
     [MENU_LOAD_GAME] = &event_open_load_game_onclick,
     [MENU_HELP] = &event_open_help_onclick,
     [QUIT_APP] = &event_quit_app_onclick,
-    [MENU_SETTINGS] = &event_open_setting_onclick
+    [MENU_SETTINGS] = &event_open_setting_onclick,
+    [MENU_OPEN_HOME] = &event_help_bouton_home_onclick,
+    [GAME_LUNCH] = &launch_game,
+    [CHARACTER_SELECT_1] = &event_character1_select_onclick,
+    [CHARACTER_SELECT_2] = &event_character2_select_onclick,
+    [CHARACTER_SELECT_3] = &event_character3_select_onclick
 };
 
 static const parsing_handler_t hover_event[HOVER_LEN] = {

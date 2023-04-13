@@ -28,6 +28,7 @@ typedef enum e_id_component {
     ID_MUSIC_CURSOR,
     ID_SOUND_CURSOR,
     ID_CURSOR,
+    ID_S_PLAYER,
     ID_LEN
 } component_id_t;
 
@@ -209,6 +210,7 @@ typedef enum e_stage_type {
     S_MENU_LOAD_GAME,
     S_CURSOR,
     S_GAME,
+    S_NEW_GAME,
     S_LEN
 } stage_t;
 

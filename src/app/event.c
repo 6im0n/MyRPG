@@ -46,6 +46,9 @@ event_t *event, main_components_t *components)
         case S_MENU_HELP:
             components_dispatch_event(components->help_menu, event, app);
             break;
+        case S_NEW_GAME:
+            components_dispatch_event(components->new_game, event, app);
+            break;
         default:
             break;
     }
