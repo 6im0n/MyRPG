@@ -87,8 +87,6 @@ static void player_render(app_t *app)
             app->element->player->character->shape, NULL);
         mobs_render_annimation(app);
         sfRenderWindow_drawRectangleShape(app->window,
-            app->element->mobs->character->shape, NULL);
-        sfRenderWindow_drawRectangleShape(app->window,
             app->layer, NULL);
     }
 }
