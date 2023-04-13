@@ -106,7 +106,6 @@ typedef struct s_colors {
     sfColor left;
 } colors_t;
 
-
 typedef struct s_player {
     list_item_t *inventory;
     character_t *character;
