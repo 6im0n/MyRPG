@@ -5,7 +5,6 @@
 ** list
 */
 
-#include <stdlib.h>
 #include "components/player.h"
 
 node_item_t *item_pure_new(void)

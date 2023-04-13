@@ -100,6 +100,8 @@ _SRC =			main.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
+				types/list/quest/list.c \
+				types/list/quest/append.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
 				\
