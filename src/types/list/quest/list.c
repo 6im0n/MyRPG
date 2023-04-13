@@ -26,6 +26,7 @@ void list_quests_free(list_quests_t *list)
 
     while (tmp != NULL) {
         tmp2 = tmp->next;
+        free(tmp->text);
         free(tmp);
         tmp = tmp2;
     }

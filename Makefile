@@ -70,6 +70,7 @@ _SRC =			main.c \
 				components/inventory/menu.c \
 				components/inventory/object.c \
 				components/inventory/object_select.c \
+				components/inventory/quests/menu.c \
 				components/setting/get.c \
 				components/setting/menu.c \
 				components/setting/sound.c \

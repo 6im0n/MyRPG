@@ -13,7 +13,6 @@
 #include "app/ressources.h"
 #include "components/components.h"
 #include "types/list.h"
-#include "lib/output.h"
 
 static void game_set_layer(app_t *app, ressources_t *ressources)
 {
@@ -31,6 +30,8 @@ int app_run(void)
     main_components_t components = app_components_load(&app, ressources);
 
     add_item_player(&app, I_SWORD_LEV1);
+    add_item_player(&app, I_CHALICE);
+    add_item_player(&app, I_SWORD_PIG);
     game_set_layer(&app, &ressources);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);

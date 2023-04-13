@@ -11,6 +11,7 @@
 #include "event/global.h"
 #include "components/new.h"
 #include "event/start_menu/bouton.h"
+#include "components/player.h"
 
 void dialog_main_quests_next_to(node_component_t *component,
 event_t *event, app_t *app)
@@ -53,5 +54,5 @@ event_t *event, app_t *app)
     if (!ST_IS_NEAR(component))
         return;
     if (sfKeyboard_isKeyPressed(sfKeyI))
-        printf("OPEN DIALOG\n");
+        quest_append(app->element->quests, Q_MAIN_P1);
 }
