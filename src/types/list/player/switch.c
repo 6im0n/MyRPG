@@ -6,7 +6,6 @@
 */
 
 #include "components/player.h"
-#include "lib/output.h"
 
 static void prevent_first_last(list_item_t *list,
 node_item_t *node1, node_item_t *node2)

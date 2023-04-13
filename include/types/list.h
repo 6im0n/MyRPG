@@ -62,4 +62,10 @@ node_item_t *item_pure_new(void);;
  */
 void list_remove(list_item_t *list, node_item_t *node);
 
+void list_quest_append(list_quests_t *list, node_quests_t *node);
+
+list_quests_t *list_quests_init(void);
+
+void list_quests_free(list_quests_t *list);
+
 #endif /* !COMPONENTS_H_ */

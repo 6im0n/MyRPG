@@ -65,6 +65,7 @@ sfVector2f size, sfIntRect rect, component_size_t e_size)
     switch (component->type) {
         case C_TYPES_BUTTON:
         case C_TYPES_RECTANGLE:
+        case C_TYPES_BACKGROUND:
             init_rectangle(component, size, rect);
             break;
         case C_TYPES_BTN_TXT:

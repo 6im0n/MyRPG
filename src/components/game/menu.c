@@ -6,17 +6,15 @@
 */
 
 #include <SFML/Graphics.h>
-#include "types/type.h"
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
 #include "ressources/textures.h"
-#include "event/start_menu/bouton.h"
 #include "components/get.h"
-#include "event/annimation.h"
 #include "event/game/global.h"
 #include "components/mobs.h"
 #include "types/type.h"
+#include "parsing/buttons.h"
 
 static void game_background(app_t *app, ressources_t ressources,
 list_components_t *list)
@@ -53,7 +51,8 @@ static void init_game_player(app_t *app, ressources_t ressources)
 
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setPosition(shape, middle);
-    sfRectangleShape_setTexture(shape, ressources.textures[TX_PLAYER], sfFalse);
+    sfRectangleShape_setTexture(shape, ressources.textures[TX_PLAYER_1],
+        sfFalse);
     sfRectangleShape_setTextureRect(shape, in_rect);
     player_frect = sfRectangleShape_getGlobalBounds(shape);
     app->element->player->character->shape = shape;
@@ -82,4 +81,5 @@ list_components_t *list)
                                     sfRed);
     sfRectangleShape_setOutlineThickness (
         app->element->player->character->shape, 2);
+    parsing_buttons(app, ressources, list, "assets/scripts/game/object.txt");
 }

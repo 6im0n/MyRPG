@@ -6,9 +6,8 @@
 */
 
 #include <stdio.h>
-#include "components/components.h"
 #include <SFML/Graphics.h>
-#include "lib/output.h"
+#include "components/components.h"
 #include "components/misc/events.h"
 
 static void catch(node_component_t *component, event_t *event, app_t *app)
@@ -27,6 +26,8 @@ static void catch(node_component_t *component, event_t *event, app_t *app)
         component_onkeyrelease(component, event, app);
     if (!ST_IS_HOVER(component))
         component_ondisabled(component, event, app);
+    if (ST_IS_NEAR(component))
+        component_next_to(component, event, app);
 }
 
 static void component_dispatch_event(list_components_t *component,
@@ -39,7 +40,7 @@ event_t *event, app_t *app)
         return;
     while (tmp != NULL) {
         tmp2 = tmp->next;
-        component_set_state_from_event(tmp, event);
+        component_set_state_from_event(tmp, event, app);
         catch(tmp, event, app);
         tmp = tmp2;
     }

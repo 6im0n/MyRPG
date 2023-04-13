@@ -28,6 +28,7 @@ typedef enum e_id_component {
     ID_MUSIC_CURSOR,
     ID_SOUND_CURSOR,
     ID_CURSOR,
+    ID_S_PLAYER,
     ID_LEN
 } component_id_t;
 
@@ -39,6 +40,25 @@ typedef enum e_item {
     I_NONE,
     I_SWORD_PIG,
     I_SWORD_LEV1,
+    I_KNIFE_LEV1,
+    I_HAMMER_LEV1,
+    I_SPEAR_LEV1,
+    I_AXE_LEV1,
+    I_SWORD_LEV2,
+    I_KNIFE_LEV2,
+    I_HAMMER_LEV2,
+    I_SPEAR_LEV2,
+    I_AXE_LEV2,
+    I_SWORD_LEV3,
+    I_KNIFE_LEV3,
+    I_HAMMER_LEV3,
+    I_SPEAR_LEV3,
+    I_AXE_LEV3,
+    I_SWORD_LEV4,
+    I_KNIFE_LEV4,
+    I_HAMMER_LEV4,
+    I_SPEAR_LEV4,
+    I_AXE_LEV4,
     I_CHALICE,
     I_HEALT_POTION
 } item_t;
@@ -118,6 +138,33 @@ typedef struct s_player {
 } player_t;
 
 //==================================================
+// QUESTS
+//==================================================
+
+typedef struct s_node_quests_text {
+    char *title;
+    char *description;
+    char *detail;
+    char *objectif;
+    char *reward;
+} node_quests_text_t;
+
+typedef struct s_node_quests {
+    struct s_node_quests *next;
+    node_quests_text_t *text;
+    int current;
+    int goal;
+    bool finish;
+    struct s_node_quests *prev;
+} node_quests_t;
+
+typedef struct s_list_quests {
+    node_quests_t *first;
+    int len;
+    node_quests_t *last;
+} list_quests_t;
+
+//==================================================
 // MOBS
 //==================================================
 
@@ -153,6 +200,7 @@ typedef struct s_game_elements {
     list_item_t *items;
     player_t *player;
     list_mobs_t *mobs;
+    list_quests_t *quests;
 } elements_t;
 
 //==================================================
@@ -167,6 +215,7 @@ typedef enum e_stage_type {
     S_MENU_LOAD_GAME,
     S_CURSOR,
     S_GAME,
+    S_NEW_GAME,
     S_LEN
 } stage_t;
 
@@ -205,6 +254,7 @@ typedef struct s_app {
     sfRenderWindow *window;
     mouse_t mouse;
     state_t *state;
+    sfView *background;
     sfView *view;
     sfRectangleShape *layer;
     elements_t *element;

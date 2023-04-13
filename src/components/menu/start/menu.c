@@ -14,22 +14,22 @@
 #include "event/start_menu/bouton.h"
 #include "components/get.h"
 #include "parsing/buttons.h"
+#include "app/constants.h"
 
 static void menu_background(app_t *app, ressources_t ressources,
                             list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2, W_VIDEO_MODE.height / 2};
     sfVector2f position = {middle.x, middle.y };
-    sfVector2f size = {sfRenderWindow_getSize(app->window).x,
-        sfRenderWindow_getSize(app->window).y};
+    sfVector2f size = {W_VIDEO_MODE.width, W_VIDEO_MODE.height};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_GAME_MAP, SD_NONE, FT_DROID };
 
+    (void)app;
     obj->events = (component_events_t) { NULL };
-    new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
+    new_component_set(obj, rect, C_TYPES_BACKGROUND, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 0, .left = 0,
         .top = 0, .width = 0}, C_SIZE_MAX);
@@ -40,14 +40,14 @@ static void menu_board(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2,W_VIDEO_MODE.height / 2};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {middle.x * 1.3 , middle.y * 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_IMMORTAL };
 
+    (void)app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
     new_component_type(ressources, obj, position);
@@ -63,12 +63,13 @@ static void setting_background(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2, 700};
+    sfVector2f position = {W_VIDEO_MODE.width / 2, 700};
     sfVector2f size = {300, 100};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_DROID };
 
+    (void)app;
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size,

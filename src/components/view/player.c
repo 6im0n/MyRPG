@@ -12,6 +12,9 @@ void player_view(app_t *app)
     sfVector2f position = {0, 0};
     sfRectangleShape *rect = app->element->player->character->shape;
 
+    if ((app->state->stage == S_SETTINGS || app->state->stage == S_INVENTORY)
+        && app->state->back == S_GAME)
+        sfRenderWindow_setView(app->window, app->element->player->view);
     if (app->state->stage == S_GAME){
         position = sfRectangleShape_getPosition(rect);
         sfView_setCenter(app->element->player->view, position);

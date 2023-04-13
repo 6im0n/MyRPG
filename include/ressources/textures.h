@@ -8,20 +8,20 @@
 #ifndef RESSOURCES_TEXTURES_H_
     #define RESSOURCES_TEXTURES_H_
 
-
-
 typedef enum e_texture {
     TX_APP_ICON,
     TX_DIALOG_MENU_BGR,
     TX_CAMPFIRE,
-    TX_INVENTORY_COMPO,
+    TX_COLLISION,
     TX_UI_MENU_ALL,
     TX_CHALICE,
     TX_NATURE,
     TX_SHIP,
     TX_PEPPA_PIG,
     TX_WEAPONS,
-    TX_PLAYER,
+    TX_PLAYER_1,
+    TX_PLAYER_2,
+    TX_PLAYER_3,
     TX_INV_SELECTOR,
     TX_INV_SELECTOR2,
     TX_GAME_MAP,
@@ -40,7 +40,6 @@ typedef enum e_texture {
     TX_RITUALS,
     TX_FOUNTAIN,
     TX_LAYER,
-    TX_COLLISION,
     TX_LEN
 } texture_t;
 

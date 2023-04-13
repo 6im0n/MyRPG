@@ -5,7 +5,7 @@
 ** render
 */
 
-
+#include <stdio.h>
 #include "components/components.h"
 
 static sfIntRect effect_select_size(sfIntRect defaul, component_size_t size)
@@ -45,6 +45,21 @@ static void is_selector(node_component_t *component, sfIntRect defaul)
         sfRectangleShape_setTextureRect(component->object->rectangle, defaul);
 }
 
+static void is_selector_player(node_component_t *component)
+{
+    if (component->features.select == true) {
+        sfRectangleShape_setScale(component->object->rectangle,
+        (sfVector2f){1, 1});
+        sfRectangleShape_setScale(component->next->object->rectangle,
+        (sfVector2f){1, 1});
+    } else {
+        sfRectangleShape_setScale(component->object->rectangle,
+        (sfVector2f){0.8, 0.8});
+        sfRectangleShape_setScale(component->next->object->rectangle,
+        (sfVector2f){0.8, 0.8});
+    }
+}
+
 void render_button_effect(app_t *app, node_component_t *component)
 {
     sfIntRect defaul = component->features.texture_rect;
@@ -62,6 +77,8 @@ void render_button_effect(app_t *app, node_component_t *component)
     }
     if (component->id == ID_SELECTOR)
         is_selector(component, defaul);
+    if (component->id == ID_S_PLAYER)
+        is_selector_player(component);
     sfRenderWindow_drawRectangleShape(app->window,
     component->object->rectangle, NULL);
 }

@@ -36,6 +36,8 @@ typedef enum e_component_type {
     C_TYPES_CIRCLE,
     C_TYPES_TEXT,
     C_TYPES_SPRITE,
+    C_TYPES_BACKGROUND,
+    C_TYPES_CURSOR,
     C_TYPES_LEN
 } component_type_t;
 
@@ -50,6 +52,7 @@ typedef struct s_component_events {
     component_handler_t onkeypress;
     component_handler_t onkeyrelease;
     component_handler_t ondisabled;
+    component_handler_t next_to;
 } component_events_t;
 
 typedef struct s_component_styles {
@@ -64,6 +67,7 @@ typedef struct s_component_features {
     sfFloatRect rendered_rect;
     sfIntRect texture_rect;
     bool select;
+    int radius;
 } component_feat_t;
 
 typedef struct s_component_annimation {
@@ -98,6 +102,7 @@ typedef struct s_main_components {
     list_components_t *help_menu;
     list_components_t *load_game;
     list_components_t *game;
+    list_components_t *new_game;
     list_components_t *inventory;
     list_components_t *setting;
     list_components_t *cursor;
@@ -109,9 +114,14 @@ typedef struct s_main_components {
 
 typedef enum e_disabled {
     DISABLED_ANIMATION,
+    QUEST_MAIN_FIRST_DIALOG,
     DISABLED_LEN
 } disabled_t;
 
+typedef enum e_nextto {
+    QUEST_MAIN_FIRST_DIALOG_NEXTTO,
+    NEXT_TO_LEN
+} next_to_t;
 
 typedef enum e_hover {
     ACTIVE_ANIMATION,
@@ -119,6 +129,7 @@ typedef enum e_hover {
 } hover_t;
 
 typedef enum e_keypressed {
+    QUEST_MAIN_FIRST_DIALOG_PRESSED,
     KEYPRESSED_LEN
 } keypressed_t;
 
@@ -139,6 +150,11 @@ typedef enum e_clicked {
     MENU_HELP,
     QUIT_APP,
     MENU_SETTINGS,
+    MENU_OPEN_HOME,
+    GAME_LUNCH,
+    CHARACTER_SELECT_1,
+    CHARACTER_SELECT_2,
+    CHARACTER_SELECT_3,
     CLICKED_LEN
 } clicked_t;
 
@@ -150,6 +166,7 @@ typedef struct function_s {
     keypressed_t pressed;
     keyreleased_t released;
     disabled_t disabled;
+    next_to_t next_to;
 } function_t;
 
 typedef struct animation_s {
@@ -169,6 +186,8 @@ typedef struct parsing_s {
     component_styles style;
     function_t function;
     animation_t animation;
+    component_id_t id;
+    int radius;
 } parsing_t;
 
 /**

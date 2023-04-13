@@ -8,6 +8,7 @@
 #include <SFML/Graphics.h>
 #include "lib/str.h"
 #include "event/functions.h"
+#include "app/constants.h"
 
 void get_c_size(char *nb, parsing_t *element)
 {
@@ -20,18 +21,27 @@ void get_c_size(char *nb, parsing_t *element)
     }
 }
 
-void get_size(char *nb, parsing_t *element, app_t *app)
+void get_radius(char *nb, parsing_t *element)
+{
+    int number = 0;
+
+    number = my_strtoint(nb);
+    if (element->radius == 0) {
+        element->radius = number;
+        return;
+    }
+}
+
+void get_size(char *nb, parsing_t *element)
 {
     int number = 0;
 
     number = my_strtoint(nb);
     if (nb[0] == '.') {
         if (element->size.x == -1)
-            element->size.x =
-            sfRenderWindow_getSize(app->window).x * (number / 100.0);
+            element->size.x = W_VIDEO_MODE.width * (number / 100.0);
         else
-            element->size.y =
-            sfRenderWindow_getSize(app->window).y * (number / 100.0);
+            element->size.y = W_VIDEO_MODE.height * (number / 100.0);
     } else {
         if (element->size.x == -1)
             element->size.x = number;

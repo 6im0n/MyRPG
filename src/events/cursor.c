@@ -28,7 +28,13 @@ event_t *event, app_t *app)
     sfVector2f position = {
         app->mouse.position.x + 12,
         app->mouse.position.y + 14.5};
+    sfVector2f size = {40, 45};
+    sfVector2f sizesmall = {40 / 3, 45 / 3};
 
+    if (app->state->stage == S_GAME)
+        sfRectangleShape_setSize(tmp->object->rectangle, sizesmall);
+    else
+        sfRectangleShape_setSize(tmp->object->rectangle, size);
     sfRectangleShape_setPosition(tmp->object->rectangle, position);
     tmp->features.rendered_rect =
     sfRectangleShape_getGlobalBounds(tmp->object->rectangle);

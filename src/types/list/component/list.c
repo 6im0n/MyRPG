@@ -5,7 +5,6 @@
 ** list
 */
 
-#include <stdlib.h>
 #include "components/components.h"
 
 list_components_t *list_components_init(void)

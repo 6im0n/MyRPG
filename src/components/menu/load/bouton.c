@@ -6,7 +6,6 @@
 */
 
 #include <SFML/Graphics.h>
-
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -15,18 +14,20 @@
 #include "event/setting/bouton.h"
 #include "event/global.h"
 #include "lib/output.h"
+#include "app/constants.h"
 
 static void bouton_newgame(app_t *app, ressources_t ressources,
                             list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 250,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f position = {W_VIDEO_MODE.width / 2 - 250,
+        W_VIDEO_MODE.height / 2};
     sfVector2f size = {340, 90};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
+    (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size,
@@ -34,30 +35,22 @@ static void bouton_newgame(app_t *app, ressources_t ressources,
         C_SIZE_BIG);
     set_component_text(obj, "New Game", sfBlack, 40);
     set_component_text_pos(obj, (sfVector2f){ 0, -12}, 0);
+    obj->events.onclick = &launch_new_game;
     list_component_append(list, obj);
-}
-
-static void launch_game(node_component_t *component,
-event_t *event, app_t *app)
-{
-    (void) component;
-    (void) event;
-    event_play_music(component, app);
-    app->state->back = app->state->stage;
-    app->state->stage = S_GAME;
 }
 
 static void bouton_resume(app_t *app, ressources_t ressources,
                             list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 + 250,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f position = {W_VIDEO_MODE.width / 2 + 250,
+        W_VIDEO_MODE.height / 2};
     sfVector2f size = {340, 90};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
+    (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size,
@@ -73,8 +66,8 @@ static void bouton_home(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f position = {W_VIDEO_MODE.width / 2,
+        W_VIDEO_MODE.height / 2};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};

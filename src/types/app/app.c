@@ -28,10 +28,12 @@ static elements_t *element_create(ressources_t *ressources)
     player_t *player = player_create(ressources);
     node_item_t *fitem = item_pure_new();
     list_item_t *items = list_item_init();
+    list_quests_t *quest = list_quests_init();
 
     list_item_append(items, fitem);
     element->player = player;
     element->items = items;
+    element->quests = quest;
     return element;
 }
 
@@ -53,9 +55,10 @@ char *window_title, int window_frame_rate)
     mouse_t mouse = mouse_init();
     state_t *state = state_new();
     sfView *view = sfView_create();
+    sfView *background = sfView_create();
     elements_t *element = element_create(ressources);
     sfRectangleShape *layer = sfRectangleShape_create();
-    app_t app = { window, mouse, state, view, layer, element };
+    app_t app = { window, mouse, state, background, view, layer, element };
 
     app_create_all_item(app.element, ressources);
     app_set_icon(app.window, ressources);
@@ -70,6 +73,7 @@ char *window_title, int window_frame_rate)
 void app_destroy(app_t *app)
 {
     if (app) {
+        list_quests_free(app->element->quests);
         player_destroy(app->element->player);
         sfRectangleShape_destroy(app->layer);
         list_item_free(app->element->items);

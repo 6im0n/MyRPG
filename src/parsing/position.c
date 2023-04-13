@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.h>
 #include "lib/str.h"
+#include "app/constants.h"
 #include "event/functions.h"
 
 void get_rect(char *nb, parsing_t *element)
@@ -32,18 +33,16 @@ void get_rect(char *nb, parsing_t *element)
     }
 }
 
-void get_position(char *nb, parsing_t *element, app_t *app)
+void get_position(char *nb, parsing_t *element)
 {
     int number = 0;
 
     number = my_strtoint(nb);
     if (nb[0] == '.') {
         if (element->position.x == -1)
-            element->position.x =
-            sfRenderWindow_getSize(app->window).x * (number / 100.0);
+            element->position.x = W_VIDEO_MODE.width * (number / 100.0);
         else
-            element->position.y =
-            sfRenderWindow_getSize(app->window).y * (number / 100.0);
+            element->position.y = W_VIDEO_MODE.height * (number / 100.0);
     } else {
         if (element->position.x == -1)
             element->position.x = number;
