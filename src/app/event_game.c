@@ -37,9 +37,10 @@ app_t *app)
 void component_near(list_components_t *component,
 app_t *app, event_t *event)
 {
+    (void) event;
     node_component_t *tmp = component->first;
     node_component_t *tmp2 = tmp;
-    (void) event;
+
     if (!component)
         return;
     while (tmp != NULL) {
