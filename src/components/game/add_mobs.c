@@ -15,7 +15,7 @@ static node_mob_t *init_game_mobs(node_mob_t *mob,
     sfFloatRect mob_frect = {0, 0, 0, 0};
     sfRectangleShape *shape = sfRectangleShape_create();
     sfIntRect in_rect = {73, 384 + 55, 100, 80};
-    
+
     mob->clock = sfClock_create();
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setPosition(shape, position);
