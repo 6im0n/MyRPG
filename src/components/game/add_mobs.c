@@ -8,7 +8,8 @@
 #include "components/mobs.h"
 #include "types/type.h"
 
-static node_mob_t *init_game_mobs(node_mob_t *mob, sfVector2f position, ressources_t ressources)
+static node_mob_t *init_game_mobs(node_mob_t *mob,
+    sfVector2f position, ressources_t ressources)
 {
     sfVector2f size = {100, 80};
     sfFloatRect mob_frect = {0, 0, 0, 0};

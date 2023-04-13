@@ -78,6 +78,8 @@ list_components_t *list)
 
     add_new_mob(app, ressources, (sfVector2f){2420, 6375});
     add_new_mob(app, ressources, (sfVector2f){2420 - 200, 6375 - 200});
-    sfRectangleShape_setOutlineColor(app->element->player->character->shape, sfRed);
-    sfRectangleShape_setOutlineThickness(app->element->player->character->shape, 2);
+    sfRectangleShape_setOutlineColor(app->element->player->character->shape,
+                                    sfRed);
+    sfRectangleShape_setOutlineThickness (
+        app->element->player->character->shape, 2);
 }
