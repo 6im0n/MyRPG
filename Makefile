@@ -47,6 +47,8 @@ _SRC =			main.c \
 				\
 				components/game/get.c \
 				components/game/menu.c \
+				components/game/add_mobs.c \
+				\
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
 				components/menu/load/get.c \

@@ -8,9 +8,9 @@
 #include <stdlib.h>
 #include "components/mobs.h"
 
-node_mobs_t *node_mobs_init(ressources_t ressources)
+node_mob_t *node_mobs_init(ressources_t ressources)
 {
-    node_mobs_t *tmp = malloc(sizeof(node_mobs_t));
+    node_mob_t *tmp = malloc(sizeof(node_mob_t));
     sfIntRect rect = {0, 0, 0, 0};
 
     if (!tmp)

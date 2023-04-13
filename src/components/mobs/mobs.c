@@ -9,17 +9,17 @@
 #include "types/list.h"
 
 
-list_mobs_t *mobs_add(list_mobs_t *mobs_list, ressources_t ressources)
+list_mobs_t *mobs_add(list_mobs_t *list, ressources_t ressources)
 {
-    node_mobs_t *mobs = node_mobs_init(ressources);
-    
-    if (!mobs)
+    node_mob_t *mob = node_mobs_init(ressources);
+
+    if (!mob)
         return NULL;
-    list_mobs_append(mobs_list, mobs);
-    return mobs_list;
+    list_mobs_append(list, mob);
+    return list;
 }
 
-void mobs_destroy(list_mobs_t *mobs)
+void mobs_destroy(list_mobs_t *list)
 {
-    list_mobs_free(mobs);
+    list_mobs_free(list);
 }

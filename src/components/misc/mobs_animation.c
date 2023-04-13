@@ -8,48 +8,50 @@
 #include "components/components.h"
 #include "types/type.h"
 
-static void draw_mobs_annimation(app_t *app, node_mobs_t *mobs, sfIntRect rect)
+static void draw_mobs_annimation(app_t *app, node_mob_t *mob, sfIntRect rect)
 {
     (void) app;
-    sfRectangleShape_setTextureRect(mobs->shape, rect);
+    sfRectangleShape_setTextureRect(mob->shape, rect);
 }
 
-static void mobs_annimation_edit(app_t *app, node_mobs_t *mobs)
+static void mobs_annimation_edit(app_t *app, node_mob_t *mob)
 {
-    sfIntRect rect = mobs->irect;
-    sfIntRect rect_a = mobs->annimation.rect;
+    sfIntRect rect = mob->irect;
+    sfIntRect rect_a = mob->annimation.rect;
 
-    if ( mobs->annimation.index >
-    mobs->annimation.max)
-        mobs->annimation.index = 0;
-    rect_a.height *= mobs->annimation.index;
-    rect_a.top *= mobs->annimation.index;
-    rect_a.left *= mobs->annimation.index;
-    rect_a.width *= mobs->annimation.index;
+    if ( mob->annimation.index >
+    mob->annimation.max)
+        mob->annimation.index = 0;
+    rect_a.height *= mob->annimation.index;
+    rect_a.top *= mob->annimation.index;
+    rect_a.left *= mob->annimation.index;
+    rect_a.width *= mob->annimation.index;
     rect.height += rect_a.height;
     rect.top += rect_a.top;
     rect.left += rect_a.left;
     rect.width += rect_a.width;
-    draw_mobs_annimation(app, mobs, rect);
-    mobs->annimation.index++;
+    draw_mobs_annimation(app, mob, rect);
+    mob->annimation.index++;
 }
 
-static void render_mobs_annimation(app_t *app, node_mobs_t *mobs)
+static void render_mobs_annimation(app_t *app, node_mob_t *mob)
 {
-    sfTime time = sfClock_getElapsedTime(mobs->clock);
+    sfTime time = sfClock_getElapsedTime(mob->clock);
     float seconds = time.microseconds / 1000000.0;
 
-    if (seconds > mobs->annimation.speed) {
-        mobs_annimation_edit(app, mobs);
-        sfClock_restart(mobs->clock);
+    if (seconds > mob->annimation.speed) {
+        mobs_annimation_edit(app, mob);
+        sfClock_restart(mob->clock);
     }
 }
 
 void mobs_render_annimation(app_t *app)
 {
-    node_mobs_t *tmp = app->element->mobs->first;
+    node_mob_t *tmp = app->element->mobs->first;
     while (tmp) {
         render_mobs_annimation(app, tmp);
+        sfRectangleShape_setOutlineColor(tmp->shape, sfRed);
+        sfRectangleShape_setOutlineThickness(tmp->shape, 2);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->shape, NULL);
         tmp = tmp->next;

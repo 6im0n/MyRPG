@@ -23,8 +23,8 @@ list_mobs_t *list_mobs_init(void)
 
 void list_mobs_free(list_mobs_t *list)
 {
-    node_mobs_t *tmp = list->first;
-    node_mobs_t *tmp2 = tmp;
+    node_mob_t *tmp = list->first;
+    node_mob_t *tmp2 = tmp;
 
     while (tmp != NULL) {
         tmp2 = tmp->next;

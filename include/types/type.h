@@ -129,7 +129,7 @@ typedef struct s_mobs_annimation {
     float max_speed;
 } mobs_annimation_t;
 
-typedef struct s_node_mobs {
+typedef struct s_node_mob {
     sfTexture *texture;
     sfRectangleShape *shape;
     sfFloatRect frect;
@@ -139,14 +139,14 @@ typedef struct s_node_mobs {
     skills_t skills;
 
     int state;
-    struct s_node_mobs *next;
-    struct s_node_mobs *prev;
-} node_mobs_t;
+    struct s_node_mob *next;
+    struct s_node_mob *prev;
+} node_mob_t;
 
 typedef struct list_mobs {
     int len;
-    struct s_node_mobs *first;
-    struct s_node_mobs *last;
+    struct s_node_mob *first;
+    struct s_node_mob *last;
 } list_mobs_t;
 
 typedef struct s_game_elements {
