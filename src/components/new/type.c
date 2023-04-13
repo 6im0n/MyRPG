@@ -63,6 +63,7 @@ node_component_t *component, sfVector2f position)
 {
     switch (component->type) {
         case C_TYPES_BUTTON:
+        case C_TYPES_BACKGROUND:
         case C_TYPES_RECTANGLE:
             init_rectangle(component, ressources, position);
             break;

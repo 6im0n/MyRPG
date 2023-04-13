@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-
+#include "app/constants.h"
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -20,14 +20,15 @@ static void menu_board(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2,
-        sfRenderWindow_getSize(app->window).y / 2};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2,
+        W_VIDEO_MODE.height / 2};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {middle.x * 1 , middle.y * 1.6};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, position);
@@ -41,7 +42,7 @@ void components_setting_bouton_mouse(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 200,
+    sfVector2f position = {W_VIDEO_MODE.width / 2 - 200,
         570};
     sfVector2f size = {100 / 1.3, 60 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -66,13 +67,14 @@ static void components_setting_bouton_help(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 ,
+    sfVector2f position = {W_VIDEO_MODE.width / 2 ,
         835};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
+    (void) app;
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size, (sfIntRect){.height = 24, .left = 709,

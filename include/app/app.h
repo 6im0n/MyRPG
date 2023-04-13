@@ -75,6 +75,13 @@ main_components_t *components);
 void app_component_render(app_t *app, list_components_t *components);
 
 /**
+ * @brief Render stuff in game
+ * @param app struct
+ * @param list list components
+ */
+void render_in_game(app_t *app, list_components_t *list);
+
+/**
  * @brief Destroy given app and free all its ressources
  * @param app App to destroy
  */

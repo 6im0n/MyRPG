@@ -43,8 +43,8 @@ event_t *event, main_components_t *components)
         case S_MENU_LOAD_GAME:
             components_dispatch_event(components->load_game, event, app);
             break;
-        case S_GAME:
-            components_dispatch_event(components->game, event, app);
+        case S_MENU_HELP:
+            components_dispatch_event(components->help_menu, event, app);
             break;
         default:
             break;
@@ -58,14 +58,14 @@ event_t *event, main_components_t *components)
         case S_MENU_START:
             components_dispatch_event(components->start_menu, event, app);
             break;
-        case S_MENU_HELP:
-            components_dispatch_event(components->help_menu, event, app);
-            break;
         case S_INVENTORY:
             components_dispatch_event(components->inventory, event, app);
             break;
         case S_SETTINGS:
             components_dispatch_event(components->setting, event, app);
+            break;
+        case S_GAME:
+            components_dispatch_event(components->game, event, app);
             break;
         default:
             break;

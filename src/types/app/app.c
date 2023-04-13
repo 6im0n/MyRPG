@@ -57,9 +57,10 @@ char *window_title, int window_frame_rate)
     mouse_t mouse = mouse_init();
     state_t *state = state_new();
     sfView *view = sfView_create();
+    sfView *background = sfView_create();
     elements_t *element = element_create(ressources);
     sfRectangleShape *layer = sfRectangleShape_create();
-    app_t app = { window, mouse, state, view, layer, element };
+    app_t app = { window, mouse, state, background, view, layer, element };
 
     app_create_all_item(app.element, ressources);
     app_set_icon(app.window, ressources);

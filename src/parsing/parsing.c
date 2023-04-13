@@ -85,7 +85,7 @@ static void parsing_append(parsing_t *element, ressources_t ressources,
     list_component_append(list, obj);
 }
 
-static void extend_function(app_t *app, parsing_t *element, int *index,
+static void extend_function(parsing_t *element, int *index,
                             char *file)
 {
     char end[4] = { '\0', '\0', '\0', '\0' };
@@ -93,7 +93,7 @@ static void extend_function(app_t *app, parsing_t *element, int *index,
 
     while (my_strcmp(end, "###") != 0) {
         if (file[*index] == ':') {
-            manage_number(file, element, app, index);
+            manage_number(file, element, index);
             type_index = 0;
             clean_char(element->types, 15);
         } else {
@@ -114,11 +114,12 @@ void parsing_buttons(app_t *app, ressources_t ressources,
     char *file = file_load(filepath);
     int index = 0;
 
+    (void)app;
     parsing_init(&element);
     element.id = ID_UNDEFINED;
     clean_char(element.types, 15);
     while (file[index] != '\0') {
-        extend_function(app, &element, &index, file);
+        extend_function(&element, &index, file);
         index += 3;
         parsing_append(&element, ressources, list);
         parsing_init(&element);

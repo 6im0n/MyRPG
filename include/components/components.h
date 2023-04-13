@@ -36,6 +36,8 @@ typedef enum e_component_type {
     C_TYPES_CIRCLE,
     C_TYPES_TEXT,
     C_TYPES_SPRITE,
+    C_TYPES_BACKGROUND,
+    C_TYPES_CURSOR,
     C_TYPES_LEN
 } component_type_t;
 

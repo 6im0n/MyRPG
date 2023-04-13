@@ -13,18 +13,20 @@
 #include "ressources/textures.h"
 #include "event/start_menu/bouton.h"
 #include "event/inventory/bouton.h"
+#include "app/constants.h"
 
 static void selector(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2, 600};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2, 600};
     sfVector2f position = {middle.x, 380};
     sfVector2f size = {90, 90};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_INV_SELECTOR, SD_NONE, FT_DROID };
 
+    (void) app;
     new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size,

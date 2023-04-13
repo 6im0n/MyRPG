@@ -10,6 +10,7 @@ _SRC =			main.c \
 				\
 				app/app.c \
 				app/event.c \
+				app/render.c \
 				app/event_game.c \
 				app/rendering.c \
 				app/component.c \
@@ -22,6 +23,7 @@ _SRC =			main.c \
 				\
 				components/free.c \
 				components/misc/render.c \
+				components/misc/render_background.c \
 				components/misc/effect_botton.c \
 				components/misc/events_dispatch.c \
 				components/misc/events_handlers.c \
