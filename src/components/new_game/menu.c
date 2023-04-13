@@ -34,7 +34,7 @@ list_components_t *list)
 
     (void) app;
     obj->events = (component_events_t) { NULL };
-    new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
+    new_component_set(obj, rect, C_TYPES_BACKGROUND, style);
     new_component_type(ressources, obj, position);
     size = sfTexture_getSize(ressources.textures[TX_GAME_MAP]);
     real_size = (sfVector2f){size.x, size.y};

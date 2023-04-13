@@ -31,7 +31,6 @@ main_components_t *components, list_components_t *list)
             break;
         case S_NEW_GAME:
             app_component_render(app, components->new_game);
-            break;
         default:
             break;
     }
