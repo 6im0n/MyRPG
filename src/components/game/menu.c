@@ -46,7 +46,6 @@ static void init_game_player(app_t *app, ressources_t ressources)
     sfRectangleShape *shape = sfRectangleShape_create();
     sfVector2f middle = {2420, 6375};
     sfIntRect in_rect = {16 + 48, 20, 17, 24};
-    app->element->player->character->clock = sfClock_create();
 
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setPosition(shape, middle);

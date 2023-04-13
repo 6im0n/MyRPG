@@ -100,6 +100,7 @@ typedef struct s_character_annimation {
     int max;
     float speed;
     float max_speed;
+    sfClock *clock;
 } character_annimation_t;
 
 typedef struct s_key_player {
@@ -115,7 +116,7 @@ typedef struct s_character {
     sfFloatRect frect;
     sfIntRect irect;
     character_annimation_t annimation;
-    sfClock *clock;
+    sfTime time;
     key_player_t key;
 } character_t;
 
