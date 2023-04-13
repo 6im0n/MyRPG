@@ -63,4 +63,11 @@ void new_player_annimation(app_t *app, sfIntRect annimation, int index,
  */
 void quest_append(list_quests_t *list, quests_t quest);
 
+/**
+ * @brief Set quests node
+ * @param app app
+ * @param node node
+ */
+void quests_set_text_position(app_t *app, node_quests_t *node);
+
 #endif /* !PLAYER_H_ */

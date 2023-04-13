@@ -15,6 +15,7 @@ _SRC =			main.c \
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \
+				app/player.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
@@ -71,6 +72,7 @@ _SRC =			main.c \
 				components/inventory/object.c \
 				components/inventory/object_select.c \
 				components/inventory/quests/menu.c \
+				components/inventory/quests/prompt.c \
 				components/setting/get.c \
 				components/setting/menu.c \
 				components/setting/sound.c \

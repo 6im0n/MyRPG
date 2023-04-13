@@ -65,7 +65,7 @@ void list_remove(list_item_t *list, node_item_t *node);
 
 void list_quest_append(list_quests_t *list, node_quests_t *node);
 
-node_quests_t *list_node_qest_append(quests_t quests);
+node_quests_t *list_node_qest_append(quests_t quests, list_quests_t *list);
 
 list_quests_t *list_quests_init(void);
 

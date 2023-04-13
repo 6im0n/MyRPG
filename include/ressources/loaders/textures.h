@@ -41,7 +41,8 @@ static const char *textures_loaders[TX_LEN] = {
     [TX_RITUALS] = "assets/ruins-world/Ritual2.png",
     [TX_FOUNTAIN] = "assets/ruins-world/fountain160x128.png",
     [TX_LAYER] = "assets/maps/layerv5.png",
-    [TX_COLLISION] = "assets/maps/collisionv5.png"
+    [TX_COLLISION] = "assets/maps/collisionv5.png",
+    [TX_UI_BOOKS] = "assets/ui/UIbooks.png"
 };
 
 #endif /* !RESSOURCES_TEXTURES_LOADERS_H_ */

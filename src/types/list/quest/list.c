@@ -26,6 +26,8 @@ void list_quests_free(list_quests_t *list)
 
     while (tmp != NULL) {
         tmp2 = tmp->next;
+        sfRectangleShape_destroy(tmp->shape);
+        sfText_destroy(tmp->txt);
         free(tmp->text);
         free(tmp);
         tmp = tmp2;

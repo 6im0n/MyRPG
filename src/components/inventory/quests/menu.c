@@ -24,7 +24,7 @@ list_components_t *list)
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_DIALOG_MENU_BGR, SD_NONE, FT_IMMORTAL };
-    
+
     (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
@@ -41,5 +41,6 @@ void inventory_quests(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     inventory_quests_boards(app, ressources, list);
-    parsing_buttons(app, ressources, list, "assets/scripts/menu/quests_inventory.txt");
+    parsing_buttons(app, ressources, list,
+        "assets/scripts/menu/quests_inventory.txt");
 }

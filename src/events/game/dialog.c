@@ -45,6 +45,20 @@ event_t *event, app_t *app)
     sfRectangleShape_setScale(component->prev->object->rectangle, scale);
 }
 
+static bool find_result_quests(list_quests_t *list, quests_t quest)
+{
+    node_quests_t *tmp = list->first;
+    node_quests_t *tmp2 = tmp;
+
+    while (tmp != NULL) {
+        tmp2 = tmp->next;
+        if (tmp->id == quest && tmp->finish == true)
+            return true;
+        tmp = tmp2;
+    }
+    return false;
+}
+
 void dialog_main_quests_onkeypress(node_component_t *component,
 event_t *event, app_t *app)
 {
@@ -53,6 +67,19 @@ event_t *event, app_t *app)
     (void) component;
     if (!ST_IS_NEAR(component))
         return;
-    if (sfKeyboard_isKeyPressed(sfKeyI))
-        quest_append(app->element->quests, Q_MAIN_P1);
+    if (sfKeyboard_isKeyPressed(sfKeyR)) {
+        app->element->quests->first->current++;
+        if (app->element->quests->first->current >=
+            app->element->quests->first->goal)
+            app->element->quests->first->finish = true;
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyI)) {
+        if (app->element->quests->len == 0)
+            quest_append(app->element->quests, Q_MAIN_P1);
+        if (app->element->quests->len == 1 &&
+            find_result_quests(app->element->quests, Q_MAIN_P1) == true) {
+            add_item_player(app, I_SWORD_LEV3);
+            quest_append(app->element->quests, Q_MAIN_P2);
+            }
+    }
 }

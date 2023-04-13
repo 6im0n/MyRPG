@@ -11,6 +11,7 @@
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
+    #include "ressources/quests.h"
 
 typedef enum e_id_component {
     ID_UNDEFINED,
@@ -155,6 +156,9 @@ typedef struct s_node_quests {
     int current;
     int goal;
     bool finish;
+    sfRectangleShape *shape;
+    sfText *txt;
+    quests_t id;
     struct s_node_quests *prev;
 } node_quests_t;
 

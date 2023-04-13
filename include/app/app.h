@@ -95,4 +95,16 @@ void app_destroy(app_t *app);
 void app_create_all_item(elements_t *element,
 ressources_t *ressources);
 
+/**
+ * @brief Render player and inventory
+ * @param app app
+ */
+void app_player_render(app_t *app);
+
+/**
+ * @brief Render quests
+ * @param app app
+ */
+void app_quests_dispatch(app_t *app);
+
 #endif /* !APP_H_ */
