@@ -11,13 +11,12 @@
 #include "types/list.h"
 #include "lib/output.h"
 
-static void component_cursor_filter(app_t *app,ressources_t ressources,
+void component_cursor_filter(app_t *app,ressources_t ressources,
                                     list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f size = {sfRenderWindow_getSize(app->window).x,
-        sfRenderWindow_getSize(app->window).y};
-    sfVector2f position = {size.x / 2, size.y / 2};
+    sfVector2f size = {500000, 500000};
+    sfVector2f position = {0, 0};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_DROID };
@@ -26,7 +25,7 @@ static void component_cursor_filter(app_t *app,ressources_t ressources,
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size,
-        (sfIntRect){.height = 1, .left = 0, .top = 0, .width = 1},
+        (sfIntRect){.height = 1, .left = -200, .top = 0, .width = 1},
         C_SIZE_SMALL);
     obj->events.onhover = &event_cursor_onmove;
     list_component_append(list, obj);

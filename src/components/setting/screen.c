@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-
+#include "app/constants.h"
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -18,14 +18,14 @@ void components_menu_setting_selector_sound(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
-        320};
+    sfVector2f middle = {W_VIDEO_MODE.width / 2 - 200, 320};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {100 / 1.3, 60 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_GRAB, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, position);
@@ -43,7 +43,7 @@ void components_setting_bouton_fullscreen(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 200,
+    sfVector2f position = {W_VIDEO_MODE.width / 2 - 200,
         470};
     sfVector2f size = {100 / 1.3, 60 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -78,7 +78,7 @@ void components_menu_setting_selector_framelimit(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
+    sfVector2f middle = {W_VIDEO_MODE.width / 2 - 200,
         520};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {250 / 1.3, 15 / 1.3};
@@ -86,6 +86,7 @@ ressources_t ressources, list_components_t *list)
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
     new_component_type(ressources, obj, position);

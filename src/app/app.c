@@ -5,6 +5,7 @@
 ** app
 */
 
+#include <stdio.h>
 #include "app/app.h"
 #include "types/type.h"
 #include "types/renderer.h"

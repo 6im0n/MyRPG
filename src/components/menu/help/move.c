@@ -13,12 +13,13 @@
 #include "ressources/textures.h"
 #include "event/start_menu/bouton.h"
 #include "event/setting/bouton.h"
+#include "app/constants.h"
 
 static void components_help_bouton_up(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2, 160};
+    sfVector2f position = {W_VIDEO_MODE.width / 2, 160};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
         .top = (position.y - (size.y / 2)), .width = size.x};
@@ -38,7 +39,7 @@ static void components_help_bouton_left(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 - 60,
+    sfVector2f position = {W_VIDEO_MODE.width / 2 - 60,
         240};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -59,7 +60,7 @@ static void components_help_bouton_down(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2,
+    sfVector2f position = {W_VIDEO_MODE.width / 2,
         240};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -80,7 +81,7 @@ static void components_help_bouton_right(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2 + 60,
+    sfVector2f position = {W_VIDEO_MODE.width / 2 + 60,
         240};
     sfVector2f size = {50, 50};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -101,7 +102,7 @@ void components_help_bouton_move(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f position = {sfRenderWindow_getSize(app->window).x / 2,
+    sfVector2f position = {W_VIDEO_MODE.width / 2,
         200};
     sfVector2f size = {350, 200};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),

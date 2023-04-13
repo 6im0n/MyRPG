@@ -6,7 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
-
+#include "app/constants.h"
 #include "components/components.h"
 #include "components/new.h"
 #include "types/list.h"
@@ -29,7 +29,7 @@ void components_menu_setting_selector_volume_music(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
+    sfVector2f middle = {W_VIDEO_MODE.width / 2 - 200,
         370};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {250 / 1.3, 15 / 1.3};
@@ -37,6 +37,7 @@ ressources_t ressources, list_components_t *list)
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
     new_component_type(ressources, obj, position);
@@ -74,7 +75,7 @@ void components_menu_setting_selector_volume_sound(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
     node_component_t *obj = malloc(sizeof(node_component_t));
-    sfVector2f middle = {sfRenderWindow_getSize(app->window).x / 2 - 200,
+    sfVector2f middle = {W_VIDEO_MODE.width / 2 - 200,
         420};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {250 / 1.3, 15 / 1.3};
@@ -82,6 +83,7 @@ ressources_t ressources, list_components_t *list)
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_SIGN, style);
     new_component_type(ressources, obj, position);
@@ -104,6 +106,7 @@ ressources_t ressources, list_components_t *list)
                         .top = (position.y - size.y), .width = size.x};
     component_styles style = { TX_UI_MENU_ALL, SD_NONE, FT_DROID };
 
+    (void) app;
     obj->events = (component_events_t) { NULL };
     new_component_set(obj, rect, C_TYPES_BUTTON, style);
     new_component_type(ressources, obj, position);

@@ -10,6 +10,7 @@ _SRC =			main.c \
 				\
 				app/app.c \
 				app/event.c \
+				app/render.c \
 				app/event_game.c \
 				app/rendering.c \
 				app/component.c \
@@ -22,6 +23,7 @@ _SRC =			main.c \
 				\
 				components/free.c \
 				components/misc/render.c \
+				components/misc/render_background.c \
 				components/misc/effect_botton.c \
 				components/misc/events_dispatch.c \
 				components/misc/events_handlers.c \
@@ -33,6 +35,11 @@ _SRC =			main.c \
 				components/misc/state.c \
 				components/items/get.c \
 				components/items/new.c \
+				components/items/sword.c \
+				components/items/knif.c \
+				components/items/hammer.c \
+				components/items/axe.c \
+				components/items/spear.c \
 				components/new/set.c \
 				components/new/type.c \
 				components/new/size.c \
@@ -99,6 +106,8 @@ _SRC =			main.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
+				types/list/quest/list.c \
+				types/list/quest/append.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
 				\
