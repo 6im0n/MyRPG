@@ -15,11 +15,12 @@
 #include "event/setting/bouton.h"
 #include "event/start_menu/bouton.h"
 #include "event/global.h"
+#include "types/node.h"
 
 static void menu_board(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2,
         W_VIDEO_MODE.height / 2};
     sfVector2f position = {middle.x, middle.y };
@@ -41,7 +42,7 @@ list_components_t *list)
 void components_setting_bouton_mouse(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 - 200,
         570};
     sfVector2f size = {100 / 1.3, 60 / 1.3};
@@ -66,7 +67,7 @@ list_components_t *list)
 static void components_setting_bouton_help(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 ,
         835};
     sfVector2f size = {50, 50};

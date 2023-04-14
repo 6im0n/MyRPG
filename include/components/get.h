@@ -97,7 +97,6 @@ list_components_t *list);
  * @param app App
  * @param ressources ressources
  * @param list list
- * @return list_components_t*
  */
 void components_get_load_game(app_t *app, ressources_t ressources,
 list_components_t *list);
@@ -107,7 +106,6 @@ list_components_t *list);
  * @param app App
  * @param ressources ressources
  * @param list list
- * @return list_components_t*
  */
 void components_load_game(app_t *app,ressources_t ressources,
 list_components_t *list);
@@ -124,7 +122,6 @@ list_components_t *list);
  * @param app App
  * @param ressources ressources
  * @param list list
- * @return list_components_t*
  */
 void components_get_inventory(app_t *app, ressources_t ressources,
 list_components_t *list);
@@ -134,7 +131,6 @@ list_components_t *list);
  * @param app App
  * @param ressources ressources
  * @param list list
- * @return list_components_t*
  */
 void components_inventory(app_t *app,ressources_t ressources,
                             list_components_t *list);
@@ -144,7 +140,6 @@ void components_inventory(app_t *app,ressources_t ressources,
  * @param app App
  * @param ressources ressources
  * @param list list
- * @return list_components_t*
  */
 void inventory_object(app_t *app, ressources_t ressources,
 list_components_t *list);
@@ -154,10 +149,22 @@ list_components_t *list);
  * @param app App
  * @param ressources ressources
  * @param list list
- * @return list_components_t*
  */
 void inventory_object_select(app_t *app, ressources_t ressources,
 list_components_t *list);
+
+//======================
+// LEVELS
+//======================
+
+/**
+ * @brief Components set Levels
+ * @param app App
+ * @param ressources ressources
+ * @param list list
+ */
+void components_levels(app_t *app,ressources_t ressources,
+                            list_components_t *list);
 
 //==================================================
 // SETTING

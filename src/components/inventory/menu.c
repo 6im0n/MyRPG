@@ -13,11 +13,12 @@
 #include "ressources/textures.h"
 #include "components/get.h"
 #include "app/constants.h"
+#include "types/node.h"
 
 static void menu_board(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2, W_VIDEO_MODE.height / 2};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {middle.x * 1.8 , middle.y * 1.6};
@@ -38,7 +39,7 @@ static void menu_board(app_t *app, ressources_t ressources,
 static void menu_title(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     float middle = W_VIDEO_MODE.width / 2;
     sfVector2f position = { middle, 180 };
     sfVector2f size = {40, 40};
@@ -60,7 +61,7 @@ static void menu_title(app_t *app, ressources_t ressources,
 static void annimation_env(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     float middle = W_VIDEO_MODE.width / 2;
     sfVector2f position = { middle - 50, 600 };
     sfVector2f size = {700, 620};
@@ -84,7 +85,7 @@ list_components_t *list)
 static void annimation_player(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     float middle = W_VIDEO_MODE.width / 2;
     sfVector2f position = { middle, 600 };
     sfVector2f size = {200, 300};

@@ -15,11 +15,12 @@
 #include "components/get.h"
 #include "parsing/buttons.h"
 #include "app/constants.h"
+#include "types/node.h"
 
 static void menu_background(app_t *app, ressources_t ressources,
                             list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2, W_VIDEO_MODE.height / 2};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {W_VIDEO_MODE.width, W_VIDEO_MODE.height};
@@ -39,7 +40,7 @@ static void menu_background(app_t *app, ressources_t ressources,
 static void menu_board(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2,W_VIDEO_MODE.height / 2};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {middle.x * 1.3 , middle.y * 1.3};
@@ -62,7 +63,7 @@ static void menu_board(app_t *app, ressources_t ressources,
 static void setting_background(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2, 700};
     sfVector2f size = {300, 100};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),

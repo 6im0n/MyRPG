@@ -70,6 +70,7 @@ _SRC =			main.c \
 				components/inventory/menu.c \
 				components/inventory/object.c \
 				components/inventory/object_select.c \
+				components/inventory/levels/menu.c \
 				components/setting/get.c \
 				components/setting/menu.c \
 				components/setting/sound.c \
@@ -93,6 +94,7 @@ _SRC =			main.c \
 				events/menu/help/keypress.c \
 				events/inventory/select.c \
 				events/inventory/selector.c \
+				events/levels/levels.c \
 				events/game/player.c \
 				events/game/collisions.c \
 				events/game/dialog.c \

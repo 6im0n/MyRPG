@@ -13,11 +13,12 @@
 #include "ressources/textures.h"
 #include "components/get.h"
 #include "event/setting/bouton.h"
+#include "types/node.h"
 
 void components_menu_setting_selector_sound(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2 - 200, 320};
     sfVector2f position = {middle.x, middle.y };
     sfVector2f size = {100 / 1.3, 60 / 1.3};
@@ -42,7 +43,7 @@ ressources_t ressources, list_components_t *list)
 void components_setting_bouton_fullscreen(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 - 200,
         470};
     sfVector2f size = {100 / 1.3, 60 / 1.3};
@@ -77,7 +78,7 @@ static sfVector2f find_position_framelimit(app_t *app, list_components_t *list)
 void components_menu_setting_selector_framelimit(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2 - 200,
         520};
     sfVector2f position = {middle.x, middle.y };
@@ -102,7 +103,7 @@ ressources_t ressources, list_components_t *list)
 void components_menu_setting_selector_framelimit_cursor(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = find_position_framelimit(app, list);
     sfVector2f size = {30 / 1.3, 50 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),

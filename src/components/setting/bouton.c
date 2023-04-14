@@ -14,11 +14,12 @@
 #include "event/start_menu/bouton.h"
 #include "event/setting/bouton.h"
 #include "event/global.h"
+#include "types/node.h"
 
 void components_setting_bouton_quit(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 + 200,
         835};
     sfVector2f size = {50, 50};
@@ -41,7 +42,7 @@ list_components_t *list)
 void components_setting_bouton_resume(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 - 200,
         835};
     sfVector2f size = {50, 50};
@@ -64,7 +65,7 @@ list_components_t *list)
 void components_resolution_1(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2, 0};
     sfVector2f position = {middle.x, 750 };
     sfVector2f size = {155, 85};
@@ -89,7 +90,7 @@ list_components_t *list)
 void components_resolution_2(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2, 0};
     sfVector2f position = {middle.x - 220, 750 };
     sfVector2f size = {150, 70};
@@ -114,7 +115,7 @@ list_components_t *list)
 void components_resolution_3(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2, 0};
     sfVector2f position = {middle.x + 220, 750 };
     sfVector2f size = {160, 100};

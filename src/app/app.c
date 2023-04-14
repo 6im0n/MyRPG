@@ -14,6 +14,7 @@
 #include "components/components.h"
 #include "types/list.h"
 #include "lib/output.h"
+#include "event/levels.h"
 
 static void game_set_layer(app_t *app, ressources_t *ressources)
 {
@@ -32,6 +33,8 @@ int app_run(void)
 
     add_item_player(&app, I_SWORD_LEV1);
     game_set_layer(&app, &ressources);
+    app.element->player->exprerience.xp = 0;
+    levels_update(&app, components.inventory);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);
