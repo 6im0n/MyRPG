@@ -5,8 +5,8 @@
 ** popup
 */
 
-#ifndef POPUP_H_
-    #define POPUP_H_
+#ifndef APP_POPUP_H_
+    #define APP_POPUP_H_
 
     #include <SFML/Graphics.h>
 
@@ -14,7 +14,8 @@ typedef enum e_pop_up_type {
     P_NONE,
     P_QUESTS,
     P_XP,
-    P_ITEM
+    P_ITEM,
+    P_LEN
 } type_popup_t;
 
 typedef struct s_node_popup {
@@ -22,6 +23,7 @@ typedef struct s_node_popup {
     type_popup_t type;
     sfClock *clock;
     sfRectangleShape *shape;
+    sfText *text;
     int auto_destroy;
     struct s_node_popup *prev;
 } node_popup_t;
@@ -51,4 +53,4 @@ void list_pop_up_free(list_pop_up_t *list);
  */
 void list_pop_up_append(list_pop_up_t *list, node_popup_t *node);
 
-#endif /* !POPUP_H_ */
+#endif /* !APP_POPUP_H_ */

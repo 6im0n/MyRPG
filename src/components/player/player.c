@@ -39,7 +39,7 @@ static skills_t init_skills(void)
     skills_t skills;
 
     skills.resitance = 0;
-    skills.speed = 0;
+    skills.speed = 50;
     skills.strength = 0;
     return skills;
 }
