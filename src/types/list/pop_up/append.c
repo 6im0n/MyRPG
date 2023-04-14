@@ -7,28 +7,27 @@
 
 #include "app/app.h"
 #include "types/list.h"
-#include "ressources/loaders/textures.h"
 #include "ressources/loaders/fonts.h"
 #include "ressources/loaders/popup.h"
 
 static void popup_shape(list_pop_up_t *list, node_popup_t *node)
 {
-    sfTexture *texture =
-        sfTexture_createFromFile(textures_loaders[TX_DIALOG_MENU_BGR], NULL);
     sfFont *font =
         sfFont_createFromFile(fonts_loaders[FT_DROID]);
-    sfVector2f pos = {1275, 450};
+    sfVector2f pos = {1920, 1060};
+    sfVector2f origin;
+    sfFloatRect rect;
 
-    sfRectangleShape_setTexture(node->shape, texture, sfFalse);
-    sfRectangleShape_setTextureRect(node->shape,
-        (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106});
-    sfRectangleShape_setSize(node->shape, (sfVector2f){450, 200});
     sfText_setColor(node->text, sfBlack);
     sfText_setFont(node->text, font);
     sfText_setLineSpacing(node->text, 0.8);
-    if (list->len >= 1)
-        pos.y = sfRectangleShape_getPosition(list->last->shape).y + 220;
-    sfRectangleShape_setPosition(node->shape, pos);
+    rect = sfText_getGlobalBounds(node->text);
+    origin.x = rect.width;
+    origin.y = rect.height;
+    sfText_setOrigin(node->text, origin);
+    if (list->len > 0)
+        pos.y = sfText_getPosition(list->last->text).y - 30;
+    sfText_setPosition(node->text, pos);
 }
 
 void new_popup(app_t *app, type_popup_t type, int time)
@@ -38,10 +37,9 @@ void new_popup(app_t *app, type_popup_t type, int time)
     if (!node)
         return;
     node->clock = sfClock_create();
-    node->shape = sfRectangleShape_create();
     node->text = sfText_create();
-    popup_shape(app->element->pop_up, node);
     sfText_setString(node->text, popup_loaders[type]);
+    popup_shape(app->element->pop_up, node);
     node->auto_destroy = time;
     node->next = NULL;
     node->prev = NULL;

@@ -95,4 +95,18 @@ void app_destroy(app_t *app);
 void app_create_all_item(elements_t *element,
 ressources_t *ressources);
 
+/**
+ * @brief Create new pop up
+ * @param app app
+ * @param type type
+ * @param time time
+ */
+void new_popup(app_t *app, type_popup_t type, int time);;
+
+/**
+ * @brief Render popup
+ * @param app app
+ */
+void popup_render(app_t *app);
+
 #endif /* !APP_H_ */

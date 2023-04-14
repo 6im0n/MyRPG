@@ -22,7 +22,6 @@ typedef struct s_node_popup {
     struct s_node_popup *next;
     type_popup_t type;
     sfClock *clock;
-    sfRectangleShape *shape;
     sfText *text;
     int auto_destroy;
     struct s_node_popup *prev;

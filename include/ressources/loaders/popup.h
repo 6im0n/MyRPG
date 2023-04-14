@@ -9,9 +9,12 @@
     #define RESSOURCES_POPUP_LOADERS_H_
 
     #include "components/popup.h"
+    #include "types/type.h"
 
 static const char *popup_loaders[P_LEN] = {
-    [P_ITEM] = "New items in your inventory"
+    [P_ITEM] = "You have obtained an item !",
+    [P_XP] = "You have gained experience points !",
+    [P_QUESTS] = "A new quest has become available !"
 };
 
 #endif /* !RESSOURCES_POPUP_LOADERS_H_ */

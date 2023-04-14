@@ -15,6 +15,7 @@ _SRC =			main.c \
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \
+				app/popup.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \

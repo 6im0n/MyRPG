@@ -28,7 +28,6 @@ void list_pop_up_free(list_pop_up_t *list)
         tmp2 = tmp->next;
         sfClock_destroy(tmp->clock);
         sfText_destroy(tmp->text);
-        sfRectangleShape_destroy(tmp->shape);
         free(tmp);
         tmp = tmp2;
     }
