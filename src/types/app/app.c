@@ -25,14 +25,12 @@ static elements_t *element_create(ressources_t *ressources)
 {
     elements_t *element = malloc(sizeof(elements_t));
     player_t *player = player_create(ressources);
-    mobs_t *mobs = mobs_create(ressources);
     node_item_t *fitem = item_pure_new();
     list_item_t *items = list_item_init();
     list_quests_t *quest = list_quests_init();
 
     list_item_append(items, fitem);
     element->player = player;
-    element->mobs = mobs;
     element->items = items;
     element->quests = quest;
     return element;
