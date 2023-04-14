@@ -11,6 +11,7 @@
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
+    #include "components/popup.h"
 
 typedef enum e_id_component {
     ID_UNDEFINED,
@@ -201,6 +202,7 @@ typedef struct s_game_elements {
     player_t *player;
     list_mobs_t *mobs;
     list_quests_t *quests;
+    list_pop_up_t *pop_up;
 } elements_t;
 
 //==================================================

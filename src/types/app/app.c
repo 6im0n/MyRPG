@@ -13,6 +13,7 @@
 #include "components/mobs.h"
 #include "types/list.h"
 #include "lib/output.h"
+#include "components/popup.h"
 
 static void set_music(ressources_t *ressources, app_t *app)
 {
@@ -29,11 +30,13 @@ static elements_t *element_create(ressources_t *ressources)
     node_item_t *fitem = item_pure_new();
     list_item_t *items = list_item_init();
     list_quests_t *quest = list_quests_init();
+    list_pop_up_t *popup = list_pop_up_init();
 
     list_item_append(items, fitem);
     element->player = player;
     element->items = items;
     element->quests = quest;
+    element->pop_up = popup;
     return element;
 }
 
@@ -73,6 +76,7 @@ char *window_title, int window_frame_rate)
 void app_destroy(app_t *app)
 {
     if (app) {
+        list_pop_up_free(app->element->pop_up);
         list_quests_free(app->element->quests);
         player_destroy(app->element->player);
         sfRectangleShape_destroy(app->layer);

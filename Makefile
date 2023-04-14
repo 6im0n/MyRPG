@@ -115,6 +115,8 @@ _SRC =			main.c \
 				types/list/mobs/list.c \
 				types/list/mobs/append.c \
 				types/list/mobs/node.c \
+				types/list/pop_up/list.c \
+				types/list/pop_up/append.c \
 				\
 				types/node/component/node.c \
 				\
