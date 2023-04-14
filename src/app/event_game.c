@@ -56,10 +56,24 @@ app_t *app, event_t *event)
     }
 }
 
-static sfVector2f move_player_diagonaly(key_player_t key_tmp,
+static float update_move(app_t *app)
+{
+    float move = (float)app->element->player->skills.speed * 13.F;
+    sfTime time = sfClock_getElapsedTime(app->state->clock);
+    float seconds = time.microseconds / 1000000.0;
+    sfTime old_time = app->element->player->character->time;
+    float seconds_old = old_time.microseconds / 1000000.0;
+    app->element->player->character->time = time;
+    float spend = seconds - seconds_old;
+    move *= spend;
+
+    return move;
+}
+
+static sfVector2f move_player_diagonaly(float move,
 sfVector2f position, app_t *app, bool *array)
 {
-    float move = ((float)app->element->player->skills.speed / 10.F)* 1.1;
+    key_player_t key_tmp = app->element->player->character->key;
 
     if (key_tmp.up && key_tmp.right && array[0] && array[2]) {
         position.y -= sin(45) * move;
@@ -86,11 +100,11 @@ void move_player(app_t *app)
     sfVector2f position = sfRectangleShape_getPosition(player_rect);
     sfFloatRect tmp_rect = {0, 0, 0, 0};
     bool array[4] = {false, false, false, false};
-    float move = (float)app->element->player->skills.speed / 10.F;
+    float move = update_move(app);
     key_player_t key_tmp = app->element->player->character->key;
 
     collisions(array, position, app->element->player);
-    position = move_player_diagonaly(key_tmp, position, app, array);
+    position = move_player_diagonaly(move, position, app, array);
     if (key_tmp.up && array[0] && !key_tmp.right && !key_tmp.left)
         position.y -= move;
     if (key_tmp.down && array[1] && !key_tmp.right && !key_tmp.left)
