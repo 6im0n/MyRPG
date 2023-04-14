@@ -17,6 +17,8 @@ sfVector2f size, sfIntRect rect)
     sfRectangleShape_setSize(component->object->rectangle, size);
         component->features.rendered_rect =
         sfRectangleShape_getGlobalBounds(component->object->rectangle);
+    sfRectangleShape_setOutlineColor(component->object->rectangle, sfRed);
+    sfRectangleShape_setOutlineThickness(component->object->rectangle, 2);
 }
 
 static void init_circle(node_component_t *component,

@@ -71,4 +71,6 @@ list_quests_t *list_quests_init(void);
 
 void list_quests_free(list_quests_t *list);
 
+void list_quest_delete(list_quests_t *list, quests_t id);
+
 #endif /* !COMPONENTS_H_ */

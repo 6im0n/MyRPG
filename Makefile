@@ -128,6 +128,7 @@ _SRC =			main.c \
 				utils/file.c \
 				types/list/player/switch.c \
 				types/list/player/remove.c \
+				types/list/quest/remove.c \
 
 SRCDIR = 		src/
 

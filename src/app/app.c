@@ -30,8 +30,6 @@ int app_run(void)
     main_components_t components = app_components_load(&app, ressources);
 
     add_item_player(&app, I_SWORD_LEV1);
-    add_item_player(&app, I_CHALICE);
-    add_item_player(&app, I_SWORD_PIG);
     game_set_layer(&app, &ressources);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);

@@ -12,6 +12,7 @@
 #include "components/new.h"
 #include "event/start_menu/bouton.h"
 #include "components/player.h"
+#include "types/list.h"
 
 void dialog_main_quests_next_to(node_component_t *component,
 event_t *event, app_t *app)
@@ -78,8 +79,13 @@ event_t *event, app_t *app)
             quest_append(app->element->quests, Q_MAIN_P1);
         if (app->element->quests->len == 1 &&
             find_result_quests(app->element->quests, Q_MAIN_P1) == true) {
+            list_quest_delete(app->element->quests, Q_MAIN_P1);
             add_item_player(app, I_SWORD_LEV3);
             quest_append(app->element->quests, Q_MAIN_P2);
+            }
+        if (find_result_quests(app->element->quests, Q_MAIN_P2) == true) {
+            list_quest_delete(app->element->quests, Q_MAIN_P2);
+            add_item_player(app, I_HAMMER_LEV4);
             }
     }
 }

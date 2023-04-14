@@ -18,8 +18,8 @@ bool component_next_to_player(node_component_t *component,
 app_t *app)
 {
     sfFloatRect rect;
-    sfVector2f pos =
-        sfRectangleShape_getPosition(app->element->player->character->shape);
+    sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
+            app->element->player->character->shape);
     bool on_me = false;
     int radius = component->features.radius;
 
@@ -28,9 +28,9 @@ app_t *app)
     rect = sfRectangleShape_getGlobalBounds(component->object->rectangle);
     rect.top -= radius;
     rect.left -= radius;
-    rect.width += radius * 3;
-    rect.height += radius * 3;
-    on_me = sfFloatRect_contains(&rect, pos.x, pos.y);
+    rect.width += radius * 2;
+    rect.height += radius * 2;
+    on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
     return on_me;
 }
 
