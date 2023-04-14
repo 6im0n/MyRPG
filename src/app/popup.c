@@ -30,13 +30,15 @@ static void delete(list_pop_up_t *list, node_popup_t *node)
 static void popup_alpha(list_pop_up_t *list, node_popup_t *node)
 {
     sfColor color = sfText_getColor(node->text);
+    sfTime elapsed = sfClock_getElapsedTime(node->clock);
 
-    if (node->auto_destroy == 0) {
+    if (sfTime_asSeconds(elapsed) >= node->auto_destroy - 3) {
         color.a--;
         sfText_setColor(node->text, color);
     }
-    if (color.a == 0)
+    if (sfTime_asSeconds(elapsed) >= node->auto_destroy) {
         delete(list, node);
+    }
 }
 
 void popup_render(app_t *app)
