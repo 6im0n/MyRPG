@@ -64,16 +64,8 @@ void dialog_main_quests_onkeypress(node_component_t *component,
 event_t *event, app_t *app)
 {
     (void) event;
-    (void) app;
-    (void) component;
     if (!ST_IS_NEAR(component))
         return;
-    if (sfKeyboard_isKeyPressed(sfKeyR)) {
-        app->element->quests->first->current++;
-        if (app->element->quests->first->current >=
-            app->element->quests->first->goal)
-            app->element->quests->first->finish = true;
-    }
     if (sfKeyboard_isKeyPressed(sfKeyI)) {
         if (app->element->quests->len == 0)
             quest_append(app->element->quests, Q_MAIN_P1);

@@ -7,6 +7,26 @@
 
 #include "components/components.h"
 
+static void currend_add(node_quests_t *node)
+{
+    node->current++;
+    if (node->current >= node->goal)
+        node->finish = true;
+}
+
+void quests_current_add(list_quests_t *list, quests_t id)
+{
+    node_quests_t *tmp = list->first;
+    node_quests_t *tmp2 = tmp;
+
+    while (tmp != NULL) {
+        tmp2 = tmp->next;
+        if (tmp->id == id)
+            currend_add(tmp);
+        tmp = tmp2;
+    }
+}
+
 list_quests_t *list_quests_init(void)
 {
     list_quests_t *tmp = malloc(sizeof(list_quests_t));

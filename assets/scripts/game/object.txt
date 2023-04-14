@@ -31,3 +31,23 @@ disabled: 1
 next_to: 0
 pressed: 0
 ###
+position: 3462 5413
+size: 0 0
+rect: 64 500 18 24
+style: 16 0 1
+type: 4
+c_size: 3
+radius: 200
+disabled: 1
+next_to: 1
+###
+position: 4779 7132
+size: 0 0
+rect: 64 500 18 24
+style: 16 0 1
+type: 4
+c_size: 3
+radius: 200
+disabled: 1
+next_to: 1
+###
