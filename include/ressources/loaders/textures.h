@@ -10,8 +10,8 @@
 
     #include "ressources/textures.h"
 
-static const char *textures_loaders[TX_LEN] = {
-    [TX_APP_ICON] = "assets/ship/ship10.png",
+static char *textures_loaders[TX_LEN] = {
+    [TX_APP_ICON] = "assets/assets_rpg/logo.png",
     [TX_CHARACTERE_1] = "assets/charactere/player.png",
     [TX_SHIP] = "assets/ship/sprPlayer_strip16.png",
     [TX_PEPPA_PIG] = "assets/assets_rpg/peppapig.png",

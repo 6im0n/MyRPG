@@ -26,8 +26,8 @@ static void game_set_layer(app_t *app, ressources_t *ressources)
 
 int app_run(void)
 {
-    ressources_t ressources = ressources_load();
-    app_t app = app_create(&ressources, W_VIDEO_MODE, W_TITLE, W_FRAMERATE);
+    app_t app = app_create(W_TITLE, W_FRAMERATE);
+    ressources_t ressources = ressources_load(&app);
     main_components_t components = app_components_load(&app, ressources);
 
     add_item_player(&app, I_SWORD_LEV1);
