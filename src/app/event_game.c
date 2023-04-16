@@ -81,7 +81,7 @@ sfVector2f position, app_t *app, bool *array)
     if (key.down && array[1] && array[2] && key.right && !key.up) {
         position = change_animation_direction(app, position, move, 6);
     }
-    if (key.up && array[0] && array[3] && key.left&& !key.down ) {
+    if (key.up && array[0] && array[3] && key.left && !key.down ) {
         position = change_animation_direction(app, position, move, 7);
     }
     if (key.down && array[1] && array[3] && key.left && !key.up) {
