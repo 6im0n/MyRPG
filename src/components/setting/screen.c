@@ -58,7 +58,7 @@ list_components_t *list)
     set_component_text(obj, "FullScreen", sfBlack, 35);
     set_component_text_pos(obj, (sfVector2f){ 148, -14}, 2);
     obj->id = ID_SELECTOR;
-    obj->features.select = false;
+    obj->features.select = true;
     obj->events.onclick = &event_settings_fullscreen_onclick;
     list_component_append(list, obj);
 }

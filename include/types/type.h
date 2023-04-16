@@ -232,6 +232,13 @@ typedef struct s_sounds {
     bool mute;
 } sounds_t;
 
+typedef struct s_loader_components {
+    sfRectangleShape *shape;
+    sfRectangleShape *cursor;
+    sfRectangleShape *logo;
+    sfText *text;
+} loader_t;
+
 typedef struct s_states {
     stage_t stage;
     stage_t back;
@@ -262,6 +269,7 @@ typedef struct s_app {
     sfView *view;
     sfRectangleShape *layer;
     elements_t *element;
+    loader_t *loader;
 } app_t;
 
 typedef struct s_event {
