@@ -1,15 +1,24 @@
-position: 420 400
+position: 420 500
 size: 425 25
 rect: 277 166 38 4
 style: 4 1 0
 type: 2
 c_size: 2
 ###
-position: 420 400
+position: 420 500
 size: 400 12
 rect: 466 7 12 1
 style: 4 1 0
 type: 1
 c_size: 2
 id: 16
+###
+position: 420 400
+size: 500 320
+style: 4 1 0
+type: 4
+c_size: 2
+text: 0
+text_size: 50
+id: 17
 ###

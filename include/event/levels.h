@@ -15,8 +15,9 @@
  * @brief Update levels from player XP
  * @param app struct
  * @param list inventory component
+ * @param xp xp to add
  */
-void levels_update(app_t *app, list_components_t *list);
+void levels_update(app_t *app, list_components_t *list, int xp);
 
 
 #endif /* !UPDATE_LEVELS_H_ */

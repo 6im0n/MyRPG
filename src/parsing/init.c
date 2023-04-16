@@ -14,6 +14,7 @@ static void init_text(parsing_t *element)
     element->text_pos = (sfVector2f){-1, -1};
     element->text_pos_type = -1;
     element->text_size = -1;
+    element->id = ID_UNDEFINED;
 }
 
 void parsing_init(parsing_t *elements)

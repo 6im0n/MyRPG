@@ -33,7 +33,7 @@ static void menu_board(app_t *app, ressources_t ressources,
     new_component_size(obj, size,
         (sfIntRect){.height = 122, .left = 139, .top = 12, .width = 106},
         C_SIZE_MAX);
-    set_component_text(obj, "Levels", sfBlack, 50);
+    set_component_text(obj, "Level", sfBlack, 50);
     set_component_text_pos(obj, (sfVector2f){ 0, -150}, 3);
     list_component_append(list, obj);
 }
