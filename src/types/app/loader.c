@@ -41,7 +41,7 @@ static sfText *text_init(int size, sfVector2f position)
 
 loader_t *loader_init(void)
 {
-    loader_t *loader = malloc(sizeof(loader));
+    loader_t *loader = malloc(sizeof(loader_t));
     sfTexture *textureepitech =
         sfTexture_createFromFile("assets/assets_rpg/epitech.png", NULL);
     sfTexture *texturelogo =
