@@ -12,6 +12,7 @@ _SRC =			main.c \
 				app/event.c \
 				app/render.c \
 				app/event_game.c \
+				app/event_game_player.c \
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \

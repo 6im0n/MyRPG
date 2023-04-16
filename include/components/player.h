@@ -54,6 +54,7 @@ void player_render_annimation(app_t *app);
 
 void new_player_annimation(app_t *app, sfIntRect annimation, int index,
                             int max);
-
+sfVector2f change_animation_direction(app_t *app, sfVector2f pos, float move,
+int id);
 
 #endif /* !PLAYER_H_ */

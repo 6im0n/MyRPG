@@ -76,20 +76,16 @@ sfVector2f position, app_t *app, bool *array)
     key_player_t key_tmp = app->element->player->character->key;
 
     if (key_tmp.up && key_tmp.right && array[0] && array[2]) {
-        position.y -= sin(45) * move;
-        position.x += cos(45) * move;
+        position = change_animation_direction(app, position, move, 5);
     }
     if (key_tmp.down && array[1] && array[2] && key_tmp.right) {
-        position.y += cos(45) * move;
-        position.x += cos(45) * move;
+        position = change_animation_direction(app, position, move, 6);
     }
     if (key_tmp.up && array[0] && array[3] && key_tmp.left) {
-        position.y -= cos(45) * move;
-        position.x -= cos(45) * move;
+        position = change_animation_direction(app, position, move, 7);
     }
     if (key_tmp.down && array[1] && array[3] && key_tmp.left) {
-        position.y += cos(45) * move;
-        position.x -= cos(45) * move;
+        position = change_animation_direction(app, position, move, 8);
     }
     return position;
 }
@@ -106,13 +102,13 @@ void move_player(app_t *app)
     collisions(array, position, app->element->player);
     position = move_player_diagonaly(move, position, app, array);
     if (key_tmp.up && array[0] && !key_tmp.right && !key_tmp.left)
-        position.y -= move;
+        position = change_animation_direction(app, position, move, 1);
     if (key_tmp.down && array[1] && !key_tmp.right && !key_tmp.left)
-        position.y += move;
+        position = change_animation_direction(app, position, move , 2);
     if (key_tmp.right && array[2] && !key_tmp.up && !key_tmp.down)
-        position.x += move;
+        position = change_animation_direction(app, position, move, 3);
     if (key_tmp.left && array[3] && !key_tmp.up && !key_tmp.down)
-        position.x -= move;
+        position = change_animation_direction(app, position, move, 4);
     sfRectangleShape_setPosition(player_rect, position);
     tmp_rect = sfRectangleShape_getGlobalBounds(player_rect);
     app->element->player->character->frect = tmp_rect;
