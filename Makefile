@@ -123,6 +123,8 @@ _SRC =			main.c \
 				parsing/size.c \
 				parsing/type.c \
 				parsing/functions.c \
+				parsing/init.c \
+				parsing/text.c \
 				\
 				utils/file.c \
 				types/list/player/switch.c \

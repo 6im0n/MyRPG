@@ -38,6 +38,10 @@ int app_run(void)
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);
+        if (sfKeyboard_isKeyPressed(sfKeyA)) {
+            app.element->player->exprerience.xp++;
+            levels_update(&app, components.inventory);
+        }
     }
     components_free(&components);
     ressources_unload(&ressources);

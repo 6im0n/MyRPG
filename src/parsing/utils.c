@@ -27,6 +27,14 @@ static void manage_data_extend(char *nb, parsing_t *element)
         get_anim_max(nb, element);
     if (my_strcmp(element->types, "anim_speed") == 0)
         get_anim_speed(nb, element);
+    if (my_strcmp(element->types, "text") == 0)
+        get_text(nb, element);
+    if (my_strcmp(element->types, "text_pos") == 0)
+        get_text_pos(nb, element);
+    if (my_strcmp(element->types, "text_pos_type") == 0)
+        get_text_pos_type(nb, element);
+    if (my_strcmp(element->types, "text_size") == 0)
+        get_text_size(nb, element);
 }
 
 static void manage_functions(char *nb, parsing_t *element)
