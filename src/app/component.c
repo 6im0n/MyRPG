@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-
+#include "app/app.h"
 #include "types/list.h"
 #include "components/components.h"
 #include "components/get.h"
@@ -76,6 +76,7 @@ main_components_t app_components_load(app_t *app, ressources_t ressources)
     main_components_t components = { NULL, NULL, NULL,
         NULL, NULL, NULL, NULL, NULL };
 
+    app_load(app, &ressources);
     append_menu(app, ressources, &components);
     append_cursor(app, ressources, &components);
     append_menu_load_game(app, ressources, &components);

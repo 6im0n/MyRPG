@@ -9,11 +9,11 @@
 #include <stdio.h>
 #include "app/ressources.h"
 
-ressources_t ressources_load(void)
+ressources_t ressources_load(app_t *app)
 {
-    sfTexture **textures = ressources_import_textures();
-    sfSoundBuffer **sounds = ressources_import_sounds();
-    sfFont **fonts = ressources_import_fonts();
+    sfTexture **textures = ressources_import_textures(app);
+    sfSoundBuffer **sounds = ressources_import_sounds(app);
+    sfFont **fonts = ressources_import_fonts(app);
     ressources_t ressources = { textures, sounds, fonts };
 
     return (ressources);

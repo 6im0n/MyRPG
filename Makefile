@@ -15,6 +15,7 @@ _SRC =			main.c \
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \
+				app/player.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
@@ -55,6 +56,8 @@ _SRC =			main.c \
 				\
 				components/game/get.c \
 				components/game/menu.c \
+				components/game/add_mobs.c \
+				\
 				components/new_game/get.c \
 				components/new_game/menu.c \
 				components/menu/start/get.c \
@@ -71,6 +74,8 @@ _SRC =			main.c \
 				components/inventory/object.c \
 				components/inventory/object_select.c \
 				components/inventory/levels/menu.c \
+				components/inventory/quests/menu.c \
+				components/inventory/quests/prompt.c \
 				components/setting/get.c \
 				components/setting/menu.c \
 				components/setting/sound.c \
@@ -100,11 +105,14 @@ _SRC =			main.c \
 				events/game/dialog.c \
 				events/game/lunch.c \
 				events/game/select_character.c \
+				events/game/quests/main.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
 				types/app/mouse.c \
 				types/app/state.c \
+				types/app/load.c \
+				types/app/loader.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
@@ -112,6 +120,9 @@ _SRC =			main.c \
 				types/list/quest/append.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
+				types/list/mobs/list.c \
+				types/list/mobs/append.c \
+				types/list/mobs/node.c \
 				\
 				types/node/component/node.c \
 				\
@@ -129,6 +140,7 @@ _SRC =			main.c \
 				utils/file.c \
 				types/list/player/switch.c \
 				types/list/player/remove.c \
+				types/list/quest/remove.c \
 
 SRCDIR = 		src/
 

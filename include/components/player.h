@@ -13,6 +13,7 @@
     #include <SFML/Graphics.h>
     #include "types/type.h"
     #include "components/components.h"
+    #include "ressources/quests.h"
 
 /**
  * @brief Create a player
@@ -55,5 +56,20 @@ void player_render_annimation(app_t *app);
 void new_player_annimation(app_t *app, sfIntRect annimation, int index,
                             int max);
 
+/**
+ * @brief Append quests system
+ * @param list list
+ * @param quest quest
+ */
+void quest_append(list_quests_t *list, quests_t quest);
+
+/**
+ * @brief Set quests node
+ * @param app app
+ * @param node node
+ */
+void quests_set_text_position(app_t *app, node_quests_t *node);
+
+void quests_current_add(list_quests_t *list, quests_t id);
 
 #endif /* !PLAYER_H_ */

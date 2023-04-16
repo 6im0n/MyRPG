@@ -165,6 +165,8 @@ list_components_t *list);
  */
 void components_levels(app_t *app,ressources_t ressources,
                             list_components_t *list);
+void inventory_quests(app_t *app, ressources_t ressources,
+list_components_t *list);
 
 //==================================================
 // SETTING

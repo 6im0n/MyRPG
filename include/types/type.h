@@ -11,6 +11,7 @@
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
+    #include "ressources/quests.h"
 
 typedef enum e_id_component {
     ID_UNDEFINED,
@@ -103,6 +104,7 @@ typedef struct s_character_annimation {
     int max;
     float speed;
     float max_speed;
+    sfClock *clock;
 } character_annimation_t;
 
 typedef struct s_key_player {
@@ -118,7 +120,7 @@ typedef struct s_character {
     sfFloatRect frect;
     sfIntRect irect;
     character_annimation_t annimation;
-    sfClock *clock;
+    sfTime time;
     key_player_t key;
 } character_t;
 
@@ -128,7 +130,6 @@ typedef struct s_colors {
     sfColor right;
     sfColor left;
 } colors_t;
-
 
 typedef struct s_player {
     list_item_t *inventory;
@@ -158,6 +159,9 @@ typedef struct s_node_quests {
     int current;
     int goal;
     bool finish;
+    sfRectangleShape *shape;
+    sfText *txt;
+    quests_t id;
     struct s_node_quests *prev;
 } node_quests_t;
 
@@ -179,25 +183,30 @@ typedef struct s_mobs_annimation {
     float max_speed;
 } mobs_annimation_t;
 
-typedef struct s_mobs_component {
+typedef struct s_node_mob {
     sfTexture *texture;
     sfRectangleShape *shape;
     sfFloatRect frect;
     sfIntRect irect;
     mobs_annimation_t annimation;
     sfClock *clock;
-
-} mobs_component_t;
-
-typedef struct s_mobs {
-    mobs_component_t *character;
     skills_t skills;
-} mobs_t;
+
+    int state;
+    struct s_node_mob *next;
+    struct s_node_mob *prev;
+} node_mob_t;
+
+typedef struct list_mobs {
+    int len;
+    struct s_node_mob *first;
+    struct s_node_mob *last;
+} list_mobs_t;
 
 typedef struct s_game_elements {
     list_item_t *items;
     player_t *player;
-    mobs_t *mobs;
+    list_mobs_t *mobs;
     list_quests_t *quests;
 } elements_t;
 
@@ -225,6 +234,13 @@ typedef struct s_sounds {
     int volume_sound;
     bool mute;
 } sounds_t;
+
+typedef struct s_loader_components {
+    sfRectangleShape *shape;
+    sfRectangleShape *cursor;
+    sfRectangleShape *logo;
+    sfText *text;
+} loader_t;
 
 typedef struct s_states {
     stage_t stage;
@@ -256,6 +272,7 @@ typedef struct s_app {
     sfView *view;
     sfRectangleShape *layer;
     elements_t *element;
+    loader_t *loader;
 } app_t;
 
 typedef struct s_event {
