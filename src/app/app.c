@@ -32,6 +32,7 @@ int app_run(void)
 
     add_item_player(&app, I_SWORD_LEV1);
     game_set_layer(&app, &ressources);
+    app_save_game(&app);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);

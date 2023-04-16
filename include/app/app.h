@@ -95,4 +95,10 @@ void app_destroy(app_t *app);
 void app_create_all_item(elements_t *element,
 ressources_t *ressources);
 
+/**
+ * @brief Save game application
+ * @param app app
+ */
+void app_save_game(app_t *app);
+
 #endif /* !APP_H_ */

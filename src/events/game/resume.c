@@ -10,6 +10,7 @@
 #include "lib/output.h"
 #include "app/constants.h"
 #include <fcntl.h>
+#include <stdio.h>
 
 void resume_available(node_component_t *component,
 event_t *event, app_t *app)
@@ -29,6 +30,16 @@ event_t *event, app_t *app)
     sfText_setColor(component->object->text, sfBlack);
 }
 
+void app_save_game(app_t *app)
+{
+    FILE *fd = fopen(SAVE_FILE, "w");
+
+    if (!fd)
+        return;
+    (void) app;
+    my_printf("HERE : D\n");
+}
+
 void launch_game_resume(node_component_t *component,
 event_t *event, app_t *app)
 {
@@ -39,5 +50,4 @@ event_t *event, app_t *app)
     event_play_music(component, app);
     app->state->back = app->state->stage;
     app->state->stage = S_GAME;
-    my_printf("HERE\n");
 }
