@@ -120,6 +120,7 @@ typedef enum e_disabled {
 
 typedef enum e_nextto {
     QUEST_MAIN_FIRST_DIALOG_NEXTTO,
+    QUEST_MAIN_FIRST_OBJ_DIALOG_NEXTTO,
     NEXT_TO_LEN
 } next_to_t;
 

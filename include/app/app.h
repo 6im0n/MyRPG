@@ -121,4 +121,16 @@ void loader_display(app_t *app, sfRectangleShape *shape);
  */
 void loader_text_display(app_t *app, sfRectangleShape *shape, char *content);
 
+/**
+ * @brief Render player and inventory
+ * @param app app
+ */
+void app_player_render(app_t *app);
+
+/**
+ * @brief Render quests
+ * @param app app
+ */
+void app_quests_dispatch(app_t *app);
+
 #endif /* !APP_H_ */

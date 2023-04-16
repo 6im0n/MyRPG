@@ -15,6 +15,7 @@ _SRC =			main.c \
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \
+				app/player.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
@@ -72,6 +73,8 @@ _SRC =			main.c \
 				components/inventory/menu.c \
 				components/inventory/object.c \
 				components/inventory/object_select.c \
+				components/inventory/quests/menu.c \
+				components/inventory/quests/prompt.c \
 				components/setting/get.c \
 				components/setting/menu.c \
 				components/setting/sound.c \
@@ -100,6 +103,7 @@ _SRC =			main.c \
 				events/game/dialog.c \
 				events/game/lunch.c \
 				events/game/select_character.c \
+				events/game/quests/main.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
@@ -132,6 +136,7 @@ _SRC =			main.c \
 				utils/file.c \
 				types/list/player/switch.c \
 				types/list/player/remove.c \
+				types/list/quest/remove.c \
 
 SRCDIR = 		src/
 
