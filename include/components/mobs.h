@@ -13,24 +13,33 @@
     #include <SFML/Graphics.h>
     #include "types/type.h"
     #include "components/components.h"
+    #include "types/type.h"
 
-/**
- * @brief Create a mobs
- * @return mobs_t*
- */
-mobs_t *mobs_create(ressources_t *ressources);
 
 /**
  * @brief Destroyed a mobs
  * @param mobs
  */
-void mobs_destroy(mobs_t *mobs);
+void mobs_destroy(list_mobs_t *list);
 
 void mobs_render_annimation(app_t *app);
 
-void new_mobs_annimation(app_t *app, sfIntRect annimation, int index, int max);
+void new_mobs_annimation(node_mob_t *mob,
+sfIntRect annimation, int index, int max);
 
-void new_mobs_annimation(app_t *app, sfIntRect annimation, int index, int max);
+//MOBS LISTS//
+list_mobs_t *list_mobs_init(void);
 
+list_mobs_t *mobs_add(list_mobs_t *list, ressources_t ressources);
+
+void list_mobs_free(list_mobs_t *list);
+
+void list_mobs_append(list_mobs_t *list, node_mob_t *node);
+
+node_mob_t *node_mobs_init(ressources_t ressources);
+
+void add_new_mob(app_t *app, ressources_t ressources, sfVector2f possition);
+
+//-------//
 
 #endif /* !mobs_H_ */

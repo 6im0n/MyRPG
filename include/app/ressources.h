@@ -15,7 +15,7 @@
 /**
  * @brief Load ressources in memory
  */
-ressources_t ressources_load(void);
+ressources_t ressources_load(app_t *app);
 
 /**
  * @brief Destroy loaded ressources
@@ -26,7 +26,7 @@ void ressources_unload(ressources_t *ressources);
 /**
  * @brief Import textures
  */
-sfTexture **ressources_import_textures(void);
+sfTexture **ressources_import_textures(app_t *app);
 
 /**
  * @brief Destroy given textures
@@ -37,7 +37,7 @@ void ressources_destroy_textures(sfTexture **textures);
 /**
  * @brief Import sounds
  */
-sfSoundBuffer**ressources_import_sounds(void);
+sfSoundBuffer**ressources_import_sounds(app_t *app);
 
 /**
  * @brief Destroy given sounds
@@ -48,7 +48,7 @@ void ressources_destroy_sounds(sfSoundBuffer**sounds);
 /**
  * @brief Import fonts
  */
-sfFont **ressources_import_fonts(void);
+sfFont **ressources_import_fonts(app_t *app);
 
 /**
  * @brief Destroy given fonts

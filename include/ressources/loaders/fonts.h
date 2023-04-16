@@ -9,7 +9,7 @@
     #define RESSOURCES_FONTS_LOADERS_H_
     #include "ressources/fonts.h"
 
-static const char *fonts_loaders[FT_LEN] = {
+static char *fonts_loaders[FT_LEN] = {
     [FT_IMMORTAL] = "assets/fonts/immortal.ttf",
     [FT_DROID] = "assets/fonts/droid.ttf"
 };
