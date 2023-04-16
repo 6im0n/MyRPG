@@ -113,4 +113,5 @@ void components_inventory(app_t *app,ressources_t ressources,
     annimation_env(app, ressources, list);
     annimation_player(app, ressources, list);
     inventory_object(app, ressources, list);
+    inventory_quests(app, ressources, list);
 }

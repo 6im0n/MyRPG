@@ -54,7 +54,8 @@ static const parsing_handler_t moved_event[MOVED_LEN] = {
 };
 
 static const parsing_handler_t next_to_event[NEXT_TO_LEN] = {
-    [QUEST_MAIN_FIRST_DIALOG_NEXTTO] = &dialog_main_quests_next_to
+    [QUEST_MAIN_FIRST_DIALOG_NEXTTO] = &dialog_main_quests_next_to,
+    [QUEST_MAIN_FIRST_OBJ_DIALOG_NEXTTO] = &dialog_main_quests_onnext_to
 };
 
 #endif /* !EVENT_SETTINGS_H_ */

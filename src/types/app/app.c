@@ -12,7 +12,6 @@
 #include "components/player.h"
 #include "components/mobs.h"
 #include "types/list.h"
-#include "lib/output.h"
 
 static void set_music(ressources_t *ressources, app_t *app)
 {
