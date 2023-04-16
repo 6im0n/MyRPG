@@ -75,8 +75,8 @@ void loader_display(app_t *app, sfRectangleShape *shape)
         sfRenderWindow_display(app->window);
         sfRenderWindow_clear(app->window, W_COLOR);
         second++;
-        scale.x += 0.001;
-        scale.y += 0.001;
+        scale.x += 0.0025;
+        scale.y += 0.0025;
     }
 }
 
