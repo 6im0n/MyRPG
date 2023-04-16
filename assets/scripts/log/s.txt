@@ -1,2 +1,0 @@
-player: 10
-position: 0 0

@@ -11,6 +11,7 @@
 #include "app/constants.h"
 #include <fcntl.h>
 #include <stdio.h>
+#include "lib/str.h"
 
 void resume_available(node_component_t *component,
 event_t *event, app_t *app)
@@ -33,11 +34,13 @@ event_t *event, app_t *app)
 void app_save_game(app_t *app)
 {
     FILE *fd = fopen(SAVE_FILE, "w");
+    char *content = "TEXT tests okay\n";
 
     if (!fd)
         return;
+    fwrite(content , 1 , my_strlen(content) , fd );
+    fclose(fd);
     (void) app;
-    my_printf("HERE : D\n");
 }
 
 void launch_game_resume(node_component_t *component,
