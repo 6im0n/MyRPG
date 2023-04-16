@@ -12,10 +12,11 @@
 #include "types/list.h"
 #include "ressources/textures.h"
 #include "components/get.h"
+#include "types/node.h"
 
 node_component_t *component_pure_new(sfVector2u size)
 {
-    node_component_t *component = malloc(sizeof(node_component_t));
+    node_component_t *component = node_component_init();
     sfFloatRect rect = { size.y, 0, 0, size.x};
 
     if (!component)

@@ -1,0 +1,14 @@
+position: .86 382
+size: 80 110
+rect: 176 410 16 22
+style: 21 1 0
+type: 3
+c_size: 5
+###
+position: .78 .60
+size: 400 400
+rect: 352 95 32 32
+style: 17 1 0
+type: 3
+c_size: 5
+###

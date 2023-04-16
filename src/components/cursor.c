@@ -10,11 +10,12 @@
 #include "components/new.h"
 #include "types/list.h"
 #include "lib/output.h"
+#include "types/node.h"
 
 void component_cursor_filter(app_t *app,ressources_t ressources,
                                     list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f size = {500000, 500000};
     sfVector2f position = {0, 0};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -34,7 +35,7 @@ void component_cursor_filter(app_t *app,ressources_t ressources,
 static void component_cursor(app_t *app,ressources_t ressources,
                         list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {100, 100};
     sfVector2f size = {40, 45};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),

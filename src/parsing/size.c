@@ -5,6 +5,7 @@
 ** size
 */
 
+#include <stdio.h>
 #include <SFML/Graphics.h>
 #include "lib/str.h"
 #include "event/functions.h"

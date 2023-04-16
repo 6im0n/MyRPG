@@ -17,6 +17,7 @@
 #include "lib/output.h"
 #include <math.h>
 #include "app/constants.h"
+#include "types/node.h"
 
 static sfVector2f angle_set_rotate(sfVector2f point,
 sfVector2f origin, float angle)
@@ -68,7 +69,7 @@ list_components_t *list)
 static void main_selector(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2, 600};
     sfVector2f position = {middle.x, 380};
     sfVector2f size = {90, 90};

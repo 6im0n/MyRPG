@@ -30,6 +30,7 @@ typedef enum e_texture {
     TX_MOBS,
     TX_MOBS2,
     TX_NPC_ATTENTION,
+    TX_UI_BOOKS,
     TX_SHRINE_ACTIVATING,
     TX_SHRINE_AVAILABLE,
     TX_ALTAR_1,
