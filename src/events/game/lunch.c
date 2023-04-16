@@ -7,6 +7,7 @@
 
 #include "event/global.h"
 #include "components/components.h"
+#include "lib/output.h"
 
 void launch_new_game(node_component_t *component,
 event_t *event, app_t *app)

@@ -29,6 +29,7 @@ typedef enum e_id_component {
     ID_SOUND_CURSOR,
     ID_CURSOR,
     ID_S_PLAYER,
+    ID_RESUME,
     ID_LEN
 } component_id_t;
 

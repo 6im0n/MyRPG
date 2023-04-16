@@ -100,6 +100,7 @@ _SRC =			main.c \
 				events/game/dialog.c \
 				events/game/lunch.c \
 				events/game/select_character.c \
+				events/game/resume.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

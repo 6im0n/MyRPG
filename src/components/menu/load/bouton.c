@@ -58,7 +58,9 @@ static void bouton_resume(app_t *app, ressources_t ressources,
         C_SIZE_BIG);
     set_component_text(obj, "Resume", sfBlack, 40);
     set_component_text_pos(obj, (sfVector2f){ 0, -12}, 0);
-    obj->events.onclick = &launch_game;
+    obj->events.onclick = &launch_game_resume;
+    obj->events.ondisabled = &resume_available;
+    obj->id = ID_RESUME;
     list_component_append(list, obj);
 }
 

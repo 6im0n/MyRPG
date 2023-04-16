@@ -28,7 +28,8 @@ sfIntRect defaul)
 {
     sfIntRect clicked = effect_select_size(defaul, component->features.size);
 
-    if (ST_IS_PRESSED(component))
+    if (ST_IS_PRESSED(component) ||
+        (component->id == ID_RESUME && component->features.select == false))
         sfRectangleShape_setTextureRect(component->object->rectangle, clicked);
     else
         sfRectangleShape_setTextureRect(component->object->rectangle, defaul);
@@ -64,7 +65,7 @@ void render_button_effect(app_t *app, node_component_t *component)
 {
     sfIntRect defaul = component->features.texture_rect;
 
-    if (ST_IS_HOVER(component)) {
+    if (ST_IS_HOVER(component) || component->id == ID_RESUME) {
         is_pressed(component, defaul);
         sfRectangleShape_setScale(component->object->rectangle,
         (sfVector2f){0.98, 0.98});
