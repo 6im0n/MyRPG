@@ -14,11 +14,12 @@
 #include "event/start_menu/bouton.h"
 #include "event/setting/bouton.h"
 #include "app/constants.h"
+#include "types/node.h"
 
 static void components_help_bouton_setting(app_t *app, ressources_t ressources,
                                             list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 - 500,
         225};
     sfVector2f size = {120, 50};
@@ -39,7 +40,7 @@ static void components_help_bouton_setting(app_t *app, ressources_t ressources,
 void components_help_command_setting(app_t *app, ressources_t ressources,
                                     list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 - 500,
         200};
     sfVector2f size = {300, 125};
@@ -61,7 +62,7 @@ void components_help_command_setting(app_t *app, ressources_t ressources,
 static void components_help_bouton_inventory(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 + 500,
         225};
     sfVector2f size = {50, 50};
@@ -82,7 +83,7 @@ ressources_t ressources, list_components_t *list)
 void components_help_command_inventory(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 + 500,
         200};
     sfVector2f size = {300, 125};

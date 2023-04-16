@@ -73,6 +73,7 @@ _SRC =			main.c \
 				components/inventory/menu.c \
 				components/inventory/object.c \
 				components/inventory/object_select.c \
+				components/inventory/levels/menu.c \
 				components/inventory/quests/menu.c \
 				components/inventory/quests/prompt.c \
 				components/setting/get.c \
@@ -98,6 +99,7 @@ _SRC =			main.c \
 				events/menu/help/keypress.c \
 				events/inventory/select.c \
 				events/inventory/selector.c \
+				events/levels/levels.c \
 				events/game/player.c \
 				events/game/collisions.c \
 				events/game/dialog.c \
@@ -132,6 +134,8 @@ _SRC =			main.c \
 				parsing/size.c \
 				parsing/type.c \
 				parsing/functions.c \
+				parsing/init.c \
+				parsing/text.c \
 				\
 				utils/file.c \
 				types/list/player/switch.c \

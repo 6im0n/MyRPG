@@ -13,6 +13,8 @@
 #include "app/ressources.h"
 #include "components/components.h"
 #include "types/list.h"
+#include "lib/output.h"
+#include "event/levels.h"
 
 static void game_set_layer(app_t *app, ressources_t *ressources)
 {

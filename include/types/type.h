@@ -30,6 +30,8 @@ typedef enum e_id_component {
     ID_SOUND_CURSOR,
     ID_CURSOR,
     ID_S_PLAYER,
+    ID_XP,
+    ID_LEVEL,
     ID_LEN
 } component_id_t;
 
@@ -87,6 +89,7 @@ typedef struct s_list_item {
 typedef struct s_exprerience {
     int xp;
     int level;
+    float max_xp;
 } experience_t;
 
 typedef struct s_skills {
