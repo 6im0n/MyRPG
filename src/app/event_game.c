@@ -73,18 +73,18 @@ static float update_move(app_t *app)
 static sfVector2f move_player_diagonaly(float move,
 sfVector2f position, app_t *app, bool *array)
 {
-    key_player_t key_tmp = app->element->player->character->key;
+    key_player_t key = app->element->player->character->key;
 
-    if (key_tmp.up && key_tmp.right && array[0] && array[2]) {
+    if (key.up && key.right && array[0] && array[2] && !key.down) {
         position = change_animation_direction(app, position, move, 5);
     }
-    if (key_tmp.down && array[1] && array[2] && key_tmp.right) {
+    if (key.down && array[1] && array[2] && key.right && !key.up) {
         position = change_animation_direction(app, position, move, 6);
     }
-    if (key_tmp.up && array[0] && array[3] && key_tmp.left) {
+    if (key.up && array[0] && array[3] && key.left&& !key.down ) {
         position = change_animation_direction(app, position, move, 7);
     }
-    if (key_tmp.down && array[1] && array[3] && key_tmp.left) {
+    if (key.down && array[1] && array[3] && key.left && !key.up) {
         position = change_animation_direction(app, position, move, 8);
     }
     return position;
