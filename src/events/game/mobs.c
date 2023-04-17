@@ -19,14 +19,36 @@ static bool mob_intersect_player(app_t *app, node_mob_t *mob)
     return on_me;
 }
 
+static bool finish_animation(node_mob_t *mob)
+{
+    if (mob->annimation.index > mob->annimation.max){
+        return true;
+    }
+    return false;
+}
 void mobs_attack(node_mob_t *mob,
 app_t *app)
 {
     if (mob_intersect_player(app, mob)) {
+        if (mob->status != 1 && mob->annimation.index != 0){
+            mob->status = 1;
+        }
+        mob->irect.top = 384 + 55;
+        mob->annimation.max = 16;
         sfRectangleShape_setOutlineColor(mob->shape, sfRed);
         sfRectangleShape_setOutlineThickness(mob->shape, 2);
     } else {
-        sfRectangleShape_setOutlineColor(mob->shape, sfTransparent);
-        sfRectangleShape_setOutlineThickness(mob->shape, 0);
+        if (mob->status !=0 && !finish_animation(mob)){
+            sfRectangleShape_setOutlineColor(mob->shape, sfYellow);
+            sfRectangleShape_setOutlineThickness(mob->shape, 2);
+
+        } else {
+            mob->status = 0;
+            mob->irect.top = 55;
+            mob->annimation.index = 0;
+            mob->annimation.max = 7;
+            sfRectangleShape_setOutlineColor(mob->shape, sfGreen);
+            sfRectangleShape_setOutlineThickness(mob->shape, 2);
+        }
     }
 }
