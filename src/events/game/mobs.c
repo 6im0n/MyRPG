@@ -27,6 +27,7 @@ static bool finish_animation(node_mob_t *mob)
     }
     return false;
 }
+
 void mobs_attack(node_mob_t *mob,
 app_t *app)
 {
@@ -38,17 +39,15 @@ app_t *app)
         mob->annimation.max = 16;
         sfRectangleShape_setOutlineColor(mob->shape, sfRed);
         sfRectangleShape_setOutlineThickness(mob->shape, 2);
+    }
+    if (mob->status != 0 && !finish_animation(mob)) {
+        sfRectangleShape_setOutlineColor(mob->shape, sfYellow);
+        sfRectangleShape_setOutlineThickness(mob->shape, 2);
     } else {
-        if (mob->status !=0 && !finish_animation(mob)){
-            sfRectangleShape_setOutlineColor(mob->shape, sfYellow);
-            sfRectangleShape_setOutlineThickness(mob->shape, 2);
-
-        } else {
-            mob->status = 0;
-            mob->irect.top = 55;
-            mob->annimation.max = 7;
-            sfRectangleShape_setOutlineColor(mob->shape, sfGreen);
-            sfRectangleShape_setOutlineThickness(mob->shape, 2);
-        }
+        mob->status = 0;
+        mob->irect.top = 55;
+        mob->annimation.max = 7;
+        sfRectangleShape_setOutlineColor(mob->shape, sfGreen);
+        sfRectangleShape_setOutlineThickness(mob->shape, 2);
     }
 }
