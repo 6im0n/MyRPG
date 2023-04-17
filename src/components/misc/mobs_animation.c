@@ -59,5 +59,4 @@ void mobs_render_annimation(app_t *app)
             tmp->shape, NULL);
         tmp = tmp->next;
     }
-    mobs_render_annimation(app);
 }
