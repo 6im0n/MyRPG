@@ -186,6 +186,8 @@ typedef struct s_mobs_annimation {
 typedef struct s_node_mob {
     sfTexture *texture;
     sfRectangleShape *shape;
+    float radius;
+    int status;
     sfFloatRect frect;
     sfIntRect irect;
     mobs_annimation_t annimation;
