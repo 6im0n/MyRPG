@@ -11,6 +11,7 @@
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
+    #include "ressources/textures.h"
 
 typedef enum e_id_component {
     ID_UNDEFINED,
@@ -119,6 +120,7 @@ typedef struct s_character {
     character_annimation_t annimation;
     sfTime time;
     key_player_t key;
+    texture_t tx;
 } character_t;
 
 typedef struct s_colors {

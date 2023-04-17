@@ -11,49 +11,6 @@
 #include "app/constants.h"
 #include <fcntl.h>
 #include <stdio.h>
-#include "lib/str.h"
-#include "lib/tools.h"
-
-static void display_data(FILE *fd, char *prefix, char *data)
-{
-    int len_prefix = my_strlen(prefix);
-    int len_data = my_strlen(data);
-    int len = len_prefix + len_data + 3;
-    char *prompt = malloc(sizeof(char) + len);
-
-    my_strcpy(prompt, prefix);
-    my_strcat(prompt, ": ");
-    my_strcat(prompt, data);
-    my_strcat(prompt, "\n");
-    fwrite(prompt , 1 , len , fd );
-}
-
-static void save_skills(FILE *fd, skills_t skills, experience_t exp)
-{
-    char *speed = my_char(skills.speed);
-    char *strength = my_char(skills.strength);
-    char *resitance = my_char(skills.resitance);
-    char *level = my_char(exp.level);
-    char *xp = my_char(exp.xp);
-
-    display_data(fd, "Level", level);
-    display_data(fd, "Xp", xp);
-    display_data(fd, "Speed", speed);
-    display_data(fd, "Strength", strength);
-    display_data(fd, "Resitance", resitance);
-}
-
-void app_save_game(app_t *app)
-{
-    FILE *fd = fopen(SAVE_FILE, "w");
-    player_t *player = app->element->player;
-
-    if (!fd)
-        return;
-    save_skills(fd, player->skills, player->exprerience);
-    fclose(fd);
-    (void) app;
-}
 
 void launch_game_resume(node_component_t *component,
 event_t *event, app_t *app)

@@ -106,6 +106,7 @@ _SRC =			main.c \
 				types/app/icon.c \
 				types/app/mouse.c \
 				types/app/state.c \
+				types/app/save.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
