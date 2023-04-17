@@ -22,6 +22,7 @@ static bool mob_intersect_player(app_t *app, node_mob_t *mob)
 static bool finish_animation(node_mob_t *mob)
 {
     if (mob->annimation.index > mob->annimation.max){
+        mob->annimation.index = 0;
         return true;
     }
     return false;
@@ -45,7 +46,6 @@ app_t *app)
         } else {
             mob->status = 0;
             mob->irect.top = 55;
-            mob->annimation.index = 0;
             mob->annimation.max = 7;
             sfRectangleShape_setOutlineColor(mob->shape, sfGreen);
             sfRectangleShape_setOutlineThickness(mob->shape, 2);
