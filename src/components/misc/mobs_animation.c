@@ -44,7 +44,7 @@ static void render_mobs_annimation(app_t *app, node_mob_t *mob)
         sfClock_restart(mob->clock);
     }
 }
-
+#include <stdio.h>
 void mobs_render_annimation(app_t *app)
 {
     node_mob_t *tmp = app->element->mobs->first;

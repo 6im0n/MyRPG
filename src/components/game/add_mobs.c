@@ -11,7 +11,7 @@
 static node_mob_t *init_game_mobs(node_mob_t *mob,
     sfVector2f position, ressources_t ressources)
 {
-    sfVector2f size = {100, 80};
+    sfVector2f size = {70, 55};
     sfFloatRect mob_frect = {0, 0, 0, 0};
     sfRectangleShape *shape = sfRectangleShape_create();
     sfIntRect in_rect = {73, 384 + 55, 100, 80};

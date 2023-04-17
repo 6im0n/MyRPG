@@ -75,8 +75,8 @@ list_components_t *list)
     init_game_player(app, ressources);
     init_player_animation(app);
 
-    add_new_mob(app, ressources, (sfVector2f){2420, 6375});
-    add_new_mob(app, ressources, (sfVector2f){2420 - 200, 6375 - 200});
+    add_new_mob(app, ressources, (sfVector2f){2696, 6214});
+    add_new_mob(app, ressources, (sfVector2f){2292, 6446});
     sfRectangleShape_setOutlineColor(app->element->player->character->shape,
                                     sfRed);
     sfRectangleShape_setOutlineThickness (
