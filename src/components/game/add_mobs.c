@@ -14,7 +14,7 @@ static node_mob_t *init_game_mobs(node_mob_t *mob,
     sfVector2f size = {70, 55};
     sfFloatRect mob_frect = {0, 0, 0, 0};
     sfRectangleShape *shape = sfRectangleShape_create();
-    sfIntRect in_rect = {73, 384 + 55, 100, 80};
+    sfIntRect in_rect = {73, 0 + 55, 100, 80};
 
     mob->clock = sfClock_create();
     sfRectangleShape_setSize(shape, size);
@@ -22,6 +22,7 @@ static node_mob_t *init_game_mobs(node_mob_t *mob,
     sfRectangleShape_setTexture(shape, ressources.textures[TX_MOBS], sfFalse);
     sfRectangleShape_setTextureRect(shape, in_rect);
     mob_frect = sfRectangleShape_getGlobalBounds(shape);
+    mob->status = 0;
     mob->shape = shape;
     mob->irect = in_rect;
     mob->frect = mob_frect;
@@ -31,7 +32,7 @@ static node_mob_t *init_game_mobs(node_mob_t *mob,
 static node_mob_t *init_mobs_animation(node_mob_t *mob)
 {
     new_mobs_annimation(mob, (sfIntRect){.height = 0, .left = 224,
-        .top = 0, .width = 0}, 0, 15);
+        .top = 0, .width = 0}, 0, 7);
     mob->annimation.speed = 0.1;
     return mob;
 }
