@@ -6,6 +6,7 @@
 */
 
 #include "components/components.h"
+#include "components/mobs.h"
 #include "types/type.h"
 
 static void draw_mobs_annimation(app_t *app, node_mob_t *mob, sfIntRect rect)
@@ -50,10 +51,13 @@ void mobs_render_annimation(app_t *app)
     node_mob_t *tmp = app->element->mobs->first;
     while (tmp) {
         render_mobs_annimation(app, tmp);
+
         sfRectangleShape_setOutlineColor(tmp->shape, sfRed);
         sfRectangleShape_setOutlineThickness(tmp->shape, 2);
+        //mobs_attack(tmp, app);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->shape, NULL);
         tmp = tmp->next;
     }
+    mobs_render_annimation(app);
 }

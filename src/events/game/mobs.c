@@ -5,10 +5,10 @@
 ** mobs
 */
 
-#include "components/components.h"
+#include "components/mobs.h"
 #include "types/type.h"
 
-bool mobs_next_to_player(app_t *app, node_mob_t *mob)
+static bool mob_intersect_player(app_t *app, node_mob_t *mob)
 {
     sfFloatRect rect;
     sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
@@ -19,24 +19,14 @@ bool mobs_next_to_player(app_t *app, node_mob_t *mob)
     return on_me;
 }
 
-void mobs_near(list_components_t *component,
-app_t *app, event_t *event)
+void mobs_attack(node_mob_t *mob,
+app_t *app)
 {
-    (void) event;
-    node_component_t *tmp = component->first;
-    node_component_t *tmp2 = tmp;
-
-    if (!component)
-        return;
-    while (tmp != NULL) {
-        tmp2 = tmp->next;
-        if (tmp->features.radius > 0 && component_next_to_player(tmp, app)) {
-            tmp->state = ST_SET_NEAR(tmp, true);
-            component_next_to(tmp, event, app);
-        } else {
-            tmp->state = ST_SET_NEAR(tmp, false);
-            component_ondisabled(tmp, event, app);
-        }
-        tmp = tmp2;
+    if (mob_intersect_player(app, mob)) {
+        sfRectangleShape_setOutlineColor(mob->shape, sfRed);
+        sfRectangleShape_setOutlineThickness(mob->shape, 2);
+    } else {
+        sfRectangleShape_setOutlineColor(mob->shape, sfTransparent);
+        sfRectangleShape_setOutlineThickness(mob->shape, 0);
     }
 }
