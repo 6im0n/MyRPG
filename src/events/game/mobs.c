@@ -14,15 +14,7 @@ bool mobs_next_to_player(app_t *app, node_mob_t *mob)
     sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
             app->element->player->character->shape);
     bool on_me = false;
-    int radius = mob->radius;
-
-    if (mob->radius == 0)
-        return false;
     rect = sfRectangleShape_getGlobalBounds(mob->shape);
-    rect.top -= radius;
-    rect.left -= radius;
-    rect.width += radius * 2;
-    rect.height += radius * 2;
     on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
     return on_me;
 }
