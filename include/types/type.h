@@ -188,6 +188,7 @@ typedef struct s_node_mob {
     sfRectangleShape *shape;
     float radius;
     int status;
+    sfCircleShape *prox_shape;
     sfFloatRect frect;
     sfIntRect irect;
     mobs_annimation_t annimation;
