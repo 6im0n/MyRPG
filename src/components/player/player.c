@@ -29,8 +29,8 @@ static experience_t init_experience(void)
 {
     experience_t xp;
 
-    xp.level = 0;
-    xp.xp = 0;
+    xp.level = 5;
+    xp.xp = 2;
     return xp;
 }
 
@@ -38,8 +38,8 @@ static skills_t init_skills(void)
 {
     skills_t skills;
 
-    skills.resitance = 0;
-    skills.speed = 0;
+    skills.resitance = 15;
+    skills.speed = 20;
     skills.strength = 0;
     return skills;
 }

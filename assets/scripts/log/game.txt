@@ -1,1 +1,5 @@
-TEXT tests okay
+Level: 5
+Xp: 2
+Speed: 20
+Strength: 0
+Resitance: 15
