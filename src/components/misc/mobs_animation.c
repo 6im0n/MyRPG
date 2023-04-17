@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** RPG [WSL : Ubuntu]
+** RPG
 ** File description:
 ** Annimation
 */
