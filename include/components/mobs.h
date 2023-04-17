@@ -40,6 +40,8 @@ node_mob_t *node_mobs_init(ressources_t ressources);
 
 void add_new_mob(app_t *app, ressources_t ressources, sfVector2f possition);
 
+void mobs_attack(node_mob_t *mob,
+app_t *app);
 //-------//
 
 #endif /* !mobs_H_ */

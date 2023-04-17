@@ -15,11 +15,12 @@
 #include "event/global.h"
 #include "lib/output.h"
 #include "app/constants.h"
+#include "types/node.h"
 
 static void bouton_newgame(app_t *app, ressources_t ressources,
                             list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 - 250,
         W_VIDEO_MODE.height / 2};
     sfVector2f size = {340, 90};
@@ -42,7 +43,7 @@ static void bouton_newgame(app_t *app, ressources_t ressources,
 static void bouton_resume(app_t *app, ressources_t ressources,
                             list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2 + 250,
         W_VIDEO_MODE.height / 2};
     sfVector2f size = {340, 90};
@@ -67,7 +68,7 @@ static void bouton_resume(app_t *app, ressources_t ressources,
 static void bouton_home(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {W_VIDEO_MODE.width / 2,
         W_VIDEO_MODE.height / 2};
     sfVector2f size = {50, 50};

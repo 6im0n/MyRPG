@@ -97,7 +97,7 @@ void app_component_render(app_t *app, list_components_t *components)
         component_render_dispatch_form(app, tmp);
         component_render_dispatch(app, tmp);
         component_render_background(app, tmp);
-        if (tmp->id >= ID_SLOT_1 && tmp->id <= ID_SLOT_8)
+        if (tmp && tmp->id >= ID_SLOT_1 && tmp->id <= ID_SLOT_8)
             render_inventory(app, tmp->id,
             sfRectangleShape_getPosition(tmp->object->rectangle));
         tmp = tmp->next;

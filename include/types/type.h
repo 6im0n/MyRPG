@@ -12,6 +12,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include "ressources/textures.h"
+    #include "ressources/quests.h"
 
 typedef enum e_id_component {
     ID_UNDEFINED,
@@ -31,6 +32,8 @@ typedef enum e_id_component {
     ID_CURSOR,
     ID_S_PLAYER,
     ID_RESUME,
+    ID_XP,
+    ID_LEVEL,
     ID_LEN
 } component_id_t;
 
@@ -88,6 +91,7 @@ typedef struct s_list_item {
 typedef struct s_exprerience {
     int xp;
     int level;
+    float max_xp;
 } experience_t;
 
 typedef struct s_skills {
@@ -158,6 +162,9 @@ typedef struct s_node_quests {
     int current;
     int goal;
     bool finish;
+    sfRectangleShape *shape;
+    sfText *txt;
+    quests_t id;
     struct s_node_quests *prev;
 } node_quests_t;
 
@@ -182,6 +189,8 @@ typedef struct s_mobs_annimation {
 typedef struct s_node_mob {
     sfTexture *texture;
     sfRectangleShape *shape;
+    float radius;
+    int status;
     sfFloatRect frect;
     sfIntRect irect;
     mobs_annimation_t annimation;
@@ -231,6 +240,13 @@ typedef struct s_sounds {
     bool mute;
 } sounds_t;
 
+typedef struct s_loader_components {
+    sfRectangleShape *shape;
+    sfRectangleShape *cursor;
+    sfRectangleShape *logo;
+    sfText *text;
+} loader_t;
+
 typedef struct s_states {
     stage_t stage;
     stage_t back;
@@ -261,6 +277,7 @@ typedef struct s_app {
     sfView *view;
     sfRectangleShape *layer;
     elements_t *element;
+    loader_t *loader;
 } app_t;
 
 typedef struct s_event {

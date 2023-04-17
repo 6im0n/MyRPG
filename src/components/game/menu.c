@@ -15,11 +15,12 @@
 #include "components/mobs.h"
 #include "types/type.h"
 #include "parsing/buttons.h"
+#include "types/node.h"
 
 static void game_background(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {0, 0};
     sfVector2f position = {middle.x, middle.y };
     sfVector2u size = {0, 0};
@@ -74,8 +75,8 @@ list_components_t *list)
     init_game_player(app, ressources);
     init_player_animation(app);
 
-    add_new_mob(app, ressources, (sfVector2f){2420, 6375});
-    add_new_mob(app, ressources, (sfVector2f){2420 - 200, 6375 - 200});
+    add_new_mob(app, ressources, (sfVector2f){2696, 6214});
+    add_new_mob(app, ressources, (sfVector2f){2292, 6446});
     sfRectangleShape_setOutlineColor(app->element->player->character->shape,
                                     sfRed);
     sfRectangleShape_setOutlineThickness (

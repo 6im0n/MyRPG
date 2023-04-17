@@ -120,6 +120,7 @@ typedef enum e_disabled {
 
 typedef enum e_nextto {
     QUEST_MAIN_FIRST_DIALOG_NEXTTO,
+    QUEST_MAIN_FIRST_OBJ_DIALOG_NEXTTO,
     NEXT_TO_LEN
 } next_to_t;
 
@@ -188,6 +189,10 @@ typedef struct parsing_s {
     animation_t animation;
     component_id_t id;
     int radius;
+    char *text;
+    int text_size;
+    sfVector2f text_pos;
+    int text_pos_type;
 } parsing_t;
 
 /**

@@ -31,8 +31,13 @@ void get_position(char *nb, parsing_t *element);
 void get_id(char *nb, parsing_t *element);
 void get_next_to(char *nb, parsing_t *element);
 void get_radius(char *nb, parsing_t *element);
+void get_text_pos_type(char *nb, parsing_t *element);
+void get_text_pos(char *nb, parsing_t *element);
+void get_text_size(char *nb, parsing_t *element);
+void get_text(char *text, parsing_t *element);
 
 void clean_char(char *data, int size);
+void parsing_init(parsing_t *elements);
 void manage_number(char *file, parsing_t *element, int *index);
 
 #endif /* BUTTONS_UTILS_H_ */

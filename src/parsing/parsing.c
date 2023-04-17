@@ -18,28 +18,13 @@
 #include "parsing/utils.h"
 #include "types/node.h"
 
-static void parsing_init(parsing_t *elements)
+static void parsing_set_text(node_component_t *obj, parsing_t *element)
 {
-    elements->types[0] = '\0';
-    elements->position = (sfVector2f){-1, -1};
-    elements->size = (sfVector2f){-1, -1};
-    elements->rect = (sfIntRect){-1, -1, -1, -1};
-    elements->type = C_TYPES_LEN;
-    elements->c_size = C_SIZE_LEN;
-    elements->style = (component_styles){TX_LEN, SD_LEN, FT_LEN};
-    elements->function.clicked = CLICKED_LEN;
-    elements->function.hover = HOVER_LEN;
-    elements->function.disabled = DISABLED_LEN;
-    elements->function.moved = MOVED_LEN;
-    elements->function.nonclicked = NONCLICKED_LEN;
-    elements->function.pressed = KEYPRESSED_LEN;
-    elements->function.released = KEYRELEASED_LEN;
-    elements->function.next_to = NEXT_TO_LEN;
-    elements->animation.rect = (sfIntRect){-1, -1, -1, -1};
-    elements->animation.index = -1;
-    elements->animation.max = -1;
-    elements->animation.speed = -1;
-    elements->radius = 0;
+    if (!element->text)
+        return;
+    set_component_text(obj, element->text, sfBlack, element->text_size);
+    if (element->text_pos_type != -1)
+        set_component_text_pos(obj, element->text_pos, element->text_pos_type);
 }
 
 void parsing_set_functions(node_component_t *obj, parsing_t *element)
@@ -58,6 +43,7 @@ void parsing_set_functions(node_component_t *obj, parsing_t *element)
         obj->events.onkeyrelease = released_event[element->function.released];
     if (element->function.next_to != NEXT_TO_LEN)
         obj->events.next_to = next_to_event[element->function.next_to];
+    parsing_set_text(obj, element);
 }
 
 static void parsing_append(parsing_t *element, ressources_t ressources,

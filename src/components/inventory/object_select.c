@@ -14,11 +14,12 @@
 #include "event/start_menu/bouton.h"
 #include "event/inventory/bouton.h"
 #include "app/constants.h"
+#include "types/node.h"
 
 static void selector(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2, 600};
     sfVector2f position = {middle.x, 380};
     sfVector2f size = {90, 90};
@@ -39,7 +40,7 @@ list_components_t *list)
 static void main_title(app_t *app, ressources_t ressources,
                         list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = sfRectangleShape_getPosition(
         list->last->object->rectangle);
     sfVector2f size = {50, 50};
@@ -61,7 +62,7 @@ static void main_title(app_t *app, ressources_t ressources,
 static void bouton_delete(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {-20, -20};
     sfVector2f size = {30, 30};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),
@@ -85,7 +86,7 @@ list_components_t *list)
 static void bouton_equipe(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {-20, -20};
     sfVector2f size = {30, 30};
     sfFloatRect rect = {.height = size.y, .left = (position.x - (size.x / 2)),

@@ -1,11 +1,12 @@
 /*
 ** EPITECH PROJECT, 2023
-** RPG [WSL : Ubuntu]
+** RPG
 ** File description:
 ** Annimation
 */
 
 #include "components/components.h"
+#include "components/mobs.h"
 #include "types/type.h"
 
 static void draw_mobs_annimation(app_t *app, node_mob_t *mob, sfIntRect rect)
@@ -48,10 +49,12 @@ static void render_mobs_annimation(app_t *app, node_mob_t *mob)
 void mobs_render_annimation(app_t *app)
 {
     node_mob_t *tmp = app->element->mobs->first;
-    while (tmp) {
+    while (tmp != NULL) {
         render_mobs_annimation(app, tmp);
+
         sfRectangleShape_setOutlineColor(tmp->shape, sfRed);
         sfRectangleShape_setOutlineThickness(tmp->shape, 2);
+        mobs_attack(tmp, app);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->shape, NULL);
         tmp = tmp->next;

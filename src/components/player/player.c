@@ -29,17 +29,16 @@ static character_t *init_character(ressources_t *ressources)
 static experience_t init_experience(void)
 {
     experience_t xp;
-
-    xp.level = 5;
-    xp.xp = 2;
+    xp.level = 0;
+    xp.xp = 0;
+    xp.max_xp = 100.0;
     return xp;
 }
 
 static skills_t init_skills(void)
 {
     skills_t skills;
-
-    skills.resitance = 15;
+    skills.resitance = 0;
     skills.speed = 20;
     skills.strength = 0;
     return skills;

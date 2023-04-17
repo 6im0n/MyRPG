@@ -20,12 +20,10 @@ int app_run(void);
 /**
  * @brief Create a new app object which contains app
  * main objects : window, clock
- * @param window_mode Video mode to set to window object
  * @param window_title Title of app
  * @param window_frame_rate Frame rate to set to window object
  */
-app_t app_create(ressources_t *ressources, sfVideoMode window_mode,
-char *window_title, int window_frame_rate);
+app_t app_create(char *window_title, int window_frame_rate);
 
 /**
  * @brief Create a icon for the application
@@ -100,5 +98,45 @@ ressources_t *ressources);
  * @param app app
  */
 void app_save_game(app_t *app);
+
+/**
+ * @brief Load app
+ * @param app app
+ * @param ressources ressources
+ */
+void app_load(app_t *app, ressources_t *ressources);
+
+/**
+ * @brief Loader initialization
+ * @return loader_t*
+ */
+loader_t *loader_init(void);
+
+/**
+ * @brief Display the loader
+ * @param app app
+ * @param shape shape
+ */
+void loader_display(app_t *app, sfRectangleShape *shape);
+
+/**
+ * @brief Display loader text
+ * @param app app
+ * @param shape shape
+ * @param content content
+ */
+void loader_text_display(app_t *app, sfRectangleShape *shape, char *content);
+
+/**
+ * @brief Render player and inventory
+ * @param app app
+ */
+void app_player_render(app_t *app);
+
+/**
+ * @brief Render quests
+ * @param app app
+ */
+void app_quests_dispatch(app_t *app);
 
 #endif /* !APP_H_ */
