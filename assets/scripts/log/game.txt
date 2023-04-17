@@ -1,7 +1,0 @@
-Position: 3303 6148
-Texture_player: 11
-Level: 5
-Xp: 2
-Speed: 8
-Strength: 10
-Resitance: 12

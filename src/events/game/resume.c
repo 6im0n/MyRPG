@@ -20,6 +20,7 @@ event_t *event, app_t *app)
     if (component->features.select == false)
         return;
     event_play_music(component, app);
+    parsing_save(app);
     app->state->back = app->state->stage;
     app->state->stage = S_GAME;
 }
