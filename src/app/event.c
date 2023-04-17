@@ -54,6 +54,14 @@ event_t *event, main_components_t *components)
     }
 }
 
+static void reset_move_player(app_t *app)
+{
+    app->element->player->character->key.left = false;
+    app->element->player->character->key.right = false;
+    app->element->player->character->key.up = false;
+    app->element->player->character->key.down = false;
+}
+
 static void component_event_dispatch(app_t *app,
 event_t *event, main_components_t *components)
 {
@@ -62,9 +70,11 @@ event_t *event, main_components_t *components)
             components_dispatch_event(components->start_menu, event, app);
             break;
         case S_INVENTORY:
+            reset_move_player(app);
             components_dispatch_event(components->inventory, event, app);
             break;
         case S_SETTINGS:
+            reset_move_player(app);
             components_dispatch_event(components->setting, event, app);
             break;
         case S_GAME:
