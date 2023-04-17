@@ -72,8 +72,6 @@ app_t *app)
     }
 }
 
-// change to make !
-// float speed = mob->skill.speed;
 void mobs_move_to_player(node_mob_t *mob,
 app_t *app)
 {
