@@ -54,7 +54,7 @@ void mobs_render_annimation(app_t *app)
 
         sfRectangleShape_setOutlineColor(tmp->shape, sfRed);
         sfRectangleShape_setOutlineThickness(tmp->shape, 2);
-        //mobs_attack(tmp, app);
+        mobs_attack(tmp, app);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->shape, NULL);
         tmp = tmp->next;
