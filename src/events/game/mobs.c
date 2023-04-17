@@ -39,6 +39,7 @@ app_t *app)
         mob->annimation.max = 16;
         sfRectangleShape_setOutlineColor(mob->shape, sfRed);
         sfRectangleShape_setOutlineThickness(mob->shape, 2);
+        return;
     }
     if (mob->status != 0 && !finish_animation(mob)) {
         sfRectangleShape_setOutlineColor(mob->shape, sfYellow);
