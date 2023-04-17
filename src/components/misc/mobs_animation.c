@@ -49,7 +49,7 @@ static void render_mobs_annimation(app_t *app, node_mob_t *mob)
 void mobs_render_annimation(app_t *app)
 {
     node_mob_t *tmp = app->element->mobs->first;
-    while (tmp) {
+    while (tmp != NULL) {
         render_mobs_annimation(app, tmp);
 
         sfRectangleShape_setOutlineColor(tmp->shape, sfRed);
