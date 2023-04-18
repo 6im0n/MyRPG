@@ -20,9 +20,9 @@ static void mobs_annimation_edit(app_t *app, node_mob_t *mob)
     sfIntRect rect = mob->irect;
     sfIntRect rect_a = mob->annimation.rect;
 
-    if ( mob->annimation.index > mob->annimation.max) {
+    if (mob->annimation.index > mob->annimation.max) {
         mob->annimation.index = 0;
-        mob->hit = false;
+        mob->state.hit = false;
     }
     rect_a.height *= mob->annimation.index;
     rect_a.top *= mob->annimation.index;

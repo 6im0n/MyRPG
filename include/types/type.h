@@ -190,6 +190,7 @@ typedef struct s_mob_states {
     bool walk;
     bool attack;
     bool die;
+    bool hit;
 } mob_states_t;
 
 typedef struct s_node_mob {
@@ -203,8 +204,6 @@ typedef struct s_node_mob {
     sfClock *clock;
     skills_t skills;
     mob_states_t state;
-    bool hit;
-    int state;
     struct s_node_mob *next;
     struct s_node_mob *prev;
 } node_mob_t;

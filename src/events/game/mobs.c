@@ -31,19 +31,10 @@ static bool mob_intersect_player(app_t *app, node_mob_t *mob)
     return on_me;
 }
 
-static bool finish_animation(node_mob_t *mob)
-{
-    if (mob->annimation.index > mob->annimation.max){
-        mob->annimation.index = 0;
-        return true;
-    }
-    return false;
-}
-
 static void remove_player_life(app_t *app, node_mob_t *mob)
 {
-    if (mob->annimation.index == 8 && !mob->hit) {
-        mob->hit = true;
+    if (mob->annimation.index == 8 && !mob->state.hit) {
+        mob->state.hit = true;
         app->element->player->life--;
     }
 }
