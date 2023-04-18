@@ -61,6 +61,12 @@ event_t *event, app_t *app);
 void launch_game(node_component_t *component,
 event_t *event, app_t *app);
 
+void launch_game_resume(node_component_t *component,
+event_t *event, app_t *app);
+
+void resume_available(node_component_t *component,
+event_t *event, app_t *app);
+
 void event_character1_select_onclick(node_component_t *component,
 event_t *event, app_t *app);
 

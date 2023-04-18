@@ -15,6 +15,7 @@ static void edit_texture_character(app_t *app, texture_t tx)
 
     sfRectangleShape_setTexture(app->element->player->character->shape,
         texture, sfFalse);
+    app->element->player->character->tx = tx;
 }
 
 static void edit_capacity_character(player_t *player,
