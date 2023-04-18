@@ -88,7 +88,6 @@ static void display_inventory(FILE *fd, list_item_t *inventory)
         return;
     clean_char(prompt, len + 2);
     my_strcpy(prompt, "Inventory: ");
-    printf("%s\n", prompt);
     while (tmp != NULL) {
         tmp2 = tmp->next;
         add_item_display(tmp, str, prompt, &len);
@@ -140,7 +139,6 @@ static void display_quest(FILE *fd, list_quests_t *quests)
     while (tmp != NULL) {
         tmp2 = tmp->next;
         add_quest_display(tmp, str, prompt, &len);
-        printf("%d\n", tmp->id);
         tmp = tmp2;
     }
     my_strcat(prompt, "\n");
