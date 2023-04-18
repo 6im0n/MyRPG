@@ -92,8 +92,8 @@ main_components_t *components)
         render_in_game(app, components->inventory);
         app_quests_dispatch(app);
     }
+    popup_render(app);
     app_component_render(app, components->cursor);
     sfView_reset(app->view, (sfFloatRect){0, 0, 1920, 1080});
-    popup_render(app);
     sfRenderWindow_display(app->window);
 }
