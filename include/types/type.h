@@ -197,17 +197,15 @@ typedef struct s_mob_states {
 } mob_states_t;
 
 typedef struct s_node_mob {
+    float radius;
     sfTexture *texture;
     sfRectangleShape *shape;
-    float radius;
-    sfCircleShape *prox_shape;
-    sfTime time;
     sfFloatRect frect;
     sfIntRect irect;
-    mobs_annimation_t annimation;
     sfClock *clock;
     skills_t skills;
     mob_states_t state;
+    mobs_annimation_t annimation;
     struct s_node_mob *next;
     struct s_node_mob *prev;
 } node_mob_t;
@@ -218,6 +216,9 @@ typedef struct list_mobs {
     struct s_node_mob *last;
 } list_mobs_t;
 
+//==================================================
+// GAME
+//==================================================
 typedef struct s_game_elements {
     list_item_t *items;
     player_t *player;
@@ -295,7 +296,6 @@ typedef struct s_event {
     sfEvent original;
     mouse_t *mouse;
 } event_t;
-
 //==================================================
 // RESSOURCES
 //==================================================
