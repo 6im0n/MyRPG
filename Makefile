@@ -110,9 +110,10 @@ _SRC =			main.c \
 				\
 				events/game/resume.c \
 				events/game/resume_load.c \
-        \
+        		\
 				events/game/mobs.c\
 				events/game/mobs_action.c\
+				events/game/mobs_life.c\
 				\
 				events/game/quests/main.c \
 				\
