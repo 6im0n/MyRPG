@@ -47,7 +47,7 @@ static void init_game_player(app_t *app, ressources_t ressources)
     sfFloatRect player_frect = {0, 0, 0, 0};
     sfRectangleShape *shape = sfRectangleShape_create();
     sfVector2f middle = {2420, 6375};
-    sfIntRect in_rect = {16 + 48, 20, 17, 24};
+    sfIntRect in_rect = {16 + 48, 20, 17, 29};
 
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setPosition(shape, middle);

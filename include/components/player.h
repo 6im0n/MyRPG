@@ -58,6 +58,8 @@ void new_player_annimation(app_t *app, sfIntRect annimation, int index,
 sfVector2f change_animation_direction(app_t *app, sfVector2f pos, float move,
 int id);
 
+void player_attack(app_t *app);
+
 sfVector2f move_player_on_wall_vertical(float move,
     sfVector2f position, app_t *app, bool *array);
 

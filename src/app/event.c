@@ -101,6 +101,7 @@ void app_handle_events(app_t *app, main_components_t *components)
     }
     if (app->state->stage == S_GAME) {
         move_player(app);
+        player_attack(app);
         component_near(components->game, app, &event);
     }
 }
