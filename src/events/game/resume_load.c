@@ -67,7 +67,7 @@ static void interpreter(app_t *app,
 char *file, int index_line, int explore)
 {
     char *str = malloc(sizeof(char) * (index_line + 1));
-    
+
     if (!str)
         return NULL;
 
