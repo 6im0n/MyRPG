@@ -55,6 +55,7 @@ void mobs_render_annimation(app_t *app)
         render_mobs_annimation(app, tmp);
         mobs_move_to_player(tmp, app);
         mobs_attack(tmp, app);
+        mob_health_bar(tmp, app);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->shape, NULL);
         tmp = tmp->next;
