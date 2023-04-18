@@ -13,7 +13,7 @@
 #include "components/mobs.h"
 #include "types/list.h"
 #include "lib/output.h"
-#include <stdio.h>
+#include "components/popup.h"
 
 app_t app_create(char *window_title, int window_frame_rate)
 {
@@ -42,6 +42,7 @@ app_t app_create(char *window_title, int window_frame_rate)
 void app_destroy(app_t *app)
 {
     if (app) {
+        list_pop_up_free(app->element->pop_up);
         free(app->loader);
         list_quests_free(app->element->quests);
         player_destroy(app->element->player);

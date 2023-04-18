@@ -16,6 +16,7 @@ _SRC =			main.c \
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \
+				app/popup.c \
 				app/player.c \
 				\
 				ressources/ressources.c \
@@ -125,6 +126,8 @@ _SRC =			main.c \
 				types/list/mobs/list.c \
 				types/list/mobs/append.c \
 				types/list/mobs/node.c \
+				types/list/pop_up/list.c \
+				types/list/pop_up/append.c \
 				\
 				types/node/component/node.c \
 				\
