@@ -20,9 +20,10 @@ static void mobs_annimation_edit(app_t *app, node_mob_t *mob)
     sfIntRect rect = mob->irect;
     sfIntRect rect_a = mob->annimation.rect;
 
-    if ( mob->annimation.index >
-    mob->annimation.max)
+    if ( mob->annimation.index > mob->annimation.max) {
         mob->annimation.index = 0;
+        mob->hit = false;
+    }
     rect_a.height *= mob->annimation.index;
     rect_a.top *= mob->annimation.index;
     rect_a.left *= mob->annimation.index;
@@ -49,9 +50,12 @@ static void render_mobs_annimation(app_t *app, node_mob_t *mob)
 void mobs_render_annimation(app_t *app)
 {
     node_mob_t *tmp = app->element->mobs->first;
+
     while (tmp != NULL) {
         render_mobs_annimation(app, tmp);
         mobs_move_to_player(tmp, app);
+        sfRectangleShape_setOutlineColor(tmp->shape, sfRed);
+        sfRectangleShape_setOutlineThickness(tmp->shape, 2);
         mobs_attack(tmp, app);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->shape, NULL);

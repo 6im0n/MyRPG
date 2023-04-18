@@ -22,7 +22,7 @@ node_mob_t *node_mobs_init(ressources_t ressources)
     sfIntRect rect = {0, 0, 0, 0};
 
     if (!tmp)
-        return 0;
+        return NULL;
     sfFloatRect frect = {0, 0, 0, 0};
     sfIntRect irect = {0, 0, 0, 0};
     tmp->texture = ressources.textures[TX_APP_ICON];
@@ -31,6 +31,7 @@ node_mob_t *node_mobs_init(ressources_t ressources)
     tmp->irect = irect;
     tmp->annimation = (mobs_annimation_t){rect, 0, 0, 0, 0};
     init_state(tmp);
+    tmp->hit = false;
     tmp->next = NULL;
     tmp->prev = NULL;
     return tmp;

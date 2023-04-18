@@ -93,5 +93,7 @@ main_components_t *components)
         app_quests_dispatch(app);
     }
     app_component_render(app, components->cursor);
+    sfView_reset(app->view, (sfFloatRect){0, 0, 1920, 1080});
+    popup_render(app);
     sfRenderWindow_display(app->window);
 }
