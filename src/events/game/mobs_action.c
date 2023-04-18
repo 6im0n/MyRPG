@@ -36,10 +36,10 @@ static float update_speed_mob(app_t *app, node_mob_t *mob)
     float seconds = time.microseconds / 1000000.0;
     sfTime old_time = mob->time;
     float seconds_old = old_time.microseconds / 1000000.0;
-    mob->time = time;
     float spend = seconds - seconds_old;
-    speed *= spend;
 
+    mob->time = time;
+    speed *= spend;
     return speed;
 }
 
