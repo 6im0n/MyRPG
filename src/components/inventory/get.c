@@ -19,4 +19,5 @@ void components_get_inventory(app_t *app, ressources_t ressources,
     if (!list)
         return;
     components_inventory(app, ressources, list);
+    components_levels(app, ressources, list);
 }

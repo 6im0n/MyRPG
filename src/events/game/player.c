@@ -16,20 +16,15 @@ static void event_bouton_help_move_onkeypress(app_t *app, int id)
 {
     if (id == 1){
         app->element->player->character->key.up = true;
-        app->element->player->character->irect.top = 260;
     }
     if (id == 2){
         app->element->player->character->key.left = true;
-        app->element->player->character->irect.top = 357;
-
     }
     if (id == 3){
         app->element->player->character->key.down = true;
-        app->element->player->character->irect.top = 164;
     }
     if (id == 4){
         app->element->player->character->key.right = true;
-        app->element->player->character->irect.top = 212;
     }
 }
 

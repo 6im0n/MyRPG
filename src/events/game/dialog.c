@@ -11,6 +11,8 @@
 #include "event/global.h"
 #include "components/new.h"
 #include "event/start_menu/bouton.h"
+#include "components/player.h"
+#include "types/list.h"
 
 void dialog_main_quests_next_to(node_component_t *component,
 event_t *event, app_t *app)
@@ -44,14 +46,38 @@ event_t *event, app_t *app)
     sfRectangleShape_setScale(component->prev->object->rectangle, scale);
 }
 
+static bool find_result_quests(list_quests_t *list, quests_t quest)
+{
+    node_quests_t *tmp = list->first;
+    node_quests_t *tmp2 = tmp;
+
+    while (tmp != NULL) {
+        tmp2 = tmp->next;
+        if (tmp->id == quest && tmp->finish == true)
+            return true;
+        tmp = tmp2;
+    }
+    return false;
+}
+
 void dialog_main_quests_onkeypress(node_component_t *component,
 event_t *event, app_t *app)
 {
     (void) event;
-    (void) app;
-    (void) component;
     if (!ST_IS_NEAR(component))
         return;
-    if (sfKeyboard_isKeyPressed(sfKeyI))
-        printf("OPEN DIALOG\n");
+    if (sfKeyboard_isKeyPressed(sfKeyI)) {
+        if (app->element->quests->len == 0)
+            quest_append(app->element->quests, Q_MAIN_P1);
+        if (app->element->quests->len == 1 &&
+            find_result_quests(app->element->quests, Q_MAIN_P1) == true) {
+            list_quest_delete(app->element->quests, Q_MAIN_P1);
+            add_item_player(app, I_SWORD_LEV3);
+            quest_append(app->element->quests, Q_MAIN_P2);
+            }
+        if (find_result_quests(app->element->quests, Q_MAIN_P2) == true) {
+            list_quest_delete(app->element->quests, Q_MAIN_P2);
+            add_item_player(app, I_HAMMER_LEV4);
+            }
+    }
 }

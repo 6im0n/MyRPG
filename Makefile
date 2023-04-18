@@ -12,10 +12,12 @@ _SRC =			main.c \
 				app/event.c \
 				app/render.c \
 				app/event_game.c \
+				app/event_game_player.c \
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \
 				app/popup.c \
+				app/player.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
@@ -73,6 +75,9 @@ _SRC =			main.c \
 				components/inventory/menu.c \
 				components/inventory/object.c \
 				components/inventory/object_select.c \
+				components/inventory/levels/menu.c \
+				components/inventory/quests/menu.c \
+				components/inventory/quests/prompt.c \
 				components/setting/get.c \
 				components/setting/menu.c \
 				components/setting/sound.c \
@@ -96,16 +101,21 @@ _SRC =			main.c \
 				events/menu/help/keypress.c \
 				events/inventory/select.c \
 				events/inventory/selector.c \
+				events/levels/levels.c \
 				events/game/player.c \
 				events/game/collisions.c \
 				events/game/dialog.c \
 				events/game/lunch.c \
 				events/game/select_character.c \
+				events/game/mobs.c\
+				events/game/quests/main.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \
 				types/app/mouse.c \
 				types/app/state.c \
+				types/app/load.c \
+				types/app/loader.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
@@ -129,10 +139,13 @@ _SRC =			main.c \
 				parsing/size.c \
 				parsing/type.c \
 				parsing/functions.c \
+				parsing/init.c \
+				parsing/text.c \
 				\
 				utils/file.c \
 				types/list/player/switch.c \
 				types/list/player/remove.c \
+				types/list/quest/remove.c \
 
 SRCDIR = 		src/
 

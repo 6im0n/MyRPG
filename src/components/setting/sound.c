@@ -13,6 +13,7 @@
 #include "ressources/textures.h"
 #include "components/get.h"
 #include "event/setting/bouton.h"
+#include "types/node.h"
 
 static sfVector2f find_position_volume(app_t *app, list_components_t *list)
 {
@@ -28,7 +29,7 @@ static sfVector2f find_position_volume(app_t *app, list_components_t *list)
 void components_menu_setting_selector_volume_music(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2 - 200,
         370};
     sfVector2f position = {middle.x, middle.y };
@@ -53,7 +54,7 @@ ressources_t ressources, list_components_t *list)
 void components_menu_setting_selector_volume_music_cursor(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = find_position_volume(app, list);
     sfVector2f size = {30 / 1.3, 50 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),
@@ -74,7 +75,7 @@ ressources_t ressources, list_components_t *list)
 void components_menu_setting_selector_volume_sound(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2 - 200,
         420};
     sfVector2f position = {middle.x, middle.y };
@@ -99,7 +100,7 @@ ressources_t ressources, list_components_t *list)
 void components_menu_setting_selector_volume_sound_cursor(app_t *app,
 ressources_t ressources, list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = find_position_volume(app, list);
     sfVector2f size = {30 / 1.3, 50 / 1.3};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),

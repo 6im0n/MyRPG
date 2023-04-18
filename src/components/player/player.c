@@ -31,6 +31,7 @@ static experience_t init_experience(void)
 
     xp.level = 0;
     xp.xp = 0;
+    xp.max_xp = 100.0;
     return xp;
 }
 
@@ -39,7 +40,7 @@ static skills_t init_skills(void)
     skills_t skills;
 
     skills.resitance = 0;
-    skills.speed = 50;
+    skills.speed = 20;
     skills.strength = 0;
     return skills;
 }

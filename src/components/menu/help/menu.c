@@ -16,11 +16,12 @@
 #include "event/annimation.h"
 #include "event/global.h"
 #include "app/constants.h"
+#include "types/node.h"
 
 static void menu_background(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f middle = {W_VIDEO_MODE.width / 2,
         W_VIDEO_MODE.height / 2};
     sfVector2f position = {middle.x, middle.y };
@@ -43,7 +44,7 @@ list_components_t *list)
 static void bouton_home(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {1850,
         50};
     sfVector2f size = {50, 50};
@@ -68,7 +69,7 @@ list_components_t *list)
 static void bouton_close(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {1850,
         130};
     sfVector2f size = {50, 50};
@@ -93,7 +94,7 @@ list_components_t *list)
 static void annimation_altar(ressources_t ressources,
 list_components_t *list)
 {
-    node_component_t *obj = malloc(sizeof(node_component_t));
+    node_component_t *obj = node_component_init();
     sfVector2f position = {1920 / 2, 650};
     sfVector2f size = {448, 500};
     sfFloatRect rect = {.height = size.y, .left = (position.x - size.x),

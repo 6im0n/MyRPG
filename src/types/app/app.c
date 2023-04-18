@@ -15,61 +15,27 @@
 #include "lib/output.h"
 #include "components/popup.h"
 
-static void set_music(ressources_t *ressources, app_t *app)
-{
-    sfSound_setBuffer(app->state->sound->music,
-        ressources->sounds[SD_EXPLORATION]);
-    sfSound_setLoop(app->state->sound->music, sfTrue);
-    sfSound_play(app->state->sound->music);
-}
-
-static elements_t *element_create(ressources_t *ressources)
-{
-    elements_t *element = malloc(sizeof(elements_t));
-    player_t *player = player_create(ressources);
-    node_item_t *fitem = item_pure_new();
-    list_item_t *items = list_item_init();
-    list_quests_t *quest = list_quests_init();
-    list_pop_up_t *popup = list_pop_up_init();
-
-    list_item_append(items, fitem);
-    element->player = player;
-    element->items = items;
-    element->quests = quest;
-    element->pop_up = popup;
-    return element;
-}
-
-static void player_set_view(elements_t *element, sfRenderWindow *window)
-{
-    sfVector2u window_size = sfRenderWindow_getSize(window);
-    sfVector2f view_size = {window_size.x / 3.8, window_size.y / 3.8};
-
-    sfView_setSize(element->player->view, view_size);
-}
-
-app_t app_create(ressources_t *ressources, sfVideoMode window_mode,
-char *window_title, int window_frame_rate)
+app_t app_create(char *window_title, int window_frame_rate)
 {
     sfRenderWindow *window = sfRenderWindow_create(
-        window_mode, window_title,
-        sfResize | sfClose, NULL
+        sfVideoMode_getDesktopMode(), window_title,
+        sfFullscreen, NULL
     );
     mouse_t mouse = mouse_init();
     state_t *state = state_new();
     sfView *view = sfView_create();
     sfView *background = sfView_create();
-    elements_t *element = element_create(ressources);
     sfRectangleShape *layer = sfRectangleShape_create();
-    app_t app = { window, mouse, state, background, view, layer, element };
+    loader_t *loader = loader_init();
+    app_t app = { window, mouse, state, background,
+                    view, layer, NULL, loader };
 
-    app_create_all_item(app.element, ressources);
-    app_set_icon(app.window, ressources);
-    player_set_view(element, window);
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
     sfRenderWindow_clear(app.window, W_COLOR);
     sfRenderWindow_setMouseCursorVisible(app.window, sfFalse);
-    set_music(ressources, &app);
+    loader_display(&app, app.loader->shape);
+    loader_display(&app, app.loader->cursor);
+    loader_display(&app, app.loader->logo);
     return (app);
 }
 
@@ -77,9 +43,9 @@ void app_destroy(app_t *app)
 {
     if (app) {
         list_pop_up_free(app->element->pop_up);
+        free(app->loader);
         list_quests_free(app->element->quests);
         player_destroy(app->element->player);
-        sfRectangleShape_destroy(app->layer);
         list_item_free(app->element->items);
         free(app->element);
         state_free(app->state);
