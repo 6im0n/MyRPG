@@ -139,6 +139,7 @@ typedef struct s_player {
     sfView *view;
     sfImage *collisions;
     colors_t colors;
+    int life;
 } player_t;
 
 //==================================================
@@ -193,7 +194,7 @@ typedef struct s_node_mob {
     mobs_annimation_t annimation;
     sfClock *clock;
     skills_t skills;
-
+    bool hit;
     int state;
     struct s_node_mob *next;
     struct s_node_mob *prev;
