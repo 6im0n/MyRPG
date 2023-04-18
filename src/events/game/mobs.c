@@ -14,6 +14,7 @@ bool finish_animation(node_mob_t *mob)
 {
     if (mob->annimation.index > mob->annimation.max){
         mob->annimation.index = 0;
+        mob->state.attack = 0;
         return true;
     }
     return false;
