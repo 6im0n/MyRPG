@@ -62,3 +62,43 @@ int id)
     pos = change_animation_direction_diagonally(app, pos, move, id);
     return pos;
 }
+
+sfVector2f move_player_on_wall_horizontal(float move,
+    sfVector2f position, app_t *app, bool *array)
+{
+    key_player_t key = app->element->player->character->key;
+    move *= 0.5;
+    if (key.up && key.right && !array[0] && array[2] && !key.down) {
+        position = change_animation_direction(app, position, move, 3);
+    }
+    if (key.up && key.left && !array[0] && array[3] && !key.down) {
+        position = change_animation_direction(app, position, move, 4);
+    }
+    if (key.down && key.left && !array[1] && array[3] && !key.up) {
+        position = change_animation_direction(app, position, move, 4);
+    }
+    if (key.down && key.right && !array[1] && array[2] && !key.up) {
+        position = change_animation_direction(app, position, move, 3);
+    }
+    return position;
+}
+
+sfVector2f move_player_on_wall_vertical(float move,
+    sfVector2f position, app_t *app, bool *array)
+{
+    key_player_t key = app->element->player->character->key;
+    move *= 0.5;
+    if (key.up && key.right && array[0] && !array[2] && !key.down) {
+        position = change_animation_direction(app, position, move, 1);
+    }
+    if (key.up && key.left && array[0] && !array[3] && !key.down) {
+        position = change_animation_direction(app, position, move, 1);
+    }
+    if (key.down && key.left && array[1] && !array[3] && !key.up) {
+        position = change_animation_direction(app, position, move, 2);
+    }
+    if (key.down && key.right && array[1] && !array[2] && !key.up) {
+        position = change_animation_direction(app, position, move, 2);
+    }
+    return position;
+}
