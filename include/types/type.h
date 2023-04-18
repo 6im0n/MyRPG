@@ -12,6 +12,7 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
     #include "ressources/textures.h"
+    #include "components/popup.h"
     #include "ressources/quests.h"
 
 typedef enum e_id_component {
@@ -142,6 +143,7 @@ typedef struct s_player {
     sfView *view;
     sfImage *collisions;
     colors_t colors;
+    int life;
 } player_t;
 
 //==================================================
@@ -196,7 +198,7 @@ typedef struct s_node_mob {
     mobs_annimation_t annimation;
     sfClock *clock;
     skills_t skills;
-
+    bool hit;
     int state;
     struct s_node_mob *next;
     struct s_node_mob *prev;
@@ -213,6 +215,7 @@ typedef struct s_game_elements {
     player_t *player;
     list_mobs_t *mobs;
     list_quests_t *quests;
+    list_pop_up_t *pop_up;
 } elements_t;
 
 //==================================================

@@ -5,15 +5,17 @@
 ** mobs
 */
 
+#include <stdio.h>
 #include "components/mobs.h"
 #include "types/type.h"
 
 static bool mob_intersect_player(app_t *app, node_mob_t *mob)
 {
-    sfFloatRect rect;
+    sfFloatRect rect = {0, 0, 0, 0};
     sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
             app->element->player->character->shape);
     bool on_me = false;
+
     rect = sfRectangleShape_getGlobalBounds(mob->shape);
     on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
     return on_me;
@@ -28,17 +30,25 @@ static bool finish_animation(node_mob_t *mob)
     return false;
 }
 
+static void remove_player_life(app_t *app, node_mob_t *mob)
+{
+    if (mob->annimation.index == 8 && !mob->hit) {
+        mob->hit = true;
+        app->element->player->life--;
+    }
+}
+
 void mobs_attack(node_mob_t *mob,
 app_t *app)
 {
     if (mob_intersect_player(app, mob)) {
-        if (mob->status != 1 && mob->annimation.index != 0){
+        if (mob->status != 1 && mob->annimation.index != 0)
             mob->status = 1;
-        }
         mob->irect.top = 384 + 55;
         mob->annimation.max = 16;
         sfRectangleShape_setOutlineColor(mob->shape, sfRed);
         sfRectangleShape_setOutlineThickness(mob->shape, 2);
+        remove_player_life(app, mob);
         return;
     }
     if (mob->status != 0 && !finish_animation(mob)) {

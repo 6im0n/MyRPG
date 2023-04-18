@@ -100,6 +100,20 @@ ressources_t *ressources);
 void app_save_game(app_t *app);
 
 /**
+ * @brief Create new pop up
+ * @param app app
+ * @param type type
+ * @param time time
+ */
+void new_popup(app_t *app, type_popup_t type, int time);;
+
+/**
+ * @brief Render popup
+ * @param app app
+ */
+void popup_render(app_t *app);
+
+/**
  * @brief Load app
  * @param app app
  * @param ressources ressources
