@@ -17,7 +17,7 @@
 bool component_next_to_player(node_component_t *component,
 app_t *app)
 {
-    sfFloatRect rect;
+    sfFloatRect rect = {0, 0, 0, 0};
     sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
             app->element->player->character->shape);
     bool on_me = false;

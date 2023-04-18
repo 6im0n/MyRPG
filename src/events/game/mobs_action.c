@@ -11,7 +11,7 @@
 
 static bool mobs_next_to_player(app_t *app, node_mob_t *mob)
 {
-    sfFloatRect rect;
+    sfFloatRect rect = {0, 0, 0, 0};
     sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
             app->element->player->character->shape);
     bool on_me = false;
