@@ -19,7 +19,6 @@ static void delete(list_pop_up_t *list, node_popup_t *node)
         list->first = NULL;
         list->last = NULL;
         list->len = 0;
-        return;
     } else {
         list->first = node->next;
         list->first->prev = NULL;
