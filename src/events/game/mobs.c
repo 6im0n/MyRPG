@@ -48,19 +48,16 @@ app_t *app)
         }
         mob->irect.top = 384 + 55;
         mob->annimation.max = 16;
-        sfRectangleShape_setOutlineColor(mob->shape, sfRed);
         remove_player_life(app, mob);
         return;
     }
     if (mob->state.walk == 1)
         return;
     if (mob->state.attack != 0 && !finish_animation(mob)) {
-        sfRectangleShape_setOutlineColor(mob->shape, sfYellow);
+        return;
     } else {
         mob->state.attack = 0;
         mob->irect.top = 55;
         mob->annimation.max = 7;
-        sfRectangleShape_setOutlineColor(mob->shape, sfGreen);
-        sfRectangleShape_setOutlineThickness(mob->shape, 2);
     }
 }
