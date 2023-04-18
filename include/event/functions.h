@@ -15,6 +15,7 @@
     #include "components/components.h"
     #include "event/start_menu/bouton.h"
     #include "event/game/dialog.h"
+    #include "event/game/global.h"
 
 typedef void (*parsing_handler_t)(node_component_t *component,
 event_t *event, app_t *app);
@@ -44,7 +45,8 @@ static const parsing_handler_t nonclicked_event[NONCLICKED_LEN] = {
 };
 
 static const parsing_handler_t pressed_event[KEYPRESSED_LEN] = {
-    [QUEST_MAIN_FIRST_DIALOG_PRESSED] = &dialog_main_quests_onkeypress
+    [QUEST_MAIN_FIRST_DIALOG_PRESSED] = &dialog_main_quests_onkeypress,
+    [BEACON_HEAL_PRESSED] = &beacon_healt_onkeypress
 };
 
 static const parsing_handler_t released_event[KEYRELEASED_LEN] = {

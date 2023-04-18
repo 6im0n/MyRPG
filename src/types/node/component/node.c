@@ -14,7 +14,7 @@ node_component_t *node_component_init(void)
 
     if (!tmp)
         return 0;
-    tmp->annimation = (component_annimation_t){rect, 0, 0, 0, 0};
+    tmp->annimation = (component_annimation_t){rect, 0, 0, 0, 0, false};
     tmp->state = 0;
     tmp->type = C_UNDEFINED;
     tmp->object = NULL;

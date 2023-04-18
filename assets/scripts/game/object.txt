@@ -1,4 +1,4 @@
-position: 2615 6400
+position: 2318 6210
 size: 125 125
 rect: 0 0 128 128
 style: 2 0 1
@@ -50,4 +50,17 @@ c_size: 3
 radius: 200
 disabled: 1
 next_to: 1
+###
+position: 2615 6380
+size: 80 125
+rect: 0 0 64 99
+style: 23 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 1
 ###

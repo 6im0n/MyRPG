@@ -76,6 +76,7 @@ typedef struct s_component_annimation {
     int max;
     float speed;
     float max_speed;
+    bool one;
 } component_annimation_t;
 
 typedef struct s_node_components {
@@ -131,6 +132,7 @@ typedef enum e_hover {
 
 typedef enum e_keypressed {
     QUEST_MAIN_FIRST_DIALOG_PRESSED,
+    BEACON_HEAL_PRESSED,
     KEYPRESSED_LEN
 } keypressed_t;
 

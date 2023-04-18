@@ -30,4 +30,7 @@ event_t *event, app_t *app);
  */
 void collisions(bool *array, sfVector2f position, player_t *player);
 
+void beacon_healt_onkeypress(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_GAME_H_ */
