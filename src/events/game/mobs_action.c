@@ -39,7 +39,7 @@ static sfVector2f normal_pos(sfVector2f posm, sfVector2f posp, float speed)
 
     return normalized_pos;
 }
-#include <stdio.h>
+
 void mobs_move_to_player(node_mob_t *mob,
 app_t *app)
 {
