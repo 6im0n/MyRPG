@@ -33,7 +33,7 @@ void collisions(bool *array, sfVector2f position, player_t *player);
 void generation_mob_next_to(node_component_t *component,
 event_t *event, app_t *app);
 
-void generation_mob_on(node_component_t *component,
+void generation_mob_ondisabled(node_component_t *component,
 event_t *event, app_t *app);
 
 #endif /* !EVENT_GAME_H_ */

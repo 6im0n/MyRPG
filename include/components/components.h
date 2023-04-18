@@ -115,6 +115,7 @@ typedef struct s_main_components {
 typedef enum e_disabled {
     DISABLED_ANIMATION,
     QUEST_MAIN_FIRST_DIALOG,
+    DISABLED_SPAWNER,
     DISABLED_LEN
 } disabled_t;
 
@@ -127,7 +128,6 @@ typedef enum e_nextto {
 
 typedef enum e_hover {
     ACTIVE_ANIMATION,
-    GENERATION_ON,
     HOVER_LEN
 } hover_t;
 

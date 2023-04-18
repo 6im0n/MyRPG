@@ -11,18 +11,6 @@
 #include "components/mobs.h"
 #include <stdlib.h>
 
-void generation_mob_next_to(node_component_t *component,
-event_t *event, app_t *app)
-{
-    (void) event;
-    (void) app;
-    (void) component;
-    if (app->element->mobs->len > 0 && !ST_IS_HOVER(component)) {
-        my_printf("Despawn\n");
-        component->features.select = false;
-    }
-}
-
 static void generation_random_mob(app_t *app, sfFloatRect rect)
 {
     sfVector2f pos_random = { rect.left, rect.top };
@@ -34,23 +22,38 @@ static void generation_random_mob(app_t *app, sfFloatRect rect)
     for (int i = 0; i < nbr; i++) {
         x = (rand() % (int)rect.width) + (int)pos_random.x;
         y = (rand() % (int)rect.height) + (int)pos_random.y;
-        color = sfImage_getPixel(app->element->player->collisions, x, y);
-        if ((color.r == sfBlack.r && color.g == sfBlack.g
-            && color.b == sfBlack.b  && color.a == sfBlack.a))
-            add_new_mob(app, app->element->ressources, (sfVector2f){x, y});
+        color = sfImage_getPixel(app->element->player->collisions, x, y + 50);
+        if ((color.a == 0))
+            add_new_mob(app, app->element->ressources, (sfVector2f){ x, y });
     }
 }
 
-void generation_mob_on(node_component_t *component,
+void generation_mob_next_to(node_component_t *component,
+event_t *event, app_t *app)
+{
+    bool on_player = sfFloatRect_intersects(
+        &component->features.rendered_rect,
+        &app->element->player->character->frect, NULL);
+
+    (void) event;
+    if (on_player)
+        return;
+    if (app->element->mobs->len < 3)
+        generation_random_mob(app, component->features.rendered_rect);
+    sfRectangleShape_setOutlineColor(component->object->rectangle, sfBlack);
+    component->features.select = true;
+}
+
+void generation_mob_ondisabled(node_component_t *component,
 event_t *event, app_t *app)
 {
     (void) event;
-    (void) app;
-    (void) component;
-
-    if (component->features.select == false) {
-        my_printf("Spawn mob :D\n");
-        component->features.select = true;
-        generation_random_mob(app, component->features.rendered_rect);
+    if (component->features.select == false)
+        return;
+    if (!ST_IS_NEAR(component)) {
+        app->element->mobs->first = NULL;
+        app->element->mobs->last = NULL;
+        app->element->mobs->len = 0;
+        component->features.select = false;
     }
 }

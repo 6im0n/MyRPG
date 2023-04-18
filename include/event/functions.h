@@ -33,13 +33,13 @@ static const parsing_handler_t clicked_event[CLICKED_LEN] = {
 };
 
 static const parsing_handler_t hover_event[HOVER_LEN] = {
-    [ACTIVE_ANIMATION] = &event_active_annimation,
-    [GENERATION_ON] = &generation_mob_on
+    [ACTIVE_ANIMATION] = &event_active_annimation
 };
 
 static const parsing_handler_t disable_event[DISABLED_LEN] = {
     [DISABLED_ANIMATION] = &event_pause_annimation,
-    [QUEST_MAIN_FIRST_DIALOG] = &dialog_main_quests_disabled
+    [QUEST_MAIN_FIRST_DIALOG] = &dialog_main_quests_disabled,
+    [DISABLED_SPAWNER] = &generation_mob_ondisabled
 };
 
 static const parsing_handler_t nonclicked_event[NONCLICKED_LEN] = {

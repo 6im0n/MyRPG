@@ -57,7 +57,57 @@ rect: 1 1 1 1
 style: 0 0 1
 type: 4
 c_size: 3
-radius: 10
+radius: 320
 next_to: 2
-hover: 1
+disabled: 2
+###
+position: 5752 5125
+size: 1500 1200
+rect: 1 1 1 1
+style: 0 0 1
+type: 4
+c_size: 3
+radius: 320
+next_to: 2
+disabled: 2
+###
+position: 6050 6811
+size: 1400 900
+rect: 1 1 1 1
+style: 0 0 1
+type: 4
+c_size: 3
+radius: 320
+next_to: 2
+disabled: 2
+###
+position: 8172 4783
+size: 1400 900
+rect: 1 1 1 1
+style: 0 0 1
+type: 4
+c_size: 3
+radius: 320
+next_to: 2
+disabled: 2
+###
+position: 10191 3995
+size: 1400 900
+rect: 1 1 1 1
+style: 0 0 1
+type: 4
+c_size: 3
+radius: 320
+next_to: 2
+disabled: 2
+###
+position: 3424 5592
+size: 600 600
+rect: 1 1 1 1
+style: 0 0 1
+type: 4
+c_size: 3
+radius: 320
+next_to: 2
+disabled: 2
 ###
