@@ -73,7 +73,7 @@ void loader_display(app_t *app, sfRectangleShape *shape)
         sfRectangleShape_setScale(shape, scale);
         sfRenderWindow_drawRectangleShape(app->window, shape, NULL);
         sfRenderWindow_display(app->window);
-        sfRenderWindow_clear(app->window, sfColor_fromRGB(232, 207, 166));
+        sfRenderWindow_clear(app->window, W_COLOR);
         second++;
         scale.x += 0.0025;
         scale.y += 0.0025;
@@ -82,9 +82,9 @@ void loader_display(app_t *app, sfRectangleShape *shape)
 
 void loader_text_display(app_t *app, sfRectangleShape *shape, char *content)
 {
-    sfFloatRect bound;
+    sfFloatRect bound = {0, 0, 0, 0};
 
-    sfRenderWindow_clear(app->window, sfColor_fromRGB(232, 207, 166));
+    sfRenderWindow_clear(app->window, W_COLOR);
     sfText_setString(app->loader->text, content);
     bound = sfText_getLocalBounds(app->loader->text);
     sfText_setOrigin(app->loader->text, (sfVector2f){bound.width / 2,
