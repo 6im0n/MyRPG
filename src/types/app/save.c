@@ -54,47 +54,27 @@ char *data_x, char *data_y)
     free(prompt);
 }
 
-static void add_item_display(node_item_t *tmp,
-char *str, char *prompt, int *len)
+static void add_item_display(node_item_t *tmp, FILE *fd)
 {
-    char *dup = my_strdup(prompt);
+    char *strf = my_char(tmp->item);
+    int lenf = my_strlen(strf);
 
-    str = my_char(tmp->item);
-    *len += my_strlen(str);
-    free(prompt);
-    prompt = malloc(sizeof(char) * ((*len) + 3));
-    if (!prompt)
-        return;
-    clean_char(prompt, *len + 3);
-    my_strcpy(prompt, dup);
-    my_strcat(prompt, str);
+    fwrite( strf, 1 , lenf , fd );
     if (tmp->next != NULL) {
-        my_strcat(prompt, " ");
-        *len += 1;
+        fwrite(" " , 1 , 1 , fd );
     }
-    free(str);
-    free(dup);
 }
 
 static void display_inventory(FILE *fd, list_item_t *inventory)
 {
     node_item_t *tmp = inventory->first;
-    node_item_t *tmp2 = tmp;
-    int len = my_strlen("Inventory: ") + 1;
-    char *prompt = malloc(sizeof(char) * (len + 2));
-    char *str = NULL;
 
-    if (!prompt)
-        return;
-    clean_char(prompt, len + 2);
-    my_strcpy(prompt, "Inventory: ");
+    fwrite("Inventory: " , 1 , 11 , fd );
     while (tmp != NULL) {
-        tmp2 = tmp->next;
-        add_item_display(tmp, str, prompt, &len);
-        tmp = tmp2;
+        add_item_display(tmp, fd);
+        tmp = tmp->next;
     }
-    my_strcat(prompt, "\n");
-    fwrite(prompt , 1 , len , fd );
+    fwrite("\n" , 1 , 1 , fd );
 }
 
 static void add_quest_display(node_quests_t *tmp,
@@ -191,5 +171,4 @@ void app_save_game(app_t *app)
     save_skills(fd, player->skills, player->exprerience);
     display_quest(fd, app->element->quests);
     fclose(fd);
-    (void) app;
 }
