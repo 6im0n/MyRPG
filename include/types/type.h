@@ -183,11 +183,17 @@ typedef struct s_mobs_annimation {
     float max_speed;
 } mobs_annimation_t;
 
+typedef struct s_mob_states {
+    bool idle;
+    bool walk;
+    bool attack;
+    bool die;
+} mob_states_t;
+
 typedef struct s_node_mob {
     sfTexture *texture;
     sfRectangleShape *shape;
     float radius;
-    int status;
     sfCircleShape *prox_shape;
     sfFloatRect frect;
     sfIntRect irect;
@@ -195,7 +201,7 @@ typedef struct s_node_mob {
     sfClock *clock;
     skills_t skills;
 
-    int state;
+    mob_states_t state;
     struct s_node_mob *next;
     struct s_node_mob *prev;
 } node_mob_t;
