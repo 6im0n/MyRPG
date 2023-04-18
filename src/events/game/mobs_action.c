@@ -29,6 +29,20 @@ static bool mobs_next_to_player(app_t *app, node_mob_t *mob)
     return on_me;
 }
 
+static float update_speed_mob(app_t *app, node_mob_t *mob)
+{
+    float speed = (float)mob->skills.speed * 13.F;
+    sfTime time = sfClock_getElapsedTime(app->state->clock);
+    float seconds = time.microseconds / 1000000.0;
+    sfTime old_time = mob->time;
+    float seconds_old = old_time.microseconds / 1000000.0;
+    float spend = seconds - seconds_old;
+
+    mob->time = time;
+    speed *= spend;
+    return speed;
+}
+
 static sfVector2f normal_pos(sfVector2f posm, sfVector2f posp, float speed)
 {
     sfVector2f dir = {posp.x - posm.x, posp.y - posm.y};
@@ -47,10 +61,10 @@ app_t *app)
     sfVector2f posp = sfRectangleShape_getPosition(
             app->element->player->character->shape);
     sfVector2f normalized_pos = {0, 0};
+    float speed = update_speed_mob(app, mob);
 
     if (mobs_next_to_player(app, mob)) {
-        normalized_pos = normal_pos(posm, posp,
-            (float)mob->skills.speed / 10.F);
+        normalized_pos = normal_pos(posm, posp, speed);
         mob->state.walk = 1;
         if (finish_animation(mob)){
             mob->irect.top = 192 + 55;
