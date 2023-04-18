@@ -78,6 +78,9 @@ sfVector2f position, app_t *app, bool *array)
     if (key.up && key.right && array[0] && array[2] && !key.down) {
         position = change_animation_direction(app, position, move, 5);
     }
+    if (key.up && key.right && array[2] && !key.down) {
+        position.x += move;
+    }
     if (key.down && array[1] && array[2] && key.right && !key.up) {
         position = change_animation_direction(app, position, move, 6);
     }
@@ -100,6 +103,7 @@ void move_player(app_t *app)
     key_player_t key_tmp = app->element->player->character->key;
 
     collisions(array, position, app->element->player);
+    printf("up: %d, down: %d, right: %d, left: %d\n", array[0], array[1], array[2], array[3]);
     position = move_player_diagonaly(move, position, app, array);
     if (key_tmp.up && array[0] && !key_tmp.right && !key_tmp.left)
         position = change_animation_direction(app, position, move, 1);
