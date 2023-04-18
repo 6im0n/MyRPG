@@ -179,6 +179,13 @@ typedef struct s_list_quests {
 //==================================================
 // MOBS
 //==================================================
+typedef struct healt_s {
+    float curent;
+    float max;
+    sfRectangleShape *bar;
+    sfRectangleShape *outline;
+    sfFloatRect frect;
+} healt_t;
 
 typedef struct s_mobs_annimation {
     sfIntRect rect;
@@ -202,8 +209,10 @@ typedef struct s_node_mob {
     sfRectangleShape *shape;
     sfFloatRect frect;
     sfIntRect irect;
+    sfTime time;
     sfClock *clock;
     skills_t skills;
+    healt_t healt;
     mob_states_t state;
     mobs_annimation_t annimation;
     struct s_node_mob *next;
