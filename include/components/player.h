@@ -60,10 +60,10 @@ int id);
 
 /**
  * @brief Append quests system
- * @param list list
+ * @param app App
  * @param quest quest
  */
-void quest_append(list_quests_t *list, quests_t quest);
+void quest_append(app_t *app, quests_t quest);
 
 /**
  * @brief Set quests node

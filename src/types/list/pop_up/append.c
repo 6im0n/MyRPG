@@ -14,11 +14,12 @@ static void popup_shape(list_pop_up_t *list, node_popup_t *node)
 {
     sfFont *font =
         sfFont_createFromFile(fonts_loaders[FT_DROID]);
-    sfVector2f pos = {1920, 1060};
+    sfVector2f pos = {1910, 1035};
     sfVector2f origin;
     sfFloatRect rect;
 
     sfText_setColor(node->text, sfBlack);
+    sfText_setCharacterSize(node->text, 50);
     sfText_setFont(node->text, font);
     sfText_setLineSpacing(node->text, 0.8);
     rect = sfText_getGlobalBounds(node->text);
@@ -26,7 +27,7 @@ static void popup_shape(list_pop_up_t *list, node_popup_t *node)
     origin.y = rect.height;
     sfText_setOrigin(node->text, origin);
     if (list->len > 0)
-        pos.y = sfText_getPosition(list->last->text).y - 30;
+        pos.y = sfText_getPosition(list->last->text).y - 50;
     sfText_setPosition(node->text, pos);
 }
 
