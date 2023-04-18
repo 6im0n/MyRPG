@@ -22,7 +22,6 @@ static node_mob_t *init_game_mobs(node_mob_t *mob,
     sfRectangleShape_setTexture(shape, ressources.textures[TX_MOBS], sfFalse);
     sfRectangleShape_setTextureRect(shape, in_rect);
     mob_frect = sfRectangleShape_getGlobalBounds(shape);
-    mob->status = 0;
     mob->skills.speed = 0.8;
     mob->radius = 100;
     mob->shape = shape;

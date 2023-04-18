@@ -53,18 +53,20 @@ void mobs_attack(node_mob_t *mob,
 app_t *app)
 {
     if (mob_intersect_player(app, mob)) {
-        if (mob->status != 1 && mob->annimation.index != 0){
-            mob->status = 1;
+        if (mob->state.attack != 1 && mob->annimation.index != 0){
+            mob->state.attack = 1;
         }
         mob->irect.top = 384 + 55;
         mob->annimation.max = 16;
         sfRectangleShape_setOutlineColor(mob->shape, sfRed);
         return;
     }
-    if (mob->status != 0 && !finish_animation(mob)) {
+    if (mob->state.walk == 1)
+        return;
+    if (mob->state.attack != 0 && !finish_animation(mob)) {
         sfRectangleShape_setOutlineColor(mob->shape, sfYellow);
     } else {
-        mob->status = 0;
+        mob->state.attack = 0;
         mob->irect.top = 55;
         mob->annimation.max = 7;
         sfRectangleShape_setOutlineColor(mob->shape, sfGreen);
@@ -86,7 +88,13 @@ app_t *app)
         sfVector2f normalized_dir = {dir.x / length, dir.y / length};
         sfVector2f normalized_pos = {pos.x + normalized_dir.x * speed,
             pos.y + normalized_dir.y * speed };
-
+        mob->state.walk = 1;
+        if (finish_animation(mob)){
+            mob->irect.top = 192 + 55;
+            mob->annimation.max = 7;
+        }
         sfRectangleShape_setPosition(mob->shape, normalized_pos);
+        return;
     }
+    mob->state.walk = 0;
 }
