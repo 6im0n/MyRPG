@@ -69,6 +69,7 @@ event_t *event, app_t *app)
     if (sfKeyboard_isKeyPressed(sfKeyI)) {
         if (app->element->quests->len == 0)
             quest_append(app, Q_MAIN_P1);
+        quest_append(app, Q_MAIN_P2);
         if (app->element->quests->len == 1 &&
             find_result_quests(app->element->quests, Q_MAIN_P1) == true) {
             list_quest_delete(app->element->quests, Q_MAIN_P1);

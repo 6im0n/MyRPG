@@ -37,6 +37,7 @@ int app_run(void)
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);
     }
+    app_save_game(&app);
     components_free(&components);
     ressources_unload(&ressources);
     app_destroy(&app);
