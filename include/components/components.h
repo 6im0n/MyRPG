@@ -121,11 +121,13 @@ typedef enum e_disabled {
 typedef enum e_nextto {
     QUEST_MAIN_FIRST_DIALOG_NEXTTO,
     QUEST_MAIN_FIRST_OBJ_DIALOG_NEXTTO,
+    GENERATION_NEXT_TO,
     NEXT_TO_LEN
 } next_to_t;
 
 typedef enum e_hover {
     ACTIVE_ANIMATION,
+    GENERATION_ON,
     HOVER_LEN
 } hover_t;
 

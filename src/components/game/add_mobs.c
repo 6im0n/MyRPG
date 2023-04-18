@@ -40,9 +40,11 @@ static node_mob_t *init_mobs_animation(node_mob_t *mob)
 
 void add_new_mob(app_t *app, ressources_t ressources, sfVector2f position)
 {
+    node_mob_t *mob = NULL;
+
     if (app->element->mobs->first == NULL)
         app->element->mobs = list_mobs_init();
-    node_mob_t *mob = node_mobs_init(ressources);
+    mob = node_mobs_init(ressources);
     mob = init_game_mobs(mob, position, ressources);
     mob = init_mobs_animation(mob);
     list_mobs_append(app->element->mobs, mob);

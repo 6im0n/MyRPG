@@ -15,6 +15,7 @@
     #include "components/components.h"
     #include "event/start_menu/bouton.h"
     #include "event/game/dialog.h"
+    #include "event/game/global.h"
 
 typedef void (*parsing_handler_t)(node_component_t *component,
 event_t *event, app_t *app);
@@ -32,7 +33,8 @@ static const parsing_handler_t clicked_event[CLICKED_LEN] = {
 };
 
 static const parsing_handler_t hover_event[HOVER_LEN] = {
-    [ACTIVE_ANIMATION] = &event_active_annimation
+    [ACTIVE_ANIMATION] = &event_active_annimation,
+    [GENERATION_ON] = &generation_mob_on
 };
 
 static const parsing_handler_t disable_event[DISABLED_LEN] = {
@@ -55,7 +57,8 @@ static const parsing_handler_t moved_event[MOVED_LEN] = {
 
 static const parsing_handler_t next_to_event[NEXT_TO_LEN] = {
     [QUEST_MAIN_FIRST_DIALOG_NEXTTO] = &dialog_main_quests_next_to,
-    [QUEST_MAIN_FIRST_OBJ_DIALOG_NEXTTO] = &dialog_main_quests_onnext_to
+    [QUEST_MAIN_FIRST_OBJ_DIALOG_NEXTTO] = &dialog_main_quests_onnext_to,
+    [GENERATION_NEXT_TO] = &generation_mob_next_to
 };
 
 #endif /* !EVENT_SETTINGS_H_ */
