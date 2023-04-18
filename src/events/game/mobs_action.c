@@ -56,7 +56,8 @@ app_t *app)
             mob->irect.top = 192 + 55;
             mob->annimation.max = 7;
         }
-        sfRectangleShape_setPosition(mob->shape, normalized_pos);
+        if (!mob->state.attack == 1)
+            sfRectangleShape_setPosition(mob->shape, normalized_pos);
         return;
     }
     mob->state.walk = 0;
