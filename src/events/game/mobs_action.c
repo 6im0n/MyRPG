@@ -62,6 +62,7 @@ app_t *app)
             app->element->player->character->shape);
     sfVector2f normalized_pos = {0, 0};
     float speed = update_speed_mob(app, mob);
+
     if (mobs_next_to_player(app, mob)) {
         normalized_pos = normal_pos(posm, posp, speed);
         mob->state.walk = 1;
