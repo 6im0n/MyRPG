@@ -87,6 +87,8 @@ sfVector2f position, app_t *app, bool *array)
     if (key.down && array[1] && array[3] && key.left && !key.up) {
         position = change_animation_direction(app, position, move, 8);
     }
+    position = move_player_on_wall_vertical(move, position, app, array);
+    position = move_player_on_wall_horizontal(move, position, app, array);
     return position;
 }
 
