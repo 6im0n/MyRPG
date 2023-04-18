@@ -8,6 +8,7 @@
 #include "types/type.h"
 #include "types/list.h"
 #include "lib/output.h"
+#include "app/app.h"
 
 static void list_items_copy(list_item_t *list, node_item_t *node)
 {
@@ -29,6 +30,8 @@ void add_item_player(app_t *app, item_t item)
     node_item_t *tmp = app->element->items->first;
     node_item_t *tmp2 = tmp;
 
+    if (app->element->player->inventory->len > 0)
+        new_popup(app, P_ITEM, 5);
     if (!tmp || app->element->player->inventory->len > 8)
         return;
     while (tmp != NULL) {

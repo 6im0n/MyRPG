@@ -31,7 +31,7 @@ static void popup_alpha(list_pop_up_t *list, node_popup_t *node)
     sfColor color = sfText_getColor(node->text);
     sfTime elapsed = sfClock_getElapsedTime(node->clock);
 
-    if (sfTime_asSeconds(elapsed) >= node->auto_destroy - 3) {
+    if (sfTime_asSeconds(elapsed) >= node->auto_destroy - 2 && color.a > 0) {
         color.a--;
         sfText_setColor(node->text, color);
     }
@@ -48,6 +48,7 @@ void popup_render(app_t *app)
     while (tmp != NULL) {
         tmp2 = tmp->next;
         popup_alpha(app->element->pop_up, tmp);
+        sfRenderWindow_setView(app->window, app->view);
         sfRenderWindow_drawText(app->window, tmp->text, NULL);
         tmp = tmp2;
     }
