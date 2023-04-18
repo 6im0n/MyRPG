@@ -68,12 +68,12 @@ event_t *event, app_t *app)
         return;
     if (sfKeyboard_isKeyPressed(sfKeyI)) {
         if (app->element->quests->len == 0)
-            quest_append(app->element->quests, Q_MAIN_P1);
+            quest_append(app, Q_MAIN_P1);
         if (app->element->quests->len == 1 &&
             find_result_quests(app->element->quests, Q_MAIN_P1) == true) {
             list_quest_delete(app->element->quests, Q_MAIN_P1);
             add_item_player(app, I_SWORD_LEV3);
-            quest_append(app->element->quests, Q_MAIN_P2);
+            quest_append(app, Q_MAIN_P2);
             }
         if (find_result_quests(app->element->quests, Q_MAIN_P2) == true) {
             list_quest_delete(app->element->quests, Q_MAIN_P2);

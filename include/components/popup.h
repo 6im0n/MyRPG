@@ -15,6 +15,7 @@ typedef enum e_pop_up_type {
     P_QUESTS,
     P_XP,
     P_ITEM,
+    P_ADVENCED,
     P_LEN
 } type_popup_t;
 

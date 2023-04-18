@@ -12,6 +12,7 @@
 #include "event/start_menu/bouton.h"
 #include "components/player.h"
 #include "types/list.h"
+#include "app/app.h"
 
 void dialog_main_quests_onnext_to(node_component_t *component,
 event_t *event, app_t *app)
@@ -22,5 +23,6 @@ event_t *event, app_t *app)
     if (component->features.select == false) {
         quests_current_add(app->element->quests, Q_MAIN_P1);
         component->features.select = true;
+        new_popup(app, P_ADVENCED, 5);
     }
 }

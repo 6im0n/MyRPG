@@ -10,21 +10,21 @@
 #include "ressources/loaders/quests.h"
 #include "ressources/loaders/textures.h"
 #include "ressources/loaders/fonts.h"
+#include "app/app.h"
 
-void quest_append(list_quests_t *list, quests_t quest)
+void quest_append(app_t *app, quests_t quest)
 {
+    list_quests_t *list = app->element->quests;
     node_quests_t *q_main_1 = list_node_qest_append(quest, list);
     node_quests_t *tmp = list->first;
-    node_quests_t *tmp2 = tmp;
 
     while (tmp != NULL) {
-        tmp2 = tmp->next;
         if (tmp->id == quest)
             return;
-        tmp = tmp2;
+        tmp = tmp->next;
     }
-    (void) quests_loaders[0][0];
     list_quest_append(list, q_main_1);
+    new_popup(app, P_QUESTS, 5);
 }
 
 static void set_text_quest(quests_t quests, node_quests_text_t *text)
