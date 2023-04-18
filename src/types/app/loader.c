@@ -82,7 +82,7 @@ void loader_display(app_t *app, sfRectangleShape *shape)
 
 void loader_text_display(app_t *app, sfRectangleShape *shape, char *content)
 {
-    sfFloatRect bound;
+    sfFloatRect bound = {0, 0, 0, 0};
 
     sfRenderWindow_clear(app->window, W_COLOR);
     sfText_setString(app->loader->text, content);

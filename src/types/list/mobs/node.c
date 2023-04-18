@@ -8,6 +8,15 @@
 #include <stdlib.h>
 #include "components/mobs.h"
 
+static void init_state(node_mob_t *tmp)
+{
+    tmp->state.attack = false;
+    tmp->state.walk = false;
+    tmp->state.idle = false;
+    tmp->state.die = false;
+    tmp->state.hit = false;
+}
+
 node_mob_t *node_mobs_init(ressources_t ressources)
 {
     node_mob_t *tmp = malloc(sizeof(node_mob_t));
@@ -22,8 +31,7 @@ node_mob_t *node_mobs_init(ressources_t ressources)
     tmp->frect = frect;
     tmp->irect = irect;
     tmp->annimation = (mobs_annimation_t){rect, 0, 0, 0, 0};
-    tmp->state = 0;
-    tmp->hit = false;
+    init_state(tmp);
     tmp->next = NULL;
     tmp->prev = NULL;
     return tmp;

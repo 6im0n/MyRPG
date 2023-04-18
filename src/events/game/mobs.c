@@ -8,6 +8,17 @@
 #include <stdio.h>
 #include "components/mobs.h"
 #include "types/type.h"
+#include <math.h>
+
+bool finish_animation(node_mob_t *mob)
+{
+    if (mob->annimation.index > mob->annimation.max){
+        mob->annimation.index = 0;
+        mob->state.attack = 0;
+        return true;
+    }
+    return false;
+}
 
 static bool mob_intersect_player(app_t *app, node_mob_t *mob)
 {
@@ -21,19 +32,10 @@ static bool mob_intersect_player(app_t *app, node_mob_t *mob)
     return on_me;
 }
 
-static bool finish_animation(node_mob_t *mob)
-{
-    if (mob->annimation.index > mob->annimation.max){
-        mob->annimation.index = 0;
-        return true;
-    }
-    return false;
-}
-
 static void remove_player_life(app_t *app, node_mob_t *mob)
 {
-    if (mob->annimation.index == 8 && !mob->hit) {
-        mob->hit = true;
+    if (mob->annimation.index == 8 && !mob->state.hit) {
+        mob->state.hit = true;
         app->element->player->life--;
     }
 }
@@ -42,23 +44,21 @@ void mobs_attack(node_mob_t *mob,
 app_t *app)
 {
     if (mob_intersect_player(app, mob)) {
-        if (mob->status != 1 && mob->annimation.index != 0)
-            mob->status = 1;
+        if (mob->state.attack != 1 && mob->annimation.index != 0){
+            mob->state.attack = 1;
+        }
         mob->irect.top = 384 + 55;
         mob->annimation.max = 16;
-        sfRectangleShape_setOutlineColor(mob->shape, sfRed);
-        sfRectangleShape_setOutlineThickness(mob->shape, 2);
         remove_player_life(app, mob);
         return;
     }
-    if (mob->status != 0 && !finish_animation(mob)) {
-        sfRectangleShape_setOutlineColor(mob->shape, sfYellow);
-        sfRectangleShape_setOutlineThickness(mob->shape, 2);
+    if (mob->state.walk == 1)
+        return;
+    if (mob->state.attack != 0 && !finish_animation(mob)) {
+        return;
     } else {
-        mob->status = 0;
+        mob->state.attack = 0;
         mob->irect.top = 55;
         mob->annimation.max = 7;
-        sfRectangleShape_setOutlineColor(mob->shape, sfGreen);
-        sfRectangleShape_setOutlineThickness(mob->shape, 2);
     }
 }
