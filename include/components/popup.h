@@ -17,6 +17,9 @@ typedef enum e_pop_up_type {
     P_ITEM,
     P_ADVENCED,
     P_HEALT,
+    P_WIN_SPEED,
+    P_WIN_STRENGHT,
+    P_WIN_RESISTANCE,
     P_LEN
 } type_popup_t;
 

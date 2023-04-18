@@ -133,6 +133,7 @@ typedef enum e_hover {
 typedef enum e_keypressed {
     QUEST_MAIN_FIRST_DIALOG_PRESSED,
     BEACON_HEAL_PRESSED,
+    BEACON_SKILL_PRESSED,
     KEYPRESSED_LEN
 } keypressed_t;
 
