@@ -5,9 +5,9 @@
 ** mobs
 */
 
+#include <math.h>
 #include "components/mobs.h"
 #include "types/type.h"
-#include <math.h>
 
 static bool mobs_next_to_player(app_t *app, node_mob_t *mob)
 {
