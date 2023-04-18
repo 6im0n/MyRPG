@@ -19,8 +19,10 @@ static void display_data(FILE *fd, char *prefix, char *data)
     int len_prefix = my_strlen(prefix);
     int len_data = my_strlen(data);
     int len = len_prefix + len_data + 3;
-    char *prompt = malloc(sizeof(char) + len);
+    char *prompt = malloc(sizeof(char) * (len + 1));;
 
+    if (!prompt)
+        return;
     my_strcpy(prompt, prefix);
     my_strcat(prompt, ": ");
     my_strcat(prompt, data);
@@ -35,8 +37,10 @@ char *data_x, char *data_y)
     int len_data_x = my_strlen(data_x);
     int len_data_y = my_strlen(data_y);
     int len = len_prefix + len_data_x + len_data_y + 4;
-    char *prompt = malloc(sizeof(char) + len);
+    char *prompt = malloc(sizeof(char) * (len + 1));;
 
+    if (!prompt)
+        return;
     my_strcpy(prompt, prefix);
     my_strcat(prompt, ": ");
     my_strcat(prompt, data_x);

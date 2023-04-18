@@ -49,7 +49,7 @@ static void get_player(player_t *player, char *str)
     int texture = my_strlen("Texture_player");
     int position = my_strlen("Position");
     int len_posx = 0;
-    sfVector2f pos;
+    sfVector2f pos = { 0, 0 };
 
     if (my_strncmp("Texture_player", str, texture) == 0) {
         player->character->tx = my_int(str + texture + 2);
@@ -68,7 +68,6 @@ char *file, int index_line, int explore)
 {
     char *str = malloc(sizeof(char) + index_line + 1);
 
-    (void) app;
     my_strncpy(str, file + explore, index_line);
     get_skill(app->element->player, str);
     get_player(app->element->player, str);
@@ -82,7 +81,6 @@ void parsing_save(app_t *app)
     int index_line = 0;
     int explore = 0;
 
-    (void) app;
     while (file[index] != '\0') {
         do {
             index_line++;

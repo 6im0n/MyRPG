@@ -15,7 +15,6 @@
 void launch_game_resume(node_component_t *component,
 event_t *event, app_t *app)
 {
-    (void) component;
     (void) event;
     if (component->features.select == false)
         return;
