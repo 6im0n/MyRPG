@@ -69,8 +69,7 @@ char *file, int index_line, int explore)
     char *str = malloc(sizeof(char) * (index_line + 1));
 
     if (!str)
-        return NULL;
-
+        return;
     my_strncpy(str, file + explore, index_line);
     get_skill(app->element->player, str);
     get_player(app->element->player, str);

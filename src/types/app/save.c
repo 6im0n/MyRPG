@@ -13,14 +13,16 @@
 #include <stdio.h>
 #include "lib/str.h"
 #include "lib/tools.h"
+#include "parsing/utils.h"
 
 static void display_data(FILE *fd, char *prefix, char *data)
 {
     int len_prefix = my_strlen(prefix);
     int len_data = my_strlen(data);
     int len = len_prefix + len_data + 3;
-    char *prompt = malloc(sizeof(char) * (len + 1));;
+    char *prompt = malloc(sizeof(char) * (len + 1));
 
+    clean_char(prompt, len + 1);
     if (!prompt)
         return;
     my_strcpy(prompt, prefix);
@@ -28,6 +30,7 @@ static void display_data(FILE *fd, char *prefix, char *data)
     my_strcat(prompt, data);
     my_strcat(prompt, "\n");
     fwrite(prompt , 1 , len , fd );
+    free(prompt);
 }
 
 static void display_duo_data(FILE *fd, char *prefix,
@@ -37,7 +40,7 @@ char *data_x, char *data_y)
     int len_data_x = my_strlen(data_x);
     int len_data_y = my_strlen(data_y);
     int len = len_prefix + len_data_x + len_data_y + 4;
-    char *prompt = malloc(sizeof(char) * (len + 1));;
+    char *prompt = malloc(sizeof(char) * (len + 1));
 
     if (!prompt)
         return;
@@ -48,6 +51,7 @@ char *data_x, char *data_y)
     my_strcat(prompt, data_y);
     my_strcat(prompt, "\n");
     fwrite(prompt , 1 , len , fd );
+    free(prompt);
 }
 
 static void save_skills(FILE *fd, skills_t skills, experience_t exp)
@@ -63,6 +67,11 @@ static void save_skills(FILE *fd, skills_t skills, experience_t exp)
     display_data(fd, "Speed", speed);
     display_data(fd, "Strength", strength);
     display_data(fd, "Resitance", resitance);
+    free(speed);
+    free(strength);
+    free(resitance);
+    free(level);
+    free(xp);
 }
 
 static void save_shape(FILE *fd, player_t *player)
@@ -74,6 +83,9 @@ static void save_shape(FILE *fd, player_t *player)
 
     display_duo_data(fd, "Position", data_x, data_y);
     display_data(fd, "Texture_player", texture_player);
+    free(data_x);
+    free(data_y);
+    free(texture_player);
 }
 
 void app_save_game(app_t *app)
