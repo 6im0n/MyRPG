@@ -31,6 +31,15 @@ size_t my_strlen(const char *str);
 int my_strcmp(char const *s1, char const *s2);
 
 /**
+ * @brief Compare 2 given strings n
+ * @param s1 First string
+ * @param s2 Second string
+ * @param size size
+ * @return Difference between 2 strings
+ */
+int my_strncmp(char const *s1, char const *s2, int size);
+
+/**
  * @brief Convert given string to int
  * @param str String to convert
  */
@@ -43,6 +52,15 @@ int my_strtoint(char const *str);
  * @return char* combined
  */
 char *my_strcpy(char *dest, char const *src);
+
+/**
+ * @brief Copy n char src to dest
+ * @param dest char*
+ * @param src char *
+ * @param index int index
+ * @return char* combined
+ */
+char *my_strncpy(char *dest, char const *src, int index);
 
 /**
  * @brief duplicate Data

@@ -11,6 +11,7 @@
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
+    #include "ressources/textures.h"
     #include "components/popup.h"
     #include "ressources/quests.h"
 
@@ -31,6 +32,7 @@ typedef enum e_id_component {
     ID_SOUND_CURSOR,
     ID_CURSOR,
     ID_S_PLAYER,
+    ID_RESUME,
     ID_XP,
     ID_LEVEL,
     ID_LEN
@@ -123,6 +125,7 @@ typedef struct s_character {
     character_annimation_t annimation;
     sfTime time;
     key_player_t key;
+    texture_t tx;
 } character_t;
 
 typedef struct s_colors {

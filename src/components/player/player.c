@@ -21,6 +21,7 @@ static character_t *init_character(ressources_t *ressources)
     character->shape = sfRectangleShape_create();
     character->frect = frect;
     character->irect = irect;
+    character->tx = TX_PLAYER_2;
     character->key = (key_player_t){false, false, false, false};
     return character;
 }
@@ -28,7 +29,6 @@ static character_t *init_character(ressources_t *ressources)
 static experience_t init_experience(void)
 {
     experience_t xp;
-
     xp.level = 0;
     xp.xp = 0;
     xp.max_xp = 100.0;
@@ -38,7 +38,6 @@ static experience_t init_experience(void)
 static skills_t init_skills(void)
 {
     skills_t skills;
-
     skills.resitance = 0;
     skills.speed = 20;
     skills.strength = 0;

@@ -16,4 +16,6 @@
     #define W_COLOR ((sfColor) {232, 207, 166, 255})
 
     #define DFT_MOUSE_POSITION ((sfVector2f) {0, 0})
+    #define SAVE_FILE "assets/scripts/log/game.txt"
+
 #endif /* !APP_CONSTANTS_H_ */

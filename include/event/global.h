@@ -54,4 +54,10 @@ event_t *event, app_t *app);
 void event_play_music(node_component_t *component,
 app_t *app);
 
+/**
+ * @brief Event set update player with parsing
+ * @param app app;
+ */
+void parsing_save(app_t *app);
+
 #endif /* !EVENT_SETTINGS_H_ */
