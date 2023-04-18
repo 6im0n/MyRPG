@@ -49,4 +49,6 @@ app_t *app);
 bool finish_animation(node_mob_t *mob);
 //-------//
 
+void list_mob_delete(list_mobs_t *list);
+
 #endif /* !mobs_H_ */

@@ -51,9 +51,7 @@ event_t *event, app_t *app)
     if (component->features.select == false)
         return;
     if (!ST_IS_NEAR(component)) {
-        app->element->mobs->first = NULL;
-        app->element->mobs->last = NULL;
-        app->element->mobs->len = 0;
+        list_mob_delete(app->element->mobs);
         component->features.select = false;
     }
 }
