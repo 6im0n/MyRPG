@@ -24,7 +24,6 @@ static bool mobs_next_to_player(app_t *app, node_mob_t *mob)
     rect.left -= radius;
     rect.width += radius * 2;
     rect.height += radius * 2;
-    mob->prox_shape = sfCircleShape_create();
     on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
     return on_me;
 }
