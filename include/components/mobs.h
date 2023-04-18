@@ -45,6 +45,8 @@ app_t *app);
 
 void mobs_move_to_player(node_mob_t *mob,
 app_t *app);
+
+bool finish_animation(node_mob_t *mob);
 //-------//
 
 #endif /* !mobs_H_ */

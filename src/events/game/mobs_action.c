@@ -1,0 +1,63 @@
+/*
+** EPITECH PROJECT, 2023
+** RPG
+** File description:
+** mobs
+*/
+
+#include "components/mobs.h"
+#include "types/type.h"
+#include <math.h>
+
+static bool mobs_next_to_player(app_t *app, node_mob_t *mob)
+{
+    sfFloatRect rect;
+    sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
+            app->element->player->character->shape);
+    bool on_me = false;
+    int radius = mob->radius;
+
+    if (mob->radius == 0)
+        return false;
+    rect = sfRectangleShape_getGlobalBounds(mob->shape);
+    rect.top -= radius;
+    rect.left -= radius;
+    rect.width += radius * 2;
+    rect.height += radius * 2;
+    mob->prox_shape = sfCircleShape_create();
+    on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
+    return on_me;
+}
+
+static sfVector2f normal_pos(sfVector2f posm, sfVector2f posp, float speed)
+{
+    sfVector2f dir = {posp.x - posm.x, posp.y - posm.y};
+    float length = sqrt(pow(dir.x, 2) + pow(dir.y, 2));
+    sfVector2f normalized_dir = {dir.x / length, dir.y / length};
+    sfVector2f normalized_pos = {posm.x + normalized_dir.x * speed,
+        posm.y + normalized_dir.y * speed};
+
+    return normalized_pos;
+}
+#include <stdio.h>
+void mobs_move_to_player(node_mob_t *mob,
+app_t *app)
+{
+    sfVector2f posm = sfRectangleShape_getPosition(mob->shape);
+    sfVector2f posp = sfRectangleShape_getPosition(
+            app->element->player->character->shape);
+    sfVector2f normalized_pos = {0, 0};
+
+    if (mobs_next_to_player(app, mob)) {
+        normalized_pos = normal_pos(posm, posp,
+            (float)mob->skills.speed / 10.F);
+        mob->state.walk = 1;
+        if (finish_animation(mob)){
+            mob->irect.top = 192 + 55;
+            mob->annimation.max = 7;
+        }
+        sfRectangleShape_setPosition(mob->shape, normalized_pos);
+        return;
+    }
+    mob->state.walk = 0;
+}
