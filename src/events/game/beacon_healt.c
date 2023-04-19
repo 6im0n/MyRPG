@@ -13,6 +13,7 @@
 #include "ressources/loaders/textures.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "event/levels.h"
 
 static void set_new_texture(node_component_t *component,
 texture_t tx, bool active)
@@ -49,7 +50,7 @@ event_t *event, app_t *app)
 
 static void give_random_skill(app_t *app, player_t *player)
 {
-    int choose = rand() % 3;
+    int choose = rand() % 4;
 
     switch (choose) {
         case 0:
@@ -60,6 +61,9 @@ static void give_random_skill(app_t *app, player_t *player)
             break;
         case 2:
             player->skills.resitance += 3;
+            break;
+        case 3:
+            player->exprerience.level += 5;
             break;
         default:
             break;
@@ -89,10 +93,11 @@ event_t *event, app_t *app)
     sfTime time;
 
     (void) event;
+    (void) app;
     if (component->features.select == false)
         return;
     time = sfClock_getElapsedTime(component->annimation.clock);
-    if (sfTime_asSeconds(time) > (60 * 5)) {
+    if (sfTime_asSeconds(time) > (2)) {
         component->annimation.index = 0;
         component->annimation.speed = 0;
         if (component->id == ID_SHRINE) {
