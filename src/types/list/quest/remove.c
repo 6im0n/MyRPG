@@ -84,7 +84,6 @@ void list_quest_delete(list_quests_t *list, quests_t id)
         tmp2 = tmp->next;
         if (tmp->id == id)
             return delete(list, tmp);
-        printf("%d\t%d\n", tmp->id, id);
         tmp = tmp2;
     }
 }
