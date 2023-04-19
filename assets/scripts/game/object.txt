@@ -31,7 +31,7 @@ disabled: 1
 next_to: 0
 pressed: 0
 ###
-position: 3462 5413
+position: 3462 5435
 size: 0 0
 rect: 64 500 18 24
 style: 16 0 1
@@ -51,122 +51,43 @@ radius: 200
 disabled: 1
 next_to: 1
 ###
-position: 2615 6380
-size: 80 125
-rect: 0 0 64 99
-style: 23 0 1
+position: 5785 4910
+size: 0 0
+rect: 64 500 18 24
+style: 16 0 1
 type: 4
 c_size: 3
-anim_rect: 64 0 0 0
-anim_index: 0
-anim_max: 12
-anim_speed: 12
-radius: 10
-pressed: 1
-disabled: 2
-id: 19
+radius: 200
+disabled: 1
+next_to: 1
 ###
-position: 5168 6824
-size: 80 125
-rect: 0 0 64 99
-style: 23 0 1
+position: 8459 5503
+size: 0 0
+rect: 64 500 18 24
+style: 16 0 1
 type: 4
 c_size: 3
-anim_rect: 64 0 0 0
-anim_index: 0
-anim_max: 12
-anim_speed: 12
-radius: 10
-pressed: 1
-disabled: 2
-id: 19
+radius: 200
+disabled: 1
+next_to: 1
 ###
-position: 6706 5403
-size: 80 125
-rect: 0 0 64 99
-style: 23 0 1
+position: 9567 3369
+size: 0 0
+rect: 64 500 18 24
+style: 16 0 1
 type: 4
 c_size: 3
-anim_rect: 64 0 0 0
-anim_index: 0
-anim_max: 12
-anim_speed: 12
-radius: 10
-pressed: 1
-disabled: 2
-id: 19
+radius: 200
+disabled: 1
+next_to: 1
 ###
-position: 7688 4160
-size: 80 125
-rect: 0 0 64 99
-style: 23 0 1
+position: 5464 7405
+size: 0 0
+rect: 64 500 18 24
+style: 16 0 1
 type: 4
 c_size: 3
-anim_rect: 64 0 0 0
-anim_index: 0
-anim_max: 12
-anim_speed: 12
-radius: 10
-pressed: 1
-disabled: 2
-id: 19
-###
-position: 10530 4735
-size: 80 125
-rect: 0 0 64 99
-style: 23 0 1
-type: 4
-c_size: 3
-anim_rect: 64 0 0 0
-anim_index: 0
-anim_max: 12
-anim_speed: 12
-radius: 10
-pressed: 1
-disabled: 2
-id: 19
-###
-position: 8510 3939
-size: 80 125
-rect: 0 0 64 99
-style: 23 0 1
-type: 4
-c_size: 3
-anim_rect: 64 0 0 0
-anim_index: 0
-anim_max: 12
-anim_speed: 12
-radius: 10
-pressed: 1
-disabled: 2
-id: 19
-###
-position: 5748 4937
-size: 80 125
-rect: 0 0 64 99
-style: 23 0 1
-type: 4
-c_size: 3
-anim_rect: 64 0 0 0
-anim_index: 0
-anim_max: 12
-anim_speed: 12
-radius: 10
-pressed: 1
-disabled: 2
-id: 19
-###
-position: 2500 6380
-size: 70 150
-rect: 0 0 70 150
-style: 26 0 1
-type: 4
-c_size: 3
-anim_rect: 70 0 0 0
-anim_index: 0
-anim_max: 16
-anim_speed: 0
-radius: 11
-pressed: 2
-disabled: 2
+radius: 200
+disabled: 1
+next_to: 1
 ###
