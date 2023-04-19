@@ -15,6 +15,8 @@ static void get_inventory(app_t *app, char *str)
     int i = 9 + 2;
     int type = 0;
 
+    if (my_strlen(str) <= 11)
+        return;
     while (str[i - 1] != '\0') {
         type = my_int(str + i);
         add_item_player(app, type);
