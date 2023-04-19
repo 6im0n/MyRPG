@@ -34,6 +34,7 @@ void layers_init(app_t *app, ressources_t ressources)
     for (int i = 0; i < 5; i++) {
         layer = layer_node_init();
         init_game_layer(layer, ressources, i);
+        layer->id = ID_HEART_1 + i;
         list_layer_append(app->element->layers, layer);
     }
 }
