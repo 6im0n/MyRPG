@@ -11,6 +11,7 @@
     #include <SFML/Graphics.h>
     #include "types/type.h"
     #include "components/components.h"
+    #include <stdio.h>
 
 /**
  * @brief Run the app
@@ -152,5 +153,19 @@ void app_player_render(app_t *app);
  * @param app app
  */
 void app_quests_dispatch(app_t *app);
+
+/**
+ * @brief Display inventory in order to save
+ * @param fd file descriptor
+ * @param inventory list of items
+ */
+void display_inventory(FILE *fd, list_item_t *inventory);
+
+/**
+ * @brief Display inventory in order to save
+ * @param fd file descriptor
+ * @param quests list of quest
+ */
+void display_quest(FILE *fd, list_quests_t *quests);
 
 #endif /* !APP_H_ */

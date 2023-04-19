@@ -108,10 +108,12 @@ _SRC =			main.c \
 				events/game/lunch.c \
 				events/game/select_character.c \
 				events/game/beacon.c \
+				events/game/mob/generation.c \
 				\
 				events/game/resume.c \
 				events/game/resume_load.c \
-        \
+				events/game/resume_skills.c \
+        		\
 				events/game/mobs.c\
 				events/game/mobs_action.c\
 				\
@@ -122,6 +124,7 @@ _SRC =			main.c \
 				types/app/mouse.c \
 				types/app/state.c \
 				types/app/save.c \
+				types/app/save_lists.c \
 				types/app/load.c \
 				types/app/loader.c \
 				\
@@ -134,6 +137,7 @@ _SRC =			main.c \
 				types/list/mobs/list.c \
 				types/list/mobs/append.c \
 				types/list/mobs/node.c \
+				types/list/mobs/remove.c \
 				types/list/pop_up/list.c \
 				types/list/pop_up/append.c \
 				\

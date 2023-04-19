@@ -78,6 +78,6 @@ void quest_append(app_t *app, quests_t quest);
  */
 void quests_set_text_position(app_t *app, node_quests_t *node);
 
-void quests_current_add(list_quests_t *list, quests_t id);
+bool quests_current_add(list_quests_t *list, quests_t id);
 
 #endif /* !PLAYER_H_ */

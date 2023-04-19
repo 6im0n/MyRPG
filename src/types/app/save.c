@@ -14,6 +14,7 @@
 #include "lib/str.h"
 #include "lib/tools.h"
 #include "parsing/utils.h"
+#include "app/app.h"
 
 static void display_data(FILE *fd, char *prefix, char *data)
 {
@@ -83,6 +84,7 @@ static void save_shape(FILE *fd, player_t *player)
 
     display_duo_data(fd, "Position", data_x, data_y);
     display_data(fd, "Texture_player", texture_player);
+    display_inventory(fd, player->inventory);
     free(data_x);
     free(data_y);
     free(texture_player);
@@ -97,6 +99,6 @@ void app_save_game(app_t *app)
         return;
     save_shape(fd, player);
     save_skills(fd, player->skills, player->exprerience);
+    display_quest(fd, app->element->quests);
     fclose(fd);
-    (void) app;
 }

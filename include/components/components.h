@@ -118,12 +118,14 @@ typedef enum e_disabled {
     DISABLED_ANIMATION,
     QUEST_MAIN_FIRST_DIALOG,
     BEACON_DISABLE,
+    DISABLED_SPAWNER,
     DISABLED_LEN
 } disabled_t;
 
 typedef enum e_nextto {
     QUEST_MAIN_FIRST_DIALOG_NEXTTO,
     QUEST_MAIN_FIRST_OBJ_DIALOG_NEXTTO,
+    GENERATION_NEXT_TO,
     NEXT_TO_LEN
 } next_to_t;
 

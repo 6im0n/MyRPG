@@ -14,17 +14,21 @@ static void currend_add(node_quests_t *node)
         node->finish = true;
 }
 
-void quests_current_add(list_quests_t *list, quests_t id)
+bool quests_current_add(list_quests_t *list, quests_t id)
 {
     node_quests_t *tmp = list->first;
     node_quests_t *tmp2 = tmp;
+    bool find = false;
 
     while (tmp != NULL) {
         tmp2 = tmp->next;
-        if (tmp->id == id)
+        if (tmp->id == id) {
             currend_add(tmp);
+            find = true;
+        }
         tmp = tmp2;
     }
+    return find;
 }
 
 list_quests_t *list_quests_init(void)
