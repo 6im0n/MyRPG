@@ -117,8 +117,8 @@ typedef struct s_main_components {
 typedef enum e_disabled {
     DISABLED_ANIMATION,
     QUEST_MAIN_FIRST_DIALOG,
-    BEACON_DISABLE,
     DISABLED_SPAWNER,
+    BEACON_DISABLE,
     DISABLED_LEN
 } disabled_t;
 
