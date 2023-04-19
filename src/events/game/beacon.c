@@ -97,7 +97,7 @@ event_t *event, app_t *app)
     if (component->features.select == false)
         return;
     time = sfClock_getElapsedTime(component->annimation.clock);
-    if (sfTime_asSeconds(time) > (2)) {
+    if (sfTime_asSeconds(time) > (60 * 4)) {
         component->annimation.index = 0;
         component->annimation.speed = 0;
         if (component->id == ID_SHRINE) {
