@@ -43,11 +43,11 @@ list_components_t *list)
 
 static void init_game_player(app_t *app, ressources_t ressources)
 {
-    sfVector2f size = {70 / 2.5, 100 / 2.5};
+    sfVector2f size = {125 / 2.5, 100 / 2.5};
     sfFloatRect player_frect = {0, 0, 0, 0};
     sfRectangleShape *shape = sfRectangleShape_create();
     sfVector2f middle = {2420, 6375};
-    sfIntRect in_rect = {16 + 48, 20, 17, 29};
+    sfIntRect in_rect = {7 + 48, 20, 34, 24};
 
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setPosition(shape, middle);
