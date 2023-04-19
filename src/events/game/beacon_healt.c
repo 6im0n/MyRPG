@@ -63,7 +63,7 @@ static void give_random_skill(app_t *app, player_t *player)
             player->skills.resitance += 3;
             break;
         case 3:
-            player->exprerience.level += 5;
+            player->exprerience.update += 500;
             break;
         default:
             break;

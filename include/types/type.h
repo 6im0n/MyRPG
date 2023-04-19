@@ -94,6 +94,7 @@ typedef struct s_exprerience {
     int xp;
     int level;
     float max_xp;
+    int update;
 } experience_t;
 
 typedef struct s_skills {
