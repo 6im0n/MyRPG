@@ -18,47 +18,6 @@
 #include "components/player.h"
 #include "lib/tools.h"
 
-static void get_quest(app_t *app, char *str)
-{
-    int i = 5 + 2;
-    int type = 0;
-
-    while (str[i - 1] != '\0') {
-        type = my_int(str + i);
-        quest_append(app, type);
-        i += my_nbrlen(type);
-        i++;
-        type = my_int(str + i);
-        app->element->quests->last->current = type;
-        i += my_nbrlen(type);
-        i++;
-    }
-}
-
-static void get_skill(app_t *app, char *str)
-{
-    player_t *player = app->element->player;
-    int level = my_strlen("Level");
-    int xp = my_strlen("Xp");
-    int speed = my_strlen("Speed");
-    int strength = my_strlen("Strength");
-    int resitance = my_strlen("Resitance");
-    int quest = my_strlen("Quest");
-
-    if (my_strncmp("Level", str, level) == 0)
-        player->exprerience.level = my_int(str + level + 2);
-    if (my_strncmp("Xp", str, xp) == 0)
-        player->exprerience.xp = my_int(str + xp + 2);
-    if (my_strncmp("Speed", str, speed) == 0)
-        player->skills.speed = my_int(str + speed + 2);
-    if (my_strncmp("Strength", str, strength) == 0)
-        player->skills.strength = my_int(str + strength + 2);
-    if (my_strncmp("Resitance", str, resitance) == 0)
-        player->skills.resitance = my_int(str + resitance + 2);
-    if (my_strncmp("Quest", str, quest) == 0)
-        get_quest(app, str);
-}
-
 static void set_texture(player_t *player)
 {
     sfTexture *texture = sfTexture_createFromFile(
@@ -94,7 +53,7 @@ char *file, int index_line, int explore)
     if (!str)
         return;
     my_strncpy(str, file + explore, index_line);
-    get_skill(app, str);
+    get_skills(app, str);
     get_player(app->element->player, str);
     free(str);
 }

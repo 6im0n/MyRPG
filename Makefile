@@ -110,7 +110,8 @@ _SRC =			main.c \
 				\
 				events/game/resume.c \
 				events/game/resume_load.c \
-        \
+				events/game/resume_skills.c \
+        		\
 				events/game/mobs.c\
 				events/game/mobs_action.c\
 				\
@@ -121,6 +122,7 @@ _SRC =			main.c \
 				types/app/mouse.c \
 				types/app/state.c \
 				types/app/save.c \
+				types/app/save_lists.c \
 				types/app/load.c \
 				types/app/loader.c \
 				\

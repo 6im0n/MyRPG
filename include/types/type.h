@@ -142,7 +142,7 @@ typedef struct s_player {
     experience_t exprerience;
     sfView *view;
     sfImage *collisions;
-    colors_t colors;    
+    colors_t colors;
     int life;
 } player_t;
 

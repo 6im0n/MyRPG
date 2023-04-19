@@ -14,6 +14,7 @@
 #include "lib/str.h"
 #include "lib/tools.h"
 #include "parsing/utils.h"
+#include "app/app.h"
 
 static void display_data(FILE *fd, char *prefix, char *data)
 {
@@ -52,58 +53,6 @@ char *data_x, char *data_y)
     my_strcat(prompt, "\n");
     fwrite(prompt , 1 , len , fd );
     free(prompt);
-}
-
-static void add_item_display(node_item_t *tmp, FILE *fd)
-{
-    char *str = my_char(tmp->item);
-    int lenf = my_strlen(str);
-
-    fwrite( str, 1 , lenf , fd );
-    if (tmp->next != NULL) {
-        fwrite(" " , 1 , 1 , fd );
-    }
-    free(str);
-}
-
-static void display_inventory(FILE *fd, list_item_t *inventory)
-{
-    node_item_t *tmp = inventory->first;
-
-    fwrite("Inventory: " , 1 , 11 , fd );
-    while (tmp != NULL) {
-        add_item_display(tmp, fd);
-        tmp = tmp->next;
-    }
-    fwrite("\n" , 1 , 1 , fd );
-}
-
-static void add_quest_display(node_quests_t *tmp, FILE *fd)
-{
-    char *current = my_char(tmp->current);
-    int len_current = my_strlen(current);
-    char *str = my_char(tmp->id);
-    int len_str = my_strlen(str);
-
-    fwrite( str, 1 , len_str , fd );
-    fwrite("|", 1, 1, fd);
-    fwrite( current, 1 , len_current , fd );
-    if (tmp->next != NULL)
-        fwrite( " ", 1 , 1 , fd );
-    free(current);
-    free(str);
-}
-
-static void display_quest(FILE *fd, list_quests_t *quests)
-{
-    node_quests_t *tmp = quests->first;
-
-    fwrite("Quest: " , 1 , 7 , fd );
-    while (tmp != NULL) {
-        add_quest_display(tmp, fd);
-        tmp = tmp->next;
-    }
-    fwrite("\n" , 1 , 1 , fd );
 }
 
 static void save_skills(FILE *fd, skills_t skills, experience_t exp)
