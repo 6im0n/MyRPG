@@ -13,17 +13,19 @@ static void event_bouton_help_move_onkeypress(node_component_t *component,
 event_t *event, app_t *app, int id)
 {
     (void) event;
-    (void) app;
     (void) component;
-    component->features.texture_rect.left = 107;
-    if (id == 1)
+    if (id == 1){
         app->element->player->character->key.up = true;
-    if (id == 2)
+    }
+    if (id == 2){
         app->element->player->character->key.left = true;
-    if (id == 3)
+    }
+    if (id == 3){
         app->element->player->character->key.down = true;
-    if (id == 4)
+    }
+    if (id == 4) {
         app->element->player->character->key.right = true;
+    }
 }
 
 static void event_bouton_help_move_ondisabled(node_component_t *component,
@@ -32,7 +34,6 @@ event_t *event, app_t *app, int id)
     (void) event;
     (void) app;
     (void) component;
-    component->features.texture_rect.left = 11;
     if (id == 1)
         app->element->player->character->key.up = false;
     if (id == 2)

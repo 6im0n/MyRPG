@@ -59,8 +59,8 @@ int id)
             app->element->player->character->irect.top = 357;
             break;
     }
-    pos = change_animation_direction_diagonally(app, pos, move, id);
-    return pos;
+    update_old_key(app, id);
+    return pos = change_animation_direction_diagonally(app, pos, move, id);
 }
 
 sfVector2f move_player_on_wall_horizontal(float move,

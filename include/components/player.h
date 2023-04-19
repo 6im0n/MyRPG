@@ -66,6 +66,12 @@ sfVector2f move_player_on_wall_vertical(float move,
 sfVector2f move_player_on_wall_horizontal(float move,
     sfVector2f position, app_t *app, bool *array);
 
+bool finish_attack_player(app_t *app);
+
+float update_move(app_t *app);
+
+void update_old_key(app_t *app, int id);
+
 /**
  * @brief Append quests system
  * @param app App

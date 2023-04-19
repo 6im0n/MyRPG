@@ -32,7 +32,8 @@ static void event_bouton_help_move_ondisabledt(app_t *app, int id)
 {
     if (id == 1){
         app->element->player->character->key.up = false;
-        app->element->player->character->irect.top = 20;
+        if (app->element->player->character->state.attack == false)
+            app->element->player->character->irect.top = 20;
     }
     if (id == 2)
         app->element->player->character->key.left = false;
