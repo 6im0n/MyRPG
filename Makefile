@@ -18,6 +18,7 @@ _SRC =			main.c \
 				app/component_menu.c \
 				app/popup.c \
 				app/player.c \
+				app/layers.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
@@ -127,6 +128,7 @@ _SRC =			main.c \
 				types/app/save_lists.c \
 				types/app/load.c \
 				types/app/loader.c \
+				types/app/layers.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \

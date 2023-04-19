@@ -46,6 +46,11 @@ typedef enum e_id_component {
     ID_XP,
     ID_LEVEL,
     ID_SHRINE,
+    ID_HEART_1,
+    ID_HEART_2,
+    ID_HEART_3,
+    ID_HEART_4,
+    ID_HEART_5,
     ID_LEN
 } component_id_t;
 
