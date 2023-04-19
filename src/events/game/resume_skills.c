@@ -28,6 +28,8 @@ static void get_quest(app_t *app, char *str)
     int i = 5 + 2;
     int type = 0;
 
+    if (my_strlen(str) <= 9)
+        return;
     while (str[i - 1] != '\0') {
         type = my_int(str + i);
         quest_append(app, type);
