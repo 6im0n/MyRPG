@@ -43,7 +43,7 @@ void add_new_mob(app_t *app, ressources_t ressources, sfVector2f possition);
 void mobs_attack(node_mob_t *mob,
 app_t *app);
 
-bool mobs_next_to_player(app_t *app, node_mob_t *mob);
+bool mobs_next_to_player(app_t *app, node_mob_t *mob, int radius);
 
 void mobs_move_to_player(node_mob_t *mob,
 app_t *app);

@@ -9,15 +9,14 @@
 #include "components/mobs.h"
 #include "types/type.h"
 
-bool mobs_next_to_player(app_t *app, node_mob_t *mob)
+bool mobs_next_to_player(app_t *app, node_mob_t *mob, int radius)
 {
     sfFloatRect rect = {0, 0, 0, 0};
     sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
             app->element->player->character->shape);
     bool on_me = false;
-    int radius = mob->radius;
 
-    if (mob->radius == 0)
+    if (radius == 0)
         return false;
     rect = sfRectangleShape_getGlobalBounds(mob->obj_shape);
     rect.top -= radius;
@@ -62,7 +61,7 @@ app_t *app)
     sfVector2f normalized_pos = {0, 0};
     float speed = update_speed_mob(app, mob);
 
-    if (mobs_next_to_player(app, mob)) {
+    if (mobs_next_to_player(app, mob, mob->radius)) {
         normalized_pos = normal_pos(posm, posp, speed);
         mob->state.walk = 1;
         if (finish_animation(mob)){
