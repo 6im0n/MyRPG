@@ -14,6 +14,7 @@
     #include "ressources/textures.h"
     #include "components/popup.h"
     #include "ressources/quests.h"
+    #include "ressources/speech.h"
 
 //==================================================
 // RESSOURCES
@@ -230,6 +231,23 @@ typedef struct list_mobs {
     struct s_node_mob *last;
 } list_mobs_t;
 
+typedef struct s_node_speech {
+    struct s_node_speech *prev;
+    bool active;
+    sfText *title;
+    sfText *paragraphe;
+    sfRectangleShape *shape;
+    sfClock *clock;
+    speech_states_t state;
+    struct s_node_speech *next;
+} node_speech_t;
+
+typedef struct s_list_speech {
+    node_speech_t *first;
+    int len;
+    node_speech_t *last;
+} list_speech_t;
+
 typedef struct s_game_elements {
     list_item_t *items;
     player_t *player;
@@ -237,6 +255,7 @@ typedef struct s_game_elements {
     list_quests_t *quests;
     list_pop_up_t *pop_up;
     ressources_t ressources;
+    list_speech_t *speech;
 } elements_t;
 
 //==================================================

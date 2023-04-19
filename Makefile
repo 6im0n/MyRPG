@@ -140,6 +140,9 @@ _SRC =			main.c \
 				types/list/mobs/remove.c \
 				types/list/pop_up/list.c \
 				types/list/pop_up/append.c \
+				types/list/speech/append.c \
+				types/list/speech/list.c \
+				types/list/speech/display.c \
 				\
 				types/node/component/node.c \
 				\
