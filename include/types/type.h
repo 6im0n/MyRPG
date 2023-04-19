@@ -55,7 +55,6 @@ typedef enum e_id_component {
 
 typedef enum e_item {
     I_NONE,
-    I_SWORD_PIG,
     I_SWORD_LEV1,
     I_KNIFE_LEV1,
     I_HAMMER_LEV1,
@@ -77,7 +76,8 @@ typedef enum e_item {
     I_SPEAR_LEV4,
     I_AXE_LEV4,
     I_CHALICE,
-    I_HEALT_POTION
+    I_HEALT_POTION,
+    I_SWORD_PIG
 } item_t;
 
 typedef struct s_node_item {
@@ -156,6 +156,7 @@ typedef struct s_player {
     sfImage *collisions;
     colors_t colors;
     int life;
+    bool front;
 } player_t;
 
 //==================================================

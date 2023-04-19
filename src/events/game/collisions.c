@@ -47,9 +47,21 @@ static bool is_yellow(sfColor color, player_t *player)
     return false;
 }
 
+static void front_layer(player_t *player)
+{
+    if (player->colors.top.a == 112 ||
+        player->colors.bottom.a == 112 ||
+        player->colors.right.a == 112 ||
+        player->colors.left.a == 112)
+        player->front = true;
+    else
+        player->front = false;
+}
+
 void collisions(bool *array, sfVector2f position, player_t *player)
 {
     update_colors(player, position);
+    front_layer(player);
     if (player->colors.top.a != 255 ||
         is_yellow(player->colors.top, player) ||
         is_red(player->colors.top, player))
