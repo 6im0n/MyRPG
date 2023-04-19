@@ -140,8 +140,11 @@ _SRC =			main.c \
 				types/list/mobs/remove.c \
 				types/list/pop_up/list.c \
 				types/list/pop_up/append.c \
+				types/list/layers/list.c \
+				types/list/layers/append.c \
 				\
 				types/node/component/node.c \
+				types/node/layer/node.c \
 				\
 				parsing/parsing.c \
 				parsing/function.c \
