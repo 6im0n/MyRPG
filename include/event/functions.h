@@ -39,14 +39,17 @@ static const parsing_handler_t hover_event[HOVER_LEN] = {
 static const parsing_handler_t disable_event[DISABLED_LEN] = {
     [DISABLED_ANIMATION] = &event_pause_annimation,
     [QUEST_MAIN_FIRST_DIALOG] = &dialog_main_quests_disabled,
-    [DISABLED_SPAWNER] = &generation_mob_ondisabled
+    [DISABLED_SPAWNER] = &generation_mob_ondisabled,
+    [BEACON_DISABLE] = &beacon_events_ondisabled
 };
 
 static const parsing_handler_t nonclicked_event[NONCLICKED_LEN] = {
 };
 
 static const parsing_handler_t pressed_event[KEYPRESSED_LEN] = {
-    [QUEST_MAIN_FIRST_DIALOG_PRESSED] = &dialog_main_quests_onkeypress
+    [QUEST_MAIN_FIRST_DIALOG_PRESSED] = &dialog_main_quests_onkeypress,
+    [BEACON_HEAL_PRESSED] = &beacon_healt_onkeypress,
+    [BEACON_SKILL_PRESSED] = &beacon_skill_onkeypress
 };
 
 static const parsing_handler_t released_event[KEYRELEASED_LEN] = {

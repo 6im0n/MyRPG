@@ -1,0 +1,217 @@
+position: 2615 6380
+size: 80 125
+rect: 0 0 64 99
+style: 23 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 1
+disabled: 3
+id: 19
+###
+position: 5168 6824
+size: 80 125
+rect: 0 0 64 99
+style: 23 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 1
+disabled: 3
+id: 19
+###
+position: 6706 5403
+size: 80 125
+rect: 0 0 64 99
+style: 23 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 1
+disabled: 3
+id: 19
+###
+position: 7688 4160
+size: 80 125
+rect: 0 0 64 99
+style: 23 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 1
+disabled: 3
+id: 19
+###
+position: 10530 4735
+size: 80 125
+rect: 0 0 64 99
+style: 23 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 1
+disabled: 3
+id: 19
+###
+position: 8510 3939
+size: 80 125
+rect: 0 0 64 99
+style: 23 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 1
+disabled: 3
+id: 19
+###
+position: 5748 4937
+size: 80 125
+rect: 0 0 64 99
+style: 23 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 1
+disabled: 3
+id: 19
+###
+position: 2500 6380
+size: 70 150
+rect: 0 0 70 150
+style: 26 0 1
+type: 4
+c_size: 3
+anim_rect: 70 0 0 0
+anim_index: 0
+anim_max: 16
+anim_speed: 0
+radius: 11
+pressed: 2
+disabled: 3
+###
+position: 3693 5680
+size: 70 150
+rect: 0 0 70 150
+style: 26 0 1
+type: 4
+c_size: 3
+anim_rect: 70 0 0 0
+anim_index: 0
+anim_max: 16
+anim_speed: 0
+radius: 11
+pressed: 2
+disabled: 3
+###
+position: 4665 4368
+size: 70 150
+rect: 0 0 70 150
+style: 26 0 1
+type: 4
+c_size: 3
+anim_rect: 70 0 0 0
+anim_index: 0
+anim_max: 16
+anim_speed: 0
+radius: 11
+pressed: 2
+disabled: 3
+###
+position: 5991 5133
+size: 70 150
+rect: 0 0 70 150
+style: 26 0 1
+type: 4
+c_size: 3
+anim_rect: 70 0 0 0
+anim_index: 0
+anim_max: 16
+anim_speed: 0
+radius: 11
+pressed: 2
+disabled: 3
+###
+position: 6245 7324
+size: 70 150
+rect: 0 0 70 150
+style: 26 0 1
+type: 4
+c_size: 3
+anim_rect: 70 0 0 0
+anim_index: 0
+anim_max: 16
+anim_speed: 0
+radius: 11
+pressed: 2
+disabled: 3
+###
+position: 8969 5640
+size: 70 150
+rect: 0 0 70 150
+style: 26 0 1
+type: 4
+c_size: 3
+anim_rect: 70 0 0 0
+anim_index: 0
+anim_max: 16
+anim_speed: 0
+radius: 11
+pressed: 2
+disabled: 3
+###
+position: 9589 3331
+size: 70 150
+rect: 0 0 70 150
+style: 26 0 1
+type: 4
+c_size: 3
+anim_rect: 70 0 0 0
+anim_index: 0
+anim_max: 16
+anim_speed: 0
+radius: 11
+pressed: 2
+disabled: 3
+###
+position: 10981 3743
+size: 70 150
+rect: 0 0 70 150
+style: 26 0 1
+type: 4
+c_size: 3
+anim_rect: 70 0 0 0
+anim_index: 0
+anim_max: 16
+anim_speed: 0
+radius: 11
+pressed: 2
+disabled: 3
+###

@@ -30,6 +30,15 @@ event_t *event, app_t *app);
  */
 void collisions(bool *array, sfVector2f position, player_t *player);
 
+void beacon_healt_onkeypress(node_component_t *component,
+event_t *event, app_t *app);
+
+void beacon_skill_onkeypress(node_component_t *component,
+event_t *event, app_t *app);
+
+void beacon_events_ondisabled(node_component_t *component,
+event_t *event, app_t *app);
+
 void generation_mob_next_to(node_component_t *component,
 event_t *event, app_t *app);
 

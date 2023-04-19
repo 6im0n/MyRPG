@@ -1,4 +1,4 @@
-position: 2615 6400
+position: 2318 6210
 size: 125 125
 rect: 0 0 128 128
 style: 2 0 1
@@ -31,7 +31,7 @@ disabled: 1
 next_to: 0
 pressed: 0
 ###
-position: 3462 5413
+position: 3462 5435
 size: 0 0
 rect: 64 500 18 24
 style: 16 0 1
