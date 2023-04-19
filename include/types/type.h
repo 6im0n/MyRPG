@@ -15,6 +15,16 @@
     #include "components/popup.h"
     #include "ressources/quests.h"
 
+//==================================================
+// RESSOURCES
+//==================================================
+
+typedef struct s_ressources {
+    sfTexture **textures;
+    sfSoundBuffer **sounds;
+    sfFont **fonts;
+} ressources_t;
+
 typedef enum e_id_component {
     ID_UNDEFINED,
     ID_SLOT_1,
@@ -198,7 +208,7 @@ typedef struct s_mob_states {
 
 typedef struct s_node_mob {
     sfTexture *texture;
-    sfRectangleShape *shape;
+    sfRectangleShape *obj_shape;
     float radius;
     sfCircleShape *prox_shape;
     sfTime time;
@@ -224,6 +234,7 @@ typedef struct s_game_elements {
     list_mobs_t *mobs;
     list_quests_t *quests;
     list_pop_up_t *pop_up;
+    ressources_t ressources;
 } elements_t;
 
 //==================================================
@@ -295,16 +306,6 @@ typedef struct s_event {
     sfEvent original;
     mouse_t *mouse;
 } event_t;
-
-//==================================================
-// RESSOURCES
-//==================================================
-
-typedef struct s_ressources {
-    sfTexture **textures;
-    sfSoundBuffer **sounds;
-    sfFont **fonts;
-} ressources_t;
 
 //==================================================
 // RENDERERING

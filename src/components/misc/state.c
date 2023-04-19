@@ -46,10 +46,9 @@ event_t *event, app_t *app)
     sfFloatRect *rect = &component->features.rendered_rect;
     sfVector2f press = event->mouse->press_position;
     sfVector2f pos = event->mouse->position;
-    sfVector2f pos_p =
-        sfRectangleShape_getPosition(app->element->player->character->shape);
     bool on_me = sfFloatRect_contains(rect, pos.x, pos.y);
-    bool on_player = sfFloatRect_contains(rect, pos_p.x, pos_p.y);
+    bool on_player = sfFloatRect_intersects(rect,
+        &app->element->player->character->frect, NULL);
 
     if (ST_IS_NEAR(component) || (sfFloatRect_contains(rect, press.x, press.y)
         && event->mouse->pressed) || (!event->mouse->pressed && on_me)) {
