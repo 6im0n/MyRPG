@@ -238,6 +238,7 @@ typedef struct s_node_speech {
     sfText *paragraphe;
     sfRectangleShape *shape;
     sfClock *clock;
+    int time;
     speech_states_t state;
     struct s_node_speech *next;
 } node_speech_t;

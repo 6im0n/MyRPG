@@ -93,8 +93,8 @@ main_components_t *components)
         render_in_game(app, components->inventory);
         app_quests_dispatch(app);
     }
-    popup_render(app);
     speech_render(app);
+    popup_render(app);
     app_component_render(app, components->cursor);
     sfRenderWindow_display(app->window);
 }

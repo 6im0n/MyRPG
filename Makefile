@@ -132,6 +132,7 @@ _SRC =			main.c \
 				types/list/component/append.c \
 				types/list/quest/list.c \
 				types/list/quest/append.c \
+				types/list/quest/info.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
 				types/list/mobs/list.c \

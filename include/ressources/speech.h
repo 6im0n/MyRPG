@@ -15,8 +15,11 @@ typedef enum e_speech_style {
 } speech_style_t;
 
 typedef enum e_speech {
+    SP_NONE,
     SP_MAIN_QUESTS_1,
     SP_MAIN_QUESTS_2,
+    SP_MAIN_QUESTS_3,
+    SP_MAIN_QUESTS_4,
     SP_LEN
 } speech_id_t;
 

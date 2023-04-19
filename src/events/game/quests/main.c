@@ -22,8 +22,11 @@ event_t *event, app_t *app)
     (void) event;
     if (!ST_IS_NEAR(component))
         return;
-    if (component->features.select == false)
+    if (component->features.select == false) {
         active = quests_current_add(app->element->quests, Q_MAIN_P1);
+        quests_get_finish(app, app->element->quests,
+        Q_MAIN_P1, SP_MAIN_QUESTS_4);
+    }
     if (active) {
         component->features.select = true;
         new_popup(app, P_ADVENCED, 5);

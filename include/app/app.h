@@ -168,4 +168,7 @@ void display_inventory(FILE *fd, list_item_t *inventory);
  */
 void display_quest(FILE *fd, list_quests_t *quests);
 
+bool quests_get_finish(app_t *app, list_quests_t *list,
+quests_t id, speech_id_t speech);
+
 #endif /* !APP_H_ */

@@ -13,7 +13,7 @@ static void annimation_set(list_speech_t *list)
     sfVector2f title = sfText_getPosition(list->first->title);
     sfVector2f para = sfText_getPosition(list->first->paragraphe);
 
-    if (list->first->state == STS_APPARITION && pos.y > 940) {
+    if (list->first->state == STS_APPARITION && pos.y > 920) {
         pos.y -= 2;
         title.y -= 2;
         para.y -= 2;
@@ -36,9 +36,9 @@ static void annimation_speech(list_speech_t *list)
     sfTime time = sfClock_getElapsedTime(list->first->clock);
 
     annimation_set(list);
-    if (sfTime_asSeconds(time) > 8)
+    if (sfTime_asSeconds(time) > (list->first->time - 2))
         list->first->state = STS_DEPOP;
-    if (sfTime_asSeconds(time) > 10) {
+    if (sfTime_asSeconds(time) > list->first->time) {
         list_removes(list, list->first);
         if (!list->first)
             return;

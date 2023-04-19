@@ -63,17 +63,21 @@ void list_speech_append(list_speech_t *list, node_speech_t *node)
     list->len++;
 }
 
-void auto_call(app_t *app, speech_id_t id)
+static void init_component_speech(node_speech_t *node, speech_id_t id)
 {
-    if (id == SP_MAIN_QUESTS_1)
-        new_speech(app, SP_MAIN_QUESTS_2);
+    sfVector2f pos = {1920 / 2, 940 + 300};
+    sfVector2f pt = {pos.x, pos.y - 70};
+
+    node->title = speech_text((sfVector2f){pt.x - 300, pt.y}, id, SS_TITLE);
+    node->paragraphe = speech_text((sfVector2f){pt.x, pt.y + 70}, id, SS_SP);
+    node->shape = speech_shape(pos);
+    node->clock = sfClock_create();
+    node->time = speech_loaders_timer[id];
 }
 
 void new_speech(app_t *app, speech_id_t id)
 {
     node_speech_t *node = malloc(sizeof(node_speech_t));
-    sfVector2f pos = {1920 / 2, 940 + 300};
-    sfVector2f pt = {pos.x, pos.y - 70};
 
     if (!node || app->element->speech->len > 2)
         return;
@@ -86,10 +90,7 @@ void new_speech(app_t *app, speech_id_t id)
     }
     node->next = NULL;
     node->prev = NULL;
-    node->title = speech_text((sfVector2f){pt.x - 300, pt.y}, id, SS_TITLE);
-    node->paragraphe = speech_text((sfVector2f){pt.x, pt.y + 70}, id, SS_SP);
-    node->shape = speech_shape(pos);
-    node->clock = sfClock_create();
+    init_component_speech(node, id);
     list_speech_append(app->element->speech, node);
     auto_call(app, id);
 }
