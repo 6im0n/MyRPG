@@ -60,4 +60,11 @@ app_t *app);
  */
 void parsing_save(app_t *app);
 
+/**
+ * @brief Get the skills object
+ * @param app struct
+ * @param str char *
+ */
+void get_skills(app_t *app, char *str);
+
 #endif /* !EVENT_SETTINGS_H_ */

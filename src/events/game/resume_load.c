@@ -15,26 +15,8 @@
 #include "utils/file.h"
 #include "lib/str.h"
 #include "lib/tools.h"
-
-static void get_skill(player_t *player, char *str)
-{
-    int level = my_strlen("Level");
-    int xp = my_strlen("Xp");
-    int speed = my_strlen("Speed");
-    int strength = my_strlen("Strength");
-    int resitance = my_strlen("Resitance");
-
-    if (my_strncmp("Level", str, level) == 0)
-        player->exprerience.level = my_int(str + level + 2);
-    if (my_strncmp("Xp", str, xp) == 0)
-        player->exprerience.xp = my_int(str + xp + 2);
-    if (my_strncmp("Speed", str, speed) == 0)
-        player->skills.speed = my_int(str + speed + 2);
-    if (my_strncmp("Strength", str, strength) == 0)
-        player->skills.strength = my_int(str + strength + 2);
-    if (my_strncmp("Resitance", str, resitance) == 0)
-        player->skills.resitance = my_int(str + resitance + 2);
-}
+#include "components/player.h"
+#include "lib/tools.h"
 
 static void set_texture(player_t *player)
 {
@@ -71,7 +53,7 @@ char *file, int index_line, int explore)
     if (!str)
         return;
     my_strncpy(str, file + explore, index_line);
-    get_skill(app->element->player, str);
+    get_skills(app, str);
     get_player(app->element->player, str);
     free(str);
 }
