@@ -101,7 +101,6 @@ void move_player(app_t *app)
     float move = update_move(app);
     key_player_t key_tmp = app->element->player->character->key;
 
-    printf("%.0f\t%.0f\n", position.x, position.y);
     collisions(array, position, app->element->player);
     position = move_player_diagonaly(move, position, app, array);
     if (key_tmp.up && array[0] && !key_tmp.right && !key_tmp.left)
