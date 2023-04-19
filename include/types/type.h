@@ -208,7 +208,7 @@ typedef struct s_mob_states {
 
 typedef struct s_node_mob {
     sfTexture *texture;
-    sfRectangleShape *shape;
+    sfRectangleShape *obj_shape;
     float radius;
     sfCircleShape *prox_shape;
     sfTime time;

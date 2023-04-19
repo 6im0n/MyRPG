@@ -9,7 +9,7 @@
 #include "components/mobs.h"
 #include "types/type.h"
 
-static bool mobs_next_to_player(app_t *app, node_mob_t *mob)
+bool mobs_next_to_player(app_t *app, node_mob_t *mob)
 {
     sfFloatRect rect = {0, 0, 0, 0};
     sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
@@ -19,12 +19,11 @@ static bool mobs_next_to_player(app_t *app, node_mob_t *mob)
 
     if (mob->radius == 0)
         return false;
-    rect = sfRectangleShape_getGlobalBounds(mob->shape);
+    rect = sfRectangleShape_getGlobalBounds(mob->obj_shape);
     rect.top -= radius;
     rect.left -= radius;
     rect.width += radius * 2;
     rect.height += radius * 2;
-    mob->prox_shape = sfCircleShape_create();
     on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
     return on_me;
 }
@@ -57,7 +56,7 @@ static sfVector2f normal_pos(sfVector2f posm, sfVector2f posp, float speed)
 void mobs_move_to_player(node_mob_t *mob,
 app_t *app)
 {
-    sfVector2f posm = sfRectangleShape_getPosition(mob->shape);
+    sfVector2f posm = sfRectangleShape_getPosition(mob->obj_shape);
     sfVector2f posp = sfRectangleShape_getPosition(
             app->element->player->character->shape);
     sfVector2f normalized_pos = {0, 0};
@@ -71,7 +70,7 @@ app_t *app)
             mob->annimation.max = 7;
         }
         if (!mob->state.attack == 1 && !finish_animation(mob))
-            sfRectangleShape_setPosition(mob->shape, normalized_pos);
+            sfRectangleShape_setPosition(mob->obj_shape, normalized_pos);
         return;
     }
     mob->state.walk = 0;

@@ -50,8 +50,9 @@ event_t *event, app_t *app)
     (void) event;
     if (component->features.select == false)
         return;
+    (void)app;
     if (!ST_IS_NEAR(component)) {
-        list_mob_delete(app->element->mobs);
+        list_mob_delete(app);
         component->features.select = false;
     }
 }

@@ -43,12 +43,14 @@ void add_new_mob(app_t *app, ressources_t ressources, sfVector2f possition);
 void mobs_attack(node_mob_t *mob,
 app_t *app);
 
+bool mobs_next_to_player(app_t *app, node_mob_t *mob);
+
 void mobs_move_to_player(node_mob_t *mob,
 app_t *app);
 
 bool finish_animation(node_mob_t *mob);
 //-------//
 
-void list_mob_delete(list_mobs_t *list);
+void list_mob_delete(app_t *app);
 
 #endif /* !mobs_H_ */

@@ -12,6 +12,7 @@
 #include "app/ressources.h"
 #include "components/components.h"
 #include "types/list.h"
+#include "components/mobs.h"
 
 static void set_music(ressources_t *ressources, app_t *app)
 {
@@ -35,6 +36,7 @@ static elements_t *element_create(ressources_t *ressources)
     element->player = player;
     element->items = items;
     element->quests = quest;
+    element->mobs = list_mobs_init();
     return element;
 }
 
