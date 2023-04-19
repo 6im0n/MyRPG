@@ -26,13 +26,6 @@ texture_t tx, bool active)
     component->annimation.one = active;
 }
 
-void healt_give(player_t *player)
-{
-    player->life += 4;
-    if (player->life > 10)
-        player->life = 10;
-}
-
 void beacon_healt_onkeypress(node_component_t *component,
 event_t *event, app_t *app)
 {
@@ -44,7 +37,9 @@ event_t *event, app_t *app)
         component->features.select = true;
         set_new_texture(component, TX_SHRINE_ACTIVATING, true);
         component->annimation.clock = sfClock_create();
-        healt_give(app->element->player);
+        app->element->player->life += 4;
+        if (app->element->player->life > 10)
+            app->element->player->life = 10;
     }
 }
 
