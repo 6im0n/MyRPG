@@ -77,6 +77,7 @@ typedef struct s_component_annimation {
     float speed;
     float max_speed;
     bool one;
+    sfClock *clock;
 } component_annimation_t;
 
 typedef struct s_node_components {
@@ -116,6 +117,7 @@ typedef struct s_main_components {
 typedef enum e_disabled {
     DISABLED_ANIMATION,
     QUEST_MAIN_FIRST_DIALOG,
+    BEACON_DISABLE,
     DISABLED_LEN
 } disabled_t;
 
@@ -133,6 +135,7 @@ typedef enum e_hover {
 typedef enum e_keypressed {
     QUEST_MAIN_FIRST_DIALOG_PRESSED,
     BEACON_HEAL_PRESSED,
+    BEACON_SKILL_PRESSED,
     KEYPRESSED_LEN
 } keypressed_t;
 

@@ -35,6 +35,7 @@ typedef enum e_id_component {
     ID_RESUME,
     ID_XP,
     ID_LEVEL,
+    ID_SHRINE,
     ID_LEN
 } component_id_t;
 
@@ -93,6 +94,7 @@ typedef struct s_exprerience {
     int xp;
     int level;
     float max_xp;
+    int update;
 } experience_t;
 
 typedef struct s_skills {

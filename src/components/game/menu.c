@@ -82,4 +82,5 @@ list_components_t *list)
     sfRectangleShape_setOutlineThickness (
         app->element->player->character->shape, 2);
     parsing_buttons(app, ressources, list, "assets/scripts/game/object.txt");
+    parsing_buttons(app, ressources, list, "assets/scripts/game/beacon.txt");
 }
