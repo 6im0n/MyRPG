@@ -19,7 +19,8 @@ static const char *popup_loaders[P_LEN] = {
     [P_HEALT] = "You have regained some health points !",
     [P_WIN_SPEED] = "You have gained speed points !",
     [P_WIN_STRENGHT] = "You have gained strenght points !",
-    [P_WIN_RESISTANCE] = "You have gained resistance points !"
+    [P_WIN_RESISTANCE] = "You have gained resistance points !",
+    [P_WIN_LEVEL] = "You have gained level points !"
 };
 
 #endif /* !RESSOURCES_POPUP_LOADERS_H_ */

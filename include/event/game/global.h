@@ -36,4 +36,7 @@ event_t *event, app_t *app);
 void beacon_skill_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
 
+void beacon_events_ondisabled(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_GAME_H_ */

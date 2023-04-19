@@ -41,6 +41,7 @@ sfFloatRect rect, component_type_t type, component_styles style)
     component->annimation.speed = 0;
     component->annimation.one = false;
     component->annimation.rect = intrect;
+    component->annimation.clock = NULL;
     component->id = ID_UNDEFINED;
     component->type = type;
     component->state = 0;

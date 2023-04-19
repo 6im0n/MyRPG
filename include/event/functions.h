@@ -38,7 +38,8 @@ static const parsing_handler_t hover_event[HOVER_LEN] = {
 
 static const parsing_handler_t disable_event[DISABLED_LEN] = {
     [DISABLED_ANIMATION] = &event_pause_annimation,
-    [QUEST_MAIN_FIRST_DIALOG] = &dialog_main_quests_disabled
+    [QUEST_MAIN_FIRST_DIALOG] = &dialog_main_quests_disabled,
+    [BEACON_DISABLE] = &beacon_events_ondisabled
 };
 
 static const parsing_handler_t nonclicked_event[NONCLICKED_LEN] = {

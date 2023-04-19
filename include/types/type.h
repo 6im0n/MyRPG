@@ -35,6 +35,7 @@ typedef enum e_id_component {
     ID_RESUME,
     ID_XP,
     ID_LEVEL,
+    ID_SHRINE,
     ID_LEN
 } component_id_t;
 

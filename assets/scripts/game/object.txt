@@ -63,6 +63,8 @@ anim_max: 12
 anim_speed: 12
 radius: 10
 pressed: 1
+disabled: 2
+id: 19
 ###
 position: 5168 6824
 size: 80 125
@@ -76,6 +78,8 @@ anim_max: 12
 anim_speed: 12
 radius: 10
 pressed: 1
+disabled: 2
+id: 19
 ###
 position: 6706 5403
 size: 80 125
@@ -89,6 +93,8 @@ anim_max: 12
 anim_speed: 12
 radius: 10
 pressed: 1
+disabled: 2
+id: 19
 ###
 position: 7688 4160
 size: 80 125
@@ -102,6 +108,8 @@ anim_max: 12
 anim_speed: 12
 radius: 10
 pressed: 1
+disabled: 2
+id: 19
 ###
 position: 10530 4735
 size: 80 125
@@ -115,6 +123,8 @@ anim_max: 12
 anim_speed: 12
 radius: 10
 pressed: 1
+disabled: 2
+id: 19
 ###
 position: 8510 3939
 size: 80 125
@@ -128,6 +138,8 @@ anim_max: 12
 anim_speed: 12
 radius: 10
 pressed: 1
+disabled: 2
+id: 19
 ###
 position: 5748 4937
 size: 80 125
@@ -141,6 +153,8 @@ anim_max: 12
 anim_speed: 12
 radius: 10
 pressed: 1
+disabled: 2
+id: 19
 ###
 position: 2500 6380
 size: 70 150
@@ -154,4 +168,5 @@ anim_max: 16
 anim_speed: 0
 radius: 11
 pressed: 2
+disabled: 2
 ###
