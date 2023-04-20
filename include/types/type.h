@@ -59,6 +59,19 @@ typedef enum e_id_component {
 // PLAYER
 //==================================================
 
+typedef struct s_skills {
+    int speed;
+    int strength;
+    int resitance;
+} skills_t;
+
+typedef enum e_item_types {
+    IS_SPEED,
+    IS_STRENGHT,
+    IS_RESISTANCE,
+    IS_LEN
+} item_types_t;
+
 typedef enum e_item {
     I_NONE,
     I_SWORD_LEV1,
@@ -95,6 +108,7 @@ typedef struct s_node_item {
     sfFloatRect frect;
     sfIntRect irect;
     char *name;
+    skills_t skill;
     struct s_node_item *prev;
 } node_item_t;
 
@@ -113,12 +127,6 @@ typedef struct s_exprerience {
     float max_xp;
     int update;
 } experience_t;
-
-typedef struct s_skills {
-    int speed;
-    int strength;
-    int resitance;
-} skills_t;
 
 typedef struct s_character_annimation {
     sfIntRect rect;
