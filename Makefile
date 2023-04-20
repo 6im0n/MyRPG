@@ -18,6 +18,7 @@ _SRC =			main.c \
 				app/component_menu.c \
 				app/popup.c \
 				app/player.c \
+				app/cycle.c \
 				app/clear_game.c \
 				app/layers.c \
 				\

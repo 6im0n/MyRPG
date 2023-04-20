@@ -313,6 +313,17 @@ typedef struct s_loader_components {
     sfText *text;
 } loader_t;
 
+typedef enum s_cycle_type {
+    DAY,
+    NIGHT
+} c_type_t;
+
+typedef struct s_day_night_cicle {
+    sfRectangleShape *shape;
+    sfClock *clock;
+    c_type_t cycle;
+}  dn_cycle_t;
+
 typedef struct s_states {
     stage_t stage;
     stage_t back;
@@ -320,6 +331,7 @@ typedef struct s_states {
     bool transition;
     sounds_t *sound;
     int framerate;
+    dn_cycle_t *cycle;
 } state_t;
 
 //==================================================

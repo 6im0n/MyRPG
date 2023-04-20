@@ -87,6 +87,8 @@ main_components_t *components)
     player_view(app);
     component_render_dispatch(app, components);
     app_player_render(app);
+    if (app->state->stage == S_GAME || app->state->back == S_GAME)
+        render_cycle_day_night(app);
     if (app->state->stage == S_SETTINGS)
         render_in_game(app, components->setting);
     if (app->state->stage == S_INVENTORY) {

@@ -168,6 +168,12 @@ void display_inventory(FILE *fd, list_item_t *inventory);
  */
 void display_quest(FILE *fd, list_quests_t *quests);
 
+/**
+ * @brief Render the day and the night
+ * @param app app
+ */
+void render_cycle_day_night(app_t *app);
+
 bool quests_get_finish(app_t *app, list_quests_t *list,
 quests_t id, speech_id_t speech);
 
