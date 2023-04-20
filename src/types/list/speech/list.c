@@ -17,6 +17,8 @@ void auto_call(app_t *app, speech_id_t id)
 
 void list_removes(list_speech_t *list, node_speech_t *node)
 {
+    if (!node)
+        return;
     if (node->next == NULL) {
         list->first = NULL;
         list->last = NULL;
@@ -25,6 +27,9 @@ void list_removes(list_speech_t *list, node_speech_t *node)
         node->prev = NULL;
     }
     list->len--;
+    sfText_destroy(node->paragraphe);
+    sfText_destroy(node->title);
+    sfRectangleShape_destroy(node->shape);
     free(node);
 }
 

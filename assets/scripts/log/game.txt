@@ -1,5 +1,5 @@
-Position: 2277 6244
-Texture_player: 10
+Position: 2269 6247
+Texture_player: 11
 Inventory: 12
 Level: 0
 Xp: 0
