@@ -286,4 +286,14 @@ ressources_t ressources, list_components_t *list);
 void components_new_game(app_t *app,ressources_t ressources,
 list_components_t *list);
 
+//==================================================
+// DEATH
+//==================================================
+
+list_components_t *components_get_death(app_t *app,
+ressources_t ressources, list_components_t *list);
+
+void components_death(app_t *app, ressources_t ressources,
+list_components_t *list);
+
 #endif /* !GET_COMPONENTS_H_ */

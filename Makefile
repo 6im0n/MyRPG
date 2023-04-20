@@ -16,6 +16,7 @@ _SRC =			main.c \
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \
+				app/component_extra.c \
 				app/popup.c \
 				app/player.c \
 				app/cycle.c \
@@ -62,6 +63,8 @@ _SRC =			main.c \
 				components/game/get.c \
 				components/game/menu.c \
 				components/game/add_mobs.c \
+				components/death/get.c \
+				components/death/menu.c \
 				\
 				components/new_game/get.c \
 				components/new_game/menu.c \
@@ -102,6 +105,7 @@ _SRC =			main.c \
 				events/menu/start/bouton.c \
 				events/menu/help/bouton.c \
 				events/menu/help/keypress.c \
+				events/menu/death.c \
 				events/inventory/select.c \
 				events/inventory/selector.c \
 				events/levels/levels.c \

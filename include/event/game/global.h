@@ -51,4 +51,10 @@ event_t *event, app_t *app);
 void beacon_item_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
 
+void event_death_back_home(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_timer_onhover(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_GAME_H_ */

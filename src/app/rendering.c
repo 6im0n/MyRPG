@@ -49,6 +49,9 @@ main_components_t *components)
         case S_NEW_GAME:
             app_component_render(app, components->new_game);
             break;
+        case S_DEATH:
+            app_component_render(app, components->death);
+            break;
         default:
             break;
     }
