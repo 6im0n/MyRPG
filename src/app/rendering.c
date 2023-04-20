@@ -86,14 +86,14 @@ main_components_t *components)
     player_view(app);
     component_render_dispatch(app, components);
     app_player_render(app);
+    if (app->state->stage == S_GAME || app->state->back == S_GAME)
+        render_cycle_day_night(app);
     if (app->state->stage == S_SETTINGS)
         render_in_game(app, components->setting);
     if (app->state->stage == S_INVENTORY) {
         render_in_game(app, components->inventory);
         app_quests_dispatch(app);
     }
-    if (app->state->stage == S_GAME || app->state->stage == S_INVENTORY)
-        render_cycle_day_night(app);
     popup_render(app);
     app_component_render(app, components->cursor);
     sfRenderWindow_display(app->window);

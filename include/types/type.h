@@ -280,7 +280,7 @@ typedef struct s_day_night_cicle {
     sfRectangleShape *shape;
     sfClock *clock;
     c_type_t cycle;
-} dn_cycle_t;
+}  dn_cycle_t;
 
 typedef struct s_states {
     stage_t stage;
