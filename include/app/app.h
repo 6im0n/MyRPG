@@ -168,4 +168,10 @@ void display_inventory(FILE *fd, list_item_t *inventory);
  */
 void display_quest(FILE *fd, list_quests_t *quests);
 
+/**
+ * @brief Render the day and the night
+ * @param app app
+ */
+void render_cycle_day_night(app_t *app);
+
 #endif /* !APP_H_ */
