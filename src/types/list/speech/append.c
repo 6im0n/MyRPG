@@ -79,7 +79,7 @@ void new_speech(app_t *app, speech_id_t id)
 {
     node_speech_t *node = malloc(sizeof(node_speech_t));
 
-    if (!node || app->element->speech->len > 2)
+    if (!node )
         return;
     if (app->element->speech->first == NULL) {
         node->active = true;

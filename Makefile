@@ -18,6 +18,7 @@ _SRC =			main.c \
 				app/component_menu.c \
 				app/popup.c \
 				app/player.c \
+				app/clear_game.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \

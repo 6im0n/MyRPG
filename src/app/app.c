@@ -31,7 +31,6 @@ int app_run(void)
     ressources_t ressources = ressources_load(&app);
     main_components_t components = app_components_load(&app, ressources);
 
-    add_item_player(&app, I_SPEAR_LEV4);
     game_set_layer(&app, &ressources);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
