@@ -15,6 +15,8 @@ static void get_inventory(app_t *app, char *str)
     int i = 9 + 2;
     int type = 0;
 
+    if (my_strlen(str) <= 11)
+        return;
     while (str[i - 1] != '\0') {
         type = my_int(str + i);
         add_item_player(app, type);
@@ -53,7 +55,7 @@ void get_skills(app_t *app, char *str)
     if (my_strncmp("Level", str, level) == 0)
         player->exprerience.level = my_int(str + level + 2);
     if (my_strncmp("Xp", str, 2) == 0)
-        player->exprerience.xp = my_int(str + 2 + 2);
+        player->exprerience.update = my_int(str + 2 + 2);
     if (my_strncmp("Speed", str, speed) == 0)
         player->skills.speed = my_int(str + speed + 2);
     if (my_strncmp("Strength", str, strength) == 0)

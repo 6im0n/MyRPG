@@ -94,7 +94,9 @@ main_components_t *components)
         app_quests_dispatch(app);
     }
     speech_render(app);
+    sfRenderWindow_setView(app->window, app->view);
     popup_render(app);
+    layer_render(app);
     app_component_render(app, components->cursor);
     sfRenderWindow_display(app->window);
 }

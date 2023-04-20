@@ -38,6 +38,7 @@ static elements_t *element_create(ressources_t *ressources)
     element->quests = quest;
     element->mobs = list_mobs_init();
     element->speech = list_speech_init();
+    element->layers = list_layers_init();
     return element;
 }
 
@@ -58,4 +59,5 @@ void app_load(app_t *app, ressources_t *ressources)
     set_music(ressources, app);
     app_create_all_item(app->element, ressources);
     app_set_icon(app->window, ressources);
+    layers_init(app, app->element->ressources);
 }
