@@ -73,4 +73,10 @@ void list_quests_free(list_quests_t *list);
 
 void list_quest_delete(list_quests_t *list, quests_t id);
 
+list_layer_t *list_layers_init(void);
+
+void list_layers_free(list_layer_t *list);
+
+void list_layer_append(list_layer_t *list, node_layer_t *node);
+
 #endif /* !COMPONENTS_H_ */

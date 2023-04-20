@@ -46,6 +46,11 @@ typedef enum e_id_component {
     ID_XP,
     ID_LEVEL,
     ID_SHRINE,
+    ID_HEART_1,
+    ID_HEART_2,
+    ID_HEART_3,
+    ID_HEART_4,
+    ID_HEART_5,
     ID_LEN
 } component_id_t;
 
@@ -231,12 +236,28 @@ typedef struct list_mobs {
     struct s_node_mob *last;
 } list_mobs_t;
 
+typedef struct s_node_layer {
+    sfFloatRect frect;
+    sfIntRect irect;
+    component_id_t id;
+    sfRectangleShape *obj;
+    struct s_node_layer *prev;
+    struct s_node_layer *next;
+} node_layer_t;
+
+typedef struct s_list_layer {
+    node_layer_t *first;
+    node_layer_t *last;
+    int len;
+} list_layer_t;
+
 typedef struct s_game_elements {
     list_item_t *items;
     player_t *player;
     list_mobs_t *mobs;
     list_quests_t *quests;
     list_pop_up_t *pop_up;
+    list_layer_t *layers;
     ressources_t ressources;
 } elements_t;
 
