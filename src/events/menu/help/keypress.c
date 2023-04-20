@@ -13,9 +13,7 @@ static void event_bouton_help_move_onkeypress(node_component_t *component,
 event_t *event, app_t *app, int id)
 {
     (void) event;
-    (void) app;
     (void) component;
-    component->features.texture_rect.left = 107;
     if (id == 1)
         app->element->player->character->key.up = true;
     if (id == 2)
@@ -32,7 +30,6 @@ event_t *event, app_t *app, int id)
     (void) event;
     (void) app;
     (void) component;
-    component->features.texture_rect.left = 11;
     if (id == 1)
         app->element->player->character->key.up = false;
     if (id == 2)

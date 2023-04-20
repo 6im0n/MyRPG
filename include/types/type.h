@@ -115,15 +115,25 @@ typedef struct s_key_player {
     bool down;
     bool left;
     bool right;
+    int old_key;
 } key_player_t;
+
+typedef struct s_player_states {
+    bool idle;
+    bool walk;
+    bool attack;
+    bool die;
+    bool hit;
+} player_states_t;
 
 typedef struct s_character {
     sfTexture *texture;
     sfRectangleShape *shape;
     sfFloatRect frect;
     sfIntRect irect;
-    character_annimation_t annimation;
     sfTime time;
+    player_states_t state;
+    character_annimation_t annimation;
     key_player_t key;
     texture_t tx;
 } character_t;

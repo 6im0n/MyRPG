@@ -22,7 +22,7 @@ static character_t *init_character(ressources_t *ressources)
     character->frect = frect;
     character->irect = irect;
     character->tx = TX_PLAYER_2;
-    character->key = (key_player_t){false, false, false, false};
+    character->key = (key_player_t){false, false, false, false, 1};
     return character;
 }
 

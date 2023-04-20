@@ -13,6 +13,7 @@ _SRC =			main.c \
 				app/render.c \
 				app/event_game.c \
 				app/event_game_player.c \
+				app/player_attack.c\
 				app/rendering.c \
 				app/component.c \
 				app/component_menu.c \
@@ -105,7 +106,7 @@ _SRC =			main.c \
 				events/game/player.c \
 				events/game/collisions.c \
 				events/game/dialog.c \
-				events/game/lunch.c \
+				events/game/launch.c \
 				events/game/select_character.c \
 				\
 				events/game/resume.c \
