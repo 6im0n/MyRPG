@@ -12,7 +12,7 @@ void render_cycle_day_night(app_t *app)
     sfRectangleShape *shape = app->state->cycle->shape;
     sfTime t = sfClock_getElapsedTime(app->state->cycle->clock);
     sfColor c = sfRectangleShape_getFillColor(shape);
-    int t_set = 60;
+    int t_set = 60 * 6;
     int c_max = 220;
 
     if (sfTime_asSeconds(t) < t_set / 2)

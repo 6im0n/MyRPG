@@ -33,4 +33,6 @@ event_t *event, app_t *app)
     sfRectangleShape_setPosition(player->character->shape, pos);
     app->state->back = app->state->stage;
     app->state->stage = S_GAME;
+    sfClock_restart(app->state->cycle->clock);
+    sfClock_restart(app->state->clock);
 }
