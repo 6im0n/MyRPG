@@ -30,10 +30,18 @@ void app_player_render(app_t *app)
     if (app->state->stage == S_GAME || app->state->stage == S_SETTINGS ||
         app->state->stage == S_INVENTORY) {
         player_render_annimation(app);
-        sfRenderWindow_drawRectangleShape(app->window,
+        if (!app->element->player->front)
+            sfRenderWindow_drawRectangleShape(app->window,
             app->element->player->character->shape, NULL);
-        mobs_render_annimation(app);
-        sfRenderWindow_drawRectangleShape(app->window,
+        else
+            sfRenderWindow_drawRectangleShape(app->window,
             app->layer, NULL);
+        mobs_render_annimation(app);
+        if (!app->element->player->front)
+            sfRenderWindow_drawRectangleShape(app->window,
+            app->layer, NULL);
+        else
+            sfRenderWindow_drawRectangleShape(app->window,
+            app->element->player->character->shape, NULL);
     }
 }
