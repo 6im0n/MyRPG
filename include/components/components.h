@@ -120,6 +120,7 @@ typedef enum e_disabled {
     QUEST_MAIN_FIRST_DIALOG,
     DISABLED_SPAWNER,
     BEACON_DISABLE,
+    BEACON_I_DISABLE,
     DISABLED_LEN
 } disabled_t;
 
@@ -139,6 +140,7 @@ typedef enum e_keypressed {
     QUEST_MAIN_FIRST_DIALOG_PRESSED,
     BEACON_HEAL_PRESSED,
     BEACON_SKILL_PRESSED,
+    BEACON_ITEM_PRESSED,
     KEYPRESSED_LEN
 } keypressed_t;
 

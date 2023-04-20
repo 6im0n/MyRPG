@@ -1,0 +1,44 @@
+position: 2965 6261
+size: 150 150
+rect: 0 0 64 64
+style: 28 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 8
+anim_speed: 12
+###
+position: 3104 3124
+size: 150 150
+rect: 0 0 64 64
+style: 28 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 8
+anim_speed: 12
+###
+position: 3494 6291
+size: 150 150
+rect: 0 0 64 64
+style: 28 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 8
+anim_speed: 12
+###
+position: 3447 6082
+size: 150 150
+rect: 0 0 64 64
+style: 28 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 8
+anim_speed: 12
+###

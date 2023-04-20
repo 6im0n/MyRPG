@@ -81,4 +81,6 @@ list_components_t *list)
         app->element->player->character->shape, 2);
     parsing_buttons(app, ressources, list, "assets/scripts/game/object.txt");
     parsing_buttons(app, ressources, list, "assets/scripts/game/beacon.txt");
+    parsing_buttons(app, ressources, list, "assets/scripts/game/shrine.txt");
+    parsing_buttons(app, ressources, list, "assets/scripts/game/particule.txt");
 }

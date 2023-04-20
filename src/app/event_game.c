@@ -6,7 +6,6 @@
 */
 
 #include <math.h>
-#include <stdio.h>
 #include <SFML/Graphics.h>
 #include "app/app.h"
 #include "components/view.h"

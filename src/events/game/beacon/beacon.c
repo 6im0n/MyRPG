@@ -35,7 +35,7 @@ event_t *event, app_t *app)
     if (sfKeyboard_isKeyPressed(sfKeyI)) {
         new_popup(app, P_HEALT, 5);
         component->features.select = true;
-        set_new_texture(component, TX_SHRINE_ACTIVATING, true);
+        set_new_texture(component, TX_SHRINE_H_ACTIVATING, true);
         component->annimation.clock = sfClock_create();
         app->element->player->life += 4;
         if (app->element->player->life > 10)
@@ -96,7 +96,7 @@ event_t *event, app_t *app)
         component->annimation.index = 0;
         component->annimation.speed = 0;
         if (component->id == ID_SHRINE) {
-            set_new_texture(component, TX_SHRINE_AVAILABLE, false);
+            set_new_texture(component, TX_SHRINE_H_AVAILABLE, false);
             component->annimation.speed = component->annimation.max_speed;
         }
         component->features.select = false;
