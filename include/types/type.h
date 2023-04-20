@@ -117,6 +117,7 @@ typedef struct s_key_player {
     bool right;
     int old_key;
 } key_player_t;
+
 typedef struct s_player_states {
     bool idle;
     bool walk;
