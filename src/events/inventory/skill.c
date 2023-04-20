@@ -15,15 +15,15 @@ player_t *player, app_t *app)
 {
     switch (component->id) {
         case ID_SKILL_SPEED:
-            player->skills.speed++;
+            player->skills.speed += 2;
             new_popup(app, P_WIN_SPEED, 5);
             break;
         case ID_SKILL_STRENGHT:
-            player->skills.strength++;
+            player->skills.strength += 2;
             new_popup(app, P_WIN_STRENGHT, 5);
             break;
         case ID_SKILL_RESISTANCE:
-            player->skills.resitance++;
+            player->skills.resitance += 2;
             new_popup(app, P_WIN_RESISTANCE, 5);
             break;
         default:
@@ -41,5 +41,6 @@ event_t *event, app_t *app)
         return;
     selector_skill_increment(component, player, app);
     player->exprerience.skill--;
+    player->exprerience.update = -1;
     component->state = ST_SET_PRESSED(component, false);
 }
