@@ -112,7 +112,7 @@ app_t *app);
  * @param app
  * @param mob
  */
-mob_intersect_player(app_t *app, node_mob_t *mob);
+bool mob_intersect_player(app_t *app, node_mob_t *mob);
 
 /**
  * @brief finish the mob animation

@@ -55,6 +55,7 @@ static void init_game_player(app_t *app, ressources_t ressources)
         sfFalse);
     sfRectangleShape_setTextureRect(shape, in_rect);
     player_frect = sfRectangleShape_getGlobalBounds(shape);
+    app->element->player->character->attack.clock = sfClock_create();
     app->element->player->character->state =
         (player_states_t){true, false, false, false, false};
     app->element->player->character->shape = shape;

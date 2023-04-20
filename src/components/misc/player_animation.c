@@ -39,8 +39,7 @@ static void render_player_annimation(app_t *app)
     sfTime time = sfClock_getElapsedTime(
         app->element->player->character->annimation.clock);
     float seconds = time.microseconds / 1000000.0;
-
-    (void) app;
+    
     if (seconds > app->element->player->character->annimation.speed) {
         player_annimation_edit(app);
         sfClock_restart(app->element->player->character->annimation.clock);
