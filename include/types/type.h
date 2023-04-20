@@ -89,10 +89,6 @@ typedef struct s_list_item {
     component_id_t selector;
 } list_item_t;
 
-typedef struct s_attack {
-    sfTime time;
-    sfClock *clock;
-} attack_t;
 typedef struct s_exprerience {
     int xp;
     int level;
@@ -136,7 +132,7 @@ typedef struct s_character {
     sfFloatRect frect;
     sfIntRect irect;
     sfTime time;
-    attack_t attack;
+    sfTime time_hit;
     player_states_t state;
     character_annimation_t annimation;
     key_player_t key;

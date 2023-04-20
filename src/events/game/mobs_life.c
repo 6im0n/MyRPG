@@ -34,18 +34,18 @@ static sfColor h_color(int healt)
 #include <stdio.h>
 void mob_attacked(node_mob_t *mob, app_t *app)
 {
-    sfTime time = app->element->player->character->attack.time;
+    sfTime time = app->element->player->character->time_hit;
     float seconds = time.microseconds / 1000000.0;
 
     sfTime g_time = sfClock_getElapsedTime(app->state->clock);
     float g_seconds = g_time.microseconds / 1000000.0;
-    printf("time : %f\n", g_seconds);
+    printf("time : %f\n", seconds);
     float diff = g_seconds - seconds;
-    printf("diff : %f\n", diff);
+    printf("diff : %f\n", g_seconds);
 
-    if (app->element->player->character->state.attack && mob->healt.curent > 0 && mob_intersect_player(app, mob) && app->element->player->character->annimation.index == 3 && diff > 2) {
+    if (app->element->player->character->state.attack && mob->healt.curent > 0 && mob_intersect_player(app, mob) && app->element->player->character->annimation.index == 3 && diff > 0.5) {
         mob->healt.curent -= 10;
-        app->element->player->character->attack.time = g_time;
+        app->element->player->character->time_hit = g_time;
     }
 }
 
