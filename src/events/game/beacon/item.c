@@ -29,6 +29,8 @@ texture_t tx, bool active)
 void beacon_item_onkeypress(node_component_t *component,
 event_t *event, app_t *app)
 {
+    int random = rand() % I_LEN;
+
     (void) event;
     if (!ST_IS_NEAR(component) || component->features.select)
         return;
@@ -37,6 +39,7 @@ event_t *event, app_t *app)
         component->features.select = true;
         set_new_texture(component, TX_SHRINE_L_ACTIVATING, true);
         component->annimation.clock = sfClock_create();
+        add_item_player(app, random);
     }
 }
 

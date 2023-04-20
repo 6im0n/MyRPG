@@ -77,7 +77,8 @@ typedef enum e_item {
     I_SPEAR_LEV4,
     I_AXE_LEV4,
     I_CHALICE,
-    I_HEALT_POTION
+    I_HEALT_POTION,
+    I_LEN,
 } item_t;
 
 typedef struct s_node_item {
