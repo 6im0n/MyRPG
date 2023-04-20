@@ -37,6 +37,7 @@ static elements_t *element_create(ressources_t *ressources)
     element->items = items;
     element->quests = quest;
     element->mobs = list_mobs_init();
+    element->speech = list_speech_init();
     element->layers = list_layers_init();
     return element;
 }

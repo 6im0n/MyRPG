@@ -25,6 +25,7 @@ sfIntRect intrect, sfFloatRect rect, component_styles style)
     component->features.texture_rect = intrect;
     component->features.select = false;
     component->features.radius = 0;
+    component->features.visited = 0;
 }
 
 void new_component_set(node_component_t *component,

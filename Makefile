@@ -18,6 +18,7 @@ _SRC =			main.c \
 				app/component_menu.c \
 				app/popup.c \
 				app/player.c \
+				app/clear_game.c \
 				app/layers.c \
 				\
 				ressources/ressources.c \
@@ -134,6 +135,7 @@ _SRC =			main.c \
 				types/list/component/append.c \
 				types/list/quest/list.c \
 				types/list/quest/append.c \
+				types/list/quest/info.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
 				types/list/mobs/list.c \
@@ -142,6 +144,9 @@ _SRC =			main.c \
 				types/list/mobs/remove.c \
 				types/list/pop_up/list.c \
 				types/list/pop_up/append.c \
+				types/list/speech/append.c \
+				types/list/speech/list.c \
+				types/list/speech/display.c \
 				types/list/layers/list.c \
 				types/list/layers/append.c \
 				\

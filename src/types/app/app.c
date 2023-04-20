@@ -42,6 +42,7 @@ app_t app_create(char *window_title, int window_frame_rate)
 void app_destroy(app_t *app)
 {
     if (app) {
+        list_speech_free(app->element->speech);
         list_pop_up_free(app->element->pop_up);
         free(app->loader);
         list_layers_free(app->element->layers);

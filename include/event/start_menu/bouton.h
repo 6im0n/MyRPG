@@ -76,4 +76,10 @@ event_t *event, app_t *app);
 void event_character3_select_onclick(node_component_t *component,
 event_t *event, app_t *app);
 
+/**
+ * @brief Clear old game in order to create a new game
+ * @param app struct app
+ */
+void clear_old_game(app_t *app);
+
 #endif /* !EVENT_START_MENU_BOUTON_H_ */

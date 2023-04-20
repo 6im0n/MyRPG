@@ -73,6 +73,10 @@ void list_quests_free(list_quests_t *list);
 
 void list_quest_delete(list_quests_t *list, quests_t id);
 
+list_speech_t *list_speech_init(void);
+
+void list_speech_free(list_speech_t *list);
+
 list_layer_t *list_layers_init(void);
 
 void list_layers_free(list_layer_t *list);
