@@ -31,8 +31,8 @@ typedef enum e_texture {
     TX_MOBS2,
     TX_NPC_ATTENTION,
     TX_UI_BOOKS,
-    TX_SHRINE_ACTIVATING,
-    TX_SHRINE_AVAILABLE,
+    TX_SHRINE_H_ACTIVATING,
+    TX_SHRINE_H_AVAILABLE,
     TX_ALTAR_1,
     TX_ALTAR_AURA,
     TX_OBELISK_ACTIVATING,
@@ -41,6 +41,8 @@ typedef enum e_texture {
     TX_RITUALS,
     TX_FOUNTAIN,
     TX_LAYER,
+    TX_SHRINE_L_ACTIVATING,
+    TX_SHRINE_L_AVAILABLE,
     TX_LEN
 } texture_t;
 

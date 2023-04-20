@@ -29,8 +29,8 @@ static char *textures_loaders[TX_LEN] = {
     [TX_UI_ELEMENTS] = "assets/ui/UIelements32x32original.png",
     [TX_CAMPFIRE] = "assets/grass-world/campfire.png",
     [TX_NPC_ATTENTION] = "assets/grass-world/npc-icon-attention.png",
-    [TX_SHRINE_ACTIVATING] = "assets/grass-world/shrine2activating.png",
-    [TX_SHRINE_AVAILABLE] = "assets/grass-world/shrine2available.png",
+    [TX_SHRINE_H_ACTIVATING] = "assets/grass-world/shrine3activating.png",
+    [TX_SHRINE_H_AVAILABLE] = "assets/grass-world/shrine3available.png",
     [TX_CHALICE] = "assets/ruins-world/goldenchalice64x64.png",
     [TX_NATURE] = "assets/ruins-world/nature.png",
     [TX_ALTAR_1] = "assets/ruins-world/altar.png",
@@ -42,7 +42,9 @@ static char *textures_loaders[TX_LEN] = {
     [TX_FOUNTAIN] = "assets/ruins-world/fountain160x128.png",
     [TX_LAYER] = "assets/maps/layerv5.png",
     [TX_COLLISION] = "assets/maps/collisionv5.png",
-    [TX_UI_BOOKS] = "assets/ui/UIbooks.png"
+    [TX_UI_BOOKS] = "assets/ui/UIbooks.png",
+    [TX_SHRINE_L_ACTIVATING] = "assets/grass-world/shrine2activating.png",
+    [TX_SHRINE_L_AVAILABLE] = "assets/grass-world/shrine2available.png"
 };
 
 #endif /* !RESSOURCES_TEXTURES_LOADERS_H_ */
