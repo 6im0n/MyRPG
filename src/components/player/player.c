@@ -33,6 +33,7 @@ static experience_t init_experience(void)
     xp.xp = 0;
     xp.max_xp = 100.0;
     xp.update = 0;
+    xp.skill = 0;
     return xp;
 }
 
