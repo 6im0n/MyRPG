@@ -35,13 +35,14 @@ static sfColor h_color(int healt)
 void mob_attacked(node_mob_t *mob, app_t *app)
 {
     sfTime time = app->element->player->character->time_hit;
-    float seconds = time.microseconds / 1000000.0;
-
     sfTime g_time = sfClock_getElapsedTime(app->state->clock);
+    float seconds = time.microseconds / 1000000.0;
     float g_seconds = g_time.microseconds / 1000000.0;
     float diff = g_seconds - seconds;
 
-    if (app->element->player->character->state.attack && mob->healt.curent > 0 && mob_intersect_player(app, mob) && app->element->player->character->annimation.index == 2 && diff > 0.5) {
+    if (app->element->player->character->state.attack && mob->healt.curent
+        > 0 && mob_intersect_player(app, mob) &&
+        app->element->player->character->annimation.index == 2 && diff > 0.5) {
         mob->healt.curent -= 10;
         app->element->player->character->time_hit = g_time;
     }
@@ -58,8 +59,7 @@ void mob_health_bar(node_mob_t *mob, app_t *app)
     sfRectangleShape_setPosition(mob->healt.bar, pos_healt);
     sfRectangleShape_setFillColor(mob->healt.bar, h_color(mob->healt.curent));
     sfRenderWindow_drawRectangleShape(app->window,
-       mob->healt.bar, NULL);
+        mob->healt.bar, NULL);
     outline_bar(mob, app);
     mob_attacked(mob, app);
 }
-

@@ -16,6 +16,7 @@ static void init_state(node_mob_t *tmp)
     tmp->state.die = false;
     tmp->state.hit = false;
 }
+
 static void init_healt(node_mob_t *tmp)
 {
     tmp->healt.bar = NULL;
