@@ -1,9 +1,9 @@
-Position: 4240 5708
+Position: 2265 6256
 Texture_player: 11
-Inventory: 
+Inventory: 4 1
 Level: 0
 Xp: 0
-Speed: 20
+Speed: 23
 Strength: 0
-Resitance: 0
-Quest: 
+Resitance: 9
+Quest: 1|0
