@@ -1,24 +1,80 @@
-position: 420 500
+position: 420 440
+size: 500 320
+rect: 139 12 106 122
+style: 1 1 0
+type: 4
+c_size: 2
+text: Level
+text_size: 50
+text_pos: -30 -150
+text_pos_type: 3
+id: 18
+###
+position: 420 430
 size: 425 25
 rect: 277 166 38 4
 style: 4 1 0
 type: 2
 c_size: 2
+id: 9
 ###
-position: 420 500
+position: 420 470
+size: 425 25
+rect: 277 166 38 4
+style: 4 1 0
+type: 2
+c_size: 2
+id: 9
+###
+position: 420 510
+size: 425 25
+rect: 277 166 38 4
+style: 4 1 0
+type: 2
+c_size: 2
+id: 9
+###
+position: 420 550
+size: 425 25
+rect: 277 166 38 4
+style: 4 1 0
+type: 2
+c_size: 2
+id: 9
+###
+position: 420 430
 size: 400 12
 rect: 466 7 12 1
 style: 4 1 0
 type: 1
 c_size: 2
 id: 17
+clicked: 9
 ###
-position: 420 400
-size: 500 320
+position: 420 470
+size: 400 12
+rect: 466 7 12 1
 style: 4 1 0
-type: 4
+type: 1
 c_size: 2
-text: 0
-text_size: 50
-id: 18
+id: 27
+clicked: 9
+###
+position: 420 510
+size: 400 12
+rect: 466 7 12 1
+style: 4 1 0
+type: 1
+c_size: 2
+id: 25
+clicked: 9
+###
+position: 420 550
+size: 400 12
+rect: 466 7 12 1
+style: 4 1 0
+type: 1
+c_size: 2
+id: 26
+clicked: 9
 ###
