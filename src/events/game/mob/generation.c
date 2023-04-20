@@ -19,6 +19,8 @@ static void generation_random_mob(app_t *app, sfFloatRect rect)
     int nbr = rand() % ((int)rect.width / 10);
     sfColor color = {0, 0, 0, 255};
 
+    if (app->state->cycle == DAY)
+        nbr = (rand() % ((int)rect.width / 10)) / 10;
     for (int i = 0; i < nbr; i++) {
         x = (rand() % (int)rect.width) + (int)pos_random.x;
         y = (rand() % (int)rect.height) + (int)pos_random.y;

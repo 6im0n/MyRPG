@@ -68,6 +68,7 @@ typedef struct s_component_features {
     sfIntRect texture_rect;
     bool select;
     int radius;
+    int visited;
 } component_feat_t;
 
 typedef struct s_component_annimation {

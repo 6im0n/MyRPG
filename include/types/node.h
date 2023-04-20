@@ -17,4 +17,10 @@
  */
 node_component_t *node_component_init(void);
 
+/**
+ * @brief Init layer node
+ * @return node_layer_t* node layer
+ */
+node_layer_t *layer_node_init(void);
+
 #endif /* !NODE_H_ */
