@@ -31,6 +31,8 @@ event_t *event, app_t *app)
 {
     int random = rand() % I_LEN;
 
+    if (random == 0)
+        random++;
     (void) event;
     if (!ST_IS_NEAR(component) || component->features.select)
         return;
