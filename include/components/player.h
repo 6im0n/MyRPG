@@ -43,18 +43,56 @@ void add_item_player(app_t *app, item_t item);
 void player_item_switch(list_item_t *list, component_id_t slot_1,
 component_id_t slot_2);
 
+/**
+ * @brief Switch item between two slot
+ *
+ * @param list
+ * @param slot_1
+ * @param slot_2
+ */
 void swap_item_player(list_item_t *list,
 component_id_t slot_1, component_id_t slot_2);
 
+/**
+ * @brief Delete item from player list of item
+ * @param list
+ * @param slot
+ */
 void list_item_delete(list_item_t *list, component_id_t slot);
 
+/**
+ * @brief switch event key
+ * @param app
+ * @param item
+ */
 void event_key_switch(node_component_t *component,
 event_t *event, app_t *app);
 
+/**
+ * @brief render a player
+ * @param app
+ */
 void player_render_annimation(app_t *app);
 
+/**
+ * @brief create a new player annimation
+ *
+ * @param app
+ * @param annimation
+ * @param index
+ * @param max
+ */
 void new_player_annimation(app_t *app, sfIntRect annimation, int index,
                             int max);
+/**
+ * @brief change the animation of the player link to his direction
+ *
+ * @param app
+ * @param pos
+ * @param move
+ * @param id
+ * @return sfVector2f
+ */
 sfVector2f change_animation_direction(app_t *app, sfVector2f pos, float move,
 int id);
 
@@ -98,6 +136,13 @@ sfVector2f move_player_on_wall_horizontal(float move,
  */
 bool finish_attack_player(app_t *app);
 
+/**
+ * @brief  update the mouvement if the player based on the time of the game
+ *
+ * @param app
+ * @param move
+ * @return float
+ */
 float update_move(app_t *app);
 
 void update_old_key(app_t *app, int id);
@@ -116,6 +161,18 @@ void quest_append(app_t *app, quests_t quest);
  */
 void quests_set_text_position(app_t *app, node_quests_t *node);
 
+/**
+ * @brief Update quests
+ * @param app app
+ */
 bool quests_current_add(list_quests_t *list, quests_t id);
+
+/**
+ * @brief Update the xp of the player
+ *
+ * @param app
+ * @param components
+ */
+void update_xp(app_t *app, main_components_t *components);
 
 #endif /* !PLAYER_H_ */
