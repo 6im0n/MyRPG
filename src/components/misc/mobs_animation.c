@@ -53,8 +53,7 @@ static void flip_animation(node_mob_t *mob)
         mob->irect.width = -100;
         mob->irect.left = 155;
         return;
-    }
-    else if (!mob->state.left) {
+    } else if (!mob->state.left) {
         mob->irect.left = 73;
         mob->irect.width = 100;
         return;

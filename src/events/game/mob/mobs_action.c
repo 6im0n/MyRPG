@@ -41,7 +41,8 @@ static float update_speed_mob(app_t *app, node_mob_t *mob)
     return speed;
 }
 
-static sfVector2f normal_pos(node_mob_t *mob, sfVector2f posm, sfVector2f posp, float speed)
+static sfVector2f normal_pos(node_mob_t *mob,
+    sfVector2f posm, sfVector2f posp, float speed)
 {
     sfVector2f dir = {posp.x - posm.x, posp.y - posm.y};
     float length = sqrt(pow(dir.x, 2) + pow(dir.y, 2));
