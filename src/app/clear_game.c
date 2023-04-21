@@ -12,6 +12,7 @@
 
 void clear_old_game(app_t *app)
 {
+    app->element->player->life = 10;
     app->element->player->exprerience.level = 0;
     app->element->player->exprerience.max_xp = 0;
     app->element->player->exprerience.xp = 0;

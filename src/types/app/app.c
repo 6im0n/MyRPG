@@ -18,8 +18,8 @@
 app_t app_create(char *window_title, int window_frame_rate)
 {
     sfRenderWindow *window = sfRenderWindow_create(
-        sfVideoMode_getDesktopMode(), window_title,
-        sfFullscreen, NULL
+        W_VIDEO_MODE, window_title,
+        sfResize | sfClose, NULL
     );
     mouse_t mouse = mouse_init();
     state_t *state = state_new();

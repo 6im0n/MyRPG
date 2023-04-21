@@ -329,6 +329,7 @@ typedef enum e_stage_type {
     S_CURSOR,
     S_GAME,
     S_NEW_GAME,
+    S_DEATH,
     S_LEN
 } stage_t;
 

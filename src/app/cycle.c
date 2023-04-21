@@ -5,6 +5,7 @@
 ** cycle
 */
 
+#include <stdio.h>
 #include "types/type.h"
 
 void render_cycle_day_night(app_t *app)
