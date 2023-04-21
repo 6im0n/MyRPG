@@ -11,6 +11,8 @@
 #include "app/constants.h"
 #include <fcntl.h>
 #include <stdio.h>
+#include "utils/file.h"
+#include "lib/str.h"
 
 void launch_game_resume(node_component_t *component,
 event_t *event, app_t *app)
@@ -24,6 +26,15 @@ event_t *event, app_t *app)
     app->state->stage = S_GAME;
 }
 
+static bool file_empty(void)
+{
+    char *data = file_load(SAVE_FILE);
+
+    if (my_strcmp(data, "Empty") == 0)
+        return true;
+    return false;
+}
+
 void resume_available(node_component_t *component,
 event_t *event, app_t *app)
 {
@@ -32,7 +43,7 @@ event_t *event, app_t *app)
 
     (void) event;
     (void) app;
-    if (fd == -1) {
+    if (fd == -1 || file_empty()) {
         component->features.select = false;
         sfText_setColor(component->object->text, color);
         return;

@@ -50,6 +50,9 @@ main_components_t *components)
         case S_NEW_GAME:
             app_component_render(app, components->new_game);
             break;
+        case S_DEATH:
+            dispatch(app, components, components->death);
+            break;
         default:
             break;
     }
@@ -73,9 +76,6 @@ main_components_t *components)
             break;
         case S_SETTINGS:
             dispatch(app, components, components->setting);
-            break;
-        case S_DEATH:
-            dispatch(app, components, components->death);
             break;
         default:
             break;
