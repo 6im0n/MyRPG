@@ -143,4 +143,18 @@ bool finish_animation(node_mob_t *mob);
  */
 void list_mob_delete(app_t *app);
 
+/**
+ * @brief remove a from the list
+ * @param list
+ * @param node
+ */
+void list_mob_remove(list_mobs_t *list, node_mob_t *node);
+
+/**
+ * @brief detect if the mob is dead and remove it
+ * @param mob
+ * @param app
+ */
+bool dying_mob(node_mob_t *mob, app_t *app);
+
 #endif /* !mobs_H_ */

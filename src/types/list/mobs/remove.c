@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-static void node_unlinkt(node_mob_t *node)
+static void node_mob_unlink(node_mob_t *node)
 {
     if (!node)
         return;
@@ -22,9 +22,9 @@ static void node_unlinkt(node_mob_t *node)
         node->prev->next = node->next;
 }
 
-void list_removet(list_mobs_t *list, node_mob_t *node)
+void list_mob_remove(list_mobs_t *list, node_mob_t *node)
 {
-    node_unlinkt(node);
+    node_mob_unlink(node);
     if (list->first == node)
         list->first = node->next;
     if (list->first)
@@ -47,7 +47,7 @@ void list_mob_delete(app_t *app)
         if (!mobs_next_to_player(app, tmp, tmp->radius + 100)) {
             sfRectangleShape_destroy(tmp->obj_shape);
             sfClock_destroy(tmp->clock);
-            list_removet(list, tmp);
+            list_mob_remove(list, tmp);
             free(tmp);
         }
         tmp = tmp2;

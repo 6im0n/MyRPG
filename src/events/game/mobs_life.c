@@ -32,6 +32,19 @@ static sfColor h_color(int healt)
     return (sfRed);
 }
 
+bool dying_mob(node_mob_t *mob, app_t *app)
+{
+    (void) app;
+    if (mob->healt.curent == 0){
+        sfRectangleShape_destroy(mob->obj_shape);
+        sfClock_destroy(mob->clock);
+        list_mob_remove(app->element->mobs, mob);
+        free(mob);
+        return true;
+    }
+    return false;
+}
+
 void mob_attacked(list_mobs_t *list, app_t *app)
 {
     node_mob_t *tmp = list->first;
@@ -43,8 +56,8 @@ void mob_attacked(list_mobs_t *list, app_t *app)
         float g_seconds = g_time.microseconds / 1000000.0;
         float diff = g_seconds - seconds;
 
-        if (tmp->healt.curent > 0 && mob_intersect_player(app, tmp) &&
-        app->element->player->character->annimation.index == 2 && diff > 1) {
+        if (tmp->healt.curent > 0.0 && mob_intersect_player(app, tmp) &&
+        app->element->player->character->annimation.index == 2 && diff > 0.2) {
             tmp->healt.curent -= 10;
             tmp->time_hit = g_time;
         }

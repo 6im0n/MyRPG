@@ -60,6 +60,7 @@ void mobs_render_annimation(app_t *app)
         mobs_attack(tmp, app);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->obj_shape, NULL);
+        dying_mob(tmp, app);
         tmp = tmp->next;
     }
 }
