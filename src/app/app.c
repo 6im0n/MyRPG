@@ -16,6 +16,12 @@
 #include "lib/output.h"
 #include "event/levels.h"
 
+static void happy_moulinette(app_t *app)
+{
+    sfSprite *dumb_sprite = sfSprite_create();
+    sfSprite_destroy(dumb_sprite);
+}
+
 static void game_set_layer(app_t *app, ressources_t *ressources)
 {
     sfRectangleShape_setTexture(app->layer, ressources->textures[TX_LAYER],
