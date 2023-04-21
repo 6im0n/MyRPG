@@ -37,6 +37,7 @@ int app_run(void)
     ressources_t ressources = ressources_load(&app);
     main_components_t components = app_components_load(&app, ressources);
 
+    happy_moulinette(&app);
     game_set_layer(&app, &ressources);
     levels_update(&app, components.inventory, 0);
     while (sfRenderWindow_isOpen(app.window)) {
