@@ -237,8 +237,7 @@ typedef struct s_mob_states {
 typedef struct s_node_mob {
     float radius;
     sfTexture *texture;
-    sfRectangleShape *shape;
-    float radius;
+    sfRectangleShape *obj_shape;
     sfFloatRect frect;
     sfIntRect irect;
     sfTime time;
@@ -386,15 +385,6 @@ typedef struct s_event {
     mouse_t *mouse;
 } event_t;
 
-//==================================================
-// RESSOURCES
-//==================================================
-
-typedef struct s_ressources {
-    sfTexture **textures;
-    sfSoundBuffer **sounds;
-    sfFont **fonts;
-} ressources_t;
 
 //==================================================
 // RENDERERING

@@ -11,7 +11,7 @@
 static void outline_bar(node_mob_t *mob, app_t *app)
 {
     sfVector2f size_outline = {43, 5};
-    sfVector2f pos = sfRectangleShape_getPosition(mob->shape);
+    sfVector2f pos = sfRectangleShape_getPosition(mob->obj_shape);
 
     sfRectangleShape_setPosition(mob->healt.outline, (sfVector2f){pos.x + 3,
         pos.y - 10});
@@ -47,13 +47,14 @@ void mob_attacked(node_mob_t *mob, app_t *app)
         app->element->player->character->time_hit = g_time;
     }
 }
-
+#include <stdio.h>
 void mob_health_bar(node_mob_t *mob, app_t *app)
 {
     sfVector2f size_bar = {43, 5};
     float h_precent = (float)mob->healt.curent / (float)mob->healt.max;
-    sfVector2f pos = sfRectangleShape_getPosition(mob->shape);
+    sfVector2f pos = sfRectangleShape_getPosition(mob->obj_shape);
     sfVector2f pos_healt = {pos.x + 3 , pos.y - 10};
+
     sfRectangleShape_setSize(mob->healt.bar,
         (sfVector2f){size_bar.x *h_precent, size_bar.y});
     sfRectangleShape_setPosition(mob->healt.bar, pos_healt);

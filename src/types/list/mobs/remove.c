@@ -46,7 +46,6 @@ void list_mob_delete(app_t *app)
         tmp2 = tmp->next;
         if (!mobs_next_to_player(app, tmp, tmp->radius + 100)) {
             sfRectangleShape_destroy(tmp->obj_shape);
-            sfCircleShape_destroy(tmp->prox_shape);
             sfClock_destroy(tmp->clock);
             list_removet(list, tmp);
             free(tmp);

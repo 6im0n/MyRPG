@@ -38,7 +38,7 @@ node_mob_t *node_mobs_init(ressources_t ressources)
     if (!tmp)
         return NULL;
     tmp->texture = ressources.textures[TX_APP_ICON];
-    tmp->shape = sfRectangleShape_create();
+    tmp->obj_shape = sfRectangleShape_create();
     tmp->frect = frect;
     tmp->irect = irect;
     tmp->time = sfTime_Zero;
