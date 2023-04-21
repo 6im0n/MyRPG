@@ -18,8 +18,8 @@
 
 static void happy_moulinette()
 {
-
     sfSprite *dumb_sprite = sfSprite_create();
+
     sfSprite_destroy(dumb_sprite);
 }
 
