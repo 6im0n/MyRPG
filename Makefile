@@ -109,6 +109,7 @@ _SRC =			main.c \
 				events/menu/death.c \
 				events/inventory/select.c \
 				events/inventory/selector.c \
+				events/inventory/skill.c \
 				events/levels/levels.c \
 				events/game/player.c \
 				events/game/collisions.c \

@@ -32,6 +32,7 @@ int app_run(void)
     main_components_t components = app_components_load(&app, ressources);
 
     game_set_layer(&app, &ressources);
+    levels_update(&app, components.inventory, 0);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);

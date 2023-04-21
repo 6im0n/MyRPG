@@ -167,6 +167,7 @@ typedef enum e_clicked {
     CHARACTER_SELECT_1,
     CHARACTER_SELECT_2,
     CHARACTER_SELECT_3,
+    UPDATE_SKILLS,
     CLICKED_LEN
 } clicked_t;
 

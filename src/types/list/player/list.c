@@ -12,6 +12,7 @@ node_item_t *item_pure_new(void)
     node_item_t *component = malloc(sizeof(node_item_t));
     sfFloatRect frect = { 0, 0, 0, 0};
     sfIntRect irect = { 0, 0, 0, 0};
+    skills_t skill = {0, 0, 0};
 
     if (!component)
         return NULL;
@@ -20,6 +21,7 @@ node_item_t *item_pure_new(void)
     component->item = I_NONE;
     component->prev = NULL;
     component->slot = ID_UNDEFINED;
+    component->skill = skill;
     component->shape = sfRectangleShape_create();
     component->next = NULL;
     return component;
