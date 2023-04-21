@@ -10,15 +10,15 @@
 
 static void outline_bar(node_mob_t *mob, app_t *app)
 {
-    sfVector2f size_outline = {43, 5};
+    sfVector2f size_outline = {30, 3};
     sfVector2f pos = sfRectangleShape_getPosition(mob->obj_shape);
 
-    sfRectangleShape_setPosition(mob->healt.outline, (sfVector2f){pos.x + 3,
+    sfRectangleShape_setPosition(mob->healt.outline, (sfVector2f){pos.x + 13,
         pos.y - 10});
     sfRectangleShape_setSize(mob->healt.outline, size_outline);
     sfRectangleShape_setFillColor(mob->healt.outline, sfTransparent);
     sfRectangleShape_setOutlineColor(mob->healt.outline, sfBlack);
-    sfRectangleShape_setOutlineThickness(mob->healt.outline, 1);
+    sfRectangleShape_setOutlineThickness(mob->healt.outline, 0.65);
     sfRenderWindow_drawRectangleShape(app->window,
         mob->healt.outline, NULL);
 }
@@ -27,6 +27,7 @@ sfColor h_color(int healt)
 {
     int r, g, b;
     float ratio = (float)healt / 100.0;
+    int alpha = 170;
 
     if (ratio < 0.5) {
         r = 255;
@@ -37,7 +38,7 @@ sfColor h_color(int healt)
         g = 255;
         b = 0;
     }
-    return sfColor_fromRGB(r, g, b);
+    return sfColor_fromRGBA(r, g, b, alpha);
 }
 
 void dying_mob(node_mob_t *mob, app_t *app)
@@ -82,10 +83,10 @@ void mob_attacked(list_mobs_t *list, app_t *app)
 
 void mob_health_bar(node_mob_t *mob, app_t *app)
 {
-    sfVector2f size_bar = {43, 5};
+    sfVector2f size_bar = {30, 3};
     float h_precent = (float)mob->healt.curent / (float)mob->healt.max;
     sfVector2f pos = sfRectangleShape_getPosition(mob->obj_shape);
-    sfVector2f pos_healt = {pos.x + 3 , pos.y - 10};
+    sfVector2f pos_healt = {pos.x + 13 , pos.y - 10};
 
     sfRectangleShape_setSize(mob->healt.bar,
         (sfVector2f){size_bar.x *h_precent, size_bar.y});
