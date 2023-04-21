@@ -43,6 +43,7 @@ typedef enum e_texture {
     TX_LAYER,
     TX_SHRINE_L_ACTIVATING,
     TX_SHRINE_L_AVAILABLE,
+    TX_BLACKSMITH,
     TX_LEN
 } texture_t;
 

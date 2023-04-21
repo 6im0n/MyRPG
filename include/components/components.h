@@ -142,6 +142,7 @@ typedef enum e_keypressed {
     BEACON_HEAL_PRESSED,
     BEACON_SKILL_PRESSED,
     BEACON_ITEM_PRESSED,
+    SAVE_GAME,
     KEYPRESSED_LEN
 } keypressed_t;
 
