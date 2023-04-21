@@ -16,6 +16,7 @@
     #include "event/start_menu/bouton.h"
     #include "event/game/dialog.h"
     #include "event/game/global.h"
+    #include "event/inventory/bouton.h"
 
 typedef void (*parsing_handler_t)(node_component_t *component,
 event_t *event, app_t *app);
@@ -29,7 +30,8 @@ static const parsing_handler_t clicked_event[CLICKED_LEN] = {
     [GAME_LUNCH] = &launch_game,
     [CHARACTER_SELECT_1] = &event_character1_select_onclick,
     [CHARACTER_SELECT_2] = &event_character2_select_onclick,
-    [CHARACTER_SELECT_3] = &event_character3_select_onclick
+    [CHARACTER_SELECT_3] = &event_character3_select_onclick,
+    [UPDATE_SKILLS] = &event_inventory_skill_onpressed
 };
 
 static const parsing_handler_t hover_event[HOVER_LEN] = {

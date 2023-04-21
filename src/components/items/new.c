@@ -7,15 +7,23 @@
 
 #include "types/type.h"
 #include "types/list.h"
+#include "ressources/loaders/items.h"
 
 node_item_t *new_items(node_item_t *item, item_t id, sfIntRect irect,
 sfFloatRect frect)
 {
+    skills_t skill = {
+        items_loaders[id][IS_SPEED],
+        items_loaders[id][IS_STRENGHT],
+        items_loaders[id][IS_RESISTANCE]
+    };
+
     if (!item)
         return NULL;
     item->shape = sfRectangleShape_create();
     item->next = NULL;
     item->item = id;
+    item->skill = skill;
     item->frect = frect;
     item->irect = irect;
     return item;

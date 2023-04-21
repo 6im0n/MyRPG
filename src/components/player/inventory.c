@@ -32,7 +32,7 @@ void add_item_player(app_t *app, item_t item)
     node_item_t *tmp2 = tmp;
 
     new_popup(app, P_ITEM, 5);
-    if (item != I_NONE && first->item == I_NONE)
+    if (first && item != I_NONE && first->item == I_NONE)
         list_remove(app->element->player->inventory, first);
     if (!tmp || app->element->player->inventory->len > 8)
         return;
