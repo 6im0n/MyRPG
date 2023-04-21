@@ -4,7 +4,7 @@
 ** File description:
 ** mobs
 */
-
+#include <math.h>
 #include "components/mobs.h"
 #include "types/type.h"
 
@@ -23,13 +23,21 @@ static void outline_bar(node_mob_t *mob, app_t *app)
         mob->healt.outline, NULL);
 }
 
-static sfColor h_color(int healt)
+sfColor h_color(int healt)
 {
-    if (healt > 50)
-        return (sfGreen);
-    if (healt > 25)
-        return (sfYellow);
-    return (sfRed);
+    int r, g, b;
+    float ratio = (float)healt / 100.0;
+
+    if (ratio < 0.5) {
+        r = 255;
+        g = (int)(ratio * 2 * 255);
+        b = 0;
+    } else {
+        r = (int)((1.0 - ratio) * 2 * 255);
+        g = 255;
+        b = 0;
+    }
+    return sfColor_fromRGB(r, g, b);
 }
 
 void dying_mob(node_mob_t *mob, app_t *app)
