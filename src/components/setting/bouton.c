@@ -31,11 +31,11 @@ list_components_t *list)
     new_component_set(obj, rect, C_TYPES_BTN_TXT, style);
     new_component_type(ressources, obj, position);
     new_component_size(obj, size,
-        (sfIntRect){.height = 24, .left = 772, .top = 163, .width = 22},
+        (sfIntRect){.height = 24, .left = 773, .top = 68, .width = 22},
         C_SIZE_SMALL);
-    set_component_text(obj, "Close the game", sfBlack, 30);
+    set_component_text(obj, "Home", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, 15}, 3);
-    obj->events.onclick = &event_quit_app_onclick;
+    obj->events.onclick = &event_help_bouton_home_onclick;
     list_component_append(list, obj);
 }
 

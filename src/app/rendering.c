@@ -92,7 +92,9 @@ static void app_stages(app_t *app, main_components_t *components)
         sfClock_restart(app->state->cycle->clock);
     }
     if ((app->state->stage == S_GAME || app->state->back == S_GAME) &&
-        app->state->stage != S_DEATH)
+        app->state->stage != S_DEATH && app->state->stage != S_MENU_HELP &&
+        app->state->stage != S_MENU_START &&
+        app->state->stage != S_MENU_LOAD_GAME)
         render_cycle_day_night(app);
     if (app->state->stage == S_SETTINGS)
         render_in_game(app, components->setting);
