@@ -121,9 +121,9 @@ _SRC =			main.c \
 				events/game/resume_load.c \
 				events/game/resume_skills.c \
         		\
-				events/game/mobs.c\
-				events/game/mobs_action.c\
-				events/game/mobs_life.c\
+				events/game/mob/mobs.c\
+				events/game/mob/mobs_action.c\
+				events/game/mob/mobs_life.c\
 				\
 				events/game/quests/main.c \
 				\

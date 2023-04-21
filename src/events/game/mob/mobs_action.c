@@ -41,14 +41,17 @@ static float update_speed_mob(app_t *app, node_mob_t *mob)
     return speed;
 }
 
-static sfVector2f normal_pos(sfVector2f posm, sfVector2f posp, float speed)
+static sfVector2f normal_pos(node_mob_t *mob, sfVector2f posm, sfVector2f posp, float speed)
 {
     sfVector2f dir = {posp.x - posm.x, posp.y - posm.y};
     float length = sqrt(pow(dir.x, 2) + pow(dir.y, 2));
     sfVector2f normalized_dir = {dir.x / length, dir.y / length};
     sfVector2f normalized_pos = {posm.x + normalized_dir.x * speed,
         posm.y + normalized_dir.y * speed};
-
+    if (dir.x > 0)
+        mob->state.left = 0;
+    else
+        mob->state.left = 1;
     return normalized_pos;
 }
 
@@ -62,7 +65,7 @@ app_t *app)
     float speed = update_speed_mob(app, mob);
 
     if (mobs_next_to_player(app, mob, mob->radius)) {
-        normalized_pos = normal_pos(posm, posp, speed);
+        normalized_pos = normal_pos(mob, posm, posp, speed);
         mob->state.walk = 1;
         if (finish_animation(mob)){
             mob->irect.top = 192 + 55;
