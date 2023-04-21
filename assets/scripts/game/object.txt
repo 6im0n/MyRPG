@@ -31,8 +31,8 @@ disabled: 1
 next_to: 0
 pressed: 0
 ###
-position: 2380 6386
-size: 40 40
+position: 4705 4378
+size: 50 50
 rect: 0 0 32 32
 anim_rect: 32 0 0 0
 anim_index: 0
