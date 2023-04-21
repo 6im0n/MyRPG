@@ -108,9 +108,5 @@ void app_handle_events(app_t *app, main_components_t *components)
         player_attack(app);
         component_near(components->game, app, &event);
     }
-    if (app->element->player->exprerience.update != 0) {
-        levels_update(app, components->inventory,
-        app->element->player->exprerience.update);
-        app->element->player->exprerience.update = 0;
-    }
+    update_xp(app, components);
 }

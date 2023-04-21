@@ -26,6 +26,8 @@ static void init_healt(node_mob_t *tmp)
     tmp->healt.max = 100;
     tmp->healt.bar = sfRectangleShape_create();
     tmp->healt.outline = sfRectangleShape_create();
+    tmp->time_hit = sfTime_Zero;
+    tmp->time = sfTime_Zero;
 }
 
 node_mob_t *node_mobs_init(ressources_t ressources)
@@ -41,8 +43,6 @@ node_mob_t *node_mobs_init(ressources_t ressources)
     tmp->obj_shape = sfRectangleShape_create();
     tmp->frect = frect;
     tmp->irect = irect;
-    tmp->time = sfTime_Zero;
-    tmp->time_hit = sfTime_Zero;
     tmp->annimation = (mobs_annimation_t){rect, 0, 0, 0, 0};
     init_state(tmp);
     init_healt(tmp);

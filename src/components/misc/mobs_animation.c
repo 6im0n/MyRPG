@@ -56,8 +56,10 @@ void mobs_render_annimation(app_t *app)
     while (tmp != NULL) {
         render_mobs_annimation(app, tmp);
         mobs_move_to_player(tmp, app);
-        mob_health_bar(tmp, app);
-        mobs_attack(tmp, app);
+        if (!tmp->state.die) {
+            mob_health_bar(tmp, app);
+            mobs_attack(tmp, app);
+        }
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->obj_shape, NULL);
         dying_mob(tmp, app);
