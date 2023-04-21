@@ -13,6 +13,7 @@
 #include "components/player.h"
 #include "components/components.h"
 #include "components/speech.h"
+#include "components/death.h"
 
 static void dispatch(app_t *app,
 main_components_t *components, list_components_t *list)
@@ -49,9 +50,6 @@ main_components_t *components)
         case S_NEW_GAME:
             app_component_render(app, components->new_game);
             break;
-        case S_DEATH:
-            app_component_render(app, components->death);
-            break;
         default:
             break;
     }
@@ -76,10 +74,36 @@ main_components_t *components)
         case S_SETTINGS:
             dispatch(app, components, components->setting);
             break;
+        case S_DEATH:
+            dispatch(app, components, components->death);
+            break;
         default:
             break;
     }
     component_render_dispatch_extend(app, components);
+}
+
+static void app_stages(app_t *app, main_components_t *components)
+{
+    if (app->state->stage == S_GAME &&
+        app->element->player->life <= 0) {
+        app->state->stage = S_DEATH;
+        app->state->back = S_GAME;
+        sfClock_restart(app->state->cycle->clock);
+    }
+    if ((app->state->stage == S_GAME || app->state->back == S_GAME) &&
+        app->state->stage != S_DEATH)
+        render_cycle_day_night(app);
+    if (app->state->stage == S_SETTINGS)
+        render_in_game(app, components->setting);
+    if (app->state->stage == S_DEATH)
+        death_render(app);
+    if (app->state->stage == S_DEATH)
+        render_in_game(app, components->death);
+    if (app->state->stage == S_INVENTORY) {
+        render_in_game(app, components->inventory);
+        app_quests_dispatch(app);
+    }
 }
 
 void app_render(app_t *app, ressources_t *ressources,
@@ -90,14 +114,7 @@ main_components_t *components)
     player_view(app);
     component_render_dispatch(app, components);
     app_player_render(app);
-    if (app->state->stage == S_GAME || app->state->back == S_GAME)
-        render_cycle_day_night(app);
-    if (app->state->stage == S_SETTINGS)
-        render_in_game(app, components->setting);
-    if (app->state->stage == S_INVENTORY) {
-        render_in_game(app, components->inventory);
-        app_quests_dispatch(app);
-    }
+    app_stages(app, components);
     speech_render(app);
     sfRenderWindow_setView(app->window, app->view);
     popup_render(app);

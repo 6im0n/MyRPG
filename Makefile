@@ -22,6 +22,7 @@ _SRC =			main.c \
 				app/cycle.c \
 				app/clear_game.c \
 				app/layers.c \
+				app/death.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \

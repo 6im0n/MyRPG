@@ -7,21 +7,19 @@
 
 #include "types/type.h"
 
-static void death_alpha(list_pop_up_t *list, node_popup_t *node)
+void death_render(app_t *app)
 {
-    sfColor color = sfText_getColor(node->text);
-    sfTime elapsed = sfClock_getElapsedTime(node->clock);
+    sfRectangleShape *shape = app->state->cycle->shape;
+    sfTime t = sfClock_getElapsedTime(app->state->cycle->clock);
+    sfColor c = sfRectangleShape_getFillColor(shape);
+    int t_set = 10 * 1;
+    int c_max = 205;
 
-    if (sfTime_asSeconds(elapsed) >= node->auto_destroy - 2 && color.a > 0) {
-        color.a--;
-        sfText_setColor(node->text, color);
+    if (sfTime_asSeconds(t) > 4.5) {
+        sfRenderWindow_drawRectangleShape(app->window, shape, NULL);
+        return;
     }
-    if (sfTime_asSeconds(elapsed) >= node->auto_destroy) {
-        delete(list, node);
-    }
-}
-
-void death_render(app_t *app, main_components_t *components)
-{
-    
+    c.a = ((sfTime_asSeconds(t) / (t_set / 2)) * c_max) - 1;
+    sfRectangleShape_setFillColor(shape, c);
+    sfRenderWindow_drawRectangleShape(app->window, shape, NULL);
 }

@@ -39,7 +39,6 @@ static void menu_board(ressources_t ressources,
     sfRectangleShape_setFillColor(obj->object->rectangle, color);
     set_component_text(obj, "You are dead", colort, 150);
     set_component_text_pos(obj, (sfVector2f){ 0, -200}, 0);
-    obj->events.onhover = &event_timer_onhover;
     list_component_append(list, obj);
 }
 

@@ -35,8 +35,6 @@ int app_run(void)
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);
-        if (sfKeyboard_isKeyPressed(sfKeyA))
-            app.state->stage = S_DEATH;
     }
     app_save_game(&app);
     components_free(&components);
