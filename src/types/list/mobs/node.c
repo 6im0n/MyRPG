@@ -15,6 +15,7 @@ static void init_state(node_mob_t *tmp)
     tmp->state.idle = false;
     tmp->state.die = false;
     tmp->state.hit = false;
+    tmp->state.left = false;
 }
 
 static void init_healt(node_mob_t *tmp)
@@ -48,7 +49,6 @@ node_mob_t *node_mobs_init(ressources_t ressources)
     init_healt(tmp);
     tmp->radius = 0;
     tmp->skills = (skills_t){0, 0, 0};
-    tmp->state = (mob_states_t){ false, false, false, false, false};
     tmp->next = NULL;
     tmp->prev = NULL;
     return tmp;

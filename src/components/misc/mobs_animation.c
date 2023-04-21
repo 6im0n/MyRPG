@@ -47,6 +47,20 @@ static void render_mobs_annimation(app_t *app, node_mob_t *mob)
     }
 }
 
+static void flip_animation(node_mob_t *mob)
+{
+    if (mob->state.left){
+        mob->irect.width = -100;
+        mob->irect.left = 155;
+        return;
+    }
+    else if (!mob->state.left) {
+        mob->irect.left = 73;
+        mob->irect.width = 100;
+        return;
+    }
+}
+
 void mobs_render_annimation(app_t *app)
 {
     node_mob_t *tmp = app->element->mobs->first;
@@ -55,6 +69,7 @@ void mobs_render_annimation(app_t *app)
         mob_attacked(app->element->mobs, app);
     while (tmp != NULL) {
         render_mobs_annimation(app, tmp);
+        flip_animation(tmp);
         mobs_move_to_player(tmp, app);
         if (!tmp->state.die) {
             mob_health_bar(tmp, app);

@@ -243,6 +243,7 @@ typedef struct s_mob_states {
     bool attack;
     bool die;
     bool hit;
+    bool left;
 } mob_states_t;
 
 typedef struct s_node_mob {
