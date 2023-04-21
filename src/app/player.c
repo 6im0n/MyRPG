@@ -28,7 +28,7 @@ void app_quests_dispatch(app_t *app)
 void app_player_render(app_t *app)
 {
     if (app->state->stage == S_GAME || app->state->stage == S_SETTINGS ||
-        app->state->stage == S_INVENTORY) {
+        app->state->stage == S_DEATH || app->state->stage == S_INVENTORY) {
         player_render_annimation(app);
         if (!app->element->player->front)
             sfRenderWindow_drawRectangleShape(app->window,

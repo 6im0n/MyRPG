@@ -108,6 +108,7 @@ typedef struct s_main_components {
     list_components_t *new_game;
     list_components_t *inventory;
     list_components_t *setting;
+    list_components_t *death;
     list_components_t *cursor;
 } main_components_t;
 
@@ -247,6 +248,9 @@ node_component_t *component);
  * @param app
  */
 void append_menu(app_t *app, ressources_t ressources,
+main_components_t *components);
+
+void append_death(app_t *app, ressources_t ressources,
 main_components_t *components);
 
 //==================================================
