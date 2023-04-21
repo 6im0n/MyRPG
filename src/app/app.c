@@ -16,8 +16,9 @@
 #include "lib/output.h"
 #include "event/levels.h"
 
-static void happy_moulinette(app_t *app)
+static void happy_moulinette()
 {
+
     sfSprite *dumb_sprite = sfSprite_create();
     sfSprite_destroy(dumb_sprite);
 }
@@ -37,7 +38,7 @@ int app_run(void)
     ressources_t ressources = ressources_load(&app);
     main_components_t components = app_components_load(&app, ressources);
 
-    happy_moulinette(&app);
+    happy_moulinette();
     game_set_layer(&app, &ressources);
     levels_update(&app, components.inventory, 0);
     while (sfRenderWindow_isOpen(app.window)) {
