@@ -106,6 +106,12 @@ void mob_health_bar(node_mob_t *mob, app_t *app);
  */
 bool mobs_next_to_player(app_t *app, node_mob_t *mob, int radius);
 
+/**
+ * @brief move mob to the player
+ *
+ * @param mob
+ * @param app
+ */
 void mobs_move_to_player(node_mob_t *mob,
 app_t *app);
 
@@ -117,12 +123,24 @@ app_t *app);
 bool mob_intersect_player(app_t *app, node_mob_t *mob);
 
 /**
+ * @brief detect and update the mob life
+ *
+ * @param list
+ * @param app
+ */
+void mob_attacked(list_mobs_t *list, app_t *app);
+
+/**
  * @brief finish the mob animation
  * @param mob
  */
 bool finish_animation(node_mob_t *mob);
 //-------//
 
+/**
+ * @brief delete a mob
+ * @param app
+ */
 void list_mob_delete(app_t *app);
 
 #endif /* !mobs_H_ */

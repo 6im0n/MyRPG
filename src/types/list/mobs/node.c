@@ -42,6 +42,7 @@ node_mob_t *node_mobs_init(ressources_t ressources)
     tmp->frect = frect;
     tmp->irect = irect;
     tmp->time = sfTime_Zero;
+    tmp->time_hit = sfTime_Zero;
     tmp->annimation = (mobs_annimation_t){rect, 0, 0, 0, 0};
     init_state(tmp);
     init_healt(tmp);

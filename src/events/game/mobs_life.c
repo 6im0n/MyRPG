@@ -32,22 +32,26 @@ static sfColor h_color(int healt)
     return (sfRed);
 }
 
-void mob_attacked(node_mob_t *mob, app_t *app)
+void mob_attacked(list_mobs_t *list, app_t *app)
 {
-    sfTime time = app->element->player->character->time_hit;
-    sfTime g_time = sfClock_getElapsedTime(app->state->clock);
-    float seconds = time.microseconds / 1000000.0;
-    float g_seconds = g_time.microseconds / 1000000.0;
-    float diff = g_seconds - seconds;
+    node_mob_t *tmp = list->first;
 
-    if (app->element->player->character->state.attack && mob->healt.curent
-        > 0 && mob_intersect_player(app, mob) &&
-        app->element->player->character->annimation.index == 2 && diff > 0.5) {
-        mob->healt.curent -= 10;
-        app->element->player->character->time_hit = g_time;
+    while (tmp != NULL) {
+        sfTime time = tmp->time_hit;
+        sfTime g_time = sfClock_getElapsedTime(app->state->clock);
+        float seconds = time.microseconds / 1000000.0;
+        float g_seconds = g_time.microseconds / 1000000.0;
+        float diff = g_seconds - seconds;
+
+        if (tmp->healt.curent > 0 && mob_intersect_player(app, tmp) &&
+        app->element->player->character->annimation.index == 2 && diff > 1) {
+            tmp->healt.curent -= 10;
+            tmp->time_hit = g_time;
+        }
+        tmp = tmp->next;
     }
 }
-#include <stdio.h>
+
 void mob_health_bar(node_mob_t *mob, app_t *app)
 {
     sfVector2f size_bar = {43, 5};
@@ -62,5 +66,4 @@ void mob_health_bar(node_mob_t *mob, app_t *app)
     sfRenderWindow_drawRectangleShape(app->window,
         mob->healt.bar, NULL);
     outline_bar(mob, app);
-    mob_attacked(mob, app);
 }

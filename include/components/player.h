@@ -58,14 +58,44 @@ void new_player_annimation(app_t *app, sfIntRect annimation, int index,
 sfVector2f change_animation_direction(app_t *app, sfVector2f pos, float move,
 int id);
 
+/**
+ * @brief launch the attack of the player
+ *
+ * @param app
+ */
 void player_attack(app_t *app);
 
+/**
+ * @brief move the player on the wall slide in vertical
+ *
+ * @param move
+ * @param position
+ * @param app
+ * @param array
+ * @return sfVector2f
+ */
 sfVector2f move_player_on_wall_vertical(float move,
     sfVector2f position, app_t *app, bool *array);
 
+/**
+ * @brief move the player on the wall slide in horizontal
+ *
+ * @param move
+ * @param position
+ * @param app
+ * @param array
+ * @return sfVector2f
+ */
 sfVector2f move_player_on_wall_horizontal(float move,
     sfVector2f position, app_t *app, bool *array);
 
+/**
+ * @brief wiating for the player to finish the attack annimation
+ *
+ * @param app
+ * @return true
+ * @return false
+ */
 bool finish_attack_player(app_t *app);
 
 float update_move(app_t *app);

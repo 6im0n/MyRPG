@@ -151,7 +151,6 @@ typedef struct s_character {
     sfFloatRect frect;
     sfIntRect irect;
     sfTime time;
-    sfTime time_hit;
     player_states_t state;
     character_annimation_t annimation;
     key_player_t key;
@@ -241,6 +240,7 @@ typedef struct s_node_mob {
     sfFloatRect frect;
     sfIntRect irect;
     sfTime time;
+    sfTime time_hit;
     sfClock *clock;
     skills_t skills;
     healt_t healt;

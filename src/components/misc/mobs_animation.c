@@ -51,11 +51,13 @@ void mobs_render_annimation(app_t *app)
 {
     node_mob_t *tmp = app->element->mobs->first;
 
+    if (app->element->player->character->state.attack)
+        mob_attacked(app->element->mobs, app);
     while (tmp != NULL) {
         render_mobs_annimation(app, tmp);
         mobs_move_to_player(tmp, app);
-        mobs_attack(tmp, app);
         mob_health_bar(tmp, app);
+        mobs_attack(tmp, app);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->obj_shape, NULL);
         tmp = tmp->next;
