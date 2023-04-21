@@ -155,6 +155,6 @@ void list_mob_remove(list_mobs_t *list, node_mob_t *node);
  * @param mob
  * @param app
  */
-bool dying_mob(node_mob_t *mob, app_t *app);
+void dying_mob(node_mob_t *mob, app_t *app);
 
 #endif /* !mobs_H_ */

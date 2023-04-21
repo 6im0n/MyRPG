@@ -32,26 +32,24 @@ static sfColor h_color(int healt)
     return (sfRed);
 }
 
-bool dying_mob(node_mob_t *mob, app_t *app)
+void dying_mob(node_mob_t *mob, app_t *app)
 {
-    (void)app;
-    if (mob->state.die == true && mob->annimation.index == 14 ){
-        sfRectangleShape_destroy(mob->obj_shape);
-        sfClock_destroy(mob->clock);
-        list_mob_remove(app->element->mobs, mob);
-        free(mob);
-        return true;
+    if (mob->state.die == true) {
+        if (mob->annimation.index == 14) {
+            sfRectangleShape_destroy(mob->obj_shape);
+            sfClock_destroy(mob->clock);
+            list_mob_remove(app->element->mobs, mob);
+            free(mob);
+        }
     }
     if (mob->healt.curent == 0 && mob->state.die == false){
-        mob->irect.top = 730 + 55;
+        mob->irect.top = 768 + 55;
         mob->annimation.index = 0;
         mob->annimation.max = 14;
         sfRectangleShape_destroy(mob->healt.bar);
         sfRectangleShape_destroy(mob->healt.outline);
         mob->state.die = true;
-        return true;
     }
-    return false;
 }
 
 void mob_attacked(list_mobs_t *list, app_t *app)
