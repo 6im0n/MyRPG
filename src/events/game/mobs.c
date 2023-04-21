@@ -15,6 +15,7 @@ bool finish_animation(node_mob_t *mob)
     if (mob->annimation.index > mob->annimation.max){
         mob->annimation.index = 0;
         mob->state.attack = 0;
+        mob->state.hit = false;
         return true;
     }
     return false;
@@ -27,7 +28,7 @@ bool mob_intersect_player(app_t *app, node_mob_t *mob)
             app->element->player->character->shape);
     bool on_me = false;
 
-    rect = sfRectangleShape_getGlobalBounds(mob->shape);
+    rect = sfRectangleShape_getGlobalBounds(mob->obj_shape);
     on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
     return on_me;
 }

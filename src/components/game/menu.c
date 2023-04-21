@@ -82,4 +82,7 @@ list_components_t *list)
     add_new_mob(app, ressources, (sfVector2f){2696, 6214});
     add_new_mob(app, ressources, (sfVector2f){2292, 6446});
     parsing_buttons(app, ressources, list, "assets/scripts/game/object.txt");
+    parsing_buttons(app, ressources, list, "assets/scripts/game/beacon.txt");
+    parsing_buttons(app, ressources, list, "assets/scripts/game/shrine.txt");
+    parsing_buttons(app, ressources, list, "assets/scripts/game/particule.txt");
 }

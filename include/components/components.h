@@ -68,6 +68,7 @@ typedef struct s_component_features {
     sfIntRect texture_rect;
     bool select;
     int radius;
+    int visited;
 } component_feat_t;
 
 typedef struct s_component_annimation {
@@ -76,6 +77,8 @@ typedef struct s_component_annimation {
     int max;
     float speed;
     float max_speed;
+    bool one;
+    sfClock *clock;
 } component_annimation_t;
 
 typedef struct s_node_components {
@@ -115,12 +118,16 @@ typedef struct s_main_components {
 typedef enum e_disabled {
     DISABLED_ANIMATION,
     QUEST_MAIN_FIRST_DIALOG,
+    DISABLED_SPAWNER,
+    BEACON_DISABLE,
+    BEACON_I_DISABLE,
     DISABLED_LEN
 } disabled_t;
 
 typedef enum e_nextto {
     QUEST_MAIN_FIRST_DIALOG_NEXTTO,
     QUEST_MAIN_FIRST_OBJ_DIALOG_NEXTTO,
+    GENERATION_NEXT_TO,
     NEXT_TO_LEN
 } next_to_t;
 
@@ -131,6 +138,9 @@ typedef enum e_hover {
 
 typedef enum e_keypressed {
     QUEST_MAIN_FIRST_DIALOG_PRESSED,
+    BEACON_HEAL_PRESSED,
+    BEACON_SKILL_PRESSED,
+    BEACON_ITEM_PRESSED,
     KEYPRESSED_LEN
 } keypressed_t;
 

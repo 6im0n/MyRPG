@@ -20,8 +20,7 @@ static void mobs_annimation_edit(node_mob_t *mob)
     rect.top += rect_a.top;
     rect.left += rect_a.left;
     rect.width += rect_a.width;
-    sfRectangleShape_setTextureRect(mob->shape,
-    rect);
+    sfRectangleShape_setTextureRect(mob->obj_shape, rect);
     mob->annimation.index++;
 }
 

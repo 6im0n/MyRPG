@@ -12,6 +12,7 @@
 #include "app/ressources.h"
 #include "components/components.h"
 #include "types/list.h"
+#include "components/mobs.h"
 
 static void set_music(ressources_t *ressources, app_t *app)
 {
@@ -30,10 +31,14 @@ static elements_t *element_create(ressources_t *ressources)
     list_quests_t *quest = list_quests_init();
 
     element->pop_up = list_pop_up_init();
+    element->ressources = *ressources;
     list_item_append(items, fitem);
     element->player = player;
     element->items = items;
     element->quests = quest;
+    element->mobs = list_mobs_init();
+    element->speech = list_speech_init();
+    element->layers = list_layers_init();
     return element;
 }
 
@@ -54,4 +59,5 @@ void app_load(app_t *app, ressources_t *ressources)
     set_music(ressources, app);
     app_create_all_item(app->element, ressources);
     app_set_icon(app->window, ressources);
+    layers_init(app, app->element->ressources);
 }

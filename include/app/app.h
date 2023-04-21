@@ -11,6 +11,7 @@
     #include <SFML/Graphics.h>
     #include "types/type.h"
     #include "components/components.h"
+    #include <stdio.h>
 
 /**
  * @brief Run the app
@@ -152,5 +153,41 @@ void app_player_render(app_t *app);
  * @param app app
  */
 void app_quests_dispatch(app_t *app);
+
+/**
+ * @brief Display inventory in order to save
+ * @param fd file descriptor
+ * @param inventory list of items
+ */
+void display_inventory(FILE *fd, list_item_t *inventory);
+
+/**
+ * @brief Display inventory in order to save
+ * @param fd file descriptor
+ * @param quests list of quest
+ */
+void display_quest(FILE *fd, list_quests_t *quests);
+
+/**
+ * @brief Render the day and the night
+ * @param app app
+ */
+void render_cycle_day_night(app_t *app);
+
+bool quests_get_finish(app_t *app, list_quests_t *list,
+quests_t id, speech_id_t speech);
+
+/**
+ * @brief Init layers
+ * @param app struct
+ * @param ressources ressources
+ */
+void layers_init(app_t *app, ressources_t ressources);
+
+/**
+ * @brief Render layers
+ * @param app struct
+ */
+void layer_render(app_t *app);
 
 #endif /* !APP_H_ */

@@ -32,6 +32,7 @@ static experience_t init_experience(void)
     xp.level = 0;
     xp.xp = 0;
     xp.max_xp = 100.0;
+    xp.update = 0;
     return xp;
 }
 
@@ -62,6 +63,7 @@ player_t *player_create(ressources_t *ressources)
     player->collisions = sfImage_createFromFile(textures_loaders[TX_COLLISION]);
     player->colors = (colors_t) {sfBlack, sfBlack, sfBlack, sfBlack};
     player->life = 10;
+    player->front = false;
     return player;
 }
 

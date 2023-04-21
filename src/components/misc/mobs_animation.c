@@ -12,7 +12,7 @@
 static void draw_mobs_annimation(app_t *app, node_mob_t *mob, sfIntRect rect)
 {
     (void) app;
-    sfRectangleShape_setTextureRect(mob->shape, rect);
+    sfRectangleShape_setTextureRect(mob->obj_shape, rect);
 }
 
 static void mobs_annimation_edit(app_t *app, node_mob_t *mob)
@@ -57,7 +57,7 @@ void mobs_render_annimation(app_t *app)
         mobs_attack(tmp, app);
         mob_health_bar(tmp, app);
         sfRenderWindow_drawRectangleShape(app->window,
-            tmp->shape, NULL);
+            tmp->obj_shape, NULL);
         tmp = tmp->next;
     }
 }

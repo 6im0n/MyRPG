@@ -19,6 +19,9 @@ static void draw_render_annimation(node_component_t *component, sfIntRect rect)
         default:
             break;
     }
+    if (component->annimation.index == component->annimation.max &&
+        component->annimation.one == true)
+        component->annimation.speed = 0;
 }
 
 static void annimation_edit(node_component_t *component)

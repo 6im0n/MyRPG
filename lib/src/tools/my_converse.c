@@ -30,7 +30,7 @@ char *my_char(int get)
     int digit = 0;
 
     for (int i = 0; i < len; i++) {
-        digit = get / my_power(10,len - i - 1);
+        digit = get / my_power(10, len - i - 1);
         dest[i] = digit + '0';
         get %= my_power(10,len - i - 1);
     }

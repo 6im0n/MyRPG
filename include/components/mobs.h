@@ -100,10 +100,12 @@ void mobs_attack(node_mob_t *mob, app_t *app);
 void mob_health_bar(node_mob_t *mob, app_t *app);
 
 /**
- * @brief make the mob move to the player
+ * @brief detect if the mob is next to the player
  * @param mob
  * @param app
  */
+bool mobs_next_to_player(app_t *app, node_mob_t *mob, int radius);
+
 void mobs_move_to_player(node_mob_t *mob,
 app_t *app);
 
@@ -120,5 +122,7 @@ bool mob_intersect_player(app_t *app, node_mob_t *mob);
  */
 bool finish_animation(node_mob_t *mob);
 //-------//
+
+void list_mob_delete(app_t *app);
 
 #endif /* !mobs_H_ */

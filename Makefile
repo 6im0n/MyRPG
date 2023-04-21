@@ -19,6 +19,9 @@ _SRC =			main.c \
 				app/component_menu.c \
 				app/popup.c \
 				app/player.c \
+				app/cycle.c \
+				app/clear_game.c \
+				app/layers.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
@@ -108,9 +111,13 @@ _SRC =			main.c \
 				events/game/dialog.c \
 				events/game/launch.c \
 				events/game/select_character.c \
+				events/game/beacon/beacon.c \
+				events/game/beacon/item.c \
+				events/game/mob/generation.c \
 				\
 				events/game/resume.c \
 				events/game/resume_load.c \
+				events/game/resume_skills.c \
         		\
 				events/game/mobs.c\
 				events/game/mobs_action.c\
@@ -123,22 +130,32 @@ _SRC =			main.c \
 				types/app/mouse.c \
 				types/app/state.c \
 				types/app/save.c \
+				types/app/save_lists.c \
 				types/app/load.c \
 				types/app/loader.c \
+				types/app/layers.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
 				types/list/quest/list.c \
 				types/list/quest/append.c \
+				types/list/quest/info.c \
 				types/list/player/list.c \
 				types/list/player/append.c \
 				types/list/mobs/list.c \
 				types/list/mobs/append.c \
 				types/list/mobs/node.c \
+				types/list/mobs/remove.c \
 				types/list/pop_up/list.c \
 				types/list/pop_up/append.c \
+				types/list/speech/append.c \
+				types/list/speech/list.c \
+				types/list/speech/display.c \
+				types/list/layers/list.c \
+				types/list/layers/append.c \
 				\
 				types/node/component/node.c \
+				types/node/layer/node.c \
 				\
 				parsing/parsing.c \
 				parsing/function.c \

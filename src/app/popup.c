@@ -48,7 +48,6 @@ void popup_render(app_t *app)
     while (tmp != NULL) {
         tmp2 = tmp->next;
         popup_alpha(app->element->pop_up, tmp);
-        sfRenderWindow_setView(app->window, app->view);
         sfRenderWindow_drawText(app->window, tmp->text, NULL);
         tmp = tmp2;
     }

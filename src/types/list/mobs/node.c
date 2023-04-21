@@ -32,11 +32,11 @@ node_mob_t *node_mobs_init(ressources_t ressources)
 {
     node_mob_t *tmp = malloc(sizeof(node_mob_t));
     sfIntRect rect = {0, 0, 0, 0};
+    sfFloatRect frect = {0, 0, 0, 0};
+    sfIntRect irect = {0, 0, 0, 0};
 
     if (!tmp)
         return NULL;
-    sfFloatRect frect = {0, 0, 0, 0};
-    sfIntRect irect = {0, 0, 0, 0};
     tmp->texture = ressources.textures[TX_APP_ICON];
     tmp->shape = sfRectangleShape_create();
     tmp->frect = frect;
@@ -45,6 +45,9 @@ node_mob_t *node_mobs_init(ressources_t ressources)
     tmp->annimation = (mobs_annimation_t){rect, 0, 0, 0, 0};
     init_state(tmp);
     init_healt(tmp);
+    tmp->radius = 0;
+    tmp->skills = (skills_t){0, 0, 0};
+    tmp->state = (mob_states_t){ false, false, false, false, false};
     tmp->next = NULL;
     tmp->prev = NULL;
     return tmp;

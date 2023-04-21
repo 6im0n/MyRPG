@@ -14,6 +14,17 @@
     #include "ressources/textures.h"
     #include "components/popup.h"
     #include "ressources/quests.h"
+    #include "ressources/speech.h"
+
+//==================================================
+// RESSOURCES
+//==================================================
+
+typedef struct s_ressources {
+    sfTexture **textures;
+    sfSoundBuffer **sounds;
+    sfFont **fonts;
+} ressources_t;
 
 typedef enum e_id_component {
     ID_UNDEFINED,
@@ -35,6 +46,12 @@ typedef enum e_id_component {
     ID_RESUME,
     ID_XP,
     ID_LEVEL,
+    ID_SHRINE,
+    ID_HEART_1,
+    ID_HEART_2,
+    ID_HEART_3,
+    ID_HEART_4,
+    ID_HEART_5,
     ID_LEN
 } component_id_t;
 
@@ -44,7 +61,6 @@ typedef enum e_id_component {
 
 typedef enum e_item {
     I_NONE,
-    I_SWORD_PIG,
     I_SWORD_LEV1,
     I_KNIFE_LEV1,
     I_HAMMER_LEV1,
@@ -66,7 +82,9 @@ typedef enum e_item {
     I_SPEAR_LEV4,
     I_AXE_LEV4,
     I_CHALICE,
-    I_HEALT_POTION
+    I_HEALT_POTION,
+    I_SWORD_PIG,
+    I_LEN
 } item_t;
 
 typedef struct s_node_item {
@@ -93,6 +111,7 @@ typedef struct s_exprerience {
     int xp;
     int level;
     float max_xp;
+    int update;
 } experience_t;
 
 typedef struct s_skills {
@@ -155,6 +174,7 @@ typedef struct s_player {
     sfImage *collisions;
     colors_t colors;
     int life;
+    bool front;
 } player_t;
 
 //==================================================
@@ -218,6 +238,7 @@ typedef struct s_node_mob {
     float radius;
     sfTexture *texture;
     sfRectangleShape *shape;
+    float radius;
     sfFloatRect frect;
     sfIntRect irect;
     sfTime time;
@@ -236,6 +257,39 @@ typedef struct list_mobs {
     struct s_node_mob *last;
 } list_mobs_t;
 
+typedef struct s_node_speech {
+    struct s_node_speech *prev;
+    bool active;
+    sfText *title;
+    sfText *paragraphe;
+    sfRectangleShape *shape;
+    sfClock *clock;
+    int time;
+    speech_states_t state;
+    struct s_node_speech *next;
+} node_speech_t;
+
+typedef struct s_list_speech {
+    node_speech_t *first;
+    int len;
+    node_speech_t *last;
+} list_speech_t;
+
+typedef struct s_node_layer {
+    sfFloatRect frect;
+    sfIntRect irect;
+    component_id_t id;
+    sfRectangleShape *obj;
+    struct s_node_layer *prev;
+    struct s_node_layer *next;
+} node_layer_t;
+
+typedef struct s_list_layer {
+    node_layer_t *first;
+    node_layer_t *last;
+    int len;
+} list_layer_t;
+
 //==================================================
 // GAME
 //==================================================
@@ -245,6 +299,9 @@ typedef struct s_game_elements {
     list_mobs_t *mobs;
     list_quests_t *quests;
     list_pop_up_t *pop_up;
+    list_layer_t *layers;
+    ressources_t ressources;
+    list_speech_t *speech;
 } elements_t;
 
 //==================================================
@@ -279,6 +336,17 @@ typedef struct s_loader_components {
     sfText *text;
 } loader_t;
 
+typedef enum s_cycle_type {
+    DAY,
+    NIGHT
+} c_type_t;
+
+typedef struct s_day_night_cicle {
+    sfRectangleShape *shape;
+    sfClock *clock;
+    c_type_t cycle;
+}  dn_cycle_t;
+
 typedef struct s_states {
     stage_t stage;
     stage_t back;
@@ -286,6 +354,7 @@ typedef struct s_states {
     bool transition;
     sounds_t *sound;
     int framerate;
+    dn_cycle_t *cycle;
 } state_t;
 
 //==================================================
@@ -316,6 +385,7 @@ typedef struct s_event {
     sfEvent original;
     mouse_t *mouse;
 } event_t;
+
 //==================================================
 // RESSOURCES
 //==================================================
