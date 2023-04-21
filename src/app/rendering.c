@@ -98,11 +98,10 @@ static void app_stages(app_t *app, main_components_t *components)
         render_cycle_day_night(app);
     if (app->state->stage == S_SETTINGS)
         render_in_game(app, components->setting);
-    if (app->state->stage == S_DEATH)
+    if (app->state->stage == S_DEATH) {
         death_render(app);
-    if (app->state->stage == S_DEATH)
         render_in_game(app, components->death);
-    if (app->state->stage == S_INVENTORY) {
+    } else if (app->state->stage == S_INVENTORY) {
         render_in_game(app, components->inventory);
         app_quests_dispatch(app);
     }
