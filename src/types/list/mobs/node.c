@@ -31,7 +31,7 @@ static void init_healt(node_mob_t *tmp)
     tmp->time.microseconds = 0;
 }
 
-static voud init_animation(node_mob_t *tmp)
+static void init_animation(node_mob_t *tmp)
 {
     tmp->annimation.index = 0;
     tmp->annimation.max = 0;
