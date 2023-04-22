@@ -16,6 +16,7 @@ static void init_state(node_mob_t *tmp)
     tmp->state.die = false;
     tmp->state.hit = false;
     tmp->state.left = false;
+    tmp->radius = 0;
 }
 
 static void init_healt(node_mob_t *tmp)
@@ -28,6 +29,15 @@ static void init_healt(node_mob_t *tmp)
     tmp->healt.outline = sfRectangleShape_create();
     tmp->time_hit.microseconds = 0;
     tmp->time.microseconds = 0;
+}
+
+static voud init_animation(node_mob_t *tmp)
+{
+    tmp->annimation.index = 0;
+    tmp->annimation.max = 0;
+    tmp->annimation.max_speed = 0;
+    tmp->annimation.rect = (sfIntRect){0, 0, 0, 0};
+    tmp->annimation.speed = 0;
 }
 
 node_mob_t *node_mobs_init(ressources_t ressources)
@@ -45,13 +55,8 @@ node_mob_t *node_mobs_init(ressources_t ressources)
     tmp->irect = irect;
     tmp->annimation = (mobs_annimation_t){rect, 0, 0, 0, 0};
     init_state(tmp);
-    tmp->radius = 0;
     tmp->clock = NULL;
-    tmp->annimation.index = 0;
-    tmp->annimation.max = 0;
-    tmp->annimation.max_speed = 0;
-    tmp->annimation.rect = (sfIntRect){0, 0, 0, 0};
-    tmp->annimation.speed = 0;
+    init_animation(tmp);
     tmp->skills = (skills_t){0, 0, 0};
     tmp->next = NULL;
     tmp->prev = NULL;

@@ -8,12 +8,13 @@
 #include "components/components.h"
 #include "types/type.h"
 
-static void draw_player_annimation(app_t *app, sfIntRect rect)
+static void draw_player_annimation(app_t *app, sfIntRect irect)
 {
-    sfRectangleShape_setOutlineColor(app->element->player->character->shape, sfRed);
-    sfRectangleShape_setOutlineThickness(app->element->player->character->shape, 2);
-    sfRectangleShape_setTextureRect( app->element->player->character->shape,
-    rect);
+    sfRectangleShape rect = app->element->player->character->shape;
+
+    sfRectangleShape_setOutlineColor(rect, sfRed);
+    sfRectangleShape_setOutlineThickness(rect, 2);
+    sfRectangleShape_setTextureRect(rect, irect);
 }
 
 static void player_annimation_edit(app_t *app)
