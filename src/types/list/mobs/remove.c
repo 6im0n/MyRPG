@@ -12,6 +12,11 @@
 
 #include <stdio.h>
 
+void mob_list_destroy(list_mobs_t *list)
+{
+    list_mob_free(list);
+}
+
 static void node_mob_unlink(node_mob_t *node)
 {
     if (!node)
@@ -44,7 +49,7 @@ void list_mob_delete(app_t *app)
 
     while (tmp != NULL) {
         tmp2 = tmp->next;
-        if (!mobs_next_to_player(app, tmp, tmp->radius + 100)) {
+        if (!mob_next_to_player(app, tmp, tmp->radius + 100)) {
             sfRectangleShape_destroy(tmp->obj_shape);
             sfClock_destroy(tmp->clock);
             list_mob_remove(list, tmp);

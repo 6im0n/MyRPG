@@ -20,13 +20,13 @@
  * @brief Destroyed a mobs
  * @param mobs
  */
-void mobs_destroy(list_mobs_t *list);
+void mob_destroy(list_mobs_t *list);
 
 /**
  * @brief render a mobs
  * @param app
  */
-void mobs_render_annimation(app_t *app);
+void mob_render_annimation(app_t *app);
 
 /**
  * @brief create a new mobs annimation
@@ -36,7 +36,7 @@ void mobs_render_annimation(app_t *app);
  * @param max
  * @return nothing
  */
-void new_mobs_annimation(node_mob_t *mob,
+void new_mob_annimation(node_mob_t *mob,
 sfIntRect annimation, int index, int max);
 
 //MOBS LISTS//
@@ -45,7 +45,7 @@ sfIntRect annimation, int index, int max);
  * @param void
  * @return list_mobs_t
  */
-list_mobs_t *list_mobs_init(void);
+list_mobs_t *list_mob_init(void);
 
 /**
  * @brief add a new mobs to the list
@@ -53,14 +53,14 @@ list_mobs_t *list_mobs_init(void);
  * @param ressources
  * @return list_mobs_t
  */
-list_mobs_t *mobs_add(list_mobs_t *list, ressources_t ressources);
+list_mobs_t *mob_add(list_mobs_t *list, ressources_t ressources);
 
 /**
  * @brief free the list
  * @param list
  * @return nothing
  */
-void list_mobs_free(list_mobs_t *list);
+void list_mob_free(list_mobs_t *list);
 
 /**
  * @brief append a new node to the list
@@ -68,14 +68,14 @@ void list_mobs_free(list_mobs_t *list);
  * @param node
  * @return nothing
  */
-void list_mobs_append(list_mobs_t *list, node_mob_t *node);
+void list_mob_append(list_mobs_t *list, node_mob_t *node);
 
 /**
  * @brief init a new mob
  * @param ressources
  * @return node_mob_t
  */
-node_mob_t *node_mobs_init(ressources_t ressources);
+node_mob_t *node_mob_init(ressources_t ressources);
 
 /**
  * @brief add a new mob to the list
@@ -90,7 +90,7 @@ void add_new_mob(app_t *app, ressources_t ressources, sfVector2f possition);
  * @param mob
  * @param app
  */
-void mobs_attack(node_mob_t *mob, app_t *app);
+void mob_attack(node_mob_t *mob, app_t *app);
 
 /**
  * @brief make the mob healt bar
@@ -104,7 +104,7 @@ void mob_health_bar(node_mob_t *mob, app_t *app);
  * @param mob
  * @param app
  */
-bool mobs_next_to_player(app_t *app, node_mob_t *mob, int radius);
+bool mob_next_to_player(app_t *app, node_mob_t *mob, int radius);
 
 /**
  * @brief move mob to the player
@@ -112,7 +112,7 @@ bool mobs_next_to_player(app_t *app, node_mob_t *mob, int radius);
  * @param mob
  * @param app
  */
-void mobs_move_to_player(node_mob_t *mob,
+void mob_move_to_player(node_mob_t *mob,
 app_t *app);
 
 /**

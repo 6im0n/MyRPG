@@ -145,6 +145,11 @@ bool finish_attack_player(app_t *app);
  */
 float update_move(app_t *app);
 
+/**
+ * @brief update the player temporary key
+ *
+ * @param app
+ */
 void update_old_key(app_t *app, int id);
 
 /**

@@ -49,7 +49,7 @@ static void remove_player_life(app_t *app, node_mob_t *mob)
     }
 }
 
-void mobs_attack(node_mob_t *mob,
+void mob_attack(node_mob_t *mob,
 app_t *app)
 {
     if (mob_intersect_player(app, mob)) {

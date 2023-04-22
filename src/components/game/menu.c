@@ -73,7 +73,7 @@ static void init_player_animation(app_t *app)
 void components_game(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    app->element->mobs = list_mobs_init();
+    app->element->mobs = list_mob_init();
     game_background(app, ressources, list);
     init_game_player(app, ressources);
     init_player_animation(app);

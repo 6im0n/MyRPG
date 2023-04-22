@@ -21,9 +21,23 @@
 void component_cursor_default(app_t *app,ressources_t ressources,
 list_components_t *list);
 
+/**
+ * @brief Component cursor
+ * @param app App
+ * @param ressources Ressources
+ * @param objects Objects
+ * @param list List
+ */
 void components_get_cursor(app_t *app, ressources_t ressources,
                             list_components_t *list);
 
+/**
+ * @brief events for component cursor on move
+ * @param app App
+ * @param ressources Ressources
+ * @param objects Objects
+ * @param list List
+ */
 void event_cursor_onmove(node_component_t *component,
 event_t *event, app_t *app);
 

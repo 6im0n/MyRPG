@@ -32,7 +32,10 @@ _SRC =			main.c \
 				ressources/sounds.c \
 				ressources/fonts.c \
 				\
+				\
+				components/cursor.c \
 				components/free.c \
+				\
 				components/misc/render.c \
 				components/misc/render_background.c \
 				components/misc/effect_botton.c \
@@ -44,6 +47,7 @@ _SRC =			main.c \
 				components/misc/player_animation.c \
 				components/misc/mobs_animation.c \
 				components/misc/state.c \
+				\
 				components/items/get.c \
 				components/items/new.c \
 				components/items/sword.c \
@@ -51,27 +55,27 @@ _SRC =			main.c \
 				components/items/hammer.c \
 				components/items/axe.c \
 				components/items/spear.c \
+				\
 				components/new/set.c \
 				components/new/type.c \
 				components/new/size.c \
 				components/new/text.c \
 				components/new/animation.c \
 				components/new/mob.c \
-				components/cursor.c \
 				\
 				components/player/player.c \
 				components/player/inventory.c \
 				\
-				components/mobs/mobs.c \
-				\
 				components/game/get.c \
 				components/game/menu.c \
 				components/game/add_mobs.c \
+				\
 				components/death/get.c \
 				components/death/menu.c \
 				\
 				components/new_game/get.c \
 				components/new_game/menu.c \
+				\
 				components/menu/start/get.c \
 				components/menu/start/menu.c \
 				components/menu/load/get.c \
@@ -81,6 +85,7 @@ _SRC =			main.c \
 				components/menu/help/menu.c \
 				components/menu/help/move.c \
 				components/menu/help/command.c \
+				\
 				components/inventory/get.c \
 				components/inventory/menu.c \
 				components/inventory/object.c \
@@ -88,13 +93,16 @@ _SRC =			main.c \
 				components/inventory/levels/menu.c \
 				components/inventory/quests/menu.c \
 				components/inventory/quests/prompt.c \
+				\
 				components/setting/get.c \
 				components/setting/menu.c \
 				components/setting/sound.c \
 				components/setting/bouton.c \
 				components/setting/screen.c \
+				\
 				components/view/manage.c \
 				components/view/player.c \
+				\
 				\
 				events/help.c \
 				events/cursor.c \
@@ -106,14 +114,18 @@ _SRC =			main.c \
 				events/setting/volume.c \
 				events/setting/framerate.c \
 				events/setting/hover.c \
+				\
 				events/menu/start/bouton.c \
 				events/menu/help/bouton.c \
 				events/menu/help/keypress.c \
 				events/menu/death.c \
+				\
 				events/inventory/select.c \
 				events/inventory/selector.c \
 				events/inventory/skill.c \
+				\
 				events/levels/levels.c \
+				\
 				events/game/player.c \
 				events/game/collisions.c \
 				events/game/dialog.c \
@@ -122,6 +134,7 @@ _SRC =			main.c \
 				events/game/beacon/beacon.c \
 				events/game/beacon/item.c \
 				events/game/mob/generation.c \
+				\
 				\
 				events/game/resume.c \
 				events/game/resume_load.c \
@@ -146,20 +159,27 @@ _SRC =			main.c \
 				\
 				types/list/component/list.c \
 				types/list/component/append.c \
+				\
 				types/list/quest/list.c \
 				types/list/quest/append.c \
 				types/list/quest/info.c \
+				\
 				types/list/player/list.c \
 				types/list/player/append.c \
+				\
 				types/list/mobs/list.c \
 				types/list/mobs/append.c \
 				types/list/mobs/node.c \
 				types/list/mobs/remove.c \
+				types/list/mobs/add.c \
+				\
 				types/list/pop_up/list.c \
 				types/list/pop_up/append.c \
+				\
 				types/list/speech/append.c \
 				types/list/speech/list.c \
 				types/list/speech/display.c \
+				\
 				types/list/layers/list.c \
 				types/list/layers/append.c \
 				\

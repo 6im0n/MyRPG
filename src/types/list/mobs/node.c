@@ -40,7 +40,7 @@ static void init_animation(node_mob_t *tmp)
     tmp->annimation.speed = 0;
 }
 
-node_mob_t *node_mobs_init(ressources_t ressources)
+node_mob_t *node_mob_init(ressources_t ressources)
 {
     node_mob_t *tmp = malloc(sizeof(node_mob_t));
     sfIntRect rect = {0, 0, 0, 0};
