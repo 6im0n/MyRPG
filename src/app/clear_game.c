@@ -16,7 +16,7 @@ void clear_old_game(app_t *app)
     app->element->player->exprerience.level = 0;
     app->element->player->exprerience.max_xp = 0;
     app->element->player->exprerience.xp = 0;
-    app->element->player->exprerience.update = 0;
+    app->element->player->exprerience.update = -1;
     app->element->player->skills.resitance = 0;
     app->element->player->skills.speed = 20;
     app->element->player->skills.strength = 0;
