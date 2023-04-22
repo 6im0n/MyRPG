@@ -35,7 +35,8 @@ static const parsing_handler_t clicked_event[CLICKED_LEN] = {
 };
 
 static const parsing_handler_t hover_event[HOVER_LEN] = {
-    [ACTIVE_ANIMATION] = &event_active_annimation
+    [ACTIVE_ANIMATION] = &event_active_annimation,
+    [HOVER_TEXT] = &event_bouton_help_onhover
 };
 
 static const parsing_handler_t disable_event[DISABLED_LEN] = {
@@ -43,7 +44,8 @@ static const parsing_handler_t disable_event[DISABLED_LEN] = {
     [QUEST_MAIN_FIRST_DIALOG] = &dialog_main_quests_disabled,
     [DISABLED_SPAWNER] = &generation_mob_ondisabled,
     [BEACON_DISABLE] = &beacon_events_ondisabled,
-    [BEACON_I_DISABLE] = &beacon_item_events_ondisabled
+    [BEACON_I_DISABLE] = &beacon_item_events_ondisabled,
+    [HOVER_DISABLED_TEXT] = &event_bouton_help_ondisabled
 };
 
 static const parsing_handler_t nonclicked_event[NONCLICKED_LEN] = {
