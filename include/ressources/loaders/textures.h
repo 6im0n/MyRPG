@@ -44,7 +44,8 @@ static char *textures_loaders[TX_LEN] = {
     [TX_COLLISION] = "assets/maps/collisionv5.png",
     [TX_UI_BOOKS] = "assets/ui/UIbooks.png",
     [TX_SHRINE_L_ACTIVATING] = "assets/grass-world/shrine2activating.png",
-    [TX_SHRINE_L_AVAILABLE] = "assets/grass-world/shrine2available.png"
+    [TX_SHRINE_L_AVAILABLE] = "assets/grass-world/shrine2available.png",
+    [TX_BLACKSMITH] = "assets/charactere/blacksmith.png"
 };
 
 #endif /* !RESSOURCES_TEXTURES_LOADERS_H_ */

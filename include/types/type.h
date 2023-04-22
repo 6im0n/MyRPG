@@ -371,6 +371,9 @@ typedef struct s_app {
     sfRectangleShape *layer;
     elements_t *element;
     loader_t *loader;
+    bool first;
+    bool parsing;
+    bool game;
 } app_t;
 
 typedef struct s_event {

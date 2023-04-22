@@ -123,6 +123,7 @@ _SRC =			main.c \
 				events/game/resume.c \
 				events/game/resume_load.c \
 				events/game/resume_skills.c \
+				events/game/save.c \
         		\
 				events/game/mobs.c\
 				events/game/mobs_action.c\
