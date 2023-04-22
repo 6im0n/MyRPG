@@ -176,6 +176,8 @@ typedef struct s_player {
     colors_t colors;
     int life;
     bool front;
+    sfSound *heart;
+    bool playing;
 } player_t;
 
 //==================================================

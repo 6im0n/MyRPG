@@ -19,6 +19,7 @@ static void set_music(ressources_t *ressources, app_t *app)
     sfSound_setBuffer(app->state->sound->music,
         ressources->sounds[SD_EXPLORATION]);
     sfSound_setLoop(app->state->sound->music, sfTrue);
+    sfSound_setVolume(app->state->sound->music, 15);
     sfSound_play(app->state->sound->music);
 }
 
