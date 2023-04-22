@@ -1,9 +1,9 @@
-Position: 4753 4693
-Texture_player: 10
-Inventory: 5 5 5 5 5 5 5 5 5
+Position: 5025 6900
+Texture_player: 12
+Inventory: 11
 Level: 0
 Xp: 0
 Speed: 20
-Strength: 3
+Strength: 0
 Resitance: 0
-Quest: 1|2
+Quest: 1|1

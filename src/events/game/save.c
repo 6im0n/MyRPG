@@ -14,6 +14,6 @@ event_t *event, app_t *app)
     (void) component;
     if (!ST_IS_NEAR(component))
         return;
-    if (sfKeyboard_isKeyPressed(sfKeyS))
+    if (sfKeyboard_isKeyPressed(sfKeyP))
         app_save_game(app);
 }

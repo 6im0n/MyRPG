@@ -28,7 +28,7 @@ app_t app_create(char *window_title, int window_frame_rate)
     sfRectangleShape *layer = sfRectangleShape_create();
     loader_t *loader = loader_init();
     app_t app = { window, mouse, state, background,
-                    view, layer, NULL, loader };
+                    view, layer, NULL, loader, false, true, false };
 
     sfRenderWindow_setFramerateLimit(app.window, window_frame_rate);
     sfRenderWindow_clear(app.window, W_COLOR);
