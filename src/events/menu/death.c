@@ -18,7 +18,9 @@ event_t *event, app_t *app)
 
     (void) component;
     (void) event;
-    fwrite("Empty" , 1 , 5 , fd );
+    if (fd) {
+        fwrite("Empty" , 1 , 5 , fd );
+        fclose(fd);
+    }
     app->state->stage = S_MENU_LOAD_GAME;
-    fclose(fd);
 }
