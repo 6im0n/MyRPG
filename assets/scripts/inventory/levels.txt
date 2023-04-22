@@ -14,7 +14,7 @@ position: 420 430
 size: 425 25
 rect: 277 166 38 4
 style: 4 1 0
-type: 4
+type: 3
 c_size: 2
 id: 9
 text: XP
@@ -28,7 +28,7 @@ position: 420 470
 size: 425 25
 rect: 277 166 38 4
 style: 4 1 0
-type: 4
+type: 3
 c_size: 2
 id: 9
 text: Resistance
