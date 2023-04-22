@@ -105,6 +105,7 @@ void app_handle_events(app_t *app, main_components_t *components)
     }
     if (app->state->stage == S_GAME) {
         move_player(app);
+        play_sounds(app);
         component_near(components->game, app, &event);
     }
     if (app->element->player->exprerience.update != 0) {

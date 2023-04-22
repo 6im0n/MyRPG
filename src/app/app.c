@@ -52,6 +52,8 @@ int app_run(void)
     happy_moulinette();
     game_set_layer(&app, &ressources);
     levels_update(&app, components.inventory, 0);
+    sfSound_setBuffer(app.element->player->heart, ressources.sounds[SD_HEART]);
+    sfSound_setLoop(app.element->player->heart, sfTrue);
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);

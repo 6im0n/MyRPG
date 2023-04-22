@@ -190,4 +190,10 @@ void layers_init(app_t *app, ressources_t ressources);
  */
 void layer_render(app_t *app);
 
+/**
+ * @brief Play sounds
+ * @param app struct
+ */
+void play_sounds(app_t *app);
+
 #endif /* !APP_H_ */

@@ -23,6 +23,7 @@ _SRC =			main.c \
 				app/clear_game.c \
 				app/layers.c \
 				app/death.c \
+				app/sound.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
