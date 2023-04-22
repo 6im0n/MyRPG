@@ -41,7 +41,8 @@ anim_speed: 15
 style: 34 0 1
 type: 4
 c_size: 3
-radius: 20
+radius: 50
+next_to: 3
 disabled: 1
 pressed: 4
 ###
