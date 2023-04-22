@@ -49,6 +49,7 @@ void dying_mob(node_mob_t *mob, app_t *app)
             sfClock_destroy(mob->clock);
             list_mob_remove(app->element->mobs, mob);
             free(mob);
+            return;
         }
     }
     if (mob->healt.curent == 0 && mob->state.die == false){
