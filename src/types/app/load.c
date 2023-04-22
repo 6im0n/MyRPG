@@ -61,4 +61,7 @@ void app_load(app_t *app, ressources_t *ressources)
     app_create_all_item(app->element, ressources);
     app_set_icon(app->window, ressources);
     layers_init(app, app->element->ressources);
+    sfSound_setBuffer(app->element->player->heart,
+                    ressources->sounds[SD_HEART]);
+    sfSound_setLoop(app->element->player->heart, sfTrue);
 }

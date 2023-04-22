@@ -26,4 +26,10 @@ void manage_view(app_t *app, event_t *event, main_components_t *components);
  */
 void player_view(app_t *app);
 
+/**
+ * @brief Transitions between scenes
+ * @param app struct
+ */
+void all_transition(app_t *app);
+
 #endif /* !VIEW_H_ */

@@ -49,6 +49,7 @@ state_t *state_new(void)
         return NULL;
     state->stage = S_MENU_START;
     state->back = S_MENU_START;
+    state->pending = S_LEN;
     set_sound_app(state);
     state->clock = sfClock_create();
     state->framerate = W_FRAMERATE;

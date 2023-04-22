@@ -79,10 +79,10 @@ static void manage_data(char *nb, parsing_t *element)
 
 void manage_number(char *file, parsing_t *element, int *index)
 {
-    char nb[6];
+    char nb[50];
     int nb_index = 0;
 
-    clean_char(nb, 6);
+    clean_char(nb, 50);
     *index += 1;
     do {
         *index += 1;

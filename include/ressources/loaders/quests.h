@@ -22,12 +22,19 @@ the golden\nchalice",
 the golden\nchalice",
     [Q_MAIN_P2][TQ_DETAIL] = "Main quests",
     [Q_MAIN_P2][TQ_OBJECTIF] = "Kill 10 mobs",
-    [Q_MAIN_P2][TQ_REWARD] = "Hammer level 4"
+    [Q_MAIN_P2][TQ_REWARD] = "Hammer level 4",
+    [Q_SAVE][TQ_TITLE] = "Save",
+    [Q_SAVE][TQ_DESCRIPTION] = "Save your game in order not to lose your \
+progress",
+    [Q_SAVE][TQ_DETAIL] = "It's very usefull !",
+    [Q_SAVE][TQ_OBJECTIF] = "Find the blachsmith in order to save a game",
+    [Q_SAVE][TQ_REWARD] = "30 XP",
 };
 
 static int quests_loaders_goal[Q_LEN] = {
     [Q_MAIN_P1] = 2,
     [Q_MAIN_P2] = 10,
+    [Q_SAVE] = 1
 };
 
 #endif /* !RESSOURCES_QUESTS_LOADERS_H */

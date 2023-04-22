@@ -46,4 +46,13 @@ event_t *event, app_t *app);
 void dialog_main_quests_onnext_to(node_component_t *component,
 event_t *event, app_t *app);
 
+/**
+ * @brief Lunch discution save quest
+ * @param component component
+ * @param event event
+ * @param app app
+ */
+void dialog_save_quests_onnext_to(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !DIALOG_H_ */
