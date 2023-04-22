@@ -24,15 +24,22 @@ void launch_game(node_component_t *component,
 event_t *event, app_t *app)
 {
     player_t *player = app->element->player;
+    sfRectangleShape *shape = app->state->cycle->shape;
     sfVector2f pos = { 2420, 6375 };
 
     (void) component;
     (void) event;
+    app->parsing = false;
+    app->game = true;
+    app->first = true;
     event_play_music(component, app);
     clear_old_game(app);
     sfRectangleShape_setPosition(player->character->shape, pos);
     app->state->back = app->state->stage;
     app->state->stage = S_GAME;
+    app->state->transition = true;
+    sfView_setCenter(app->element->player->view, (sfVector2f){1000, 6375});
+    sfRectangleShape_setFillColor(shape, sfBlack);
     sfClock_restart(app->state->cycle->clock);
     sfClock_restart(app->state->clock);
 }

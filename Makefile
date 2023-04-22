@@ -25,6 +25,7 @@ _SRC =			main.c \
 				app/layers.c \
 				app/update_xp.c \
 				app/death.c \
+				app/sound.c \
 				\
 				ressources/ressources.c \
 				ressources/textures.c \
@@ -125,6 +126,7 @@ _SRC =			main.c \
 				events/game/resume.c \
 				events/game/resume_load.c \
 				events/game/resume_skills.c \
+				events/game/save.c \
         		\
 				events/game/mob/mobs.c\
 				events/game/mob/mobs_action.c\

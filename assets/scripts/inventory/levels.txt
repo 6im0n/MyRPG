@@ -6,41 +6,65 @@ type: 4
 c_size: 2
 text: Level
 text_size: 50
-text_pos: -30 -150
-text_pos_type: 3
+text_pos: -30 -130
+text_pos_type: 0
 id: 18
 ###
 position: 420 430
 size: 425 25
 rect: 277 166 38 4
 style: 4 1 0
-type: 2
+type: 3
 c_size: 2
 id: 9
+text: XP
+text_size: 25
+text_pos: 0 -50
+text_pos_type: 0
+hover: 1
+disabled: 5
 ###
 position: 420 470
 size: 425 25
 rect: 277 166 38 4
 style: 4 1 0
-type: 2
+type: 3
 c_size: 2
 id: 9
+text: Resistance
+text_size: 25
+text_pos: 0 -90
+text_pos_type: 0
+hover: 1
+disabled: 5
 ###
 position: 420 510
 size: 425 25
 rect: 277 166 38 4
 style: 4 1 0
-type: 2
+type: 3
 c_size: 2
 id: 9
+text: Speed
+text_size: 25
+text_pos: 0 -130
+text_pos_type: 0
+hover: 1
+disabled: 5
 ###
 position: 420 550
 size: 425 25
 rect: 277 166 38 4
 style: 4 1 0
-type: 2
+type: 3
 c_size: 2
 id: 9
+text: Strengh
+text_size: 25
+text_pos: 0 -170
+text_pos_type: 0
+hover: 1
+disabled: 5
 ###
 position: 420 430
 size: 400 12

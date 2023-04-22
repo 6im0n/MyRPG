@@ -65,6 +65,8 @@ player_t *player_create(ressources_t *ressources)
     player->colors = (colors_t) {sfBlack, sfBlack, sfBlack, sfBlack};
     player->life = 10;
     player->front = false;
+    player->heart = sfSound_create();
+    player->playing = false;
     return player;
 }
 
@@ -72,6 +74,7 @@ void player_destroy(player_t *player)
 {
     sfRectangleShape_destroy(player->character->shape);
     sfView_destroy(player->view);
+    sfSound_destroy(player->heart);
     free(player->character);
     free(player);
 }

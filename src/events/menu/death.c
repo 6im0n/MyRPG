@@ -23,4 +23,6 @@ event_t *event, app_t *app)
         fclose(fd);
     }
     app->state->stage = S_MENU_LOAD_GAME;
+    app->game = false;
+    clear_old_game(app);
 }

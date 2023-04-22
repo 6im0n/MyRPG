@@ -17,7 +17,7 @@ clicked: 4
 position: .50 .50
 size: 300 300
 rect: 0 384 32 32
-style: 17 1 0
+style: 17 0 0
 type: 3
 c_size: 5
 clicked: 6
@@ -33,7 +33,7 @@ c_size: 5
 position: .32 .50
 size: 300 300
 rect: 32 384 32 32
-style: 17 1 0
+style: 17 0 0
 type: 3
 c_size: 5
 clicked: 7
@@ -49,7 +49,7 @@ c_size: 5
 position: .68 .50
 size: 300 300
 rect: 64 384 32 32
-style: 17 1 0
+style: 17 0 0
 type: 3
 c_size: 5
 clicked: 8

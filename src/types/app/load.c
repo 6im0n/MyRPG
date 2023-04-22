@@ -19,6 +19,7 @@ static void set_music(ressources_t *ressources, app_t *app)
     sfSound_setBuffer(app->state->sound->music,
         ressources->sounds[SD_EXPLORATION]);
     sfSound_setLoop(app->state->sound->music, sfTrue);
+    sfSound_setVolume(app->state->sound->music, 15);
     sfSound_play(app->state->sound->music);
 }
 
@@ -60,4 +61,7 @@ void app_load(app_t *app, ressources_t *ressources)
     app_create_all_item(app->element, ressources);
     app_set_icon(app->window, ressources);
     layers_init(app, app->element->ressources);
+    sfSound_setBuffer(app->element->player->heart,
+                    ressources->sounds[SD_HEART]);
+    sfSound_setLoop(app->element->player->heart, sfTrue);
 }
