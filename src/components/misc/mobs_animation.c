@@ -74,6 +74,8 @@ void mobs_render_annimation(app_t *app)
             mob_health_bar(tmp, app);
             mobs_attack(tmp, app);
         }
+        sfRectangleShape_setOutlineColor(tmp->obj_shape, sfRed);
+        sfRectangleShape_setOutlineThickness(tmp->obj_shape, 2);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->obj_shape, NULL);
         dying_mob(tmp, app);

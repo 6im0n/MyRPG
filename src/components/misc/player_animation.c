@@ -10,6 +10,8 @@
 
 static void draw_player_annimation(app_t *app, sfIntRect rect)
 {
+    sfRectangleShape_setOutlineColor(app->element->player->character->shape, sfRed);
+    sfRectangleShape_setOutlineThickness(app->element->player->character->shape, 2);
     sfRectangleShape_setTextureRect( app->element->player->character->shape,
     rect);
 }
