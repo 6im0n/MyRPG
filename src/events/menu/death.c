@@ -20,5 +20,7 @@ event_t *event, app_t *app)
     (void) event;
     fwrite("Empty" , 1 , 5 , fd );
     app->state->stage = S_MENU_LOAD_GAME;
+    app->game = false;
     fclose(fd);
+    clear_old_game(app);
 }

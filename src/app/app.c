@@ -32,6 +32,17 @@ static void game_set_layer(app_t *app, ressources_t *ressources)
         sfImage_getSize(app->element->player->collisions).y});
 }
 
+void clear_component(list_components_t *list)
+{
+    node_component_t *node = list->first;
+
+    while (node) {
+        node->features.select = false;
+        node->features.visited = 0;
+        node = node->next;
+    }
+}
+
 int app_run(void)
 {
     app_t app = app_create(W_TITLE, W_FRAMERATE);
@@ -44,6 +55,10 @@ int app_run(void)
     while (sfRenderWindow_isOpen(app.window)) {
         app_render(&app, &ressources, &components);
         app_handle_events(&app, &components);
+        if (app.first) {
+            clear_component(components.game);
+            app.first = false;
+        }
     }
     app_save_game(&app);
     components_free(&components);

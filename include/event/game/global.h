@@ -30,6 +30,15 @@ event_t *event, app_t *app);
  */
 void collisions(bool *array, sfVector2f position, player_t *player);
 
+/**
+ * @brief Save Game in game
+ * @param component component
+ * @param event event
+ * @param app app
+ */
+void save_game_onkeypress(node_component_t *component,
+event_t *event, app_t *app);
+
 void beacon_healt_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
 

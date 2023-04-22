@@ -47,6 +47,7 @@ static void give_random_skill(app_t *app, player_t *player)
 {
     int choose = rand() % 4;
 
+    app->element->player->exprerience.update = -1;
     switch (choose) {
         case 0:
             player->skills.speed += 3;
@@ -64,7 +65,6 @@ static void give_random_skill(app_t *app, player_t *player)
             break;
     }
     new_popup(app, (P_WIN_SPEED + choose), 5);
-    app->element->player->exprerience.update = -1;
 }
 
 void beacon_skill_onkeypress(node_component_t *component,
