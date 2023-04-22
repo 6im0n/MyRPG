@@ -122,6 +122,7 @@ typedef enum e_disabled {
     DISABLED_SPAWNER,
     BEACON_DISABLE,
     BEACON_I_DISABLE,
+    HOVER_DISABLED_TEXT,
     DISABLED_LEN
 } disabled_t;
 
@@ -134,6 +135,7 @@ typedef enum e_nextto {
 
 typedef enum e_hover {
     ACTIVE_ANIMATION,
+    HOVER_TEXT,
     HOVER_LEN
 } hover_t;
 
