@@ -1,6 +1,6 @@
-Position: 5003 6027
+Position: 5219 5959
 Texture_player: 10
-Inventory: 0
+Inventory: 0 0
 Level: 0
 Xp: 0
 Speed: 20

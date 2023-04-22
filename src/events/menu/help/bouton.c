@@ -17,6 +17,7 @@ event_t *event, app_t *app)
     (void) app;
     (void) component;
     event_play_music(component, app);
+    app->state->back = app->state->stage;
     app->state->stage = S_MENU_START;
 }
 

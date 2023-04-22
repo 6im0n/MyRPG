@@ -38,7 +38,7 @@ void layer_render(app_t *app)
 {
     node_layer_t *tmp = app->element->layers->first;
 
-    if (app->state->stage != S_GAME)
+    if (!(app->state->stage == S_GAME || app->state->back == S_GAME))
         return;
     layer_update(app);
     while (tmp) {

@@ -55,7 +55,6 @@ void speech_render(app_t *app)
     if (!tmp)
         return;
     if (tmp->active == true) {
-        sfRenderWindow_setView(app->window, app->view);
         sfRenderWindow_drawRectangleShape(app->window, tmp->shape, NULL);
         sfRenderWindow_drawText(app->window, tmp->title, NULL);
         sfRenderWindow_drawText(app->window, tmp->paragraphe, NULL);
