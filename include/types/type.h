@@ -341,6 +341,7 @@ typedef struct s_day_night_cicle {
 typedef struct s_states {
     stage_t stage;
     stage_t back;
+    stage_t pending;
     sfClock *clock;
     bool transition;
     sounds_t *sound;

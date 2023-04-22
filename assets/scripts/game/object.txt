@@ -66,16 +66,6 @@ radius: 200
 disabled: 1
 next_to: 1
 ###
-position: 2743 6246
-size: 500 500
-rect: 1 1 1 1
-style: 0 0 1
-type: 4
-c_size: 3
-radius: 320
-next_to: 2
-disabled: 2
-###
 position: 5752 5125
 size: 1500 1200
 rect: 1 1 1 1
