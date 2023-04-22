@@ -61,13 +61,26 @@ static bool find_result_quests(list_quests_t *list, quests_t quest)
     return false;
 }
 
+static void quests_extend(app_t *app)
+{
+    if (find_result_quests(app->element->quests, Q_MAIN_P2) == true) {
+        list_quest_delete(app->element->quests, Q_MAIN_P2);
+        app->element->player->exprerience.update = 70;
+        add_item_player(app, I_HAMMER_LEV4);
+    }
+    if (find_result_quests(app->element->quests, Q_SAVE) == true) {
+        list_quest_delete(app->element->quests, Q_SAVE);
+        app->element->player->exprerience.update = 50;
+    }
+}
+
 void dialog_main_quests_onkeypress(node_component_t *component,
 event_t *event, app_t *app)
 {
     (void) event;
     if (!ST_IS_NEAR(component))
         return;
-    if (component->features.visited == 0 && app->element->quests->len == 0) {
+    if (app->element->quests->len == 0) {
         new_speech(app, SP_MAIN_QUESTS_1);
         quest_append(app, Q_MAIN_P1);
     }
@@ -76,12 +89,11 @@ event_t *event, app_t *app)
         if (app->element->quests->len == 1 &&
             find_result_quests(app->element->quests, Q_MAIN_P1) == true) {
             list_quest_delete(app->element->quests, Q_MAIN_P1);
+            app->element->player->exprerience.update = 40;
             add_item_player(app, I_SWORD_LEV3);
             quest_append(app, Q_MAIN_P2);
-            }
-        if (find_result_quests(app->element->quests, Q_MAIN_P2) == true) {
-            list_quest_delete(app->element->quests, Q_MAIN_P2);
-            add_item_player(app, I_HAMMER_LEV4);
-            }
+            quest_append(app, Q_SAVE);
+        }
+        quests_extend(app);
     }
 }

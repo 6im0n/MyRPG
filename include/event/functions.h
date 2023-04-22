@@ -55,7 +55,8 @@ static const parsing_handler_t pressed_event[KEYPRESSED_LEN] = {
     [QUEST_MAIN_FIRST_DIALOG_PRESSED] = &dialog_main_quests_onkeypress,
     [BEACON_HEAL_PRESSED] = &beacon_healt_onkeypress,
     [BEACON_SKILL_PRESSED] = &beacon_skill_onkeypress,
-    [BEACON_ITEM_PRESSED] = &beacon_item_onkeypress
+    [BEACON_ITEM_PRESSED] = &beacon_item_onkeypress,
+    [SAVE_GAME] = &save_game_onkeypress
 };
 
 static const parsing_handler_t released_event[KEYRELEASED_LEN] = {
@@ -67,7 +68,8 @@ static const parsing_handler_t moved_event[MOVED_LEN] = {
 static const parsing_handler_t next_to_event[NEXT_TO_LEN] = {
     [QUEST_MAIN_FIRST_DIALOG_NEXTTO] = &dialog_main_quests_next_to,
     [QUEST_MAIN_FIRST_OBJ_DIALOG_NEXTTO] = &dialog_main_quests_onnext_to,
-    [GENERATION_NEXT_TO] = &generation_mob_next_to
+    [GENERATION_NEXT_TO] = &generation_mob_next_to,
+    [QUEST_SAVE_NEXTTO] = &dialog_save_quests_onnext_to
 };
 
 #endif /* !EVENT_SETTINGS_H_ */

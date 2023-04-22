@@ -21,7 +21,10 @@ event_t *event, app_t *app)
     if (component->features.select == false)
         return;
     event_play_music(component, app);
-    parsing_save(app);
+    if (app->parsing)
+        parsing_save(app);
+    app->parsing = false;
+    app->game = true;
     app->state->back = app->state->stage;
     app->state->stage = S_GAME;
 }
@@ -43,7 +46,7 @@ event_t *event, app_t *app)
 
     (void) event;
     (void) app;
-    if (fd == -1 || file_empty()) {
+    if (fd == -1 || (file_empty() && !app->game)) {
         component->features.select = false;
         sfText_setColor(component->object->text, color);
         return;

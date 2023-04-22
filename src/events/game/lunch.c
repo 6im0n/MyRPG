@@ -28,6 +28,9 @@ event_t *event, app_t *app)
 
     (void) component;
     (void) event;
+    app->parsing = false;
+    app->game = true;
+    app->first = true;
     event_play_music(component, app);
     clear_old_game(app);
     sfRectangleShape_setPosition(player->character->shape, pos);
