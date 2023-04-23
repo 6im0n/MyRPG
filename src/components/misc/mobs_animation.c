@@ -46,7 +46,7 @@ static void render_mob_annimation(app_t *app, node_mob_t *mob)
     }
 }
 
-static void flip_animation(node_mob_t *mob)
+void flip_animation(node_mob_t *mob)
 {
     if (mob->state.left){
         mob->irect.width = -100;
@@ -67,17 +67,18 @@ void mob_render_annimation(app_t *app)
         mob_attacked(app->element->mobs, app);
     while (tmp != NULL) {
         render_mob_annimation(app, tmp);
-        flip_animation(tmp);
-        mob_move_to_player(tmp, app);
-        if (!tmp->state.die) {
-            mob_health_bar(tmp, app);
-            mob_attack(tmp, app);
-        }
-        sfRectangleShape_setOutlineColor(tmp->obj_shape, sfRed);
-        sfRectangleShape_setOutlineThickness(tmp->obj_shape, 2);
+        // if (!tmp->state.intersect)
+        //     flip_animation(tmp);
+        // mob_move_to_player(tmp, app);
+        // if (!tmp->state.die) {
+        //     mob_health_bar(tmp, app);
+        //     mob_attack(tmp, app);
+        // }
+        // sfRectangleShape_setOutlineColor(tmp->obj_shape, sfRed);
+        // sfRectangleShape_setOutlineThickness(tmp->obj_shape, 2);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->obj_shape, NULL);
-        dying_mob(tmp, app);
+        // dying_mob(tmp, app);
         tmp = tmp->next;
     }
 }

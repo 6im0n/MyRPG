@@ -11,9 +11,9 @@
 static void init_game_mob(node_mob_t *mob,
     sfVector2f position, ressources_t ressources)
 {
-    sfVector2f size = {70, 55};
+    sfVector2f size = {43, 70};
     sfFloatRect mob_frect = {0, 0, 0, 0};
-    sfIntRect in_rect = {73, 0 + 55, 100, 80};
+    sfIntRect in_rect = {0, 0 + 0, 224, 138};
     sfTexture *texture = ressources.textures[TX_MOBS];
 
     sfRectangleShape_setSize(mob->obj_shape, size);

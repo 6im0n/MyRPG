@@ -4,6 +4,8 @@
 ** File description:
 ** mobs
 */
+
+#include <stdio.h>
 #include <math.h>
 #include "components/mobs.h"
 #include "types/type.h"
@@ -49,11 +51,17 @@ void dying_mob(node_mob_t *mob, app_t *app)
             sfClock_destroy(mob->clock);
             list_mob_remove(app->element->mobs, mob);
             free(mob);
+            printf("Delete Mob\n");
             return;
         }
     }
     if (mob->healt.curent == 0 && mob->state.die == false){
-        mob->irect.top = 768 + 55;
+        mob->irect.top = 768 + 40;
+        mob->irect.left += -55;
+        mob->irect.width += 60;
+        mob->irect.height += 40;
+        // sfRectangleShape_setSize(mob->obj_shape, (sfVector2f){70 * 1.1, 55 * 1.1});
+        sfRectangleShape_setTextureRect(mob->obj_shape, mob->irect);
         mob->annimation.index = 0;
         mob->annimation.max = 14;
         sfRectangleShape_destroy(mob->healt.bar);
