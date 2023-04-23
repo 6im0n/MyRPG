@@ -116,3 +116,33 @@ radius: 320
 next_to: 2
 disabled: 2
 ###
+position: 1619 2936
+size: 1400 900
+rect: 1 1 1 1
+style: 0 0 1
+type: 4
+c_size: 3
+radius: 320
+next_to: 2
+disabled: 2
+###
+position: 4731 3063
+size: 1400 900
+rect: 1 1 1 1
+style: 0 0 1
+type: 4
+c_size: 3
+radius: 320
+next_to: 2
+disabled: 2
+###
+position: 9096 3063
+size: 1400 900
+rect: 1 1 1 1
+style: 0 0 1
+type: 4
+c_size: 3
+radius: 320
+next_to: 2
+disabled: 2
+###
