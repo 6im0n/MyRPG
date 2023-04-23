@@ -123,6 +123,7 @@ typedef enum e_disabled {
     BEACON_DISABLE,
     BEACON_I_DISABLE,
     HOVER_DISABLED_TEXT,
+    TEXT_ITEM,
     DISABLED_LEN
 } disabled_t;
 

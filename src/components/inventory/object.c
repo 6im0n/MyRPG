@@ -57,7 +57,7 @@ list_components_t *list)
     for (int i = 0; i <= 8; i++) {
         pos_angle = angle_set_rotate((sfVector2f) {pos.x + 220, pos.y},
         pos, 90 + (angle * i));
-        obj = malloc(sizeof(node_component_t));
+        obj = node_component_init();
         new_component_set(obj, rect, C_TYPES_RECTANGLE, style);
         new_component_type(ressources, obj, pos_angle);
         new_component_size(obj, size, (sfIntRect){224, 0, 32, 32}, C_SIZE_LEN);

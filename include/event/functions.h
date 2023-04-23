@@ -45,7 +45,8 @@ static const parsing_handler_t disable_event[DISABLED_LEN] = {
     [DISABLED_SPAWNER] = &generation_mob_ondisabled,
     [BEACON_DISABLE] = &beacon_events_ondisabled,
     [BEACON_I_DISABLE] = &beacon_item_events_ondisabled,
-    [HOVER_DISABLED_TEXT] = &event_bouton_help_ondisabled
+    [HOVER_DISABLED_TEXT] = &event_bouton_help_ondisabled,
+    [TEXT_ITEM] = &event_item_info_ondisabled
 };
 
 static const parsing_handler_t nonclicked_event[NONCLICKED_LEN] = {
