@@ -24,7 +24,7 @@ the golden\nchalice",
     [Q_MAIN_P2][TQ_OBJECTIF] = "Kill 10 mobs",
     [Q_MAIN_P2][TQ_REWARD] = "Hammer level 4",
     [Q_SAVE][TQ_TITLE] = "Save",
-    [Q_SAVE][TQ_DESCRIPTION] = "Save your game in order not to lose your \
+    [Q_SAVE][TQ_DESCRIPTION] = "Save your game in order not to lose your \n\
 progress",
     [Q_SAVE][TQ_DETAIL] = "It's very usefull !",
     [Q_SAVE][TQ_OBJECTIF] = "Find the blachsmith in order to save a game",

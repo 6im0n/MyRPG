@@ -22,6 +22,7 @@ typedef enum e_pop_up_type {
     P_WIN_RESISTANCE,
     P_WIN_LEVEL,
     P_WIN_SKILL,
+    P_SAVE,
     P_LEN
 } type_popup_t;
 
