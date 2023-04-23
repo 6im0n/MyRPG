@@ -51,6 +51,7 @@ event_t *event, main_components_t *components)
             components_dispatch_event(components->new_game, event, app);
             break;
         case S_DEATH:
+            play_sounds(app);
             components_dispatch_event(components->death, event, app);
             break;
         default:

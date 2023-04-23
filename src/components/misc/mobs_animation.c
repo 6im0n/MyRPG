@@ -45,6 +45,11 @@ static void render_mobs_annimation(app_t *app, node_mob_t *mob)
         mobs_annimation_edit(app, mob);
         sfClock_restart(mob->clock);
     }
+    if (mob->state.attack && mob->annimation.index == 1 && !mob->attacked &&
+        app->state->stage == S_GAME) {
+        mob->attacked = true;
+        sfSound_play(mob->attack);
+    }
 }
 
 void mobs_render_annimation(app_t *app)

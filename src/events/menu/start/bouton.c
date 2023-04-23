@@ -6,6 +6,7 @@
 */
 
 #include "components/components.h"
+#include "event/global.h"
 
 void event_menu_onkeypress(node_component_t *component,
 event_t *event, app_t *app)
@@ -38,5 +39,6 @@ event_t *event, app_t *app)
         app->state->stage != S_MENU_HELP &&
         app->state->stage != S_SETTINGS)
         app->state->back = app->state->stage;
+    event_play_music(component, app);
     app->state->stage = S_MENU_LOAD_GAME;
 }

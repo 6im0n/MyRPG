@@ -65,7 +65,7 @@ void render_button_effect(app_t *app, node_component_t *component)
 {
     sfIntRect defaul = component->features.texture_rect;
 
-    if (ST_IS_HOVER(component) || component->id == ID_RESUME) {
+    if (ST_IS_HOVER(component)) {
         is_pressed(component, defaul);
         sfRectangleShape_setScale(component->object->rectangle,
         (sfVector2f){0.98, 0.98});

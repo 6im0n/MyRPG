@@ -13,6 +13,7 @@ typedef enum e_sound {
     SD_GRAB,
     SD_EXPLORATION,
     SD_HEART,
+    SD_MOB_ATTACK,
     SD_LEN
 } sound_t;
 

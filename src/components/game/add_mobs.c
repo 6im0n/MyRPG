@@ -27,11 +27,14 @@ static void init_game_mobs(node_mob_t *mob,
     mob->frect = mob_frect;
 }
 
-static void init_mobs_animation(node_mob_t *mob)
+static void init_mobs_animation(node_mob_t *mob, ressources_t ressources)
 {
     new_mobs_annimation(mob, (sfIntRect){.height = 0, .left = 224,
         .top = 0, .width = 0}, 0, 7);
     mob->annimation.speed = 0.1;
+    sfSound_setBuffer(mob->attack, ressources.sounds[SD_MOB_ATTACK]);
+    sfSound_setVolume(mob->attack, 50);
+    sfSound_setPitch(mob->attack, 1.5);
 }
 
 void add_new_mob(app_t *app, ressources_t ressources, sfVector2f position)
@@ -40,6 +43,6 @@ void add_new_mob(app_t *app, ressources_t ressources, sfVector2f position)
 
     mob = node_mobs_init(ressources);
     init_game_mobs(mob, position, ressources);
-    init_mobs_animation(mob);
+    init_mobs_animation(mob, ressources);
     list_mobs_append(app->element->mobs, mob);
 }

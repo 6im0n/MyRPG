@@ -16,6 +16,8 @@ static void init_state(node_mob_t *tmp)
     tmp->state.die = false;
     tmp->state.hit = false;
     tmp->clock = NULL;
+    tmp->attacked = false;
+    tmp->attack = sfSound_create();
     tmp->prox_shape = sfCircleShape_create();
 }
 

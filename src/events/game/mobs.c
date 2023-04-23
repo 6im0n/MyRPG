@@ -16,6 +16,8 @@ bool finish_animation(node_mob_t *mob)
         mob->annimation.index = 0;
         mob->state.attack = 0;
         mob->state.hit = false;
+        mob->attacked = false;
+        sfSound_stop(mob->attack);
         return true;
     }
     return false;

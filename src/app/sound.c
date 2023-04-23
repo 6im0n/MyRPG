@@ -10,11 +10,12 @@
 
 void play_sounds(app_t *app)
 {
-    if (app->element->player->life < 4 && !app->element->player->playing) {
+    if (app->element->player->life < 4 && app->element->player->life > 0 &&
+        !app->element->player->playing) {
         sfSound_play(app->element->player->heart);
         app->element->player->playing = true;
     }
-    if (app->element->player->life > 3) {
+    if (app->element->player->life > 3 || app->element->player->life <= 0) {
         app->element->player->playing = false;
         sfSound_stop(app->element->player->heart);
     }

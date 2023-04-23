@@ -1,4 +1,4 @@
-Position: 2311 6293
+Position: 3994 5561
 Texture_player: 10
 Inventory: 0
 Level: 0
