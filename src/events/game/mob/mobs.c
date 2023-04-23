@@ -10,12 +10,12 @@
 #include "types/type.h"
 #include <math.h>
 
-bool finish_animation(node_mob_t *mob)
+bool finish_animation(node_mob_t *mob, app_t *app)
 {
+    (void) app;
     if (mob->annimation.index > mob->annimation.max){
         mob->annimation.index = 0;
         mob->state.attack = 0;
-        mob->state.hit = false;
         return true;
     }
     return false;
@@ -43,16 +43,34 @@ bool mob_intersect_player(app_t *app, node_mob_t *mob)
 
 static void remove_player_life(app_t *app, node_mob_t *mob)
 {
-    if (mob->annimation.index == 8 && !mob->state.hit) {
-        mob->state.hit = true;
+    (void) app;
+    mob->state.hit = true;
+    if (mob->annimation.index == 8 && !mob->state.hit)
         app->element->player->life--;
+}
+
+static void update_hit(node_mob_t *mob, app_t *app)
+{
+    sfTime g_time = sfTime_Zero;
+    float seconds = 0.0;
+    float g_seconds = 0.0;
+    float diff = 0.0;
+
+    g_time = sfClock_getElapsedTime(app->state->clock);
+    g_seconds = g_seconds = g_time.microseconds / 1000000.0;
+    seconds = seconds = mob->cooldown.microseconds / 1000000.0;
+    diff = g_seconds - seconds;
+    if (diff > 15){
+        mob->state.hit = false;
+        mob->cooldown = g_time;
     }
 }
 
 void mob_attack(node_mob_t *mob,
 app_t *app)
 {
-    if (mob_intersect_player(app, mob)) {
+    update_hit(mob, app);
+    if (mob_intersect_player(app, mob) && !mob->state.hit) {
         if (mob->state.attack != 1 && mob->annimation.index != 0){
             mob->state.attack = 1;
         }
@@ -63,7 +81,7 @@ app_t *app)
     }
     if (mob->state.walk == 1)
         return;
-    if (mob->state.attack != 0 && !finish_animation(mob)) {
+    if (mob->state.attack != 0 && !finish_animation(mob, app)) {
         return;
     } else {
         mob->state.attack = 0;

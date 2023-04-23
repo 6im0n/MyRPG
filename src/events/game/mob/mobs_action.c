@@ -68,11 +68,11 @@ app_t *app)
     if (mob_next_to_player(app, mob, mob->radius)) {
         normalized_pos = normal_pos(mob, posm, posp, speed);
         mob->state.walk = 1;
-        if (finish_animation(mob)){
+        if (finish_animation(mob, app)){
             mob->irect.top = 192 + 55;
             mob->annimation.max = 7;
         }
-        if (!mob->state.attack == 1 && !finish_animation(mob))
+        if (!mob->state.attack == 1 && !finish_animation(mob, app))
             sfRectangleShape_setPosition(mob->obj_shape, normalized_pos);
         return;
     }

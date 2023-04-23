@@ -134,7 +134,7 @@ void mob_attacked(list_mobs_t *list, app_t *app);
  * @brief finish the mob animation
  * @param mob
  */
-bool finish_animation(node_mob_t *mob);
+bool finish_animation(node_mob_t *mob, app_t *app);
 //-------//
 
 /**

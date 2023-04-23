@@ -255,7 +255,8 @@ typedef struct s_node_mob {
     sfFloatRect frect;
     sfIntRect irect;
     sfTime time;
-    sfTime time_hit;
+    sfTime time_hited;
+    sfTime cooldown;
     sfClock *clock;
     skills_t skills;
     healt_t healt;

@@ -27,7 +27,8 @@ static void init_healt(node_mob_t *tmp)
     tmp->healt.max = 100;
     tmp->healt.bar = sfRectangleShape_create();
     tmp->healt.outline = sfRectangleShape_create();
-    tmp->time_hit.microseconds = 0;
+    tmp->time_hited.microseconds = 0;
+    tmp->cooldown.microseconds = 0;
     tmp->time.microseconds = 0;
 }
 

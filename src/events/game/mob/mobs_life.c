@@ -67,7 +67,7 @@ void mob_attacked(list_mobs_t *list, app_t *app)
     node_mob_t *tmp = list->first;
 
     while (tmp != NULL) {
-        sfTime time = tmp->time_hit;
+        sfTime time = tmp->time_hited;
         sfTime g_time = sfClock_getElapsedTime(app->state->clock);
         float seconds = time.microseconds / 1000000.0;
         float g_seconds = g_time.microseconds / 1000000.0;
@@ -76,7 +76,7 @@ void mob_attacked(list_mobs_t *list, app_t *app)
         if (tmp->healt.curent > 0.0 && mob_intersect_player(app, tmp) &&
         app->element->player->character->annimation.index == 2 && diff > 0.2) {
             tmp->healt.curent -= 10;
-            tmp->time_hit = g_time;
+            tmp->time_hited = g_time;
         }
         tmp = tmp->next;
     }

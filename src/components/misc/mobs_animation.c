@@ -22,7 +22,6 @@ static void mob_annimation_edit(app_t *app, node_mob_t *mob)
 
     if (mob->annimation.index > mob->annimation.max) {
         mob->annimation.index = 0;
-        mob->state.hit = false;
     }
     rect_a.height *= mob->annimation.index;
     rect_a.top *= mob->annimation.index;
