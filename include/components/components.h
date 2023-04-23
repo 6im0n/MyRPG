@@ -242,6 +242,11 @@ node_component_t *component_pure_new(sfVector2u size);
 void components_dispatch_event(list_components_t *components,
 event_t *event, app_t *app);
 
+/**
+ * @brief Render component
+ * @param app App
+ * @param components Components
+ */
 void component_render_annimation(app_t *app,
 node_component_t *component);
 

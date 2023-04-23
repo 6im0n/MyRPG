@@ -36,7 +36,7 @@ void app_player_render(app_t *app)
         else
             sfRenderWindow_drawRectangleShape(app->window,
             app->layer, NULL);
-        mobs_render_annimation(app);
+        mob_render_annimation(app);
         if (!app->element->player->front)
             sfRenderWindow_drawRectangleShape(app->window,
             app->layer, NULL);

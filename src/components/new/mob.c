@@ -7,7 +7,7 @@
 
 #include "types/type.h"
 
-static void mobs_annimation_edit(node_mob_t *mob)
+static void mob_annimation_edit(node_mob_t *mob)
 {
     sfIntRect rect = mob->irect;
     sfIntRect rect_a = mob->annimation.rect;
@@ -24,7 +24,7 @@ static void mobs_annimation_edit(node_mob_t *mob)
     mob->annimation.index++;
 }
 
-void new_mobs_annimation(node_mob_t *mob,
+void new_mob_annimation(node_mob_t *mob,
 sfIntRect annimation, int index, int max)
 {
     if (!mob)
@@ -33,5 +33,5 @@ sfIntRect annimation, int index, int max)
     mob->annimation.index = index;
     mob->annimation.max = max;
     mob->annimation.rect = annimation;
-    mobs_annimation_edit(mob);
+    mob_annimation_edit(mob);
 }

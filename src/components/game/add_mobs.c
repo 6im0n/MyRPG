@@ -8,7 +8,7 @@
 #include "components/mobs.h"
 #include "types/type.h"
 
-static void init_game_mobs(node_mob_t *mob,
+static void init_game_mob(node_mob_t *mob,
     sfVector2f position, ressources_t ressources)
 {
     sfVector2f size = {70, 55};
@@ -27,9 +27,9 @@ static void init_game_mobs(node_mob_t *mob,
     mob->frect = mob_frect;
 }
 
-static void init_mobs_animation(node_mob_t *mob)
+static void init_mob_animation(node_mob_t *mob)
 {
-    new_mobs_annimation(mob, (sfIntRect){.height = 0, .left = 224,
+    new_mob_annimation(mob, (sfIntRect){.height = 0, .left = 224,
         .top = 0, .width = 0}, 0, 7);
     mob->annimation.speed = 0.1;
 }
@@ -38,8 +38,8 @@ void add_new_mob(app_t *app, ressources_t ressources, sfVector2f position)
 {
     node_mob_t *mob = NULL;
 
-    mob = node_mobs_init(ressources);
-    init_game_mobs(mob, position, ressources);
-    init_mobs_animation(mob);
-    list_mobs_append(app->element->mobs, mob);
+    mob = node_mob_init(ressources);
+    init_game_mob(mob, position, ressources);
+    init_mob_animation(mob);
+    list_mob_append(app->element->mobs, mob);
 }

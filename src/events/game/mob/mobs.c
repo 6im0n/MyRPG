@@ -21,7 +21,7 @@ bool finish_animation(node_mob_t *mob)
     return false;
 }
 
-static bool mob_intersect_player(app_t *app, node_mob_t *mob)
+bool mob_intersect_player(app_t *app, node_mob_t *mob)
 {
     sfFloatRect rect = {0, 0, 0, 0};
     sfFloatRect rectp = sfRectangleShape_getGlobalBounds(
@@ -29,6 +29,14 @@ static bool mob_intersect_player(app_t *app, node_mob_t *mob)
     bool on_me = false;
 
     rect = sfRectangleShape_getGlobalBounds(mob->obj_shape);
+    rectp.height -= 25;
+    rectp.width -= 25;
+    rectp.left += 13;
+    rectp.top += 13;
+    rect.height -= 30;
+    rect.width -= 50;
+    rect.left += 25;
+    rect.top += 15;
     on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
     return on_me;
 }
@@ -41,7 +49,7 @@ static void remove_player_life(app_t *app, node_mob_t *mob)
     }
 }
 
-void mobs_attack(node_mob_t *mob,
+void mob_attack(node_mob_t *mob,
 app_t *app)
 {
     if (mob_intersect_player(app, mob)) {

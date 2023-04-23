@@ -4,3 +4,6 @@ my_rpg
 .vscode
 vgcore*
 *tmp*
+*.code-workspace
+game.txt
+real-time-norminette-report

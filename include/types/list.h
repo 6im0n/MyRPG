@@ -63,24 +63,68 @@ node_item_t *item_pure_new(void);;
  */
 void list_remove(list_item_t *list, node_item_t *node);
 
+/**
+ * @brief Append a quest to List
+ * @param list
+ * @param node
+ */
 void list_quest_append(list_quests_t *list, node_quests_t *node);
 
+/**
+ * @brief Return a quest node from the list
+ * @param quests
+ * @param list
+ */
 node_quests_t *list_node_qest_append(quests_t quests, list_quests_t *list);
 
+/**
+ * @brief Initialise a list of quests
+ * @return list_quests_t*
+ */
 list_quests_t *list_quests_init(void);
 
+/**
+ * @brief Free a list of quests
+ * @param list list to free
+ */
 void list_quests_free(list_quests_t *list);
 
+/**
+ * @brief delete a quest node to List
+ * @param list
+ * @param id
+ */
 void list_quest_delete(list_quests_t *list, quests_t id);
 
+/**
+ * @brief initialise a list of speech
+ */
 list_speech_t *list_speech_init(void);
 
+/**
+ * @brief free a list of speech
+ * @param list
+ */
 void list_speech_free(list_speech_t *list);
 
+/**
+ * @brief initialise a list of layer
+*/
 list_layer_t *list_layers_init(void);
 
+/**
+ * @brief free a list of layer
+ *
+ * @param list
+ */
 void list_layers_free(list_layer_t *list);
 
+/**
+ * @brief append a node to a list of layer
+ *
+ * @param list
+ * @param node
+ */
 void list_layer_append(list_layer_t *list, node_layer_t *node);
 
 #endif /* !COMPONENTS_H_ */

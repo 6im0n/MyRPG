@@ -8,7 +8,7 @@
 #include "types/list.h"
 
 
-void list_mobs_append(list_mobs_t *list, node_mob_t *node)
+void list_mob_append(list_mobs_t *list, node_mob_t *node)
 {
     if (list->last != NULL) {
         node->next = NULL;

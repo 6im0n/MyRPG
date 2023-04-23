@@ -8,10 +8,13 @@
 #include "components/components.h"
 #include "types/type.h"
 
-static void draw_player_annimation(app_t *app, sfIntRect rect)
+static void draw_player_annimation(app_t *app, sfIntRect irect)
 {
-    sfRectangleShape_setTextureRect( app->element->player->character->shape,
-    rect);
+    sfRectangleShape *rect = app->element->player->character->shape;
+
+    sfRectangleShape_setOutlineColor(rect, sfRed);
+    sfRectangleShape_setOutlineThickness(rect, 2);
+    sfRectangleShape_setTextureRect(rect, irect);
 }
 
 static void player_annimation_edit(app_t *app)
@@ -40,7 +43,6 @@ static void render_player_annimation(app_t *app)
         app->element->player->character->annimation.clock);
     float seconds = time.microseconds / 1000000.0;
 
-    (void) app;
     if (seconds > app->element->player->character->annimation.speed) {
         player_annimation_edit(app);
         sfClock_restart(app->element->player->character->annimation.clock);

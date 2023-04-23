@@ -55,7 +55,7 @@ app_t *app, event_t *event)
     }
 }
 
-static float update_move(app_t *app)
+float update_move(app_t *app)
 {
     float move = (float)app->element->player->skills.speed * 13.F;
     sfTime time = sfClock_getElapsedTime(app->state->clock);

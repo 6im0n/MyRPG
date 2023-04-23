@@ -9,13 +9,13 @@
 #include "components/mobs.h"
 #include "types/type.h"
 
-static void draw_mobs_annimation(app_t *app, node_mob_t *mob, sfIntRect rect)
+static void draw_mob_annimation(app_t *app, node_mob_t *mob, sfIntRect rect)
 {
     (void) app;
     sfRectangleShape_setTextureRect(mob->obj_shape, rect);
 }
 
-static void mobs_annimation_edit(app_t *app, node_mob_t *mob)
+static void mob_annimation_edit(app_t *app, node_mob_t *mob)
 {
     sfIntRect rect = mob->irect;
     sfIntRect rect_a = mob->annimation.rect;
@@ -32,31 +32,53 @@ static void mobs_annimation_edit(app_t *app, node_mob_t *mob)
     rect.top += rect_a.top;
     rect.left += rect_a.left;
     rect.width += rect_a.width;
-    draw_mobs_annimation(app, mob, rect);
+    draw_mob_annimation(app, mob, rect);
     mob->annimation.index++;
 }
 
-static void render_mobs_annimation(app_t *app, node_mob_t *mob)
+static void render_mob_annimation(app_t *app, node_mob_t *mob)
 {
     sfTime time = sfClock_getElapsedTime(mob->clock);
     float seconds = time.microseconds / 1000000.0;
 
     if (seconds > mob->annimation.speed) {
-        mobs_annimation_edit(app, mob);
+        mob_annimation_edit(app, mob);
         sfClock_restart(mob->clock);
     }
 }
 
-void mobs_render_annimation(app_t *app)
+static void flip_animation(node_mob_t *mob)
+{
+    if (mob->state.left){
+        mob->irect.width = -100;
+        mob->irect.left = 155;
+        return;
+    } else if (!mob->state.left) {
+        mob->irect.left = 73;
+        mob->irect.width = 100;
+        return;
+    }
+}
+
+void mob_render_annimation(app_t *app)
 {
     node_mob_t *tmp = app->element->mobs->first;
 
+    if (app->element->player->character->state.attack)
+        mob_attacked(app->element->mobs, app);
     while (tmp != NULL) {
-        render_mobs_annimation(app, tmp);
-        mobs_move_to_player(tmp, app);
-        mobs_attack(tmp, app);
+        render_mob_annimation(app, tmp);
+        flip_animation(tmp);
+        mob_move_to_player(tmp, app);
+        if (!tmp->state.die) {
+            mob_health_bar(tmp, app);
+            mob_attack(tmp, app);
+        }
+        sfRectangleShape_setOutlineColor(tmp->obj_shape, sfRed);
+        sfRectangleShape_setOutlineThickness(tmp->obj_shape, 2);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->obj_shape, NULL);
+        dying_mob(tmp, app);
         tmp = tmp->next;
     }
 }

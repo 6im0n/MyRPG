@@ -9,7 +9,7 @@
 #include "types/type.h"
 #include "components/mobs.h"
 
-list_mobs_t *list_mobs_init(void)
+list_mobs_t *list_mob_init(void)
 {
     list_mobs_t *tmp = malloc(sizeof(list_mobs_t));
 
@@ -21,7 +21,7 @@ list_mobs_t *list_mobs_init(void)
     return tmp;
 }
 
-void list_mobs_free(list_mobs_t *list)
+void list_mob_free(list_mobs_t *list)
 {
     node_mob_t *tmp = list->first;
     node_mob_t *tmp2 = tmp;
