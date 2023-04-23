@@ -81,6 +81,7 @@ void mob_render_annimation(app_t *app)
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->obj_shape, NULL);
         dying_mob(tmp, app);
-        tmp = tmp->next;
+        if (tmp)
+            tmp = tmp->next;
     }
 }
