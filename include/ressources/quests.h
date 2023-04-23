@@ -21,7 +21,10 @@ typedef enum e_quests {
     Q_UNDEFINED,
     Q_MAIN_P1,
     Q_MAIN_P2,
+    Q_MAIN_P3,
+    Q_MAIN_P4,
     Q_SAVE,
+    Q_FINAL,
     Q_LEN
 } quests_t;
 

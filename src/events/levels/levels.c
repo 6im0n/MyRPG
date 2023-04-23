@@ -10,6 +10,7 @@
 #include "lib/tools.h"
 #include "lib/str.h"
 #include "parsing/utils.h"
+#include "event/game/global.h"
 
 static void update_skills(player_t *player, node_component_t *node,
                         sfVector2f size)
@@ -35,13 +36,14 @@ static void update_skills(player_t *player, node_component_t *node,
     sfRectangleShape_setFillColor(node->object->rectangle, sfRed);
 }
 
-static void manage_xp(player_t *player, int xp)
+static void manage_xp(app_t *app, player_t *player, int xp)
 {
     player->exprerience.xp += xp;
     while (player->exprerience.xp >= player->exprerience.max_xp) {
         player->exprerience.xp -= player->exprerience.max_xp;
         player->exprerience.max_xp += 50;
         player->exprerience.level++;
+        quest_gestion_xp(app);
     }
 }
 
@@ -72,7 +74,7 @@ void levels_update(app_t *app, list_components_t *list, int xp)
     node_component_t *node = list->first;
 
     if (xp > 0)
-        manage_xp(player, xp);
+        manage_xp(app, player, xp);
     update_skills(player, node, (sfVector2f){500, 12});
     update_text(list, player);
 }

@@ -22,7 +22,8 @@ static const char *popup_loaders[P_LEN] = {
     [P_WIN_RESISTANCE] = "You have gained resistance points !",
     [P_WIN_LEVEL] = "You have gained level points !",
     [P_WIN_SKILL] = "You have gained skill points !",
-    [P_SAVE] = "You save your party !"
+    [P_SAVE] = "You save your party !",
+    [P_NO_ENOUGHT_XP] = "You don't have enough experience !"
 };
 
 #endif /* !RESSOURCES_POPUP_LOADERS_H_ */

@@ -60,7 +60,6 @@ int app_run(void)
             app.first = false;
         }
     }
-    app_save_game(&app);
     components_free(&components);
     ressources_unload(&ressources);
     app_destroy(&app);

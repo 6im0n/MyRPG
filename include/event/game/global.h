@@ -108,4 +108,12 @@ event_t *event, app_t *app);
 void event_death_back_home(node_component_t *component,
 event_t *event, app_t *app);
 
+void altar_onkeypress(node_component_t *component,
+event_t *event, app_t *app);
+
+void altar_events_ondisabled(node_component_t *component,
+event_t *event, app_t *app);
+
+void quest_gestion_xp(app_t *app);
+
 #endif /* !EVENT_GAME_H_ */

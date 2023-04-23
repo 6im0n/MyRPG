@@ -63,16 +63,9 @@ static bool find_result_quests(list_quests_t *list, quests_t quest)
 
 static void quests_extend(app_t *app)
 {
-    if (find_result_quests(app->element->quests, Q_MAIN_P2) == true) {
-        list_quest_delete(app->element->quests, Q_MAIN_P2);
-        app->element->player->exprerience.update = 70;
-        add_item_player(app, I_HAMMER_LEV4);
-    }
-    if (find_result_quests(app->element->quests, Q_SAVE) == true) {
-        list_quest_delete(app->element->quests, Q_SAVE);
-        new_speech(app, SP_SAVE_QUESTS_2);
-        app->element->player->exprerience.update = 50;
-    }
+    quests_extend_1(app);
+    quests_extend_2(app);
+    quests_extend_3(app);
 }
 
 void dialog_main_quests_onkeypress(node_component_t *component,

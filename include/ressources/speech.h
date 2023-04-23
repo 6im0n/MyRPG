@@ -30,6 +30,14 @@ typedef enum e_speech {
     SP_MAIN_QUESTS_2_1,
     SP_MAIN_QUESTS_2_2,
     SP_MAIN_QUESTS_2_3,
+    SP_FINAL_QUESTS_1_1,
+    SP_FINAL_QUESTS_1_2,
+    SP_MAIN_QUESTS_3_1,
+    SP_MAIN_QUESTS_3_2,
+    SP_MAIN_QUESTS_END_1,
+    SP_MAIN_QUESTS_END_2,
+    SP_MAIN_QUESTS_END_3,
+    SP_MAIN_QUESTS_END_4,
     SP_LEN
 } speech_id_t;
 

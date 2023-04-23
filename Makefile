@@ -133,6 +133,7 @@ _SRC =			main.c \
 				events/game/select_character.c \
 				events/game/beacon/beacon.c \
 				events/game/beacon/item.c \
+				events/game/altar.c \
 				events/game/mob/generation.c \
 				\
 				\
@@ -147,6 +148,7 @@ _SRC =			main.c \
 				events/game/quests/main.c \
 				events/game/quests/save.c \
 				events/game/quests/mob.c \
+				events/game/quests/extend.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

@@ -15,6 +15,10 @@ void auto_call(app_t *app, speech_id_t id)
         new_speech(app, id + 1);
     if (id >= SP_MAIN_QUESTS_2_1 && id < SP_MAIN_QUESTS_2_3)
         new_speech(app, id + 1);
+    if (id >= SP_FINAL_QUESTS_1_1 && id < SP_FINAL_QUESTS_1_2)
+        new_speech(app, id + 1);
+    if (id >= SP_MAIN_QUESTS_END_1 && id < SP_MAIN_QUESTS_END_4)
+        new_speech(app, id + 1);
 }
 
 void list_removes(list_speech_t *list, node_speech_t *node)

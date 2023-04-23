@@ -15,6 +15,18 @@
 #include "app/app.h"
 #include "components/speech.h"
 
+void quest_gestion_xp(app_t *app)
+{
+    bool active = false;
+
+    active = quests_current_add(app->element->quests, Q_MAIN_P3);
+    if (active) {
+        new_popup(app, P_ADVENCED, 5);
+        quests_get_finish(app, app->element->quests,
+        Q_MAIN_P3, SP_QUEST_BACK_TALK_NPC_2);
+    }
+}
+
 void dialog_save_quests_onnext_to(node_component_t *component,
 event_t *event, app_t *app)
 {

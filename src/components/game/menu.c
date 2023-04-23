@@ -82,4 +82,5 @@ list_components_t *list)
     parsing_buttons(app, ressources, list, "assets/scripts/game/beacon.txt");
     parsing_buttons(app, ressources, list, "assets/scripts/game/shrine.txt");
     parsing_buttons(app, ressources, list, "assets/scripts/game/particule.txt");
+    parsing_buttons(app, ressources, list, "assets/scripts/game/quest.txt");
 }
