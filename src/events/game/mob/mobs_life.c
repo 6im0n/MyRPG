@@ -47,6 +47,7 @@ void dying_mob(node_mob_t *mob, app_t *app)
 {
     if (mob->state.die == true) {
         if (mob->annimation.index == 14) {
+            app->element->player->exprerience.update += 15;
             sfRectangleShape_destroy(mob->obj_shape);
             sfClock_destroy(mob->clock);
             list_mob_remove(app->element->mobs, mob);
@@ -70,17 +71,7 @@ void mob_attacked(list_mobs_t *list, app_t *app)
     node_mob_t *tmp = list->first;
 
     while (tmp != NULL) {
-        sfTime time = tmp->time_hited;
-        sfTime g_time = sfClock_getElapsedTime(app->state->clock);
-        float seconds = time.microseconds / 1000000.0;
-        float g_seconds = g_time.microseconds / 1000000.0;
-        float diff = g_seconds - seconds;
-
-        if (tmp->healt.curent > 0.0 && mob_intersect_player(app, tmp) &&
-        app->element->player->character->annimation.index == 2 && diff > 0.2) {
-            tmp->healt.curent -= 10;
-            tmp->time_hited = g_time;
-        }
+        player_mob_attach(app, tmp);
         tmp = tmp->next;
     }
 }

@@ -158,6 +158,10 @@ void list_mob_remove(list_mobs_t *list, node_mob_t *node);
  */
 void dying_mob(node_mob_t *mob, app_t *app);
 
+void update_attack_player(app_t *app);
+
+void player_mob_attach(app_t *app, node_mob_t *tmp);
+
 /**
  * @brief Anim walk
  * @param mob node
