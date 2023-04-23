@@ -43,11 +43,11 @@ list_components_t *list)
 
 static void init_game_player(app_t *app, ressources_t ressources)
 {
-    sfVector2f size = {70 / 2.5, 100 / 2.5};
+    sfVector2f size = {125 / 2.5, 100 / 2.5};
     sfFloatRect player_frect = {0, 0, 0, 0};
     sfRectangleShape *shape = sfRectangleShape_create();
     sfVector2f middle = {2420, 6375};
-    sfIntRect in_rect = {16 + 48, 20, 17, 24};
+    sfIntRect in_rect = {7 + 0, 20, 34, 28};
 
     sfRectangleShape_setSize(shape, size);
     sfRectangleShape_setPosition(shape, middle);
@@ -55,6 +55,9 @@ static void init_game_player(app_t *app, ressources_t ressources)
         sfFalse);
     sfRectangleShape_setTextureRect(shape, in_rect);
     player_frect = sfRectangleShape_getGlobalBounds(shape);
+    app->element->player->character->time = sfTime_Zero;
+    app->element->player->character->state =
+        (player_states_t){true, false, false, false, false};
     app->element->player->character->shape = shape;
     app->element->player->character->irect = in_rect;
     app->element->player->character->frect = player_frect;
@@ -70,15 +73,13 @@ static void init_player_animation(app_t *app)
 void components_game(app_t *app, ressources_t ressources,
 list_components_t *list)
 {
-    app->element->mobs = list_mobs_init();
+    app->element->mobs = list_mob_init();
     game_background(app, ressources, list);
     init_game_player(app, ressources);
     init_player_animation(app);
 
-    sfRectangleShape_setOutlineColor(app->element->player->character->shape,
-                                    sfRed);
-    sfRectangleShape_setOutlineThickness (
-        app->element->player->character->shape, 2);
+    add_new_mob(app, ressources, (sfVector2f){2696, 6214});
+    add_new_mob(app, ressources, (sfVector2f){2292, 6446});
     parsing_buttons(app, ressources, list, "assets/scripts/game/object.txt");
     parsing_buttons(app, ressources, list, "assets/scripts/game/beacon.txt");
     parsing_buttons(app, ressources, list, "assets/scripts/game/shrine.txt");

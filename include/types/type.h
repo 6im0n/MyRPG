@@ -151,15 +151,25 @@ typedef struct s_key_player {
     bool down;
     bool left;
     bool right;
+    int old_key;
 } key_player_t;
+
+typedef struct s_player_states {
+    bool idle;
+    bool walk;
+    bool attack;
+    bool die;
+    bool hit;
+} player_states_t;
 
 typedef struct s_character {
     sfTexture *texture;
     sfRectangleShape *shape;
     sfFloatRect frect;
     sfIntRect irect;
-    character_annimation_t annimation;
     sfTime time;
+    player_states_t state;
+    character_annimation_t annimation;
     key_player_t key;
     texture_t tx;
 } character_t;
@@ -218,6 +228,13 @@ typedef struct s_list_quests {
 //==================================================
 // MOBS
 //==================================================
+typedef struct healt_s {
+    float curent;
+    float max;
+    sfRectangleShape *bar;
+    sfRectangleShape *outline;
+    sfFloatRect frect;
+} healt_t;
 
 typedef struct s_mobs_annimation {
     sfIntRect rect;
@@ -233,20 +250,22 @@ typedef struct s_mob_states {
     bool attack;
     bool die;
     bool hit;
+    bool left;
 } mob_states_t;
 
 typedef struct s_node_mob {
+    float radius;
     sfTexture *texture;
     sfRectangleShape *obj_shape;
-    float radius;
-    sfCircleShape *prox_shape;
-    sfTime time;
     sfFloatRect frect;
     sfIntRect irect;
-    mobs_annimation_t annimation;
+    sfTime time;
+    sfTime time_hit;
     sfClock *clock;
     skills_t skills;
+    healt_t healt;
     mob_states_t state;
+    mobs_annimation_t annimation;
     struct s_node_mob *next;
     struct s_node_mob *prev;
 } node_mob_t;
@@ -290,6 +309,9 @@ typedef struct s_list_layer {
     int len;
 } list_layer_t;
 
+//==================================================
+// GAME
+//==================================================
 typedef struct s_game_elements {
     list_item_t *items;
     player_t *player;
@@ -387,6 +409,7 @@ typedef struct s_event {
     sfEvent original;
     mouse_t *mouse;
 } event_t;
+
 
 //==================================================
 // RENDERERING

@@ -19,9 +19,6 @@
 void event_game_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
 
-void idle_player(node_component_t *component,
-event_t *event, app_t *app);
-
 /**
  * @brief Get availaible directions
  * @param array bool array
@@ -39,27 +36,75 @@ void collisions(bool *array, sfVector2f position, player_t *player);
 void save_game_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
 
+/**
+ * @brief Handle beacon events healt
+ * @param component component
+ * @param event event
+ * @param app app
+ */
 void beacon_healt_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
 
+/**
+ * @brief Handle beacon skill
+ * @param component component
+ * @param event event
+ * @param app app
+ */
 void beacon_skill_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
 
+/**
+ * @brief Disable a beacon
+ * @param component component
+ * @param event event
+ * @param app app
+ */
 void beacon_events_ondisabled(node_component_t *component,
 event_t *event, app_t *app);
 
-void generation_mob_next_to(node_component_t *component,
-event_t *event, app_t *app);
-
-void generation_mob_ondisabled(node_component_t *component,
-event_t *event, app_t *app);
-
+/**
+ * @brief Disable the beacon item
+ * @param component component
+ * @param event event
+ * @param app app
+ */
 void beacon_item_events_ondisabled(node_component_t *component,
 event_t *event, app_t *app);
 
+/**
+ * @brief Handle beacon item
+ * @param component component
+ * @param event event
+ * @param app app
+ */
 void beacon_item_onkeypress(node_component_t *component,
 event_t *event, app_t *app);
 
+/**
+ * @brief Handle the mob generation of the mob when player is near to a area
+ * @param component component
+ * @param event event
+ * @param app app
+ */
+void generation_mob_next_to(node_component_t *component,
+event_t *event, app_t *app);
+
+/**
+ * @brief Disable the mob generation
+ * @param component component
+ * @param event event
+ * @param app app
+ */
+void generation_mob_ondisabled(node_component_t *component,
+event_t *event, app_t *app);
+
+/**
+ * @brief Handle the screen when player is dead
+ * @param component component
+ * @param event event
+ * @param app app
+ */
 void event_death_back_home(node_component_t *component,
 event_t *event, app_t *app);
 

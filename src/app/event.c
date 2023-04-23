@@ -104,13 +104,13 @@ void app_handle_events(app_t *app, main_components_t *components)
         manage_view(app, &event, components);
     }
     if (app->state->stage == S_GAME) {
-        move_player(app);
         play_sounds(app);
+        if (finish_attack_player(app))
+            move_player(app);
+        else
+            update_move(app);
+        player_attack(app);
         component_near(components->game, app, &event);
     }
-    if (app->element->player->exprerience.update != 0) {
-        levels_update(app, components->inventory,
-        app->element->player->exprerience.update);
-        app->element->player->exprerience.update = 0;
-    }
+    update_xp(app, components);
 }
