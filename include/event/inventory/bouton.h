@@ -89,4 +89,10 @@ event_t *event, app_t *app);
 void event_inventory_skill_onpressed(node_component_t *component,
 event_t *event, app_t *app);
 
+void event_item_info_ondisabled(node_component_t *component,
+event_t *event, app_t *app);
+
+void event_inventory_skill_ondisabled(node_component_t *component,
+event_t *event, app_t *app);
+
 #endif /* !EVENT_INVENTORY_H_ */

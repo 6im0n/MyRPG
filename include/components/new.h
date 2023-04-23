@@ -105,4 +105,6 @@ texture_t item_texture, sfVector2f position);
  */
 void new_items_size(node_item_t *item, sfVector2f size);
 
+void concat_item_skills(node_item_t *item, skills_t skills);
+
 #endif /* !NEW_H_ */

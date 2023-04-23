@@ -46,6 +46,8 @@ static const parsing_handler_t disable_event[DISABLED_LEN] = {
     [BEACON_DISABLE] = &beacon_events_ondisabled,
     [BEACON_I_DISABLE] = &beacon_item_events_ondisabled,
     [HOVER_DISABLED_TEXT] = &event_bouton_help_ondisabled,
+    [TEXT_ITEM] = &event_item_info_ondisabled,
+    [DISABLED_MANA_XP] = &event_inventory_skill_ondisabled,
     [ALTAR_DISABLED] = &altar_events_ondisabled
 };
 

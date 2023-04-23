@@ -19,6 +19,10 @@ static void append_sword_lv1(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_SWORD_LEV1,
         (sfIntRect){.height = 60, .left = 35, .top = 40, .width = 60}, rect);
+    item->name = "Sword 1";
+    item->sharpness = "Sharpness: ";
+    item->weight = "Weight: ";
+
     new_items_texture(item, ressources, TX_WEAPONS, position);
     new_items_size(item, size);
     sfRectangleShape_setRotation(item->shape, 35);
@@ -35,6 +39,9 @@ static void append_sword_lv2(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_SWORD_LEV2,
         (sfIntRect){.height = 72, .left = 108, .top = 33, .width = 60}, rect);
+    item->name = "Sword 2";
+    item->sharpness = "Sharpness: 5/10";
+    item->weight = "Weight: ";
     new_items_texture(item, ressources, TX_WEAPONS, position);
     new_items_size(item, size);
     sfRectangleShape_setRotation(item->shape, 35);
@@ -51,6 +58,10 @@ static void append_sword_lv3(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_SWORD_LEV3,
         (sfIntRect){.height = 78, .left = 188, .top = 30, .width = 60}, rect);
+    item->name = "Sword 3";
+    item->sharpness = "Sharpness: ";
+    item->weight = "Weight: ";
+    concat_item_skills(item, item->skill);
     new_items_texture(item, ressources, TX_WEAPONS, position);
     new_items_size(item, size);
     list_item_append(list, item);
@@ -66,6 +77,10 @@ static void append_sword_lv4(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_SWORD_LEV4,
         (sfIntRect){.height = 83, .left = 260, .top = 30, .width = 60}, rect);
+    item->name = "Sword 4";
+    item->sharpness = "Sharpness: ";
+    item->weight = "Weight: ";
+    concat_item_skills(item, item->skill);
     new_items_texture(item, ressources, TX_WEAPONS, position);
     new_items_size(item, size);
     list_item_append(list, item);

@@ -11,9 +11,9 @@
 static void init_game_mob(node_mob_t *mob,
     sfVector2f position, ressources_t ressources)
 {
-    sfVector2f size = {70, 55};
+    sfVector2f size = {MOB_SIZE * (224.0 / 192.0), MOB_SIZE};
     sfFloatRect mob_frect = {0, 0, 0, 0};
-    sfIntRect in_rect = {73, 0 + 55, 100, 80};
+    sfIntRect in_rect = {0, 0 + 0, 224, 192};
     sfTexture *texture = ressources.textures[TX_MOBS];
 
     sfRectangleShape_setSize(mob->obj_shape, size);
@@ -22,7 +22,7 @@ static void init_game_mob(node_mob_t *mob,
     sfRectangleShape_setTextureRect(mob->obj_shape, in_rect);
     mob_frect = sfRectangleShape_getGlobalBounds(mob->obj_shape);
     mob->skills.speed = 8;
-    mob->radius = 100;
+    mob->radius = 20;
     mob->irect = in_rect;
     mob->frect = mob_frect;
 }

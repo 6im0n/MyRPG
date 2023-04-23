@@ -21,6 +21,13 @@ static void list_items_copy(list_item_t *list, node_item_t *node)
     item->frect = node->frect;
     item->irect = node->irect;
     item->item = node->item;
+    item->name = node->name;
+    item->sharpness = node->sharpness;
+    item->skill = node->skill;
+    item->skill.resitance = node->skill.resitance;
+    item->skill.strength = node->skill.strength;
+    item->skill.speed = node->skill.speed;
+    item->weight = node->weight;
     item->shape = sfRectangleShape_copy(node->shape);
     list_item_append(list, item);
 }

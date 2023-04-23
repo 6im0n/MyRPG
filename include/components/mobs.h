@@ -15,6 +15,7 @@
     #include "components/components.h"
     #include "types/type.h"
 
+    #define MOB_SIZE 200
 
 /**
  * @brief Destroyed a mobs
@@ -134,7 +135,7 @@ void mob_attacked(list_mobs_t *list, app_t *app);
  * @brief finish the mob animation
  * @param mob
  */
-bool finish_animation(node_mob_t *mob);
+bool finish_animation(node_mob_t *mob, app_t *app);
 //-------//
 
 /**
@@ -168,5 +169,16 @@ void mob_dying_quests(app_t *app);
  * @param app app
  */
 void mobs_dying_quests(app_t *app);
+
+void update_attack_player(app_t *app);
+
+void player_mob_attach(app_t *app, node_mob_t *tmp);
+
+/**
+ * @brief Anim walk
+ * @param mob node
+ * @param app app
+ */
+void mob_anim(node_mob_t *mob, app_t *app);
 
 #endif /* !mobs_H_ */

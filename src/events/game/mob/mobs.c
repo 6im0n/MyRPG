@@ -10,12 +10,12 @@
 #include "types/type.h"
 #include <math.h>
 
-bool finish_animation(node_mob_t *mob)
+bool finish_animation(node_mob_t *mob, app_t *app)
 {
+    (void) app;
     if (mob->annimation.index > mob->annimation.max){
         mob->annimation.index = 0;
         mob->state.attack = 0;
-        mob->state.hit = false;
         return true;
     }
     return false;
@@ -33,41 +33,56 @@ bool mob_intersect_player(app_t *app, node_mob_t *mob)
     rectp.width -= 25;
     rectp.left += 13;
     rectp.top += 13;
-    rect.height -= 30;
-    rect.width -= 50;
-    rect.left += 25;
-    rect.top += 15;
+    rect.height -= 110;
+    rect.width -= 150;
+    rect.left += 75;
+    rect.top += 55;
     on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
     return on_me;
 }
 
 static void remove_player_life(app_t *app, node_mob_t *mob)
 {
-    if (mob->annimation.index == 8 && !mob->state.hit) {
-        mob->state.hit = true;
+    (void) app;
+    if (mob->annimation.index == 8) {
         app->element->player->life--;
+        mob->state.hit = true;
+    }
+}
+
+void update_hit(node_mob_t *mob, app_t *app)
+{
+    sfTime g_time = sfTime_Zero;
+    float seconds = 0.0;
+    float g_seconds = 0.0;
+    float diff = 0.0;
+
+    g_time = sfClock_getElapsedTime(app->state->clock);
+    g_seconds = g_time.microseconds / 1000000.0;
+    seconds = mob->cooldown.microseconds / 1000000.0;
+    diff = g_seconds - seconds;
+    if (diff > 3) {
+        mob->state.hit = false;
+        mob->cooldown = g_time;
     }
 }
 
 void mob_attack(node_mob_t *mob,
 app_t *app)
 {
-    if (mob_intersect_player(app, mob)) {
-        if (mob->state.attack != 1 && mob->annimation.index != 0){
+    update_hit(mob, app);
+    mob->state.intersect = mob_intersect_player(app, mob);;
+    if (mob->annimation.index == 8 && !mob->state.intersect)
+        mob->state.hit = true;
+    if (mob->state.intersect && !mob->state.hit) {
+        if (mob->state.attack != 1 && mob->annimation.index != 0)
             mob->state.attack = 1;
-        }
-        mob->irect.top = 384 + 55;
+        mob->irect.top = 192 * 2;
         mob->annimation.max = 16;
         remove_player_life(app, mob);
         return;
     }
     if (mob->state.walk == 1)
         return;
-    if (mob->state.attack != 0 && !finish_animation(mob)) {
-        return;
-    } else {
-        mob->state.attack = 0;
-        mob->irect.top = 55;
-        mob->annimation.max = 7;
-    }
+    mob_anim(mob, app);
 }

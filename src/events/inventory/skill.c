@@ -10,6 +10,27 @@
 #include "components/popup.h"
 #include "app/app.h"
 
+void event_inventory_skill_ondisabled(node_component_t *component,
+event_t *event, app_t *app)
+{
+    sfRectangleShape *rectangle = component->object->rectangle;
+    sfIntRect rect = {97, 194, 14, 12};
+
+    (void) event;
+    sfText_setColor(component->object->text, sfTransparent);
+    if (app->element->player->exprerience.skill == 0)
+        return sfRectangleShape_setTextureRect(rectangle, rect);
+    rect.top += 16;
+    if (app->element->player->exprerience.skill == 1)
+        return sfRectangleShape_setTextureRect(rectangle, rect);
+    rect.left += 16;
+    if (app->element->player->exprerience.skill == 2)
+        return sfRectangleShape_setTextureRect(rectangle, rect);
+    rect.left += 16;
+    if (app->element->player->exprerience.skill >= 3)
+        return sfRectangleShape_setTextureRect(rectangle, rect);
+}
+
 static void selector_skill_increment(node_component_t *component,
 player_t *player, app_t *app)
 {

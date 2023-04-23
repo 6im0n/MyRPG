@@ -4,6 +4,8 @@
 ** File description:
 ** mobs
 */
+
+#include <stdio.h>
 #include <math.h>
 #include "components/mobs.h"
 #include "types/type.h"
@@ -13,8 +15,8 @@ static void outline_bar(node_mob_t *mob, app_t *app)
     sfVector2f size_outline = {30, 3};
     sfVector2f pos = sfRectangleShape_getPosition(mob->obj_shape);
 
-    sfRectangleShape_setPosition(mob->healt.outline, (sfVector2f){pos.x + 13,
-        pos.y - 10});
+    sfRectangleShape_setPosition(mob->healt.outline, (sfVector2f){pos.x + 95,
+        pos.y + 50});
     sfRectangleShape_setSize(mob->healt.outline, size_outline);
     sfRectangleShape_setFillColor(mob->healt.outline, sfTransparent);
     sfRectangleShape_setOutlineColor(mob->healt.outline, sfBlack);
@@ -47,6 +49,7 @@ void dying_mob(node_mob_t *mob, app_t *app)
         if (mob->annimation.index == 14) {
             mob_dying_quests(app);
             mobs_dying_quests(app);
+            app->element->player->exprerience.update += 15;
             sfRectangleShape_destroy(mob->obj_shape);
             sfClock_destroy(mob->clock);
             list_mob_remove(app->element->mobs, mob);
@@ -54,8 +57,9 @@ void dying_mob(node_mob_t *mob, app_t *app)
             return;
         }
     }
-    if (mob->healt.curent == 0 && mob->state.die == false){
-        mob->irect.top = 768 + 55;
+    if (mob->healt.curent <= 0 && mob->state.die == false){
+        mob->irect.top = 192 * 4;
+        sfRectangleShape_setTextureRect(mob->obj_shape, mob->irect);
         mob->annimation.index = 0;
         mob->annimation.max = 14;
         sfRectangleShape_destroy(mob->healt.bar);
@@ -69,17 +73,7 @@ void mob_attacked(list_mobs_t *list, app_t *app)
     node_mob_t *tmp = list->first;
 
     while (tmp != NULL) {
-        sfTime time = tmp->time_hit;
-        sfTime g_time = sfClock_getElapsedTime(app->state->clock);
-        float seconds = time.microseconds / 1000000.0;
-        float g_seconds = g_time.microseconds / 1000000.0;
-        float diff = g_seconds - seconds;
-
-        if (tmp->healt.curent > 0.0 && mob_intersect_player(app, tmp) &&
-        app->element->player->character->annimation.index == 2 && diff > 0.2) {
-            tmp->healt.curent -= 10;
-            tmp->time_hit = g_time;
-        }
+        player_mob_attach(app, tmp);
         tmp = tmp->next;
     }
 }
@@ -89,7 +83,7 @@ void mob_health_bar(node_mob_t *mob, app_t *app)
     sfVector2f size_bar = {30, 3};
     float h_precent = (float)mob->healt.curent / (float)mob->healt.max;
     sfVector2f pos = sfRectangleShape_getPosition(mob->obj_shape);
-    sfVector2f pos_healt = {pos.x + 13 , pos.y - 10};
+    sfVector2f pos_healt = {pos.x + 95 , pos.y + 50};
 
     sfRectangleShape_setSize(mob->healt.bar,
         (sfVector2f){size_bar.x *h_precent, size_bar.y});

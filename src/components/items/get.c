@@ -20,6 +20,7 @@ static void append_peppa_pig(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_SWORD_PIG,
         (sfIntRect){.height = 0, .left = 0, .top = 0, .width = 0}, rect);
+    item->name = "Peppa pig";
     new_items_texture(item, ressources, TX_PEPPA_PIG, position);
     new_items_size(item, size);
     list_item_append(list, item);
@@ -35,6 +36,7 @@ static void append_chalic(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_CHALICE,
         (sfIntRect){.height = 65, .left = 0, .top = 0, .width = 63}, rect);
+    item->name = "Chalice";
     new_items_texture(item, ressources, TX_CHALICE, position);
     new_items_size(item, size);
     list_item_append(list, item);

@@ -26,6 +26,9 @@ sfFloatRect frect)
     item->skill = skill;
     item->frect = frect;
     item->irect = irect;
+    item->name = NULL;
+    item->sharpness = NULL;
+    item->weight = NULL;
     return item;
 }
 
