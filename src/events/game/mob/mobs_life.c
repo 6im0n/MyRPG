@@ -45,6 +45,7 @@ void dying_mob(node_mob_t *mob, app_t *app)
 {
     if (mob->state.die == true) {
         if (mob->annimation.index == 14) {
+            app->element->player->exprerience.update += 15;
             sfRectangleShape_destroy(mob->obj_shape);
             sfClock_destroy(mob->clock);
             list_mob_remove(app->element->mobs, mob);
@@ -52,7 +53,7 @@ void dying_mob(node_mob_t *mob, app_t *app)
             return;
         }
     }
-    if (mob->healt.curent == 0 && mob->state.die == false){
+    if (mob->healt.curent <= 0 && mob->state.die == false){
         mob->irect.top = 768 + 55;
         mob->annimation.index = 0;
         mob->annimation.max = 14;
@@ -62,25 +63,12 @@ void dying_mob(node_mob_t *mob, app_t *app)
     }
 }
 
-#include <stdio.h>
 void mob_attacked(list_mobs_t *list, app_t *app)
 {
     node_mob_t *tmp = list->first;
 
     while (tmp != NULL) {
-        sfTime time = tmp->time_hit;
-        sfTime g_time = sfClock_getElapsedTime(app->state->clock);
-        float seconds = time.microseconds / 1000000.0;
-        float g_seconds = g_time.microseconds / 1000000.0;
-        float diff = g_seconds - seconds;
-
-        if (tmp->healt.curent > 0.0 && mob_intersect_player(app, tmp) &&
-        app->element->player->character->annimation.index == 2 && diff > 0.2) {
-            tmp->healt.curent -= app->element->player->skills.strength;
-            fflush(stdout);
-            printf("mob healt: -%d \n", app->element->player->inventory->first->skill.strength);
-            tmp->time_hit = g_time;
-        }
+        player_mob_attach(app, tmp);
         tmp = tmp->next;
     }
 }

@@ -159,4 +159,6 @@ void dying_mob(node_mob_t *mob, app_t *app);
 
 void update_attack_player(app_t *app);
 
+void player_mob_attach(app_t *app, node_mob_t *tmp);
+
 #endif /* !mobs_H_ */

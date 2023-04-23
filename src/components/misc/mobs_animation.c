@@ -66,7 +66,6 @@ void mob_render_annimation(app_t *app)
 
     if (app->element->player->character->state.attack)
         mob_attacked(app->element->mobs, app);
-    update_attack_player(app);
     while (tmp != NULL) {
         render_mob_annimation(app, tmp);
         flip_animation(tmp);
