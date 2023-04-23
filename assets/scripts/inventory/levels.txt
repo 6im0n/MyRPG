@@ -6,7 +6,7 @@ type: 4
 c_size: 2
 text: Level
 text_size: 50
-text_pos: -30 -130
+text_pos: -80 -130
 text_pos_type: 0
 id: 18
 ###
@@ -155,4 +155,18 @@ id: 30
 text: Item_Sharpness
 text_size: 25
 disabled: 6
+###
+position: 550 330
+size: 56 48
+rect: 97 194 14 12
+style: 4 1 0
+type: 4
+c_size: 2
+id: 0
+disabled: 7
+text: Mana
+text_size: 25
+text_pos: -130 49
+text_pos_type: 0
+hover: 1
 ###

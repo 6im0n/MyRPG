@@ -41,6 +41,7 @@ static void manage_xp(player_t *player, int xp)
     while (player->exprerience.xp >= player->exprerience.max_xp) {
         player->exprerience.xp -= player->exprerience.max_xp;
         player->exprerience.max_xp += 50;
+        player->exprerience.skill++;
         player->exprerience.level++;
     }
 }
