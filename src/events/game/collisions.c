@@ -30,7 +30,7 @@ static bool is_red(sfColor color, player_t *player)
     bool b = color.b == 0;
     bool a = color.a == 255;
 
-    if (r && g && b && a && player->exprerience.level > 1)
+    if (r && g && b && a && player->exprerience.level > 10)
         return true;
     return false;
 }
@@ -42,7 +42,7 @@ static bool is_yellow(sfColor color, player_t *player)
     bool b = color.b == 0;
     bool a = color.a == 255;
 
-    if (r && g && b && a && player->exprerience.level > 0)
+    if (r && g && b && a && player->exprerience.level > 5)
         return true;
     return false;
 }
