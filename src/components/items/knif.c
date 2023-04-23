@@ -21,7 +21,7 @@ static void append_lv1(list_item_t *list, ressources_t *ressources)
         (sfIntRect){.height = 60, .left = 337, .top = 37, .width = 60}, rect);
     item->name = "Knife 1";
     item->sharpness = "Sharpness: ";
-    item->sharpness = "Weight: ";
+    item->weight = "Weight: ";
     concat_item_skills(item, item->skill);
     new_items_texture(item, ressources, TX_WEAPONS, position);
     new_items_size(item, size);
