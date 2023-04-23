@@ -16,6 +16,7 @@ static void init_state(node_mob_t *tmp)
     tmp->state.die = false;
     tmp->state.hit = false;
     tmp->state.left = false;
+    tmp->state.hit_attack = false;
     tmp->radius = 0;
 }
 

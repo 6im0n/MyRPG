@@ -44,9 +44,11 @@ bool mob_intersect_player(app_t *app, node_mob_t *mob)
 static void remove_player_life(app_t *app, node_mob_t *mob)
 {
     (void) app;
-    mob->state.hit = true;
-    if (mob->annimation.index == 8 && !mob->state.hit)
+    if (mob->annimation.index == 8 && mob->state.hit_attack) {
         app->element->player->life--;
+    }
+    if (mob->annimation.index == 8)
+        mob->state.hit = true;
 }
 
 static void update_hit(node_mob_t *mob, app_t *app)
@@ -57,11 +59,12 @@ static void update_hit(node_mob_t *mob, app_t *app)
     float diff = 0.0;
 
     g_time = sfClock_getElapsedTime(app->state->clock);
-    g_seconds = g_seconds = g_time.microseconds / 1000000.0;
-    seconds = seconds = mob->cooldown.microseconds / 1000000.0;
+    g_seconds = g_time.microseconds / 1000000.0;
+    seconds = mob->cooldown.microseconds / 1000000.0;
     diff = g_seconds - seconds;
-    if (diff > 15){
+    if (diff > 15 && mob->state.hit_attack){
         mob->state.hit = false;
+        mob->state.hit_attack = false;
         mob->cooldown = g_time;
     }
 }
@@ -70,12 +73,16 @@ void mob_attack(node_mob_t *mob,
 app_t *app)
 {
     update_hit(mob, app);
+    if (mob->state.attack && mob->annimation.index == 8)
+            mob->state.hit_attack = true;
+
     if (mob_intersect_player(app, mob) && !mob->state.hit) {
         if (mob->state.attack != 1 && mob->annimation.index != 0){
             mob->state.attack = 1;
         }
         mob->irect.top = 384 + 55;
         mob->annimation.max = 16;
+
         remove_player_life(app, mob);
         return;
     }
