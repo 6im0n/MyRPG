@@ -12,6 +12,7 @@
 #include "event/global.h"
 #include "lib/output.h"
 #include "components/player.h"
+#include "parsing/utils.h"
 
 void inventory_equip_item(node_component_t *component,
 event_t *event, app_t *app)
@@ -79,14 +80,15 @@ event_t *event, app_t *app)
     (void) event;
     sfVector2f pos = sfRectangleShape_getPosition(
         component->object->rectangle);
-    char *string = malloc(7);
+    char *string = malloc(sizeof(char) * 7);
 
+    clean_char(string, 7);
     inventory_drop_done(component, app);
     if (component->id > app->element->player->inventory->last->slot)
         return;
     app->element->player->inventory->selector = component->id;
     my_strcpy(string, "Slot  ");
-    string[5] = component->id + '0';
+    string[5] = component->id;
     event_play_music(component, app);
     while (component) {
         if (component->id == ID_MAIN_INV_SELECTOR)

@@ -21,6 +21,9 @@ static void list_items_copy(list_item_t *list, node_item_t *node)
     item->frect = node->frect;
     item->irect = node->irect;
     item->item = node->item;
+    item->name = node->name;
+    item->sharpness = node->sharpness;
+    item->weight = node->weight;
     item->shape = sfRectangleShape_copy(node->shape);
     list_item_append(list, item);
 }

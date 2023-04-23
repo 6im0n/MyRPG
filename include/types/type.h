@@ -55,6 +55,9 @@ typedef enum e_id_component {
     ID_SKILL_SPEED,
     ID_SKILL_STRENGHT,
     ID_SKILL_RESISTANCE,
+    ID_NAME_ITEM,
+    ID_WEIGHT_ITEM,
+    ID_SHARPNESS_ITEM,
     ID_LEN
 } component_id_t;
 
@@ -111,6 +114,8 @@ typedef struct s_node_item {
     sfFloatRect frect;
     sfIntRect irect;
     char *name;
+    char *weight;
+    char *sharpness;
     skills_t skill;
     struct s_node_item *prev;
 } node_item_t;

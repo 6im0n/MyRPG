@@ -11,6 +11,29 @@
 #include "event/global.h"
 #include "components/player.h"
 
+void event_item_info_ondisabled(node_component_t *component,
+event_t *event, app_t *app)
+{
+    sfText *text = component->object->text;
+    char *name = NULL;
+    char *weight = NULL;
+    char *sharpness = NULL;
+
+    (void) app;
+    (void) event;
+    if (app->element->player->inventory->first) {
+        name = app->element->player->inventory->first->name;
+        weight = app->element->player->inventory->first->weight;
+        sharpness = app->element->player->inventory->first->sharpness;
+        if (component->id == ID_NAME_ITEM)
+            sfText_setString(text, name);
+        if (component->id == ID_WEIGHT_ITEM)
+            sfText_setString(text, weight);
+        if (component->id == ID_SHARPNESS_ITEM)
+            sfText_setString(text, sharpness);
+    }
+}
+
 void event_key_inventory_open_onkeypressed(node_component_t *component,
 event_t *event, app_t *app)
 {

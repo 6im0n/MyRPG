@@ -19,6 +19,11 @@ static void append_lv1(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_SPEAR_LEV1,
         (sfIntRect){.height = 68, .left = 330, .top = 273, .width = 68}, rect);
+    item->name = "Spear 1";
+    item->sharpness = "Sharpness: 1/10";
+    item->weight = "Weight: 1/10";
+    item->skill.speed = 1;
+    item->skill.strength = 1;
     new_items_texture(item, ressources, TX_WEAPONS, position);
     new_items_size(item, size);
     list_item_append(list, item);
@@ -34,6 +39,11 @@ static void append_lv2(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_SPEAR_LEV2,
         (sfIntRect){.height = 72, .left = 408, .top = 273, .width = 72}, rect);
+    item->name = "Spear 2";
+    item->sharpness = "Sharpness: 5/10";
+    item->weight = "Weight: 3/10";
+    item->skill.speed = 3;
+    item->skill.strength = 5;
     new_items_texture(item, ressources, TX_WEAPONS, position);
     new_items_size(item, size);
     list_item_append(list, item);
@@ -49,6 +59,11 @@ static void append_lv3(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_SPEAR_LEV3,
         (sfIntRect){.height = 72, .left = 483, .top = 273, .width = 72}, rect);
+    item->name = "Spear 3";
+    item->sharpness = "Sharpness: 8/10";
+    item->weight = "Weight: 5/10";
+    item->skill.speed = 5;
+    item->skill.strength = 8;
     new_items_texture(item, ressources, TX_WEAPONS, position);
     new_items_size(item, size);
     list_item_append(list, item);
@@ -64,6 +79,11 @@ static void append_lv4(list_item_t *list, ressources_t *ressources)
 
     item = new_items(item, I_SPEAR_LEV4,
         (sfIntRect){.height = 72, .left = 553, .top = 273, .width = 72}, rect);
+    item->name = "Spear 4";
+    item->sharpness = "Sharpness: 10/10";
+    item->weight = "Weight: 7/10";
+    item->skill.speed = 7;
+    item->skill.strength = 10;
     new_items_texture(item, ressources, TX_WEAPONS, position);
     new_items_size(item, size);
     list_item_append(list, item);

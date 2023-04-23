@@ -24,6 +24,9 @@ node_item_t *item_pure_new(void)
     component->skill = skill;
     component->shape = sfRectangleShape_create();
     component->next = NULL;
+    component->name = NULL;
+    component->sharpness = NULL;
+    component->weight = NULL;
     return component;
 }
 
