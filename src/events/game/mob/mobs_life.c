@@ -49,7 +49,6 @@ void dying_mob(node_mob_t *mob, app_t *app)
         if (mob->annimation.index == 14) {
             mob_dying_quests(app);
             mobs_dying_quests(app);
-            app->element->player->exprerience.update += 15;
             sfRectangleShape_destroy(mob->obj_shape);
             sfClock_destroy(mob->clock);
             list_mob_remove(app->element->mobs, mob);

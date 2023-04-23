@@ -32,6 +32,7 @@ void mobs_dying_quests(app_t *app)
     bool active = false;
 
     active = quests_current_add(app->element->quests, Q_MAIN_P4);
+    app->element->player->exprerience.update += 15;
     if (active) {
         new_popup(app, P_ADVENCED, 5);
         quests_get_finish(app, app->element->quests,
