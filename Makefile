@@ -142,6 +142,7 @@ _SRC =			main.c \
 				events/game/resume_skills.c \
 				events/game/save.c \
         		\
+				events/game/mob/player_update_attack.c\
 				events/game/mob/mobs.c\
 				events/game/mob/mobs_action.c\
 				events/game/mob/mobs_life.c\

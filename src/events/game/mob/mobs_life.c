@@ -62,6 +62,7 @@ void dying_mob(node_mob_t *mob, app_t *app)
     }
 }
 
+#include <stdio.h>
 void mob_attacked(list_mobs_t *list, app_t *app)
 {
     node_mob_t *tmp = list->first;
@@ -75,7 +76,9 @@ void mob_attacked(list_mobs_t *list, app_t *app)
 
         if (tmp->healt.curent > 0.0 && mob_intersect_player(app, tmp) &&
         app->element->player->character->annimation.index == 2 && diff > 0.2) {
-            tmp->healt.curent -= 10;
+            tmp->healt.curent -= app->element->player->skills.strength;
+            fflush(stdout);
+            printf("mob healt: -%d \n", app->element->player->inventory->first->skill.strength);
             tmp->time_hit = g_time;
         }
         tmp = tmp->next;
