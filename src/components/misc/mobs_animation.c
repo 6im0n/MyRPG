@@ -22,7 +22,6 @@ static void mob_annimation_edit(app_t *app, node_mob_t *mob)
 
     if (mob->annimation.index > mob->annimation.max) {
         mob->annimation.index = 0;
-        mob->state.hit = false;
     }
     rect_a.height *= mob->annimation.index;
     rect_a.top *= mob->annimation.index;
@@ -45,17 +44,21 @@ static void render_mob_annimation(app_t *app, node_mob_t *mob)
         mob_annimation_edit(app, mob);
         sfClock_restart(mob->clock);
     }
+    if (finish_animation(mob, app)) {
+        mob->irect.top = 192;
+        mob->annimation.max = 7;
+    }
 }
 
-static void flip_animation(node_mob_t *mob)
+void flip_animation(node_mob_t *mob)
 {
     if (mob->state.left){
-        mob->irect.width = -100;
-        mob->irect.left = 155;
+        mob->irect.width = -224;
+        mob->irect.left = 224;
         return;
     } else if (!mob->state.left) {
-        mob->irect.left = 73;
-        mob->irect.width = 100;
+        mob->irect.width = 224;
+        mob->irect.left = 0;
         return;
     }
 }
@@ -68,14 +71,13 @@ void mob_render_annimation(app_t *app)
         mob_attacked(app->element->mobs, app);
     while (tmp != NULL) {
         render_mob_annimation(app, tmp);
-        flip_animation(tmp);
+        if (!tmp->state.intersect)
+            flip_animation(tmp);
         mob_move_to_player(tmp, app);
         if (!tmp->state.die) {
             mob_health_bar(tmp, app);
             mob_attack(tmp, app);
         }
-        sfRectangleShape_setOutlineColor(tmp->obj_shape, sfRed);
-        sfRectangleShape_setOutlineThickness(tmp->obj_shape, 2);
         sfRenderWindow_drawRectangleShape(app->window,
             tmp->obj_shape, NULL);
         dying_mob(tmp, app);
