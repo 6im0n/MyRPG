@@ -125,6 +125,7 @@ typedef enum e_disabled {
     HOVER_DISABLED_TEXT,
     TEXT_ITEM,
     DISABLED_MANA_XP,
+    ALTAR_DISABLED,
     DISABLED_LEN
 } disabled_t;
 
@@ -148,6 +149,7 @@ typedef enum e_keypressed {
     BEACON_SKILL_PRESSED,
     BEACON_ITEM_PRESSED,
     SAVE_GAME,
+    ALTAR_PRESSED,
     KEYPRESSED_LEN
 } keypressed_t;
 

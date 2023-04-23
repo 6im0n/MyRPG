@@ -13,7 +13,7 @@ event_t *event, app_t *app)
     (void) event;
     (void) app;
     (void) component;
-    if (sfKeyboard_isKeyPressed(sfKeyE)) {
+    if (sfKeyboard_isKeyPressed(sfKeyI)) {
         if (app->state->stage != S_INVENTORY &&
             app->state->stage != S_MENU_HELP &&
             app->state->stage != S_SETTINGS)

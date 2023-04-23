@@ -39,7 +39,7 @@ event_t *event, app_t *app)
 {
     (void) component;
     (void) event;
-    if (sfKeyboard_isKeyPressed(sfKeyE)) {
+    if (sfKeyboard_isKeyPressed(sfKeyI)) {
         if (app->state->stage != S_INVENTORY &&
             app->state->stage != S_MENU_HELP &&
             app->state->stage != S_SETTINGS)
@@ -59,7 +59,7 @@ event_t *event, app_t *app)
 {
     (void) component;
     (void) event;
-    if (sfKeyboard_isKeyPressed(sfKeyE) ||
+    if (sfKeyboard_isKeyPressed(sfKeyI) ||
         sfKeyboard_isKeyPressed(sfKeyEscape))
         app->state->stage = app->state->back;
 }

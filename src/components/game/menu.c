@@ -78,10 +78,9 @@ list_components_t *list)
     init_game_player(app, ressources);
     init_player_animation(app);
 
-    add_new_mob(app, ressources, (sfVector2f){2696, 6214});
-    add_new_mob(app, ressources, (sfVector2f){2292, 6446});
     parsing_buttons(app, ressources, list, "assets/scripts/game/object.txt");
     parsing_buttons(app, ressources, list, "assets/scripts/game/beacon.txt");
     parsing_buttons(app, ressources, list, "assets/scripts/game/shrine.txt");
     parsing_buttons(app, ressources, list, "assets/scripts/game/particule.txt");
+    parsing_buttons(app, ressources, list, "assets/scripts/game/quest.txt");
 }

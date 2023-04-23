@@ -75,7 +75,7 @@ ressources_t ressources, list_components_t *list)
     new_component_type(ressources, obj, position);
     new_component_size(obj, size,(sfIntRect){.height = 28,.left = 11,
                                         .top = 11, .width = 26}, C_SIZE_BIG);
-    set_component_text(obj, "E", sfBlack, 30);
+    set_component_text(obj, "I", sfBlack, 30);
     set_component_text_pos(obj, (sfVector2f){ 0, -12}, 0);
     list_component_append(list, obj);
 }

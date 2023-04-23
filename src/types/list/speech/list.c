@@ -11,7 +11,13 @@
 
 void auto_call(app_t *app, speech_id_t id)
 {
-    if (id >= SP_MAIN_QUESTS_1 && id < SP_MAIN_QUESTS_4)
+    if (id >= SP_MAIN_QUESTS_1_1 && id < SP_MAIN_QUESTS_1_6)
+        new_speech(app, id + 1);
+    if (id >= SP_MAIN_QUESTS_2_1 && id < SP_MAIN_QUESTS_2_3)
+        new_speech(app, id + 1);
+    if (id >= SP_FINAL_QUESTS_1_1 && id < SP_FINAL_QUESTS_1_2)
+        new_speech(app, id + 1);
+    if (id >= SP_MAIN_QUESTS_END_1 && id < SP_MAIN_QUESTS_END_4)
         new_speech(app, id + 1);
 }
 

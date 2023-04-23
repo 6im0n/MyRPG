@@ -18,6 +18,7 @@ event_t *event, app_t *app)
     event_play_music(component, app);
     app->state->back = app->state->stage;
     app->state->stage = S_NEW_GAME;
+    sfClock_restart(app->state->cycle->clock);
 }
 
 void launch_game(node_component_t *component,
@@ -27,7 +28,6 @@ event_t *event, app_t *app)
     sfRectangleShape *shape = app->state->cycle->shape;
     sfVector2f pos = { 2420, 6375 };
 
-    (void) component;
     (void) event;
     app->parsing = false;
     app->game = true;

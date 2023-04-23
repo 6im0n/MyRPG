@@ -67,4 +67,10 @@ void parsing_save(app_t *app);
  */
 void get_skills(app_t *app, char *str);
 
+void quests_extend_1(app_t *app);
+
+void quests_extend_2(app_t *app);
+
+void quests_extend_3(app_t *app);
+
 #endif /* !EVENT_SETTINGS_H_ */

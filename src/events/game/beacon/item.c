@@ -36,7 +36,7 @@ event_t *event, app_t *app)
     (void) event;
     if (!ST_IS_NEAR(component) || component->features.select)
         return;
-    if (sfKeyboard_isKeyPressed(sfKeyI)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE)) {
         new_popup(app, P_ITEM, 5);
         component->features.select = true;
         set_new_texture(component, TX_SHRINE_L_ACTIVATING, true);

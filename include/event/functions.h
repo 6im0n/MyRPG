@@ -47,7 +47,8 @@ static const parsing_handler_t disable_event[DISABLED_LEN] = {
     [BEACON_I_DISABLE] = &beacon_item_events_ondisabled,
     [HOVER_DISABLED_TEXT] = &event_bouton_help_ondisabled,
     [TEXT_ITEM] = &event_item_info_ondisabled,
-    [DISABLED_MANA_XP] = &event_inventory_skill_ondisabled
+    [DISABLED_MANA_XP] = &event_inventory_skill_ondisabled,
+    [ALTAR_DISABLED] = &altar_events_ondisabled
 };
 
 static const parsing_handler_t nonclicked_event[NONCLICKED_LEN] = {
@@ -58,7 +59,8 @@ static const parsing_handler_t pressed_event[KEYPRESSED_LEN] = {
     [BEACON_HEAL_PRESSED] = &beacon_healt_onkeypress,
     [BEACON_SKILL_PRESSED] = &beacon_skill_onkeypress,
     [BEACON_ITEM_PRESSED] = &beacon_item_onkeypress,
-    [SAVE_GAME] = &save_game_onkeypress
+    [SAVE_GAME] = &save_game_onkeypress,
+    [ALTAR_PRESSED] = &altar_onkeypress
 };
 
 static const parsing_handler_t released_event[KEYRELEASED_LEN] = {
