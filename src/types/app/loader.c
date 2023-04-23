@@ -47,7 +47,7 @@ loader_t *loader_init(void)
     sfTexture *texturelogo =
         sfTexture_createFromFile("assets/assets_rpg/logo.png", NULL);
     sfTexture *texturerafa =
-        sfTexture_createFromFile("assets/assets_rpg/rafapixel.jpg", NULL);
+        sfTexture_createFromFile("assets/assets_rpg/rafapixel.png", NULL);
 
     if (!loader)
         return NULL;
