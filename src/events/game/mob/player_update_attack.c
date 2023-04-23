@@ -18,7 +18,7 @@ void update_attack_player(app_t *app)
 
 void player_mob_attach(app_t *app, node_mob_t *tmp)
 {
-    sfTime time = tmp->time_hit;
+    sfTime time = tmp->time_hited;
     sfTime g_time = sfClock_getElapsedTime(app->state->clock);
     float seconds = time.microseconds / 1000000.0;
     float g_seconds = g_time.microseconds / 1000000.0;
@@ -32,7 +32,7 @@ void player_mob_attach(app_t *app, node_mob_t *tmp)
             app->element->player->skills.strength;
         else
             tmp->healt.curent--;
-        tmp->time_hit = g_time;
+        tmp->time_hited = g_time;
     }
     if (tmp->healt.curent < 0)
         tmp->healt.curent = 0;
