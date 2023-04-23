@@ -33,10 +33,10 @@ bool mob_intersect_player(app_t *app, node_mob_t *mob)
     rectp.width -= 25;
     rectp.left += 13;
     rectp.top += 13;
-    rect.height -= 30;
-    rect.width -= 50;
-    rect.left += 25;
-    rect.top += 15;
+    rect.height -= 110;
+    rect.width -= 150;
+    rect.left += 75;
+    rect.top += 55;
     on_me = sfFloatRect_intersects(&rect, &rectp, NULL);
     return on_me;
 }
@@ -77,18 +77,12 @@ app_t *app)
     if (mob->state.intersect && !mob->state.hit) {
         if (mob->state.attack != 1 && mob->annimation.index != 0)
             mob->state.attack = 1;
-        mob->irect.top = 384 + 55;
+        mob->irect.top = 192 * 2;
         mob->annimation.max = 16;
         remove_player_life(app, mob);
         return;
     }
     if (mob->state.walk == 1)
         return;
-    if (mob->state.attack != 0 && !finish_animation(mob, app)) {
-        return;
-    } else {
-        mob->state.attack = 0;
-        mob->irect.top = 55;
-        mob->annimation.max = 7;
-    }
+    mob_anim(mob, app);
 }

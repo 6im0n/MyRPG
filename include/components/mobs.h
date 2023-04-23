@@ -15,6 +15,7 @@
     #include "components/components.h"
     #include "types/type.h"
 
+    #define MOB_SIZE 200
 
 /**
  * @brief Destroyed a mobs
@@ -156,5 +157,12 @@ void list_mob_remove(list_mobs_t *list, node_mob_t *node);
  * @param app
  */
 void dying_mob(node_mob_t *mob, app_t *app);
+
+/**
+ * @brief Anim walk
+ * @param mob node
+ * @param app app
+ */
+void mob_anim(node_mob_t *mob, app_t *app);
 
 #endif /* !mobs_H_ */

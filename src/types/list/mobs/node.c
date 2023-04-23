@@ -57,7 +57,7 @@ node_mob_t *node_mob_init(ressources_t ressources)
     tmp->irect = irect;
     tmp->annimation = (mobs_annimation_t){rect, 0, 0, 0, 0};
     init_state(tmp);
-    tmp->clock = NULL;
+    tmp->clock = sfClock_create();
     init_animation(tmp);
     tmp->skills = (skills_t){0, 0, 0};
     tmp->next = NULL;

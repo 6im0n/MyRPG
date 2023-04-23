@@ -15,8 +15,8 @@ static void outline_bar(node_mob_t *mob, app_t *app)
     sfVector2f size_outline = {30, 3};
     sfVector2f pos = sfRectangleShape_getPosition(mob->obj_shape);
 
-    sfRectangleShape_setPosition(mob->healt.outline, (sfVector2f){pos.x + 13,
-        pos.y - 10});
+    sfRectangleShape_setPosition(mob->healt.outline, (sfVector2f){pos.x + 95,
+        pos.y + 50});
     sfRectangleShape_setSize(mob->healt.outline, size_outline);
     sfRectangleShape_setFillColor(mob->healt.outline, sfTransparent);
     sfRectangleShape_setOutlineColor(mob->healt.outline, sfBlack);
@@ -51,16 +51,11 @@ void dying_mob(node_mob_t *mob, app_t *app)
             sfClock_destroy(mob->clock);
             list_mob_remove(app->element->mobs, mob);
             free(mob);
-            printf("Delete Mob\n");
             return;
         }
     }
-    if (mob->healt.curent == 0 && mob->state.die == false){
-        mob->irect.top = 768 + 40;
-        mob->irect.left += -55;
-        mob->irect.width += 60;
-        mob->irect.height += 40;
-        // sfRectangleShape_setSize(mob->obj_shape, (sfVector2f){70 * 1.1, 55 * 1.1});
+    if (mob->healt.curent <= 0 && mob->state.die == false){
+        mob->irect.top = 192 * 4;
         sfRectangleShape_setTextureRect(mob->obj_shape, mob->irect);
         mob->annimation.index = 0;
         mob->annimation.max = 14;
@@ -95,7 +90,7 @@ void mob_health_bar(node_mob_t *mob, app_t *app)
     sfVector2f size_bar = {30, 3};
     float h_precent = (float)mob->healt.curent / (float)mob->healt.max;
     sfVector2f pos = sfRectangleShape_getPosition(mob->obj_shape);
-    sfVector2f pos_healt = {pos.x + 13 , pos.y - 10};
+    sfVector2f pos_healt = {pos.x + 95 , pos.y + 50};
 
     sfRectangleShape_setSize(mob->healt.bar,
         (sfVector2f){size_bar.x *h_precent, size_bar.y});
