@@ -1,4 +1,64 @@
-position: 2550 6380
+position: 3082 6122
+size: 80 125
+rect: 0 0 64 99
+style: 33 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 3
+disabled: 4
+id: 19
+###
+position: 3697 6479
+size: 80 125
+rect: 0 0 64 99
+style: 33 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 3
+disabled: 4
+id: 19
+###
+position: 1773 1646
+size: 80 125
+rect: 0 0 64 99
+style: 33 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 3
+disabled: 4
+id: 19
+###
+position: 4555 2090
+size: 80 125
+rect: 0 0 64 99
+style: 33 0 1
+type: 4
+c_size: 3
+anim_rect: 64 0 0 0
+anim_index: 0
+anim_max: 12
+anim_speed: 12
+radius: 10
+pressed: 3
+disabled: 4
+id: 19
+###
+position: 4555 2090
 size: 80 125
 rect: 0 0 64 99
 style: 33 0 1
