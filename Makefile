@@ -48,6 +48,7 @@ _SRC =			main.c \
 				components/misc/mobs_animation.c \
 				components/misc/state.c \
 				\
+				components/items/concat_item.c\
 				components/items/get.c \
 				components/items/new.c \
 				components/items/sword.c \
