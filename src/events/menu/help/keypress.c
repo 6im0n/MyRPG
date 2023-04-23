@@ -68,7 +68,7 @@ event_t *event, app_t *app)
 void event_menu_help_onkeypress(node_component_t *component,
 event_t *event, app_t *app)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyE)) {
+    if (sfKeyboard_isKeyPressed(sfKeyI)) {
         if (app->state->stage != S_INVENTORY &&
             app->state->stage != S_MENU_HELP &&
             app->state->stage != S_SETTINGS)

@@ -32,7 +32,7 @@ event_t *event, app_t *app)
     (void) event;
     if (!ST_IS_NEAR(component) || component->features.select)
         return;
-    if (sfKeyboard_isKeyPressed(sfKeyI)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE)) {
         new_popup(app, P_HEALT, 5);
         component->features.select = true;
         set_new_texture(component, TX_SHRINE_H_ACTIVATING, true);
@@ -73,7 +73,7 @@ event_t *event, app_t *app)
     (void) event;
     if (!ST_IS_NEAR(component) || component->features.select)
         return;
-    if (sfKeyboard_isKeyPressed(sfKeyI)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE)) {
         component->features.select = true;
         component->annimation.speed = 0.1;
         component->annimation.index = 0;

@@ -15,7 +15,7 @@ event_t *event, app_t *app)
     (void) component;
     if (!ST_IS_NEAR(component))
         return;
-    if (sfKeyboard_isKeyPressed(sfKeyI)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE)) {
         component->features.visited++;
         app_save_game(app);
         new_popup(app, P_SAVE, 5);

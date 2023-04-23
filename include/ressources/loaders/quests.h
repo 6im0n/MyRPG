@@ -21,7 +21,7 @@ the golden\nchalice",
     [Q_MAIN_P2][TQ_DESCRIPTION] = "Save your friend, you need to find \
 the golden\nchalice",
     [Q_MAIN_P2][TQ_DETAIL] = "Main quests",
-    [Q_MAIN_P2][TQ_OBJECTIF] = "Kill 10 mobs",
+    [Q_MAIN_P2][TQ_OBJECTIF] = "Kill 3 mobs",
     [Q_MAIN_P2][TQ_REWARD] = "Hammer level 4",
     [Q_SAVE][TQ_TITLE] = "Save",
     [Q_SAVE][TQ_DESCRIPTION] = "Save your game in order not to lose your \n\
@@ -33,7 +33,7 @@ progress",
 
 static int quests_loaders_goal[Q_LEN] = {
     [Q_MAIN_P1] = 2,
-    [Q_MAIN_P2] = 10,
+    [Q_MAIN_P2] = 3,
     [Q_SAVE] = 1
 };
 

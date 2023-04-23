@@ -157,4 +157,10 @@ void list_mob_remove(list_mobs_t *list, node_mob_t *node);
  */
 void dying_mob(node_mob_t *mob, app_t *app);
 
+/**
+ * @brief mob quests current add
+ * @param app app
+ */
+void mob_dying_quests(app_t *app);
+
 #endif /* !mobs_H_ */

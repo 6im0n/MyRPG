@@ -146,6 +146,7 @@ _SRC =			main.c \
 				\
 				events/game/quests/main.c \
 				events/game/quests/save.c \
+				events/game/quests/mob.c \
 				\
 				types/app/app.c \
 				types/app/icon.c \

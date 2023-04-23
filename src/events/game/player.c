@@ -70,7 +70,7 @@ void event_game_onkeypress(node_component_t *component,
 event_t *event, app_t *app)
 {
     (void) event;
-    if (sfKeyboard_isKeyPressed(sfKeyE)) {
+    if (sfKeyboard_isKeyPressed(sfKeyI)) {
         if (app->state->stage != S_INVENTORY &&
             app->state->stage != S_MENU_HELP &&
             app->state->stage != S_SETTINGS)

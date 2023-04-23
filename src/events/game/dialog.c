@@ -86,7 +86,7 @@ event_t *event, app_t *app)
         quest_append(app, Q_MAIN_P1);
     }
     component->features.visited++;
-    if (sfKeyboard_isKeyPressed(sfKeyI)) {
+    if (sfKeyboard_isKeyPressed(sfKeyE)) {
         if (app->element->quests->len == 1 &&
             find_result_quests(app->element->quests, Q_MAIN_P1) == true) {
             list_quest_delete(app->element->quests, Q_MAIN_P1);
