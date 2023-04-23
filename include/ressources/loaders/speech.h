@@ -51,7 +51,7 @@ without pressure your story",
     [SP_FINAL_QUESTS_1_2][SS_SP] = "It will surely help Willow.",
     [SP_MAIN_QUESTS_3_1][SS_TITLE] = "Willow",
     [SP_MAIN_QUESTS_3_1][SS_SP] = "Killing mobs is not enough, try to get xp",
-    [SP_MAIN_QUESTS_3_2][SS_TITLE] = "NULL [2]",
+    [SP_MAIN_QUESTS_3_2][SS_TITLE] = "Willow",
     [SP_MAIN_QUESTS_3_2][SS_SP] = "The mobs can surely graduate you in the \
 \nnorth towards new horizon",
     [SP_MAIN_QUESTS_END_1][SS_TITLE] = "Willow",
