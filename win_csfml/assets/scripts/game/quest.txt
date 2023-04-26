@@ -1,0 +1,14 @@
+position: 10874 2560
+size: 224 288
+rect: 0 0 224 288
+style: 24 0 1
+type: 4
+c_size: 3
+anim_rect: 224 0 0 0
+anim_index: 25
+anim_max: 38
+anim_speed: 12
+pressed: 5
+disabled: 8
+radius: 10
+###

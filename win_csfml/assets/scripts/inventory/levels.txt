@@ -1,0 +1,172 @@
+position: 420 440
+size: 500 320
+rect: 139 12 106 122
+style: 1 1 0
+type: 4
+c_size: 2
+text: Level
+text_size: 50
+text_pos: -80 -130
+text_pos_type: 0
+id: 18
+###
+position: 420 430
+size: 425 25
+rect: 277 166 38 4
+style: 4 1 0
+type: 3
+c_size: 2
+id: 9
+text: XP
+text_size: 25
+text_pos: 0 -50
+text_pos_type: 0
+hover: 1
+disabled: 5
+###
+position: 420 470
+size: 425 25
+rect: 277 166 38 4
+style: 4 1 0
+type: 3
+c_size: 2
+id: 9
+text: Resistance
+text_size: 25
+text_pos: 0 -90
+text_pos_type: 0
+hover: 1
+disabled: 5
+###
+position: 420 510
+size: 425 25
+rect: 277 166 38 4
+style: 4 1 0
+type: 3
+c_size: 2
+id: 9
+text: Speed
+text_size: 25
+text_pos: 0 -130
+text_pos_type: 0
+hover: 1
+disabled: 5
+###
+position: 420 550
+size: 425 25
+rect: 277 166 38 4
+style: 4 1 0
+type: 3
+c_size: 2
+id: 9
+text: Strengh
+text_size: 25
+text_pos: 0 -170
+text_pos_type: 0
+hover: 1
+disabled: 5
+###
+position: 420 430
+size: 400 12
+rect: 466 7 12 1
+style: 4 1 0
+type: 1
+c_size: 2
+id: 17
+clicked: 9
+###
+position: 420 470
+size: 400 12
+rect: 466 7 12 1
+style: 4 1 0
+type: 1
+c_size: 2
+id: 27
+clicked: 9
+###
+position: 420 510
+size: 400 12
+rect: 466 7 12 1
+style: 4 1 0
+type: 1
+c_size: 2
+id: 25
+clicked: 9
+###
+position: 420 550
+size: 400 12
+rect: 466 7 12 1
+style: 4 1 0
+type: 1
+c_size: 2
+id: 26
+clicked: 9
+###
+position: 420 770
+size: 500 310
+rect: 139 12 106 122
+style: 1 1 0
+type: 4
+c_size: 2
+text: Weapon
+text_size: 50
+text_pos: 0 -110
+text_pos_type: 0
+###
+position: 300 780
+size: 80 80
+rect: 224 0 32 32
+style: 17 0 0
+type: 1
+c_size: 5
+id: 1
+###
+position: 530 740
+size: 80 80
+rect: 0 0 1 1
+style: 0 0 0
+type: 6
+c_size: 1
+id: 28
+text: Item_Name
+text_size: 30
+text_pos: 0 0
+text_pos_type: 0
+disabled: 6
+###
+position: 490 810
+size: 80 80
+rect: 0 0 1 1
+style: 0 0 0
+type: 6
+c_size: 1
+id: 29
+text: Item_Weight
+text_size: 25
+disabled: 6
+###
+position: 490 850
+size: 80 80
+rect: 0 0 1 1
+style: 0 0 0
+type: 6
+c_size: 1
+id: 30
+text: Item_Sharpness
+text_size: 25
+disabled: 6
+###
+position: 550 330
+size: 56 48
+rect: 97 194 14 12
+style: 4 1 0
+type: 4
+c_size: 2
+id: 0
+disabled: 7
+text: Mana
+text_size: 25
+text_pos: -130 49
+text_pos_type: 0
+hover: 1
+###
