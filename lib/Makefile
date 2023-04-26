@@ -36,7 +36,8 @@ $(NAME): 		$(OBJ)
 				@ar rc $(NAME) $(OBJ)
 				$(MAKE) clean -s
 				@cp $(NAME) ../$(NAME)
-
+win_build:
+				x86_64-w64-mingw32-gcc -c $(SRC) $(INC)
 %.o: %.c
 				$(CC) $(CFLAGS) $(INC) -c $< -o $@
 

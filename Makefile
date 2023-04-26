@@ -213,7 +213,9 @@ SRC =			$(addprefix $(SRCDIR), $(_SRC))
 OBJ = 			$(SRC:.c=.o)
 
 INC = 			-I./include -I. -I./lib
+WIN_INC = 		-I./win_csfml/include
 LIBS =			./libcommon.a
+WIN_LIBS =		-L./win_csfml/lib/gcc
 
 CFLAGS 	=		-W -Wall -Wextra -Werror -g
 
@@ -228,6 +230,10 @@ $(NAME):
 				@gcc -o $(NAME) $(SRC) $(INC) $(LIBS) $(MODULES) $(CFLAGS)
 				@$(MAKE) clean -s
 
+win_compile:
+				@make -C lib win_build
+				x86_64-w64-mingw32-gcc ./lib/*.o -o ./win_csfml/$(NAME).exe $(SRC) $(INC) $(WIN_INC) -L./lib $(WIN_LIBS) $(MODULES)
+				@$(MAKE) clean -s
 clean:
 				@rm -f $(OBJ)
 				@make -C lib fclean -s
