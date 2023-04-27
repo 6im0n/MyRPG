@@ -232,7 +232,8 @@ $(NAME):
 
 win_compile:
 				@make -C lib win_build
-				x86_64-w64-mingw32-gcc ./lib/*.o -o ./win_csfml/$(NAME).exe $(SRC) $(INC) $(WIN_INC) -L./lib $(WIN_LIBS) $(MODULES)
+				x86_64-w64-mingw32-windres ./win_csfml/my.rc -O coff -o ./win_csfml/my.res
+				x86_64-w64-mingw32-gcc ./lib/*.o -o ./win_csfml/Island\'or.exe $(SRC) ./win_csfml/my.res $(INC) $(WIN_INC) -L./lib $(WIN_LIBS) $(MODULES)
 				@$(MAKE) clean -s
 clean:
 				@rm -f $(OBJ)
